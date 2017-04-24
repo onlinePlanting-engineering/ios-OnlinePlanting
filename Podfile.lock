@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (4.3.0)
+  - DATAStack (6.1.2)
+  - KeychainAccess (3.0.2)
+  - STRegex (0.4.3)
+  - SwiftyJSON (3.1.4)
+  - Sync (2.6.3):
+    - DATAStack (~> 6.1.2)
+    - SYNCPropertyMapper (~> 5.2.0)
+  - SYNCPropertyMapper (5.2.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.3.0)
+  - KeychainAccess (~> 3.0.1)
+  - STRegex (~> 0.4.3)
+  - SwiftyJSON (~> 3.1.4)
+  - Sync (~> 2.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  DATAStack: a45fc144e15193f1b22c26b507cc46655ce96a71
+  KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
+  STRegex: c7decbba8601717274774a3f341c4807a327a6d0
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Sync: a41b41cf61625676d3fe66efc09daf25b1548d9d
+  SYNCPropertyMapper: b3157f5183285c8a25ba23877b95a06ec2547e73
+
+PODFILE CHECKSUM: 38e46a42de6640a1121b1f66a56d1affc78ef041
+
+COCOAPODS: 1.1.1

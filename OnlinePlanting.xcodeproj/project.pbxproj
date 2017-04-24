@@ -1,0 +1,663 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		188A5EAE1EAE2CE3006CE839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EAD1EAE2CE3006CE839 /* AppDelegate.swift */; };
+		188A5EB01EAE2CE3006CE839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EAF1EAE2CE3006CE839 /* ViewController.swift */; };
+		188A5EB31EAE2CE3006CE839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188A5EB11EAE2CE3006CE839 /* Main.storyboard */; };
+		188A5EB61EAE2CE3006CE839 /* OnlinePlanting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EB41EAE2CE3006CE839 /* OnlinePlanting.xcdatamodeld */; };
+		188A5EB81EAE2CE3006CE839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188A5EB71EAE2CE3006CE839 /* Assets.xcassets */; };
+		188A5EBB1EAE2CE3006CE839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188A5EB91EAE2CE3006CE839 /* LaunchScreen.storyboard */; };
+		188A5EC61EAE2CE3006CE839 /* OnlinePlantingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */; };
+		188A5ED11EAE2CE3006CE839 /* OnlinePlantingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */; };
+		834DBDF917F40DD8ADCCAF54 /* Pods_OnlinePlanting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		188A5EC21EAE2CE3006CE839 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 188A5EA21EAE2CE3006CE839 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 188A5EA91EAE2CE3006CE839;
+			remoteInfo = OnlinePlanting;
+		};
+		188A5ECD1EAE2CE3006CE839 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 188A5EA21EAE2CE3006CE839 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 188A5EA91EAE2CE3006CE839;
+			remoteInfo = OnlinePlanting;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		188A5EAA1EAE2CE3006CE839 /* OnlinePlanting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlinePlanting.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		188A5EAD1EAE2CE3006CE839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		188A5EAF1EAE2CE3006CE839 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		188A5EB21EAE2CE3006CE839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		188A5EB51EAE2CE3006CE839 /* OnlinePlanting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnlinePlanting.xcdatamodel; sourceTree = "<group>"; };
+		188A5EB71EAE2CE3006CE839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		188A5EBA1EAE2CE3006CE839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		188A5EBC1EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188A5EC11EAE2CE3006CE839 /* OnlinePlantingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingTests.swift; sourceTree = "<group>"; };
+		188A5EC71EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188A5ECC1EAE2CE3006CE839 /* OnlinePlantingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingUITests.swift; sourceTree = "<group>"; };
+		188A5ED21EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7424C03F9FA7E5B963FAC11B /* Pods-OnlinePlanting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.release.xcconfig"; sourceTree = "<group>"; };
+		7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlinePlanting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B98016D2B3BE8EF95B755B48 /* Pods-OnlinePlanting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		188A5EA71EAE2CE3006CE839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				834DBDF917F40DD8ADCCAF54 /* Pods_OnlinePlanting.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		188A5EBE1EAE2CE3006CE839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		188A5EC91EAE2CE3006CE839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		118EB607BBF3EC5ACF4345EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		187D587A1EAE3CF300317C75 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		187D587B1EAE3D0200317C75 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
+		187D587C1EAE3D1400317C75 /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CommonUI;
+			sourceTree = "<group>";
+		};
+		187D587D1EAE3D1B00317C75 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		187D587E1EAE3D2200317C75 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		188A5EA11EAE2CE3006CE839 = {
+			isa = PBXGroup;
+			children = (
+				188A5EAC1EAE2CE3006CE839 /* OnlinePlanting */,
+				188A5EC41EAE2CE3006CE839 /* OnlinePlantingTests */,
+				188A5ECF1EAE2CE3006CE839 /* OnlinePlantingUITests */,
+				188A5EAB1EAE2CE3006CE839 /* Products */,
+				36B09281C3AB8C99DDD844DE /* Pods */,
+				118EB607BBF3EC5ACF4345EF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		188A5EAB1EAE2CE3006CE839 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				188A5EAA1EAE2CE3006CE839 /* OnlinePlanting.app */,
+				188A5EC11EAE2CE3006CE839 /* OnlinePlantingTests.xctest */,
+				188A5ECC1EAE2CE3006CE839 /* OnlinePlantingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		188A5EAC1EAE2CE3006CE839 /* OnlinePlanting */ = {
+			isa = PBXGroup;
+			children = (
+				187D587B1EAE3D0200317C75 /* DataModel */,
+				187D587A1EAE3CF300317C75 /* Modules */,
+				187D587C1EAE3D1400317C75 /* CommonUI */,
+				187D587E1EAE3D2200317C75 /* Utils */,
+				187D587D1EAE3D1B00317C75 /* Networking */,
+				188A5EAD1EAE2CE3006CE839 /* AppDelegate.swift */,
+				188A5EAF1EAE2CE3006CE839 /* ViewController.swift */,
+				188A5EB11EAE2CE3006CE839 /* Main.storyboard */,
+				188A5EB71EAE2CE3006CE839 /* Assets.xcassets */,
+				188A5EB91EAE2CE3006CE839 /* LaunchScreen.storyboard */,
+				188A5EBC1EAE2CE3006CE839 /* Info.plist */,
+				188A5EB41EAE2CE3006CE839 /* OnlinePlanting.xcdatamodeld */,
+			);
+			path = OnlinePlanting;
+			sourceTree = "<group>";
+		};
+		188A5EC41EAE2CE3006CE839 /* OnlinePlantingTests */ = {
+			isa = PBXGroup;
+			children = (
+				188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */,
+				188A5EC71EAE2CE3006CE839 /* Info.plist */,
+			);
+			path = OnlinePlantingTests;
+			sourceTree = "<group>";
+		};
+		188A5ECF1EAE2CE3006CE839 /* OnlinePlantingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */,
+				188A5ED21EAE2CE3006CE839 /* Info.plist */,
+			);
+			path = OnlinePlantingUITests;
+			sourceTree = "<group>";
+		};
+		36B09281C3AB8C99DDD844DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B98016D2B3BE8EF95B755B48 /* Pods-OnlinePlanting.debug.xcconfig */,
+				7424C03F9FA7E5B963FAC11B /* Pods-OnlinePlanting.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		188A5EA91EAE2CE3006CE839 /* OnlinePlanting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 188A5ED51EAE2CE3006CE839 /* Build configuration list for PBXNativeTarget "OnlinePlanting" */;
+			buildPhases = (
+				C2226EB58DE188826E03CAA7 /* [CP] Check Pods Manifest.lock */,
+				188A5EA61EAE2CE3006CE839 /* Sources */,
+				188A5EA71EAE2CE3006CE839 /* Frameworks */,
+				188A5EA81EAE2CE3006CE839 /* Resources */,
+				48B144A6EB1D1F2939FAA159 /* [CP] Embed Pods Frameworks */,
+				BC4C1BFBA749AAF42782745F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OnlinePlanting;
+			productName = OnlinePlanting;
+			productReference = 188A5EAA1EAE2CE3006CE839 /* OnlinePlanting.app */;
+			productType = "com.apple.product-type.application";
+		};
+		188A5EC01EAE2CE3006CE839 /* OnlinePlantingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 188A5ED81EAE2CE3006CE839 /* Build configuration list for PBXNativeTarget "OnlinePlantingTests" */;
+			buildPhases = (
+				188A5EBD1EAE2CE3006CE839 /* Sources */,
+				188A5EBE1EAE2CE3006CE839 /* Frameworks */,
+				188A5EBF1EAE2CE3006CE839 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				188A5EC31EAE2CE3006CE839 /* PBXTargetDependency */,
+			);
+			name = OnlinePlantingTests;
+			productName = OnlinePlantingTests;
+			productReference = 188A5EC11EAE2CE3006CE839 /* OnlinePlantingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		188A5ECB1EAE2CE3006CE839 /* OnlinePlantingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 188A5EDB1EAE2CE3006CE839 /* Build configuration list for PBXNativeTarget "OnlinePlantingUITests" */;
+			buildPhases = (
+				188A5EC81EAE2CE3006CE839 /* Sources */,
+				188A5EC91EAE2CE3006CE839 /* Frameworks */,
+				188A5ECA1EAE2CE3006CE839 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				188A5ECE1EAE2CE3006CE839 /* PBXTargetDependency */,
+			);
+			name = OnlinePlantingUITests;
+			productName = OnlinePlantingUITests;
+			productReference = 188A5ECC1EAE2CE3006CE839 /* OnlinePlantingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		188A5EA21EAE2CE3006CE839 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = onlinePlanting;
+				TargetAttributes = {
+					188A5EA91EAE2CE3006CE839 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					188A5EC01EAE2CE3006CE839 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 188A5EA91EAE2CE3006CE839;
+					};
+					188A5ECB1EAE2CE3006CE839 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 188A5EA91EAE2CE3006CE839;
+					};
+				};
+			};
+			buildConfigurationList = 188A5EA51EAE2CE3006CE839 /* Build configuration list for PBXProject "OnlinePlanting" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 188A5EA11EAE2CE3006CE839;
+			productRefGroup = 188A5EAB1EAE2CE3006CE839 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				188A5EA91EAE2CE3006CE839 /* OnlinePlanting */,
+				188A5EC01EAE2CE3006CE839 /* OnlinePlantingTests */,
+				188A5ECB1EAE2CE3006CE839 /* OnlinePlantingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		188A5EA81EAE2CE3006CE839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188A5EBB1EAE2CE3006CE839 /* LaunchScreen.storyboard in Resources */,
+				188A5EB81EAE2CE3006CE839 /* Assets.xcassets in Resources */,
+				188A5EB31EAE2CE3006CE839 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		188A5EBF1EAE2CE3006CE839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		188A5ECA1EAE2CE3006CE839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48B144A6EB1D1F2939FAA159 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC4C1BFBA749AAF42782745F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2226EB58DE188826E03CAA7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		188A5EA61EAE2CE3006CE839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188A5EB01EAE2CE3006CE839 /* ViewController.swift in Sources */,
+				188A5EB61EAE2CE3006CE839 /* OnlinePlanting.xcdatamodeld in Sources */,
+				188A5EAE1EAE2CE3006CE839 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		188A5EBD1EAE2CE3006CE839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188A5EC61EAE2CE3006CE839 /* OnlinePlantingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		188A5EC81EAE2CE3006CE839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188A5ED11EAE2CE3006CE839 /* OnlinePlantingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		188A5EC31EAE2CE3006CE839 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 188A5EA91EAE2CE3006CE839 /* OnlinePlanting */;
+			targetProxy = 188A5EC21EAE2CE3006CE839 /* PBXContainerItemProxy */;
+		};
+		188A5ECE1EAE2CE3006CE839 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 188A5EA91EAE2CE3006CE839 /* OnlinePlanting */;
+			targetProxy = 188A5ECD1EAE2CE3006CE839 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		188A5EB11EAE2CE3006CE839 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				188A5EB21EAE2CE3006CE839 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		188A5EB91EAE2CE3006CE839 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				188A5EBA1EAE2CE3006CE839 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		188A5ED31EAE2CE3006CE839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		188A5ED41EAE2CE3006CE839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		188A5ED61EAE2CE3006CE839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B98016D2B3BE8EF95B755B48 /* Pods-OnlinePlanting.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OnlinePlanting/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlanting;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		188A5ED71EAE2CE3006CE839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7424C03F9FA7E5B963FAC11B /* Pods-OnlinePlanting.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OnlinePlanting/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlanting;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		188A5ED91EAE2CE3006CE839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = OnlinePlantingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlantingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OnlinePlanting.app/OnlinePlanting";
+			};
+			name = Debug;
+		};
+		188A5EDA1EAE2CE3006CE839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = OnlinePlantingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlantingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OnlinePlanting.app/OnlinePlanting";
+			};
+			name = Release;
+		};
+		188A5EDC1EAE2CE3006CE839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = OnlinePlantingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlantingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = OnlinePlanting;
+			};
+			name = Debug;
+		};
+		188A5EDD1EAE2CE3006CE839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = OnlinePlantingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlantingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = OnlinePlanting;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		188A5EA51EAE2CE3006CE839 /* Build configuration list for PBXProject "OnlinePlanting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				188A5ED31EAE2CE3006CE839 /* Debug */,
+				188A5ED41EAE2CE3006CE839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		188A5ED51EAE2CE3006CE839 /* Build configuration list for PBXNativeTarget "OnlinePlanting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				188A5ED61EAE2CE3006CE839 /* Debug */,
+				188A5ED71EAE2CE3006CE839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		188A5ED81EAE2CE3006CE839 /* Build configuration list for PBXNativeTarget "OnlinePlantingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				188A5ED91EAE2CE3006CE839 /* Debug */,
+				188A5EDA1EAE2CE3006CE839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		188A5EDB1EAE2CE3006CE839 /* Build configuration list for PBXNativeTarget "OnlinePlantingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				188A5EDC1EAE2CE3006CE839 /* Debug */,
+				188A5EDD1EAE2CE3006CE839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		188A5EB41EAE2CE3006CE839 /* OnlinePlanting.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				188A5EB51EAE2CE3006CE839 /* OnlinePlanting.xcdatamodel */,
+			);
+			currentVersion = 188A5EB51EAE2CE3006CE839 /* OnlinePlanting.xcdatamodel */;
+			path = OnlinePlanting.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 188A5EA21EAE2CE3006CE839 /* Project object */;
+}
