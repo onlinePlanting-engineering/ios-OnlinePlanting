@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18129BCF1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18129BCD1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift */; };
 		18129BD01EAE46FC005A4AD9 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18129BCE1EAE46FC005A4AD9 /* CoreDataTableViewController.swift */; };
+		18129BD21EAF8787005A4AD9 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18129BD11EAF8787005A4AD9 /* Networking.swift */; };
 		188A5EAE1EAE2CE3006CE839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EAD1EAE2CE3006CE839 /* AppDelegate.swift */; };
 		188A5EB01EAE2CE3006CE839 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EAF1EAE2CE3006CE839 /* ViewController.swift */; };
 		188A5EB31EAE2CE3006CE839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188A5EB11EAE2CE3006CE839 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		18129BCD1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataCollectionViewController.swift; path = CommonUI/CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
 		18129BCE1EAE46FC005A4AD9 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTableViewController.swift; path = CommonUI/CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		18129BD11EAF8787005A4AD9 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		188A5EAA1EAE2CE3006CE839 /* OnlinePlanting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlinePlanting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5EAD1EAE2CE3006CE839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188A5EAF1EAE2CE3006CE839 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		187D587D1EAE3D1B00317C75 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				18129BD11EAF8787005A4AD9 /* Networking.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				18129BD01EAE46FC005A4AD9 /* CoreDataTableViewController.swift in Sources */,
 				18129BCF1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift in Sources */,
 				188A5EB01EAE2CE3006CE839 /* ViewController.swift in Sources */,
+				18129BD21EAF8787005A4AD9 /* Networking.swift in Sources */,
 				188A5EB61EAE2CE3006CE839 /* OnlinePlanting.xcdatamodeld in Sources */,
 				188A5EAE1EAE2CE3006CE839 /* AppDelegate.swift in Sources */,
 			);
