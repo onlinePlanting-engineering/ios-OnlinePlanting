@@ -25,15 +25,20 @@ class Networking {
         }
         return Static.instance
     }
+    
+    var baseURL: String! {
+        get {
+            return "http://dry-shore-37942.herokuapp.com"
+        }
+    }
 }
 
 extension Networking {
     
     func configHeaders() -> [String : String]? {
         let headers = [
-            "content": "application/x-www-form-urlencoded; charset=utf-8",
-            "Accept": "application/json",
-            "token": "AOS51ADKH7881391"
+            "Allow": "POST,OPTIONS",
+            "Content-Type": "application/json"
         ]
         return headers
     }

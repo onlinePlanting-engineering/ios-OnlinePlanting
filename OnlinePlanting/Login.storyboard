@@ -28,16 +28,41 @@
                                 <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xd-lk-siz">
+                                <rect key="frame" x="145" y="617" width="85" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doRegister:" destination="TsJ-Kb-4kP" eventType="touchUpInside" id="Hqq-5R-rjh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUl-s0-fnQ">
+                                <rect key="frame" x="159" y="577" width="57" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doLogin:" destination="TsJ-Kb-4kP" eventType="touchUpInside" id="YL8-yp-sAv"/>
+                                    <action selector="doRegister:" destination="TsJ-Kb-4kP" eventType="touchUpInside" id="IhX-Gd-Q2S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IUl-s0-fnQ" firstAttribute="centerX" secondItem="cXh-fr-4B0" secondAttribute="centerX" id="2AH-7R-fcr"/>
                             <constraint firstItem="GJm-S2-n4Q" firstAttribute="height" secondItem="cXh-fr-4B0" secondAttribute="height" id="DHe-XO-htP"/>
+                            <constraint firstItem="C9o-hy-Ejv" firstAttribute="top" secondItem="4xd-lk-siz" secondAttribute="bottom" constant="10" id="INH-Mj-Rnv"/>
                             <constraint firstItem="GJm-S2-n4Q" firstAttribute="centerY" secondItem="cXh-fr-4B0" secondAttribute="centerY" id="Rs5-Ul-W8D"/>
+                            <constraint firstItem="C9o-hy-Ejv" firstAttribute="top" secondItem="IUl-s0-fnQ" secondAttribute="bottom" constant="50" id="Tne-1Y-28t"/>
                             <constraint firstItem="GJm-S2-n4Q" firstAttribute="width" secondItem="cXh-fr-4B0" secondAttribute="width" id="Uxw-B4-Etu"/>
                             <constraint firstItem="2jc-uF-r4Y" firstAttribute="height" secondItem="cXh-fr-4B0" secondAttribute="height" id="Wwn-zm-yGo"/>
                             <constraint firstItem="2jc-uF-r4Y" firstAttribute="centerX" secondItem="cXh-fr-4B0" secondAttribute="centerX" id="eJ4-uX-HCC"/>
                             <constraint firstItem="2jc-uF-r4Y" firstAttribute="centerY" secondItem="cXh-fr-4B0" secondAttribute="centerY" id="fK9-Rm-sXF"/>
                             <constraint firstItem="GJm-S2-n4Q" firstAttribute="centerX" secondItem="cXh-fr-4B0" secondAttribute="centerX" id="lt0-RK-h1P"/>
+                            <constraint firstItem="4xd-lk-siz" firstAttribute="centerX" secondItem="cXh-fr-4B0" secondAttribute="centerX" id="r2g-ZN-COV"/>
                             <constraint firstItem="2jc-uF-r4Y" firstAttribute="width" secondItem="cXh-fr-4B0" secondAttribute="width" id="u30-jr-XIr"/>
                         </constraints>
                     </view>
@@ -48,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rft-CQ-rQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-375" y="51"/>
+            <point key="canvasLocation" x="-375.19999999999999" y="50.824587706146929"/>
         </scene>
     </scenes>
 </document>

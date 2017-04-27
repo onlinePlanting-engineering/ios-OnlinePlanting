@@ -30,6 +30,24 @@ class OPLoginViewController: UIViewController {
         super.viewDidAppear(animated)
     
     }
+    
+    @IBAction func doRegister(_ sender: UIButton) {
+        let email = "alex_decimal@126.com"
+        let username = "Alex_BlackMamba"
+        let password = "passw0rd"
+        
+        OPDataService.sharedInstance.userRegistration(username, email: email, pwd: password) { (success, error) in
+            if error != nil {
+            
+            } else {
+                
+            }
+        }
+    }
+    
+    @IBAction func doLogin(_ sender: UIButton) {
+    }
+    
 
     /*
     // MARK: - Navigation

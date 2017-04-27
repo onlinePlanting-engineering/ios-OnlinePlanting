@@ -16,6 +16,10 @@
 		188A5EC61EAE2CE3006CE839 /* OnlinePlantingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */; };
 		188A5ED11EAE2CE3006CE839 /* OnlinePlantingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */; };
 		189C83851EB1B5A80060D93C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189C83841EB1B5A80060D93C /* Login.storyboard */; };
+		189C83881EB1C1FA0060D93C /* NetworkingAPIMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C83871EB1C1FA0060D93C /* NetworkingAPIMapping.swift */; };
+		189C838A1EB1C34A0060D93C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C83891EB1C34A0060D93C /* Common.swift */; };
+		189C838C1EB1C4B20060D93C /* NetworkingAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C838B1EB1C4B20060D93C /* NetworkingAPIs.swift */; };
+		189C838E1EB1CBCB0060D93C /* OPDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C838D1EB1CBCB0060D93C /* OPDataService.swift */; };
 		18C749AF1EB18C9E00B9FB32 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749AE1EB18C9E00B9FB32 /* Networking.swift */; };
 		18C749B11EB18CAF00B9FB32 /* OPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749B01EB18CAF00B9FB32 /* OPTabBarController.swift */; };
 		18C749B51EB18E6300B9FB32 /* OPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749B41EB18E6300B9FB32 /* OPHomeViewController.swift */; };
@@ -66,6 +70,10 @@
 		188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingUITests.swift; sourceTree = "<group>"; };
 		188A5ED21EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		189C83841EB1B5A80060D93C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		189C83871EB1C1FA0060D93C /* NetworkingAPIMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAPIMapping.swift; sourceTree = "<group>"; };
+		189C83891EB1C34A0060D93C /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		189C838B1EB1C4B20060D93C /* NetworkingAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAPIs.swift; sourceTree = "<group>"; };
+		189C838D1EB1CBCB0060D93C /* OPDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPDataService.swift; sourceTree = "<group>"; };
 		18C749AE1EB18C9E00B9FB32 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Networking.swift; path = Networking/Networking.swift; sourceTree = "<group>"; };
 		18C749B01EB18CAF00B9FB32 /* OPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPTabBarController.swift; path = CommonUI/OPTabBarController.swift; sourceTree = "<group>"; };
 		18C749B41EB18E6300B9FB32 /* OPHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPHomeViewController.swift; path = Modules/Home/OPHomeViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 		187D587B1EAE3D0200317C75 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				189C838D1EB1CBCB0060D93C /* OPDataService.swift */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -154,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				18C749AE1EB18C9E00B9FB32 /* Networking.swift */,
+				189C83871EB1C1FA0060D93C /* NetworkingAPIMapping.swift */,
+				189C838B1EB1C4B20060D93C /* NetworkingAPIs.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -161,6 +172,7 @@
 		187D587E1EAE3D2200317C75 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				189C83891EB1C34A0060D93C /* Common.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -477,14 +489,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189C83881EB1C1FA0060D93C /* NetworkingAPIMapping.swift in Sources */,
 				18C749B71EB18EA000B9FB32 /* OPMeViewController.swift in Sources */,
 				18C749BF1EB18EFE00B9FB32 /* OPLoginViewController.swift in Sources */,
 				18129BD01EAE46FC005A4AD9 /* CoreDataTableViewController.swift in Sources */,
 				18C749BB1EB18ECC00B9FB32 /* OPMyGardenViewController.swift in Sources */,
 				18C749BD1EB18EE600B9FB32 /* OPVegetableListViewController.swift in Sources */,
+				189C838A1EB1C34A0060D93C /* Common.swift in Sources */,
 				18129BCF1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift in Sources */,
+				189C838E1EB1CBCB0060D93C /* OPDataService.swift in Sources */,
 				18C749B91EB18EB600B9FB32 /* OPLiveViewController.swift in Sources */,
 				18C749B11EB18CAF00B9FB32 /* OPTabBarController.swift in Sources */,
+				189C838C1EB1C4B20060D93C /* NetworkingAPIs.swift in Sources */,
 				18C749B51EB18E6300B9FB32 /* OPHomeViewController.swift in Sources */,
 				18C749AF1EB18C9E00B9FB32 /* Networking.swift in Sources */,
 				188A5EB61EAE2CE3006CE839 /* OnlinePlanting.xcdatamodeld in Sources */,
