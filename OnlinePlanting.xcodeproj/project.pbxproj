@@ -24,12 +24,12 @@
 		18C749BB1EB18ECC00B9FB32 /* OPMyGardenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749BA1EB18ECC00B9FB32 /* OPMyGardenViewController.swift */; };
 		18C749BD1EB18EE600B9FB32 /* OPVegetableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749BC1EB18EE600B9FB32 /* OPVegetableListViewController.swift */; };
 		18C749BF1EB18EFE00B9FB32 /* OPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749BE1EB18EFE00B9FB32 /* OPLoginViewController.swift */; };
-		18C749C61EB1916700B9FB32 /* OPMyGarden.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749C51EB1916700B9FB32 /* OPMyGarden.storyboard */; };
 		18C749C81EB191AB00B9FB32 /* OPLive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749C71EB191AB00B9FB32 /* OPLive.storyboard */; };
 		18C749DA1EB1951800B9FB32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749D81EB1951800B9FB32 /* Main.storyboard */; };
 		18C749DC1EB1956B00B9FB32 /* OPMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749DB1EB1956B00B9FB32 /* OPMe.storyboard */; };
 		18C749E41EB1982900B9FB32 /* OPHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749E31EB1982900B9FB32 /* OPHome.storyboard */; };
 		18C749E61EB199A100B9FB32 /* OPVegetableList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749E51EB199A100B9FB32 /* OPVegetableList.storyboard */; };
+		18C749E81EB19A0000B9FB32 /* OPMyGarden.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749E71EB19A0000B9FB32 /* OPMyGarden.storyboard */; };
 		834DBDF917F40DD8ADCCAF54 /* Pods_OnlinePlanting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,12 +74,12 @@
 		18C749BA1EB18ECC00B9FB32 /* OPMyGardenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPMyGardenViewController.swift; path = Modules/MyGarden/OPMyGardenViewController.swift; sourceTree = "<group>"; };
 		18C749BC1EB18EE600B9FB32 /* OPVegetableListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPVegetableListViewController.swift; path = Modules/VegetableList/OPVegetableListViewController.swift; sourceTree = "<group>"; };
 		18C749BE1EB18EFE00B9FB32 /* OPLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPLoginViewController.swift; path = Modules/Login/OPLoginViewController.swift; sourceTree = "<group>"; };
-		18C749C51EB1916700B9FB32 /* OPMyGarden.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPMyGarden.storyboard; path = Modules/MyGarden/OPMyGarden.storyboard; sourceTree = "<group>"; };
 		18C749C71EB191AB00B9FB32 /* OPLive.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPLive.storyboard; path = Modules/Live/OPLive.storyboard; sourceTree = "<group>"; };
 		18C749D91EB1951800B9FB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18C749DB1EB1956B00B9FB32 /* OPMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPMe.storyboard; path = Modules/Me/OPMe.storyboard; sourceTree = "<group>"; };
 		18C749E31EB1982900B9FB32 /* OPHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPHome.storyboard; path = Modules/Home/OPHome.storyboard; sourceTree = "<group>"; };
 		18C749E51EB199A100B9FB32 /* OPVegetableList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPVegetableList.storyboard; path = Modules/VegetableList/OPVegetableList.storyboard; sourceTree = "<group>"; };
+		18C749E71EB19A0000B9FB32 /* OPMyGarden.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPMyGarden.storyboard; path = Modules/MyGarden/OPMyGarden.storyboard; sourceTree = "<group>"; };
 		7424C03F9FA7E5B963FAC11B /* Pods-OnlinePlanting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.release.xcconfig"; sourceTree = "<group>"; };
 		7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlinePlanting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98016D2B3BE8EF95B755B48 /* Pods-OnlinePlanting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.debug.xcconfig"; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 		18C749A91EB18B8D00B9FB32 /* MyGarden */ = {
 			isa = PBXGroup;
 			children = (
-				18C749C51EB1916700B9FB32 /* OPMyGarden.storyboard */,
+				18C749E71EB19A0000B9FB32 /* OPMyGarden.storyboard */,
 				18C749BA1EB18ECC00B9FB32 /* OPMyGardenViewController.swift */,
 			);
 			name = MyGarden;
@@ -397,11 +397,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C749E41EB1982900B9FB32 /* OPHome.storyboard in Resources */,
-				18C749C61EB1916700B9FB32 /* OPMyGarden.storyboard in Resources */,
 				188A5EBB1EAE2CE3006CE839 /* LaunchScreen.storyboard in Resources */,
 				18C749E61EB199A100B9FB32 /* OPVegetableList.storyboard in Resources */,
 				18C749DA1EB1951800B9FB32 /* Main.storyboard in Resources */,
 				188A5EB81EAE2CE3006CE839 /* Assets.xcassets in Resources */,
+				18C749E81EB19A0000B9FB32 /* OPMyGarden.storyboard in Resources */,
 				18C749DC1EB1956B00B9FB32 /* OPMe.storyboard in Resources */,
 				18C749C81EB191AB00B9FB32 /* OPLive.storyboard in Resources */,
 			);
