@@ -143,6 +143,7 @@
 		187D587B1EAE3D0200317C75 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				188A5EB41EAE2CE3006CE839 /* OnlinePlanting.xcdatamodeld */,
 				189C838D1EB1CBCB0060D93C /* OPDataService.swift */,
 			);
 			name = DataModel;
@@ -211,7 +212,6 @@
 				188A5EB71EAE2CE3006CE839 /* Assets.xcassets */,
 				188A5EB91EAE2CE3006CE839 /* LaunchScreen.storyboard */,
 				188A5EBC1EAE2CE3006CE839 /* Info.plist */,
-				188A5EB41EAE2CE3006CE839 /* OnlinePlanting.xcdatamodeld */,
 			);
 			path = OnlinePlanting;
 			sourceTree = "<group>";
