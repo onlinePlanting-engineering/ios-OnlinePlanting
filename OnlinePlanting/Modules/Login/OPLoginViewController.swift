@@ -10,9 +10,14 @@ import UIKit
 
 class OPLoginViewController: UIViewController {
 
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        backgroundImageView.image = UIImage.init(named: "login_background")
+        backgroundImageView.contentMode = .scaleAspectFill
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +26,10 @@ class OPLoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    
+    }
 
     /*
     // MARK: - Navigation
