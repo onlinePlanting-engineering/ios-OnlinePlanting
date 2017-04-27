@@ -29,7 +29,6 @@
 		18C749E61EB199A100B9FB32 /* OPVegetableList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749E51EB199A100B9FB32 /* OPVegetableList.storyboard */; };
 		18C749E81EB19A0000B9FB32 /* OPMyGarden.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749E71EB19A0000B9FB32 /* OPMyGarden.storyboard */; };
 		18C749EA1EB19A4800B9FB32 /* OPLive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749E91EB19A4800B9FB32 /* OPLive.storyboard */; };
-		18C749EE1EB19A9300B9FB32 /* OPMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749ED1EB19A9300B9FB32 /* OPMe.storyboard */; };
 		18C749F01EB19AF000B9FB32 /* OPMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749EF1EB19AF000B9FB32 /* OPMe.storyboard */; };
 		834DBDF917F40DD8ADCCAF54 /* Pods_OnlinePlanting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */; };
 /* End PBXBuildFile section */
@@ -80,7 +79,6 @@
 		18C749E51EB199A100B9FB32 /* OPVegetableList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPVegetableList.storyboard; path = Modules/VegetableList/OPVegetableList.storyboard; sourceTree = "<group>"; };
 		18C749E71EB19A0000B9FB32 /* OPMyGarden.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPMyGarden.storyboard; path = Modules/MyGarden/OPMyGarden.storyboard; sourceTree = "<group>"; };
 		18C749E91EB19A4800B9FB32 /* OPLive.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPLive.storyboard; path = Modules/Live/OPLive.storyboard; sourceTree = "<group>"; };
-		18C749ED1EB19A9300B9FB32 /* OPMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPMe.storyboard; path = Modules/Me/OPMe.storyboard; sourceTree = "<group>"; };
 		18C749EF1EB19AF000B9FB32 /* OPMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPMe.storyboard; path = Modules/Me/OPMe.storyboard; sourceTree = "<group>"; };
 		7424C03F9FA7E5B963FAC11B /* Pods-OnlinePlanting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.release.xcconfig"; sourceTree = "<group>"; };
 		7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlinePlanting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				18C749EF1EB19AF000B9FB32 /* OPMe.storyboard */,
-				18C749ED1EB19A9300B9FB32 /* OPMe.storyboard */,
 				18C749B61EB18EA000B9FB32 /* OPMeViewController.swift */,
 			);
 			name = Me;
@@ -407,7 +404,6 @@
 				18C749EA1EB19A4800B9FB32 /* OPLive.storyboard in Resources */,
 				188A5EB81EAE2CE3006CE839 /* Assets.xcassets in Resources */,
 				18C749E81EB19A0000B9FB32 /* OPMyGarden.storyboard in Resources */,
-				18C749EE1EB19A9300B9FB32 /* OPMe.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
