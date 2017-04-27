@@ -29,6 +29,15 @@ class Networking {
 
 extension Networking {
     
+    func configHeaders() -> [String : String]? {
+        let headers = [
+            "content": "application/x-www-form-urlencoded; charset=utf-8",
+            "Accept": "application/json",
+            "token": "AOS51ADKH7881391"
+        ]
+        return headers
+    }
+    
     //POST request
     func postRequest(urlString : String, params : [String : Any], success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()) {
         
@@ -122,8 +131,6 @@ extension Networking {
                 } else {
                     completeHandler?(localPath, nil)
                 }
-            }.downloadProgress { (progress) in
-                //TODO progressHandler?(bytesRead: bytesRead, totalBytesRead: totalBytesRead, totalBytesExpectedToRead: totalBytesExpectedToRead)
-        }
+            }
     }
 }
