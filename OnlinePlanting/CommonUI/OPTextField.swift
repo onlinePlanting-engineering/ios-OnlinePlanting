@@ -11,10 +11,13 @@ import UIKit
 @IBDesignable
 class OPTextField: UITextField {
     
+    var customType = ""
+    
     @IBInspectable var placeHolderColor: UIColor? {
         didSet {
             guard let placeStrig = placeholder, let color = placeHolderColor else { return }
-            self.attributedPlaceholder = NSAttributedString(string: placeStrig, attributes: [NSForegroundColorAttributeName : color])
+            self.attributedPlaceholder = NSAttributedString(string: placeStrig, attributes: [NSForegroundColorAttributeName : color, NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 15)! ])
+            self.tintColor = .white
         }
     }
     

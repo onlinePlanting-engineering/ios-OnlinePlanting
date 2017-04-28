@@ -23,13 +23,19 @@ extension Networking {
     fileprivate func syncWithAppServer(_ apiMapping: WebServiceAPIMapping, params:[String: String]? = nil,handler: @escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) -> DataRequest? {
         
         let url = baseURL! + apiMapping.rawValue
-        let request = Alamofire.request(url, method: HTTPMethod.post, parameters: params, encoding: JSONEncoding.default, headers: configHeaders()).responseJSON { (response) in
+        let request = Alamofire.request(url, method: HTTPMethod.post, parameters: params, encoding: JSONEncoding.default, headers: configHeaders()).responseJSON { (data) in
             //TODO: waiting for the status code
-            if let value = response.result.value {
-                let json = JSON(value)
-                handler(true, json, nil)
+            let response = data.response
+            
+            if response?.statusCode == 200 {
+                if let value = data.result.value {
+                    let json = JSON(value)
+                    handler(true, json, nil)
+                } else {
+                    handler(false, nil, data.result.error as NSError?)
+                }
             } else {
-                handler(false, nil, response.result.error as NSError?)
+               handler(false, nil, data.result.error as NSError?)
             }
         }
         return request

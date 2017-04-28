@@ -23,8 +23,19 @@ class OPDataService: NSObject {
         Networking.shareInstance.userRegister(username, emailaddress: email, password: pwd) { (success, json, error) in
             if success {
                 print("json is: \(json)")
+                handler(true, nil)
             } else {
-                handler(success, error)
+                handler(false, error)
+            }
+        }
+    }
+    
+    func userLogin(_ username: String, email:String, pwd: String, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.userLogin(username, emailaddress: email, password: pwd) { (success, json, error) in
+            if success {
+                handler(true, nil)
+            } else {
+                handler(false, error)
             }
         }
     }

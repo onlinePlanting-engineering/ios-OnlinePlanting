@@ -9,9 +9,14 @@
 import UIKit
 import CoreData
 
+
+var appDelegate: AppDelegate {
+    return (UIApplication.shared.delegate as? AppDelegate)!
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
 
 
