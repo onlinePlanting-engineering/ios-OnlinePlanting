@@ -65,38 +65,22 @@
             endingLineNumber = "26"
             landmarkName = "syncWithAppServer(_:params:handler:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OnlinePlanting.Networking.(syncWithAppServer in _9F216DB4EED19CF0A840B6A499525359) (OnlinePlanting.WebServiceAPIMapping, params : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, handler : (Swift.Bool, Swift.Optional&lt;SwiftyJSON.JSON&gt;, Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; Swift.Optional&lt;Alamofire.DataRequest&gt;"
-                  moduleName = "OnlinePlanting"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ibm/Documents/PersonalProject/OnlinePlanting/OnlinePlanting/NetworkingAPIs.swift"
-                  timestampString = "514978739.761338"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "319">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OnlinePlanting.Networking.((syncWithAppServer in _9F216DB4EED19CF0A840B6A499525359) (OnlinePlanting.WebServiceAPIMapping, params : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, handler : (Swift.Bool, Swift.Optional&lt;SwiftyJSON.JSON&gt;, Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; Swift.Optional&lt;Alamofire.DataRequest&gt;).(closure #1)"
-                  moduleName = "OnlinePlanting"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ibm/Documents/PersonalProject/OnlinePlanting/OnlinePlanting/NetworkingAPIs.swift"
-                  timestampString = "514978739.771021"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "30">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnlinePlanting/Modules/Login/OPLoginViewController.swift"
+            timestampString = "515052022.690185"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

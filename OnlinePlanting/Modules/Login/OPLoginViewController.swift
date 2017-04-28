@@ -11,6 +11,13 @@ import UIKit
 class OPLoginViewController: UIViewController {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var loginContainerView: UIView!
+    @IBOutlet weak var username: UIView!
+    @IBOutlet weak var usernameTextField: OPTextField!
+    @IBOutlet weak var password: UIView!
+    @IBOutlet weak var passwordTextField: OPTextField!
+    @IBOutlet weak var passwordUnderLine: UIView!
+    @IBOutlet weak var usernameUnderLine: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +25,8 @@ class OPLoginViewController: UIViewController {
         backgroundImageView.image = UIImage.init(named: "login_background")
         backgroundImageView.contentMode = .scaleAspectFill
         
-        // Do any additional setup after loading the view.
+        
+        prepareUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +36,28 @@ class OPLoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
     
+        guard let backImage = UIImage(named: "back_close") else { return }
+        let leftArrowItem = UIBarButtonItem.createBarButtonItemWithImage(backImage, CGRect(x: 0, y: 0, width: 28, height: 30), self, #selector(dismissLoginView))
+            navigationItem.leftBarButtonItem = leftArrowItem
+    }
+    
+    func prepareUI() {
+        //username
+        usernameTextField.keyboardType = .numberPad
+        usernameTextField.borderStyle = .none
+        
+        //password
+        passwordTextField.leftViewMode = UITextFieldViewMode.always
+        passwordTextField.borderStyle = .none
+    }
+    
+    func dismissLoginView() {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func doRegister(_ sender: UIButton) {
@@ -46,17 +75,7 @@ class OPLoginViewController: UIViewController {
     }
     
     @IBAction func doLogin(_ sender: UIButton) {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
