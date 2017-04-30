@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18129BCF1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18129BCD1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift */; };
 		18129BD01EAE46FC005A4AD9 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18129BCE1EAE46FC005A4AD9 /* CoreDataTableViewController.swift */; };
+		183D82711EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 183D826F1EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld */; };
 		188A5EAE1EAE2CE3006CE839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EAD1EAE2CE3006CE839 /* AppDelegate.swift */; };
 		188A5EB81EAE2CE3006CE839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188A5EB71EAE2CE3006CE839 /* Assets.xcassets */; };
 		188A5EBB1EAE2CE3006CE839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188A5EB91EAE2CE3006CE839 /* LaunchScreen.storyboard */; };
@@ -45,7 +46,6 @@
 		18C1F0551EB63E0E001D611B /* OPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6671EB63E0B001D611B /* OPTabBarController.swift */; };
 		18C1F0561EB63E0E001D611B /* OPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6681EB63E0B001D611B /* OPTextField.swift */; };
 		18C1F0571EB63E0E001D611B /* OPToastWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6691EB63E0B001D611B /* OPToastWindow.swift */; };
-		18C1F0581EB63E0E001D611B /* OnlinePlanting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E66B1EB63E0B001D611B /* OnlinePlanting.xcdatamodeld */; };
 		18C1F0591EB63E0E001D611B /* OPDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E66D1EB63E0B001D611B /* OPDataService.swift */; };
 		18C1F05A1EB63E0E001D611B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18C1E66E1EB63E0B001D611B /* Info.plist */; };
 		18C1F05B1EB63E0E001D611B /* OPHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C1E6711EB63E0B001D611B /* OPHome.storyboard */; };
@@ -1770,6 +1770,7 @@
 /* Begin PBXFileReference section */
 		18129BCD1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataCollectionViewController.swift; path = CommonUI/CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
 		18129BCE1EAE46FC005A4AD9 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTableViewController.swift; path = CommonUI/CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		183D82701EB6442D00B9F028 /* OnlinePlanting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnlinePlanting.xcdatamodel; sourceTree = "<group>"; };
 		188A5EAA1EAE2CE3006CE839 /* OnlinePlanting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlinePlanting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5EAD1EAE2CE3006CE839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188A5EB71EAE2CE3006CE839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1812,7 +1813,6 @@
 		18C1E6671EB63E0B001D611B /* OPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPTabBarController.swift; sourceTree = "<group>"; };
 		18C1E6681EB63E0B001D611B /* OPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPTextField.swift; sourceTree = "<group>"; };
 		18C1E6691EB63E0B001D611B /* OPToastWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPToastWindow.swift; sourceTree = "<group>"; };
-		18C1E66C1EB63E0B001D611B /* OnlinePlanting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnlinePlanting.xcdatamodel; sourceTree = "<group>"; };
 		18C1E66D1EB63E0B001D611B /* OPDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPDataService.swift; sourceTree = "<group>"; };
 		18C1E66E1EB63E0B001D611B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C1E6711EB63E0B001D611B /* OPHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OPHome.storyboard; sourceTree = "<group>"; };
@@ -3731,8 +3731,8 @@
 		18C1E66A1EB63E0B001D611B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				18C1E66B1EB63E0B001D611B /* OnlinePlanting.xcdatamodeld */,
 				18C1E66D1EB63E0B001D611B /* OPDataService.swift */,
+				183D826F1EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -11630,7 +11630,6 @@
 				18C1F5A11EB63E12001D611B /* OPLoginMainViewController.swift in Sources */,
 				18C1F1F91EB63E0F001D611B /* OPTabBarController.swift in Sources */,
 				18C1F3CE1EB63E10001D611B /* NetworkingAPIs.swift in Sources */,
-				18C1F0581EB63E0E001D611B /* OnlinePlanting.xcdatamodeld in Sources */,
 				18C1F22A1EB63E0F001D611B /* NetworkingAPIs.swift in Sources */,
 				18C1F4471EB63E11001D611B /* OPToastWindow.swift in Sources */,
 				18C1F6E61EB63E13001D611B /* OPTextField.swift in Sources */,
@@ -12160,6 +12159,7 @@
 				18C1F41D1EB63E10001D611B /* OPMyGardenViewController.swift in Sources */,
 				18C1F4ED1EB63E11001D611B /* OPTabBarController.swift in Sources */,
 				18C1F68F1EB63E13001D611B /* CoreDataCollectionViewController.swift in Sources */,
+				183D82711EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld in Sources */,
 				18C1F1C31EB63E0F001D611B /* OPToastWindow.swift in Sources */,
 				18C1F2B71EB63E0F001D611B /* AppDelegate.swift in Sources */,
 				18C1F0981EB63E0E001D611B /* OPChangePasswordViewController.swift in Sources */,
@@ -13821,10 +13821,9 @@
 				);
 				INFOPLIST_FILE = OnlinePlanting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlanting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SMSSDK-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnlinePlanting/OnlinePlanting-Brigding-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -13841,10 +13840,9 @@
 				);
 				INFOPLIST_FILE = OnlinePlanting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlanting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SMSSDK-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnlinePlanting/OnlinePlanting-Brigding-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -13945,6 +13943,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		183D826F1EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				183D82701EB6442D00B9F028 /* OnlinePlanting.xcdatamodel */,
+			);
+			currentVersion = 183D82701EB6442D00B9F028 /* OnlinePlanting.xcdatamodel */;
+			path = OnlinePlanting.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		189C83991EB2D9E10060D93C /* OnlinePlanting.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
@@ -13953,16 +13961,6 @@
 			currentVersion = 189C839A1EB2D9E10060D93C /* OnlinePlanting.xcdatamodel */;
 			name = OnlinePlanting.xcdatamodeld;
 			path = DataModel/OnlinePlanting.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		18C1E66B1EB63E0B001D611B /* OnlinePlanting.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				18C1E66C1EB63E0B001D611B /* OnlinePlanting.xcdatamodel */,
-			);
-			currentVersion = 18C1E66C1EB63E0B001D611B /* OnlinePlanting.xcdatamodel */;
-			path = OnlinePlanting.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
