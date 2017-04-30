@@ -74,28 +74,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnlinePlanting/Modules/Login/OPLoginViewController.swift"
-            timestampString = "515061441.940928"
+            timestampString = "515131380.559874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "doLogin(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnlinePlanting/Modules/Login/OPLoginViewController.swift"
-            timestampString = "515085451.241273"
+            filePath = "OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
+            timestampString = "515236736.24059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "doLogin(_:)"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
+            landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnlinePlanting.OPLoginMainViewController.textField (__ObjC.UITextField, shouldChangeCharactersIn : __C._NSRange, replacementString : Swift.String) -&gt; Swift.Bool"
+                  moduleName = "OnlinePlanting"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibm/Documents/PersonalProject/OnlinePlanting/OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
+                  timestampString = "515235177.412927"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "337"
+                  endingLineNumber = "337"
+                  offsetFromSymbolStart = "928">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnlinePlanting.OPLoginMainViewController.(textField (__ObjC.UITextField, shouldChangeCharactersIn : __C._NSRange, replacementString : Swift.String) -&gt; Swift.Bool).(closure #1)"
+                  moduleName = "OnlinePlanting"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ibm/Documents/PersonalProject/OnlinePlanting/OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
+                  timestampString = "515235177.415536"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "337"
+                  endingLineNumber = "337"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
+            timestampString = "515236736.24059"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "mobilePhonetextFieldDidChange()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
