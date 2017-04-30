@@ -72,25 +72,23 @@ class OPLoginMainViewController: UIViewController {
         SMSSDK.commitVerificationCode(securityCodeTextField.text, phoneNumber: mobilePhoneTextField.text, zone: "86") { (infor, error) in
             if (error == nil) {
                 print("验证成功")
+                OPDataService.sharedInstance.userRegistration(username, email: email, pwd: password) { [weak self](success, error) in
+                    if error != nil {
+                        self?.showSaveRegistrationButton(true)
+                    } else {
+                        if success {
+                            
+                        } else {
+                            self?.showSaveRegistrationButton(true)
+                        }
+                    }
+                }
+
             }else{
                 print("验证失败")
             }
 
         }
-
-        
-        OPDataService.sharedInstance.userRegistration(username, email: email, pwd: password) { [weak self](success, error) in
-            if error != nil {
-                self?.showSaveRegistrationButton(true)
-            } else {
-                if success {
-                    
-                } else {
-                    self?.showSaveRegistrationButton(true)
-                }
-            }
-        }
-        
         showSaveRegistrationButton(false)
     }
     
