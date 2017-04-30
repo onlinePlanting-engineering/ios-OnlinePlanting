@@ -49,10 +49,35 @@ class OPLoginMainViewController: UIViewController {
     
     @IBOutlet weak var password2Security: NSLayoutConstraint!
     
+    
+    @IBAction func getMSMSecurityCode(_ sender: UIButton) {
+        
+        SMSSDK.getVerificationCode(by: SMSGetCodeMethodSMS, phoneNumber: mobilePhoneTextField.text, zone: "86", customIdentifier: nil) { (error) in
+            if (error == nil) {
+                print("send Success,please waiting～")
+            } else {
+                // 错误码可以参考‘SMS_SDK.framework / SMSSDKResultHanderDef.h’
+                print("request failed")
+            }
+            
+        }
+        
+    }
+    
     @IBAction func doRegistration(_ sender: UIButton) {
         let email = "alex_decimal@126.com"
         let username = "Alex_BlackMamba"
         let password = "passw0rd"
+        
+        SMSSDK.commitVerificationCode(securityCodeTextField.text, phoneNumber: mobilePhoneTextField.text, zone: "86") { (infor, error) in
+            if (error == nil) {
+                print("验证成功")
+            }else{
+                print("验证失败")
+            }
+
+        }
+
         
         OPDataService.sharedInstance.userRegistration(username, email: email, pwd: password) { [weak self](success, error) in
             if error != nil {
@@ -92,6 +117,7 @@ class OPLoginMainViewController: UIViewController {
             OPToastWindow.show(image, title: "请检查您的用户名或者密码", content: hitMessage)
         }
     }
+    
     
     func checkUsernamePassword() -> Bool {
         var errorCount = 0

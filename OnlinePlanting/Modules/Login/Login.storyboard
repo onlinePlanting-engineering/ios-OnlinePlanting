@@ -116,6 +116,9 @@
                                                         <state key="normal" title="Security Code">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="getMSMSecurityCode:" destination="u6L-lu-jN8" eventType="touchUpInside" id="fIg-gr-GW2"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
