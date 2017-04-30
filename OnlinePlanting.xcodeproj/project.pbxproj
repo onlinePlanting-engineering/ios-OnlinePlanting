@@ -7,47 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18129BCF1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18129BCD1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift */; };
-		18129BD01EAE46FC005A4AD9 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18129BCE1EAE46FC005A4AD9 /* CoreDataTableViewController.swift */; };
 		183D82711EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 183D826F1EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld */; };
-		183D82731EB6470800B9F028 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D82721EB6470800B9F028 /* LaunchScreen.storyboard */; };
-		183D82751EB6475300B9F028 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D82741EB6475300B9F028 /* Main.storyboard */; };
-		188A5EAE1EAE2CE3006CE839 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EAD1EAE2CE3006CE839 /* AppDelegate.swift */; };
-		188A5EB81EAE2CE3006CE839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188A5EB71EAE2CE3006CE839 /* Assets.xcassets */; };
-		188A5EBB1EAE2CE3006CE839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188A5EB91EAE2CE3006CE839 /* LaunchScreen.storyboard */; };
+		183D82771EB647DF00B9F028 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D82761EB647DF00B9F028 /* AppDelegate.swift */; };
+		183D82821EB64AE200B9F028 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D827E1EB64AE200B9F028 /* LaunchScreen.storyboard */; };
+		183D82831EB64AE200B9F028 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D82801EB64AE200B9F028 /* Main.storyboard */; };
+		183D82851EB64B2600B9F028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183D82841EB64B2600B9F028 /* Assets.xcassets */; };
+		183D82871EB64B3900B9F028 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183D82861EB64B3900B9F028 /* Info.plist */; };
+		183D82891EB64B6400B9F028 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D82881EB64B6400B9F028 /* String+Ext.swift */; };
+		183D828B1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D828A1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift */; };
+		183D828D1EB64C3000B9F028 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D828C1EB64C3000B9F028 /* UIColor+Ext.swift */; };
+		183D82921EB64CB300B9F028 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D828F1EB64CB300B9F028 /* MOBFoundation.framework */; };
+		183D82931EB64CB300B9F028 /* MOBFoundationEx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D82901EB64CB300B9F028 /* MOBFoundationEx.framework */; };
+		183D82941EB64CB300B9F028 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D82911EB64CB300B9F028 /* SMS_SDK.framework */; };
 		188A5EC61EAE2CE3006CE839 /* OnlinePlantingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */; };
 		188A5ED11EAE2CE3006CE839 /* OnlinePlantingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */; };
-		189C83931EB2D9660060D93C /* NetworkingAPIMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C83911EB2D9660060D93C /* NetworkingAPIMapping.swift */; };
-		189C83941EB2D9660060D93C /* NetworkingAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C83921EB2D9660060D93C /* NetworkingAPIs.swift */; };
-		189C83961EB2D9780060D93C /* OPDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C83951EB2D9780060D93C /* OPDataService.swift */; };
-		189C83981EB2D98F0060D93C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189C83971EB2D98F0060D93C /* Login.storyboard */; };
-		189C839B1EB2D9E10060D93C /* OnlinePlanting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 189C83991EB2D9E10060D93C /* OnlinePlanting.xcdatamodeld */; };
-		189C839F1EB308680060D93C /* OPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C839E1EB308680060D93C /* OPTextField.swift */; };
-		189C83A21EB30F060060D93C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C83A01EB30F060060D93C /* Common.swift */; };
-		189C83A31EB30F060060D93C /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C83A11EB30F060060D93C /* LocalizedString.swift */; };
-		189C83A51EB30F500060D93C /* UIBarButtonItem+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C83A41EB30F500060D93C /* UIBarButtonItem+Ext.swift */; };
-		18C1E63E1EB42A03001D611B /* OPLoginMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E63D1EB42A03001D611B /* OPLoginMainViewController.swift */; };
-		18C1E6401EB458F5001D611B /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E63F1EB458F5001D611B /* UIColor+Ext.swift */; };
-		18C1E6441EB5504A001D611B /* OPChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6431EB5504A001D611B /* OPChangePasswordViewController.swift */; };
-		18C1E6461EB560EE001D611B /* OPToastWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6451EB560EE001D611B /* OPToastWindow.swift */; };
-		18C1E6481EB5B0C0001D611B /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6471EB5B0C0001D611B /* String+Ext.swift */; };
-		18C1E64E1EB62A87001D611B /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E64B1EB62A87001D611B /* MOBFoundation.framework */; };
-		18C1E64F1EB62A87001D611B /* MOBFoundationEx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E64C1EB62A87001D611B /* MOBFoundationEx.framework */; };
-		18C1E6501EB62A87001D611B /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E64D1EB62A87001D611B /* SMS_SDK.framework */; };
 		18C1E6521EB62C0F001D611B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6511EB62C0F001D611B /* libz.tbd */; };
 		18C1E6541EB62C1E001D611B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6531EB62C1E001D611B /* libicucore.tbd */; };
 		18C1E6561EB62C28001D611B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6551EB62C28001D611B /* MessageUI.framework */; };
 		18C1E6581EB62C30001D611B /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6571EB62C30001D611B /* JavaScriptCore.framework */; };
 		18C1E65A1EB62C3B001D611B /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6591EB62C3B001D611B /* libstdc++.tbd */; };
-		18C1F04F1EB63E0E001D611B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E65E1EB63E0B001D611B /* AppDelegate.swift */; };
-		18C1F0501EB63E0E001D611B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C1E65F1EB63E0B001D611B /* Assets.xcassets */; };
 		18C1F0531EB63E0E001D611B /* CoreDataCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6651EB63E0B001D611B /* CoreDataCollectionViewController.swift */; };
 		18C1F0541EB63E0E001D611B /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6661EB63E0B001D611B /* CoreDataTableViewController.swift */; };
 		18C1F0551EB63E0E001D611B /* OPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6671EB63E0B001D611B /* OPTabBarController.swift */; };
 		18C1F0561EB63E0E001D611B /* OPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6681EB63E0B001D611B /* OPTextField.swift */; };
 		18C1F0571EB63E0E001D611B /* OPToastWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6691EB63E0B001D611B /* OPToastWindow.swift */; };
 		18C1F0591EB63E0E001D611B /* OPDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E66D1EB63E0B001D611B /* OPDataService.swift */; };
-		18C1F05A1EB63E0E001D611B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18C1E66E1EB63E0B001D611B /* Info.plist */; };
 		18C1F05B1EB63E0E001D611B /* OPHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C1E6711EB63E0B001D611B /* OPHome.storyboard */; };
 		18C1F05C1EB63E0E001D611B /* OPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6721EB63E0B001D611B /* OPHomeViewController.swift */; };
 		18C1F05D1EB63E0E001D611B /* OPLive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C1E6741EB63E0B001D611B /* OPLive.storyboard */; };
@@ -64,27 +48,6 @@
 		18C1F0681EB63E0E001D611B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6841EB63E0B001D611B /* Networking.swift */; };
 		18C1F0691EB63E0E001D611B /* NetworkingAPIMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6851EB63E0B001D611B /* NetworkingAPIMapping.swift */; };
 		18C1F06A1EB63E0E001D611B /* NetworkingAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6861EB63E0B001D611B /* NetworkingAPIs.swift */; };
-		18C1F6E91EB63E13001D611B /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1F0451EB63E0E001D611B /* MOBFoundation.framework */; };
-		18C1F6EA1EB63E13001D611B /* MOBFoundationEx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1F0461EB63E0E001D611B /* MOBFoundationEx.framework */; };
-		18C1F6EB1EB63E13001D611B /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1F0471EB63E0E001D611B /* SMS_SDK.framework */; };
-		18C1F6EC1EB63E13001D611B /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1F04A1EB63E0E001D611B /* Common.swift */; };
-		18C1F6ED1EB63E13001D611B /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1F04B1EB63E0E001D611B /* LocalizedString.swift */; };
-		18C1F6EE1EB63E13001D611B /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1F04C1EB63E0E001D611B /* String+Ext.swift */; };
-		18C1F6EF1EB63E13001D611B /* UIBarButtonItem+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1F04D1EB63E0E001D611B /* UIBarButtonItem+Ext.swift */; };
-		18C1F6F01EB63E13001D611B /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1F04E1EB63E0E001D611B /* UIColor+Ext.swift */; };
-		18C749AF1EB18C9E00B9FB32 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749AE1EB18C9E00B9FB32 /* Networking.swift */; };
-		18C749B11EB18CAF00B9FB32 /* OPTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749B01EB18CAF00B9FB32 /* OPTabBarController.swift */; };
-		18C749B51EB18E6300B9FB32 /* OPHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749B41EB18E6300B9FB32 /* OPHomeViewController.swift */; };
-		18C749B71EB18EA000B9FB32 /* OPMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749B61EB18EA000B9FB32 /* OPMeViewController.swift */; };
-		18C749B91EB18EB600B9FB32 /* OPLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749B81EB18EB600B9FB32 /* OPLiveViewController.swift */; };
-		18C749BB1EB18ECC00B9FB32 /* OPMyGardenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749BA1EB18ECC00B9FB32 /* OPMyGardenViewController.swift */; };
-		18C749BD1EB18EE600B9FB32 /* OPVegetableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C749BC1EB18EE600B9FB32 /* OPVegetableListViewController.swift */; };
-		18C749DA1EB1951800B9FB32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749D81EB1951800B9FB32 /* Main.storyboard */; };
-		18C749E41EB1982900B9FB32 /* OPHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749E31EB1982900B9FB32 /* OPHome.storyboard */; };
-		18C749E61EB199A100B9FB32 /* OPVegetableList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749E51EB199A100B9FB32 /* OPVegetableList.storyboard */; };
-		18C749E81EB19A0000B9FB32 /* OPMyGarden.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749E71EB19A0000B9FB32 /* OPMyGarden.storyboard */; };
-		18C749EA1EB19A4800B9FB32 /* OPLive.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749E91EB19A4800B9FB32 /* OPLive.storyboard */; };
-		18C749F01EB19AF000B9FB32 /* OPMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C749EF1EB19AF000B9FB32 /* OPMe.storyboard */; };
 		834DBDF917F40DD8ADCCAF54 /* Pods_OnlinePlanting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,53 +69,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18129BCD1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataCollectionViewController.swift; path = CommonUI/CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
-		18129BCE1EAE46FC005A4AD9 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTableViewController.swift; path = CommonUI/CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		183D82701EB6442D00B9F028 /* OnlinePlanting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnlinePlanting.xcdatamodel; sourceTree = "<group>"; };
-		183D82721EB6470800B9F028 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		183D82741EB6475300B9F028 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		183D82761EB647DF00B9F028 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		183D827F1EB64AE200B9F028 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		183D82811EB64AE200B9F028 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		183D82841EB64B2600B9F028 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		183D82861EB64B3900B9F028 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		183D82881EB64B6400B9F028 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		183D828A1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Ext.swift"; sourceTree = "<group>"; };
+		183D828C1EB64C3000B9F028 /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		183D828F1EB64CB300B9F028 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		183D82901EB64CB300B9F028 /* MOBFoundationEx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundationEx.framework; sourceTree = "<group>"; };
+		183D82911EB64CB300B9F028 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		188A5EAA1EAE2CE3006CE839 /* OnlinePlanting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlinePlanting.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		188A5EAD1EAE2CE3006CE839 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		188A5EB71EAE2CE3006CE839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		188A5EBA1EAE2CE3006CE839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		188A5EBC1EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188A5EC11EAE2CE3006CE839 /* OnlinePlantingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingTests.swift; sourceTree = "<group>"; };
 		188A5EC71EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188A5ECC1EAE2CE3006CE839 /* OnlinePlantingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingUITests.swift; sourceTree = "<group>"; };
 		188A5ED21EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		189C83911EB2D9660060D93C /* NetworkingAPIMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkingAPIMapping.swift; path = Networking/NetworkingAPIMapping.swift; sourceTree = "<group>"; };
-		189C83921EB2D9660060D93C /* NetworkingAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkingAPIs.swift; path = Networking/NetworkingAPIs.swift; sourceTree = "<group>"; };
-		189C83951EB2D9780060D93C /* OPDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPDataService.swift; path = DataModel/OPDataService.swift; sourceTree = "<group>"; };
-		189C83971EB2D98F0060D93C /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Modules/Login/Login.storyboard; sourceTree = "<group>"; };
-		189C839A1EB2D9E10060D93C /* OnlinePlanting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnlinePlanting.xcdatamodel; sourceTree = "<group>"; };
-		189C839E1EB308680060D93C /* OPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPTextField.swift; path = CommonUI/OPTextField.swift; sourceTree = "<group>"; };
-		189C83A01EB30F060060D93C /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = Utils/Common.swift; sourceTree = "<group>"; };
-		189C83A11EB30F060060D93C /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizedString.swift; path = Utils/LocalizedString.swift; sourceTree = "<group>"; };
-		189C83A41EB30F500060D93C /* UIBarButtonItem+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Ext.swift"; path = "Utils/UIBarButtonItem+Ext.swift"; sourceTree = "<group>"; };
-		18C1E63D1EB42A03001D611B /* OPLoginMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPLoginMainViewController.swift; path = Modules/Login/OPLoginMainViewController.swift; sourceTree = "<group>"; };
-		18C1E63F1EB458F5001D611B /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Ext.swift"; path = "Utils/UIColor+Ext.swift"; sourceTree = "<group>"; };
-		18C1E6431EB5504A001D611B /* OPChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPChangePasswordViewController.swift; path = Modules/Login/OPChangePasswordViewController.swift; sourceTree = "<group>"; };
-		18C1E6451EB560EE001D611B /* OPToastWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPToastWindow.swift; path = CommonUI/OPToastWindow.swift; sourceTree = "<group>"; };
-		18C1E6471EB5B0C0001D611B /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Ext.swift"; path = "Utils/String+Ext.swift"; sourceTree = "<group>"; };
-		18C1E64B1EB62A87001D611B /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
-		18C1E64C1EB62A87001D611B /* MOBFoundationEx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundationEx.framework; sourceTree = "<group>"; };
-		18C1E64D1EB62A87001D611B /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		18C1E6511EB62C0F001D611B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		18C1E6531EB62C1E001D611B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		18C1E6551EB62C28001D611B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		18C1E6571EB62C30001D611B /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		18C1E6591EB62C3B001D611B /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
-		18C1E65E1EB63E0B001D611B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18C1E65F1EB63E0B001D611B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18C1E6651EB63E0B001D611B /* CoreDataCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionViewController.swift; sourceTree = "<group>"; };
 		18C1E6661EB63E0B001D611B /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		18C1E6671EB63E0B001D611B /* OPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPTabBarController.swift; sourceTree = "<group>"; };
 		18C1E6681EB63E0B001D611B /* OPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPTextField.swift; sourceTree = "<group>"; };
 		18C1E6691EB63E0B001D611B /* OPToastWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPToastWindow.swift; sourceTree = "<group>"; };
 		18C1E66D1EB63E0B001D611B /* OPDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPDataService.swift; sourceTree = "<group>"; };
-		18C1E66E1EB63E0B001D611B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C1E6711EB63E0B001D611B /* OPHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OPHome.storyboard; sourceTree = "<group>"; };
 		18C1E6721EB63E0B001D611B /* OPHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPHomeViewController.swift; sourceTree = "<group>"; };
 		18C1E6741EB63E0B001D611B /* OPLive.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OPLive.storyboard; sourceTree = "<group>"; };
@@ -169,29 +115,6 @@
 		18C1E6841EB63E0B001D611B /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		18C1E6851EB63E0B001D611B /* NetworkingAPIMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAPIMapping.swift; sourceTree = "<group>"; };
 		18C1E6861EB63E0B001D611B /* NetworkingAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAPIs.swift; sourceTree = "<group>"; };
-		18C1F0451EB63E0E001D611B /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
-		18C1F0461EB63E0E001D611B /* MOBFoundationEx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundationEx.framework; sourceTree = "<group>"; };
-		18C1F0471EB63E0E001D611B /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
-		18C1F04A1EB63E0E001D611B /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		18C1F04B1EB63E0E001D611B /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
-		18C1F04C1EB63E0E001D611B /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		18C1F04D1EB63E0E001D611B /* UIBarButtonItem+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Ext.swift"; sourceTree = "<group>"; };
-		18C1F04E1EB63E0E001D611B /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
-		18C1F6F11EB63E4D001D611B /* SMSSDK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SMSSDK-Bridging-Header.h"; path = "../SMSSDK-Bridging-Header.h"; sourceTree = "<group>"; };
-		18C1F6F21EB63F23001D611B /* OnlinePlanting-Brigding-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnlinePlanting-Brigding-Header.h"; sourceTree = SOURCE_ROOT; };
-		18C749AE1EB18C9E00B9FB32 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Networking.swift; path = Networking/Networking.swift; sourceTree = "<group>"; };
-		18C749B01EB18CAF00B9FB32 /* OPTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPTabBarController.swift; path = CommonUI/OPTabBarController.swift; sourceTree = "<group>"; };
-		18C749B41EB18E6300B9FB32 /* OPHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPHomeViewController.swift; path = Modules/Home/OPHomeViewController.swift; sourceTree = "<group>"; };
-		18C749B61EB18EA000B9FB32 /* OPMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPMeViewController.swift; path = Modules/Me/OPMeViewController.swift; sourceTree = "<group>"; };
-		18C749B81EB18EB600B9FB32 /* OPLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPLiveViewController.swift; path = Modules/Live/OPLiveViewController.swift; sourceTree = "<group>"; };
-		18C749BA1EB18ECC00B9FB32 /* OPMyGardenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPMyGardenViewController.swift; path = Modules/MyGarden/OPMyGardenViewController.swift; sourceTree = "<group>"; };
-		18C749BC1EB18EE600B9FB32 /* OPVegetableListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPVegetableListViewController.swift; path = Modules/VegetableList/OPVegetableListViewController.swift; sourceTree = "<group>"; };
-		18C749D91EB1951800B9FB32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		18C749E31EB1982900B9FB32 /* OPHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPHome.storyboard; path = Modules/Home/OPHome.storyboard; sourceTree = "<group>"; };
-		18C749E51EB199A100B9FB32 /* OPVegetableList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPVegetableList.storyboard; path = Modules/VegetableList/OPVegetableList.storyboard; sourceTree = "<group>"; };
-		18C749E71EB19A0000B9FB32 /* OPMyGarden.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPMyGarden.storyboard; path = Modules/MyGarden/OPMyGarden.storyboard; sourceTree = "<group>"; };
-		18C749E91EB19A4800B9FB32 /* OPLive.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPLive.storyboard; path = Modules/Live/OPLive.storyboard; sourceTree = "<group>"; };
-		18C749EF1EB19AF000B9FB32 /* OPMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPMe.storyboard; path = Modules/Me/OPMe.storyboard; sourceTree = "<group>"; };
 		7424C03F9FA7E5B963FAC11B /* Pods-OnlinePlanting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.release.xcconfig"; sourceTree = "<group>"; };
 		7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlinePlanting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98016D2B3BE8EF95B755B48 /* Pods-OnlinePlanting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.debug.xcconfig"; sourceTree = "<group>"; };
@@ -202,18 +125,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183D82921EB64CB300B9F028 /* MOBFoundation.framework in Frameworks */,
+				183D82931EB64CB300B9F028 /* MOBFoundationEx.framework in Frameworks */,
+				183D82941EB64CB300B9F028 /* SMS_SDK.framework in Frameworks */,
 				18C1E65A1EB62C3B001D611B /* libstdc++.tbd in Frameworks */,
 				18C1E6581EB62C30001D611B /* JavaScriptCore.framework in Frameworks */,
-				18C1F6E91EB63E13001D611B /* MOBFoundation.framework in Frameworks */,
 				18C1E6561EB62C28001D611B /* MessageUI.framework in Frameworks */,
 				18C1E6541EB62C1E001D611B /* libicucore.tbd in Frameworks */,
 				18C1E6521EB62C0F001D611B /* libz.tbd in Frameworks */,
-				18C1E64E1EB62A87001D611B /* MOBFoundation.framework in Frameworks */,
-				18C1E6501EB62A87001D611B /* SMS_SDK.framework in Frameworks */,
-				18C1F6EA1EB63E13001D611B /* MOBFoundationEx.framework in Frameworks */,
-				18C1F6EB1EB63E13001D611B /* SMS_SDK.framework in Frameworks */,
 				834DBDF917F40DD8ADCCAF54 /* Pods_OnlinePlanting.framework in Frameworks */,
-				18C1E64F1EB62A87001D611B /* MOBFoundationEx.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,69 +167,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		187D587A1EAE3CF300317C75 /* Modules */ = {
+		183D828E1EB64CB300B9F028 /* SMS_SDK */ = {
 			isa = PBXGroup;
 			children = (
-				18C749AB1EB18BD300B9FB32 /* Me */,
-				18C749AA1EB18BA700B9FB32 /* Live */,
-				18C749A91EB18B8D00B9FB32 /* MyGarden */,
-				18C749A81EB18B6B00B9FB32 /* VegetableList */,
-				18C749A71EB18B5E00B9FB32 /* Home */,
-				18C749A61EB18B4D00B9FB32 /* Login */,
+				183D828F1EB64CB300B9F028 /* MOBFoundation.framework */,
+				183D82901EB64CB300B9F028 /* MOBFoundationEx.framework */,
+				183D82911EB64CB300B9F028 /* SMS_SDK.framework */,
 			);
-			name = Modules;
-			sourceTree = "<group>";
-		};
-		187D587B1EAE3D0200317C75 /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				189C83951EB2D9780060D93C /* OPDataService.swift */,
-				189C83991EB2D9E10060D93C /* OnlinePlanting.xcdatamodeld */,
-			);
-			name = DataModel;
-			sourceTree = "<group>";
-		};
-		187D587C1EAE3D1400317C75 /* CommonUI */ = {
-			isa = PBXGroup;
-			children = (
-				18C749D81EB1951800B9FB32 /* Main.storyboard */,
-				18C749B01EB18CAF00B9FB32 /* OPTabBarController.swift */,
-				18129BCD1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift */,
-				18129BCE1EAE46FC005A4AD9 /* CoreDataTableViewController.swift */,
-				189C839E1EB308680060D93C /* OPTextField.swift */,
-				18C1E6451EB560EE001D611B /* OPToastWindow.swift */,
-			);
-			name = CommonUI;
-			sourceTree = "<group>";
-		};
-		187D587D1EAE3D1B00317C75 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				189C83911EB2D9660060D93C /* NetworkingAPIMapping.swift */,
-				189C83921EB2D9660060D93C /* NetworkingAPIs.swift */,
-				18C749AE1EB18C9E00B9FB32 /* Networking.swift */,
-			);
-			name = Networking;
-			sourceTree = "<group>";
-		};
-		187D587E1EAE3D2200317C75 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				18C1E64A1EB62A87001D611B /* SMS_SDK */,
-				189C83A41EB30F500060D93C /* UIBarButtonItem+Ext.swift */,
-				189C83A01EB30F060060D93C /* Common.swift */,
-				189C83A11EB30F060060D93C /* LocalizedString.swift */,
-				18C1E63F1EB458F5001D611B /* UIColor+Ext.swift */,
-				18C1E6471EB5B0C0001D611B /* String+Ext.swift */,
-			);
-			name = Utils;
+			path = SMS_SDK;
 			sourceTree = "<group>";
 		};
 		188A5EA11EAE2CE3006CE839 = {
 			isa = PBXGroup;
 			children = (
 				18C1E65D1EB63E0B001D611B /* OnlinePlanting */,
-				188A5EAC1EAE2CE3006CE839 /* OnlinePlanting */,
 				188A5EC41EAE2CE3006CE839 /* OnlinePlantingTests */,
 				188A5ECF1EAE2CE3006CE839 /* OnlinePlantingUITests */,
 				188A5EAB1EAE2CE3006CE839 /* Products */,
@@ -326,23 +197,6 @@
 				188A5ECC1EAE2CE3006CE839 /* OnlinePlantingUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		188A5EAC1EAE2CE3006CE839 /* OnlinePlanting */ = {
-			isa = PBXGroup;
-			children = (
-				187D587B1EAE3D0200317C75 /* DataModel */,
-				187D587A1EAE3CF300317C75 /* Modules */,
-				187D587C1EAE3D1400317C75 /* CommonUI */,
-				187D587E1EAE3D2200317C75 /* Utils */,
-				187D587D1EAE3D1B00317C75 /* Networking */,
-				188A5EAD1EAE2CE3006CE839 /* AppDelegate.swift */,
-				18C1F6F11EB63E4D001D611B /* SMSSDK-Bridging-Header.h */,
-				188A5EB71EAE2CE3006CE839 /* Assets.xcassets */,
-				188A5EB91EAE2CE3006CE839 /* LaunchScreen.storyboard */,
-				188A5EBC1EAE2CE3006CE839 /* Info.plist */,
-			);
-			path = OnlinePlanting;
 			sourceTree = "<group>";
 		};
 		188A5EC41EAE2CE3006CE839 /* OnlinePlantingTests */ = {
@@ -363,16 +217,6 @@
 			path = OnlinePlantingUITests;
 			sourceTree = "<group>";
 		};
-		18C1E64A1EB62A87001D611B /* SMS_SDK */ = {
-			isa = PBXGroup;
-			children = (
-				18C1E64B1EB62A87001D611B /* MOBFoundation.framework */,
-				18C1E64C1EB62A87001D611B /* MOBFoundationEx.framework */,
-				18C1E64D1EB62A87001D611B /* SMS_SDK.framework */,
-			);
-			path = SMS_SDK;
-			sourceTree = "<group>";
-		};
 		18C1E65D1EB63E0B001D611B /* OnlinePlanting */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,14 +224,12 @@
 				18C1E66A1EB63E0B001D611B /* DataModel */,
 				18C1E66F1EB63E0B001D611B /* Modules */,
 				18C1E6831EB63E0B001D611B /* Networking */,
-				18C1F0441EB63E0E001D611B /* SMS_SDK */,
 				18C1F0491EB63E0E001D611B /* Utils */,
-				18C1F6F21EB63F23001D611B /* OnlinePlanting-Brigding-Header.h */,
-				183D82741EB6475300B9F028 /* Main.storyboard */,
-				183D82721EB6470800B9F028 /* LaunchScreen.storyboard */,
-				18C1E65E1EB63E0B001D611B /* AppDelegate.swift */,
-				18C1E65F1EB63E0B001D611B /* Assets.xcassets */,
-				18C1E66E1EB63E0B001D611B /* Info.plist */,
+				183D82841EB64B2600B9F028 /* Assets.xcassets */,
+				183D82761EB647DF00B9F028 /* AppDelegate.swift */,
+				183D82861EB64B3900B9F028 /* Info.plist */,
+				183D827E1EB64AE200B9F028 /* LaunchScreen.storyboard */,
+				183D82801EB64AE200B9F028 /* Main.storyboard */,
 			);
 			path = OnlinePlanting;
 			sourceTree = "<group>";
@@ -491,81 +333,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		18C1F0441EB63E0E001D611B /* SMS_SDK */ = {
-			isa = PBXGroup;
-			children = (
-				18C1F0451EB63E0E001D611B /* MOBFoundation.framework */,
-				18C1F0461EB63E0E001D611B /* MOBFoundationEx.framework */,
-				18C1F0471EB63E0E001D611B /* SMS_SDK.framework */,
-			);
-			path = SMS_SDK;
-			sourceTree = "<group>";
-		};
 		18C1F0491EB63E0E001D611B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				18C1F04A1EB63E0E001D611B /* Common.swift */,
-				18C1F04B1EB63E0E001D611B /* LocalizedString.swift */,
-				18C1F04C1EB63E0E001D611B /* String+Ext.swift */,
-				18C1F04D1EB63E0E001D611B /* UIBarButtonItem+Ext.swift */,
-				18C1F04E1EB63E0E001D611B /* UIColor+Ext.swift */,
+				183D828E1EB64CB300B9F028 /* SMS_SDK */,
+				183D82881EB64B6400B9F028 /* String+Ext.swift */,
+				183D828A1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift */,
+				183D828C1EB64C3000B9F028 /* UIColor+Ext.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		18C749A61EB18B4D00B9FB32 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				189C83971EB2D98F0060D93C /* Login.storyboard */,
-				18C1E63D1EB42A03001D611B /* OPLoginMainViewController.swift */,
-				18C1E6431EB5504A001D611B /* OPChangePasswordViewController.swift */,
-			);
-			name = Login;
-			sourceTree = "<group>";
-		};
-		18C749A71EB18B5E00B9FB32 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				18C749E31EB1982900B9FB32 /* OPHome.storyboard */,
-				18C749B41EB18E6300B9FB32 /* OPHomeViewController.swift */,
-			);
-			name = Home;
-			sourceTree = "<group>";
-		};
-		18C749A81EB18B6B00B9FB32 /* VegetableList */ = {
-			isa = PBXGroup;
-			children = (
-				18C749E51EB199A100B9FB32 /* OPVegetableList.storyboard */,
-				18C749BC1EB18EE600B9FB32 /* OPVegetableListViewController.swift */,
-			);
-			name = VegetableList;
-			sourceTree = "<group>";
-		};
-		18C749A91EB18B8D00B9FB32 /* MyGarden */ = {
-			isa = PBXGroup;
-			children = (
-				18C749E71EB19A0000B9FB32 /* OPMyGarden.storyboard */,
-				18C749BA1EB18ECC00B9FB32 /* OPMyGardenViewController.swift */,
-			);
-			name = MyGarden;
-			sourceTree = "<group>";
-		};
-		18C749AA1EB18BA700B9FB32 /* Live */ = {
-			isa = PBXGroup;
-			children = (
-				18C749E91EB19A4800B9FB32 /* OPLive.storyboard */,
-				18C749B81EB18EB600B9FB32 /* OPLiveViewController.swift */,
-			);
-			name = Live;
-			sourceTree = "<group>";
-		};
-		18C749AB1EB18BD300B9FB32 /* Me */ = {
-			isa = PBXGroup;
-			children = (
-				18C749EF1EB19AF000B9FB32 /* OPMe.storyboard */,
-				18C749B61EB18EA000B9FB32 /* OPMeViewController.swift */,
-			);
-			name = Me;
 			sourceTree = "<group>";
 		};
 		36B09281C3AB8C99DDD844DE /* Pods */ = {
@@ -689,24 +465,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C1F05F1EB63E0E001D611B /* Login.storyboard in Resources */,
-				18C749E41EB1982900B9FB32 /* OPHome.storyboard in Resources */,
-				183D82751EB6475300B9F028 /* Main.storyboard in Resources */,
 				18C1F0661EB63E0E001D611B /* OPVegetableList.storyboard in Resources */,
+				183D82821EB64AE200B9F028 /* LaunchScreen.storyboard in Resources */,
 				18C1F0621EB63E0E001D611B /* OPMe.storyboard in Resources */,
-				188A5EBB1EAE2CE3006CE839 /* LaunchScreen.storyboard in Resources */,
-				18C749E61EB199A100B9FB32 /* OPVegetableList.storyboard in Resources */,
+				183D82831EB64AE200B9F028 /* Main.storyboard in Resources */,
 				18C1F0641EB63E0E001D611B /* OPMyGarden.storyboard in Resources */,
 				18C1F05B1EB63E0E001D611B /* OPHome.storyboard in Resources */,
-				18C749DA1EB1951800B9FB32 /* Main.storyboard in Resources */,
-				18C1F0501EB63E0E001D611B /* Assets.xcassets in Resources */,
-				18C749F01EB19AF000B9FB32 /* OPMe.storyboard in Resources */,
-				18C749EA1EB19A4800B9FB32 /* OPLive.storyboard in Resources */,
-				183D82731EB6470800B9F028 /* LaunchScreen.storyboard in Resources */,
-				188A5EB81EAE2CE3006CE839 /* Assets.xcassets in Resources */,
-				18C749E81EB19A0000B9FB32 /* OPMyGarden.storyboard in Resources */,
-				189C83981EB2D98F0060D93C /* Login.storyboard in Resources */,
+				183D82851EB64B2600B9F028 /* Assets.xcassets in Resources */,
+				183D82871EB64B3900B9F028 /* Info.plist in Resources */,
 				18C1F05D1EB63E0E001D611B /* OPLive.storyboard in Resources */,
-				18C1F05A1EB63E0E001D611B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,52 +546,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18C1F04F1EB63E0E001D611B /* AppDelegate.swift in Sources */,
-				18C1E6461EB560EE001D611B /* OPToastWindow.swift in Sources */,
+				183D82771EB647DF00B9F028 /* AppDelegate.swift in Sources */,
 				18C1F0681EB63E0E001D611B /* Networking.swift in Sources */,
 				18C1F06A1EB63E0E001D611B /* NetworkingAPIs.swift in Sources */,
-				18C1E6401EB458F5001D611B /* UIColor+Ext.swift in Sources */,
-				18C749B71EB18EA000B9FB32 /* OPMeViewController.swift in Sources */,
-				189C83941EB2D9660060D93C /* NetworkingAPIs.swift in Sources */,
 				18C1F05E1EB63E0E001D611B /* OPLiveViewController.swift in Sources */,
-				189C839F1EB308680060D93C /* OPTextField.swift in Sources */,
-				189C83961EB2D9780060D93C /* OPDataService.swift in Sources */,
-				189C839B1EB2D9E10060D93C /* OnlinePlanting.xcdatamodeld in Sources */,
-				18C1E6481EB5B0C0001D611B /* String+Ext.swift in Sources */,
-				189C83931EB2D9660060D93C /* NetworkingAPIMapping.swift in Sources */,
 				18C1F0541EB63E0E001D611B /* CoreDataTableViewController.swift in Sources */,
 				18C1F0531EB63E0E001D611B /* CoreDataCollectionViewController.swift in Sources */,
-				18129BD01EAE46FC005A4AD9 /* CoreDataTableViewController.swift in Sources */,
-				18C749BB1EB18ECC00B9FB32 /* OPMyGardenViewController.swift in Sources */,
+				183D82891EB64B6400B9F028 /* String+Ext.swift in Sources */,
 				18C1F0551EB63E0E001D611B /* OPTabBarController.swift in Sources */,
-				189C83A51EB30F500060D93C /* UIBarButtonItem+Ext.swift in Sources */,
 				18C1F0651EB63E0E001D611B /* OPMyGardenViewController.swift in Sources */,
 				183D82711EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld in Sources */,
-				18C1F6ED1EB63E13001D611B /* LocalizedString.swift in Sources */,
 				18C1F0601EB63E0E001D611B /* OPChangePasswordViewController.swift in Sources */,
 				18C1F0571EB63E0E001D611B /* OPToastWindow.swift in Sources */,
 				18C1F0561EB63E0E001D611B /* OPTextField.swift in Sources */,
-				18C1E63E1EB42A03001D611B /* OPLoginMainViewController.swift in Sources */,
+				183D828B1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift in Sources */,
 				18C1F0671EB63E0E001D611B /* OPVegetableListViewController.swift in Sources */,
-				18C1E6441EB5504A001D611B /* OPChangePasswordViewController.swift in Sources */,
-				189C83A31EB30F060060D93C /* LocalizedString.swift in Sources */,
-				18C1F6EE1EB63E13001D611B /* String+Ext.swift in Sources */,
-				18C749BD1EB18EE600B9FB32 /* OPVegetableListViewController.swift in Sources */,
-				18C1F6EF1EB63E13001D611B /* UIBarButtonItem+Ext.swift in Sources */,
-				18129BCF1EAE46FC005A4AD9 /* CoreDataCollectionViewController.swift in Sources */,
-				18C749B91EB18EB600B9FB32 /* OPLiveViewController.swift in Sources */,
 				18C1F0631EB63E0E001D611B /* OPMeViewController.swift in Sources */,
-				18C1F6F01EB63E13001D611B /* UIColor+Ext.swift in Sources */,
-				18C749B11EB18CAF00B9FB32 /* OPTabBarController.swift in Sources */,
 				18C1F0591EB63E0E001D611B /* OPDataService.swift in Sources */,
-				189C83A21EB30F060060D93C /* Common.swift in Sources */,
-				18C1F6EC1EB63E13001D611B /* Common.swift in Sources */,
 				18C1F05C1EB63E0E001D611B /* OPHomeViewController.swift in Sources */,
+				183D828D1EB64C3000B9F028 /* UIColor+Ext.swift in Sources */,
 				18C1F0691EB63E0E001D611B /* NetworkingAPIMapping.swift in Sources */,
-				18C749B51EB18E6300B9FB32 /* OPHomeViewController.swift in Sources */,
 				18C1F0611EB63E0E001D611B /* OPLoginMainViewController.swift in Sources */,
-				18C749AF1EB18C9E00B9FB32 /* Networking.swift in Sources */,
-				188A5EAE1EAE2CE3006CE839 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,18 +602,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		188A5EB91EAE2CE3006CE839 /* LaunchScreen.storyboard */ = {
+		183D827E1EB64AE200B9F028 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				188A5EBA1EAE2CE3006CE839 /* Base */,
+				183D827F1EB64AE200B9F028 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		18C749D81EB1951800B9FB32 /* Main.storyboard */ = {
+		183D82801EB64AE200B9F028 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				18C749D91EB1951800B9FB32 /* Base */,
+				183D82811EB64AE200B9F028 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -979,12 +721,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OnlinePlanting/SMS_SDK",
+					"$(PROJECT_DIR)/OnlinePlanting/Utils/SMS_SDK",
 				);
 				INFOPLIST_FILE = OnlinePlanting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlanting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OnlinePlanting/OnlinePlanting-Brigding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -998,12 +741,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OnlinePlanting/SMS_SDK",
+					"$(PROJECT_DIR)/OnlinePlanting/Utils/SMS_SDK",
 				);
 				INFOPLIST_FILE = OnlinePlanting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlanting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OnlinePlanting/OnlinePlanting-Brigding-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -1111,17 +855,6 @@
 			);
 			currentVersion = 183D82701EB6442D00B9F028 /* OnlinePlanting.xcdatamodel */;
 			path = OnlinePlanting.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		189C83991EB2D9E10060D93C /* OnlinePlanting.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				189C839A1EB2D9E10060D93C /* OnlinePlanting.xcdatamodel */,
-			);
-			currentVersion = 189C839A1EB2D9E10060D93C /* OnlinePlanting.xcdatamodel */;
-			name = OnlinePlanting.xcdatamodeld;
-			path = DataModel/OnlinePlanting.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
