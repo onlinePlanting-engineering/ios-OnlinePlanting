@@ -39,6 +39,7 @@ class OPLoginMainViewController: UIViewController {
     fileprivate var pageStatus: PageStatusType = .signUp
     fileprivate var hitMessage = ""
     fileprivate var isMobilePhone = false
+    fileprivate let SHA256Interation = 360000
     
     //Login
     @IBOutlet weak var loginUsername: OPTextField!
@@ -56,12 +57,9 @@ class OPLoginMainViewController: UIViewController {
             if (error == nil) {
                 print("send Success,please waiting～")
             } else {
-                // 错误码可以参考‘SMS_SDK.framework / SMSSDKResultHanderDef.h’
                 print("request failed")
             }
-            
         }
-        
     }
     
     @IBAction func doRegistration(_ sender: UIButton) {
@@ -71,7 +69,7 @@ class OPLoginMainViewController: UIViewController {
         
         SMSSDK.commitVerificationCode(securityCodeTextField.text, phoneNumber: mobilePhoneTextField.text, zone: "86") { (infor, error) in
             if (error == nil) {
-                print("验证成功")
+                print("success")
                 OPDataService.sharedInstance.userRegistration(username, email: email, pwd: password) { [weak self](success, error) in
                     if error != nil {
                         self?.showSaveRegistrationButton(true)
@@ -83,18 +81,21 @@ class OPLoginMainViewController: UIViewController {
                         }
                     }
                 }
-
+                
             }else{
-                print("验证失败")
+                print("failed")
             }
-
+            
         }
         showSaveRegistrationButton(false)
     }
     
+    
     @IBAction func doLogin(_ sender: UIButton) {
         if checkUsernamePassword() {
             guard let username = loginUsername.text, let password = loginPassword.text else { return }
+            let salt = Data(bytes: [0x73, 0x61, 0x6c, 0x74, 0x44, 0x61, 0x74, 0x61])
+            let _ = password.pbkdf2SHA256(password: password, salt: salt, keyByteCount: 16, rounds: SHA256Interation)
             showLoginButton(false)
             OPDataService.sharedInstance.userLogin("", email: username, pwd: password) { [weak self](success, error) in
                 if error != nil {
@@ -235,7 +236,6 @@ class OPLoginMainViewController: UIViewController {
                     }, completion: nil)
             }
         }
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -302,18 +302,6 @@ class OPLoginMainViewController: UIViewController {
         }
     }
     
-    func startLoadingAnimation(_ animationView: UIView?, isShow: Bool ) {
-        if isShow {
-            let animationFull : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-            animationFull.fromValue     = 0
-            animationFull.toValue       = 2*M_PI
-            animationFull.duration      = 1
-            animationFull.repeatCount   = Float.infinity
-            animationView?.layer.add(animationFull, forKey: "rotation")
-        } else {
-            animationView?.layer.removeAllAnimations()
-        }
-    }
     
     func showSaveRegistrationButton(_ isShow: Bool) {
         if !isShow {
@@ -325,11 +313,11 @@ class OPLoginMainViewController: UIViewController {
             }) { [weak self] (finished) in
                 self?.saveButton.isHidden = true
                 self?.loadingContainer.isHidden = false
-                self?.startLoadingAnimation(self?.loadingContainer,isShow: true)
+                self?.loadingContainer.startLoadingAnimation(true)
             }
         } else {
             saveButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-            startLoadingAnimation(loadingContainer,isShow: false)
+            loadingContainer.startLoadingAnimation(false)
             loadingContainer.isHidden = true
             UIView.animate(withDuration: 0.2, animations: {
                 [weak self] () -> Void in
@@ -349,11 +337,11 @@ class OPLoginMainViewController: UIViewController {
             }) { [weak self] (finished) in
                 self?.loginButton.isHidden = true
                 self?.loadingContainer.isHidden = false
-                self?.startLoadingAnimation(self?.loadingContainer,isShow: true)
+                self?.loadingContainer.startLoadingAnimation(true)
             }
         } else {
             loginButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-            startLoadingAnimation(loadingContainer,isShow: false)
+            loadingContainer.startLoadingAnimation(false)
             loadingContainer.isHidden = true
             UIView.animate(withDuration: 0.2, animations: {
                 [weak self] () -> Void in
@@ -379,9 +367,10 @@ extension OPLoginMainViewController: UITextFieldDelegate {
                 self?.password2Security.constant = 50
                 self?.view.layoutIfNeeded()
                 
-            }, completion: nil)
+                }, completion: nil)
             return true
         }
         return true
     }
 }
+

@@ -65,13 +65,13 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWC-4X-cr7">
-                                <rect key="frame" x="19" y="148" width="337.5" height="400"/>
+                                <rect key="frame" x="19" y="148" width="338" height="400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBk-pJ-i8h">
-                                        <rect key="frame" x="-0.5" y="5" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="5" width="338" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qWE-O9-atw" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="0.0" width="327.5" height="50"/>
+                                                <rect key="frame" x="10" y="0.0" width="328" height="50"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="yes"/>
@@ -93,13 +93,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSe-WF-ksI">
-                                        <rect key="frame" x="0.0" y="65" width="337.5" height="50"/>
+                                        <rect key="frame" x="0.0" y="65" width="338" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRj-oe-5hT">
-                                                <rect key="frame" x="0.0" y="0.0" width="337.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="338" height="50"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Security Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1El-Uc-7vo" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="0.0" width="202.5" height="50"/>
+                                                        <rect key="frame" x="10" y="0.0" width="203" height="50"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -111,7 +111,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyD-l5-loT">
-                                                        <rect key="frame" x="212.5" y="0.0" width="125" height="50"/>
+                                                        <rect key="frame" x="213" y="0.0" width="125" height="50"/>
                                                         <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" title="Security Code">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -144,10 +144,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jmA-wz-Gcx">
-                                        <rect key="frame" x="-0.5" y="65" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="65" width="338" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email or Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zzq-E1-VYU" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="0.0" width="327.5" height="50"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zzq-E1-VYU" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="0.0" width="328" height="50"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -169,10 +169,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Et6-2D-Bud">
-                                        <rect key="frame" x="-0.5" y="125" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="125" width="338" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLn-Me-3jg" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="0.0" width="327.5" height="50"/>
+                                                <rect key="frame" x="10" y="0.0" width="328" height="50"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
@@ -194,7 +194,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fyc-EN-9T7">
-                                        <rect key="frame" x="-0.5" y="195" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="195" width="338" height="50"/>
                                         <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Start Your Journey">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -204,13 +204,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an acccount?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5k-mc-v93">
-                                        <rect key="frame" x="58.5" y="245" width="219" height="50"/>
+                                        <rect key="frame" x="58.5" y="245" width="220" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEN-6A-PBz">
-                                        <rect key="frame" x="277.5" y="245" width="50" height="50"/>
+                                        <rect key="frame" x="278.5" y="245" width="50" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -250,13 +250,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mth-B3-W1h">
-                                <rect key="frame" x="19" y="204" width="337.5" height="400"/>
+                                <rect key="frame" x="19" y="204" width="338" height="400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFR-Sf-gnJ">
-                                        <rect key="frame" x="-0.5" y="10" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="10" width="338" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address or Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kVT-YB-8Xl" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
-                                                <rect key="frame" x="10.5" y="0.0" width="327" height="50"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kVT-YB-8Xl" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="0.0" width="328" height="50"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -278,10 +278,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6x-E6-pvL">
-                                        <rect key="frame" x="-0.5" y="70" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="70" width="338" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7RN-ay-f82" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
-                                                <rect key="frame" x="10.5" y="0.0" width="327" height="50"/>
+                                                <rect key="frame" x="10" y="0.0" width="328" height="50"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
@@ -303,7 +303,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeB-Ll-JsR">
-                                        <rect key="frame" x="-0.5" y="140" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="140" width="338" height="50"/>
                                         <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Log in">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -326,7 +326,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffc-nd-a5i">
-                                        <rect key="frame" x="201" y="185" width="126" height="50"/>
+                                        <rect key="frame" x="201.5" y="185" width="126" height="50"/>
                                         <state key="normal" title="Create an account">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -357,10 +357,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fva-NM-nVz">
-                                <rect key="frame" x="165.5" y="346.5" width="45" height="45"/>
+                                <rect key="frame" x="165" y="347" width="45" height="45"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_loading" translatesAutoresizingMaskIntoConstraints="NO" id="fGo-G7-gmx">
-                                        <rect key="frame" x="0.5" y="0.5" width="45" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
                                         <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
@@ -470,14 +470,14 @@
                                     <constraint firstAttribute="width" constant="64" id="VtY-eE-viS"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEA-Qr-j6k">
-                                <rect key="frame" x="18.5" y="148" width="337.5" height="400"/>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEA-Qr-j6k">
+                                <rect key="frame" x="19" y="148" width="337" height="400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ll1-5f-5mT">
-                                        <rect key="frame" x="-0.5" y="5" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="5" width="337" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GBd-8g-S0j" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
-                                                <rect key="frame" x="10.5" y="0.0" width="327" height="50"/>
+                                                <rect key="frame" x="10" y="0.0" width="327" height="50"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -499,14 +499,14 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkF-bG-ViE">
-                                        <rect key="frame" x="-0.5" y="65" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="65" width="337" height="50"/>
                                         <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Send">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkT-8Y-up7">
-                                        <rect key="frame" x="0.0" y="185" width="337.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="185" width="337" height="30"/>
                                         <state key="normal" title="Use a phone number instead">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -530,16 +530,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCL-86-N5G">
-                                <rect key="frame" x="19" y="148" width="337.5" height="400"/>
+                                <rect key="frame" x="19.5" y="148" width="337" height="400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ir2-Nh-3bt">
-                                        <rect key="frame" x="-0.5" y="5" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="5" width="337" height="50"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3h-6A-9tY" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
-                                                <rect key="frame" x="10.5" y="0.0" width="327" height="50"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3h-6A-9tY" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="0.0" width="327" height="50"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                         <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -558,13 +558,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K29-vg-ZhH">
-                                        <rect key="frame" x="-0.5" y="65" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="65" width="337" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Security Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pib-ro-Xpt" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="0.0" width="202.5" height="50"/>
+                                                <rect key="frame" x="10" y="0.0" width="202" height="50"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                         <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -573,7 +573,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEk-pt-dTJ">
-                                                <rect key="frame" x="212.5" y="0.0" width="125" height="50"/>
+                                                <rect key="frame" x="212" y="0.0" width="125" height="50"/>
                                                 <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Security Code">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -593,10 +593,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAx-a3-nU5">
-                                        <rect key="frame" x="0.0" y="125" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="65" width="337" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HXm-8r-2IR" customClass="OPTextField" customModule="OnlinePlanting" customModuleProvider="target">
-                                                <rect key="frame" x="10.5" y="0.0" width="327" height="50"/>
+                                                <rect key="frame" x="10" y="0.0" width="327" height="50"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -617,41 +617,50 @@
                                             <constraint firstAttribute="trailing" secondItem="HXm-8r-2IR" secondAttribute="trailing" id="xLZ-TO-qV1"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDQ-gK-yE8">
-                                        <rect key="frame" x="91" y="255" width="156" height="30"/>
-                                        <state key="normal" title="Use your email instead">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="phoneChange:" destination="g3t-ib-fxC" eventType="touchUpInside" id="zHq-Mc-df4"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdY-gx-OF9">
-                                        <rect key="frame" x="-0.5" y="185" width="337.5" height="50"/>
+                                        <rect key="frame" x="-0.5" y="125" width="337" height="50"/>
                                         <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Send">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendNewPassword:" destination="g3t-ib-fxC" eventType="touchUpInside" id="c0a-Gm-eOH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="ir2-Nh-3bt" firstAttribute="centerX" secondItem="dCL-86-N5G" secondAttribute="centerX" id="0sS-K8-VcF"/>
                                     <constraint firstItem="uAx-a3-nU5" firstAttribute="width" secondItem="K29-vg-ZhH" secondAttribute="width" id="2uq-qy-YYd"/>
                                     <constraint firstItem="ir2-Nh-3bt" firstAttribute="width" secondItem="dCL-86-N5G" secondAttribute="width" id="4Iq-Xy-jbL"/>
-                                    <constraint firstItem="bDQ-gK-yE8" firstAttribute="centerX" secondItem="uAx-a3-nU5" secondAttribute="centerX" id="62q-ax-XKr"/>
                                     <constraint firstItem="ZdY-gx-OF9" firstAttribute="centerX" secondItem="dCL-86-N5G" secondAttribute="centerX" id="9PZ-pa-9Et"/>
                                     <constraint firstAttribute="height" constant="400" id="MuF-i7-pBi"/>
+                                    <constraint firstItem="uAx-a3-nU5" firstAttribute="top" secondItem="K29-vg-ZhH" secondAttribute="top" id="NFb-Wp-ogL"/>
                                     <constraint firstItem="ir2-Nh-3bt" firstAttribute="top" secondItem="dCL-86-N5G" secondAttribute="top" constant="5" id="RGf-Us-4XX"/>
                                     <constraint firstItem="K29-vg-ZhH" firstAttribute="height" secondItem="ir2-Nh-3bt" secondAttribute="height" id="Sou-mk-iUJ"/>
-                                    <constraint firstItem="uAx-a3-nU5" firstAttribute="top" secondItem="K29-vg-ZhH" secondAttribute="bottom" constant="10" id="U6B-hd-QaX"/>
                                     <constraint firstItem="K29-vg-ZhH" firstAttribute="width" secondItem="ir2-Nh-3bt" secondAttribute="width" id="UUb-Fc-UZy"/>
                                     <constraint firstItem="ZdY-gx-OF9" firstAttribute="top" secondItem="uAx-a3-nU5" secondAttribute="bottom" constant="10" id="WwJ-Oc-Yb1"/>
+                                    <constraint firstItem="K29-vg-ZhH" firstAttribute="top" secondItem="ir2-Nh-3bt" secondAttribute="bottom" constant="10" id="bNl-PP-6JD"/>
                                     <constraint firstItem="ZdY-gx-OF9" firstAttribute="height" secondItem="q3h-6A-9tY" secondAttribute="height" id="bj4-df-fZZ"/>
                                     <constraint firstItem="uAx-a3-nU5" firstAttribute="centerX" secondItem="dCL-86-N5G" secondAttribute="centerX" id="kgc-Ku-i8e"/>
-                                    <constraint firstItem="bDQ-gK-yE8" firstAttribute="top" secondItem="ZdY-gx-OF9" secondAttribute="bottom" constant="20" id="lBB-kr-hgg"/>
                                     <constraint firstItem="K29-vg-ZhH" firstAttribute="centerX" secondItem="dCL-86-N5G" secondAttribute="centerX" id="oqb-V8-NSq"/>
-                                    <constraint firstItem="K29-vg-ZhH" firstAttribute="top" secondItem="ir2-Nh-3bt" secondAttribute="bottom" constant="10" id="vRy-bt-2cq"/>
                                     <constraint firstItem="ZdY-gx-OF9" firstAttribute="width" secondItem="dCL-86-N5G" secondAttribute="width" id="ye8-l7-o2Q"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edK-Ai-CdL">
+                                <rect key="frame" x="162.5" y="273" width="50" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_loading" translatesAutoresizingMaskIntoConstraints="NO" id="kom-F5-icw">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="kom-F5-icw" firstAttribute="centerY" secondItem="edK-Ai-CdL" secondAttribute="centerY" id="M0J-AA-ttt"/>
+                                    <constraint firstItem="kom-F5-icw" firstAttribute="centerX" secondItem="edK-Ai-CdL" secondAttribute="centerX" id="Q4h-1I-eiQ"/>
+                                    <constraint firstAttribute="width" secondItem="edK-Ai-CdL" secondAttribute="height" multiplier="1:1" id="WVB-O4-z9Q"/>
+                                    <constraint firstItem="kom-F5-icw" firstAttribute="height" secondItem="edK-Ai-CdL" secondAttribute="height" id="nWO-5K-yRw"/>
+                                    <constraint firstItem="kom-F5-icw" firstAttribute="width" secondItem="edK-Ai-CdL" secondAttribute="width" id="uFV-GF-z5y"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -661,12 +670,16 @@
                             <constraint firstItem="BUr-9O-ek1" firstAttribute="bottom" secondItem="CEA-Qr-j6k" secondAttribute="top" id="74E-ve-H27"/>
                             <constraint firstItem="Ja3-pr-KhZ" firstAttribute="height" secondItem="pif-p8-qAN" secondAttribute="height" id="EIm-rz-cV5"/>
                             <constraint firstItem="CEA-Qr-j6k" firstAttribute="width" secondItem="KaR-cK-Lm2" secondAttribute="width" multiplier="0.9" id="Enj-YI-Gtx"/>
+                            <constraint firstItem="edK-Ai-CdL" firstAttribute="height" secondItem="ZdY-gx-OF9" secondAttribute="height" id="Pah-8u-fIl"/>
                             <constraint firstItem="pif-p8-qAN" firstAttribute="width" secondItem="KaR-cK-Lm2" secondAttribute="width" id="R5Y-Qk-2Bs"/>
                             <constraint firstItem="dCL-86-N5G" firstAttribute="top" secondItem="7Vb-Rz-i27" secondAttribute="bottom" constant="128" id="T4p-FT-Kmg"/>
                             <constraint firstItem="pif-p8-qAN" firstAttribute="centerX" secondItem="KaR-cK-Lm2" secondAttribute="centerX" id="TcB-O0-3Kq"/>
                             <constraint firstItem="CEA-Qr-j6k" firstAttribute="centerX" secondItem="KaR-cK-Lm2" secondAttribute="centerX" id="ULf-gD-4pI"/>
+                            <constraint firstItem="edK-Ai-CdL" firstAttribute="width" secondItem="edK-Ai-CdL" secondAttribute="height" id="YT3-i4-IVJ"/>
                             <constraint firstItem="iUV-Mj-8aI" firstAttribute="leading" secondItem="KaR-cK-Lm2" secondAttribute="leadingMargin" constant="10" id="e3a-3b-Hcl"/>
+                            <constraint firstItem="edK-Ai-CdL" firstAttribute="centerX" secondItem="ZdY-gx-OF9" secondAttribute="centerX" id="krb-Us-lCK"/>
                             <constraint firstItem="dCL-86-N5G" firstAttribute="centerX" secondItem="KaR-cK-Lm2" secondAttribute="centerX" id="liU-Dn-gOC"/>
+                            <constraint firstItem="edK-Ai-CdL" firstAttribute="centerY" secondItem="ZdY-gx-OF9" secondAttribute="centerY" id="n9l-ub-L9k"/>
                             <constraint firstItem="BUr-9O-ek1" firstAttribute="centerX" secondItem="KaR-cK-Lm2" secondAttribute="centerX" id="nfl-Km-1Pj"/>
                             <constraint firstItem="Ja3-pr-KhZ" firstAttribute="centerY" secondItem="KaR-cK-Lm2" secondAttribute="centerY" id="olf-YV-4yc"/>
                             <constraint firstItem="iUV-Mj-8aI" firstAttribute="top" secondItem="7Vb-Rz-i27" secondAttribute="bottom" id="pEU-jn-dJV"/>
@@ -679,7 +692,14 @@
                     </view>
                     <connections>
                         <outlet property="emailContainerView" destination="CEA-Qr-j6k" id="V7f-xy-SFX"/>
+                        <outlet property="loadingContainer" destination="edK-Ai-CdL" id="JEK-cq-bP8"/>
+                        <outlet property="newPassword" destination="uAx-a3-nU5" id="kHB-D7-oUt"/>
+                        <outlet property="passwordToSecurity" destination="NFb-Wp-ogL" id="Nb5-Ac-egQ"/>
                         <outlet property="phoneContainerView" destination="dCL-86-N5G" id="97c-bt-tZa"/>
+                        <outlet property="phoneNumber" destination="ir2-Nh-3bt" id="hQE-NG-87s"/>
+                        <outlet property="phoneTextfield" destination="q3h-6A-9tY" id="hwN-Zb-Mid"/>
+                        <outlet property="securityCode" destination="K29-vg-ZhH" id="Sbm-XO-RWN"/>
+                        <outlet property="sendButton" destination="ZdY-gx-OF9" id="3vN-Cm-iff"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KPN-at-f52" userLabel="First Responder" sceneMemberID="firstResponder"/>

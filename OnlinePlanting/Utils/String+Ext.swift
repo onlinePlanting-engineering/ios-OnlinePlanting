@@ -41,4 +41,34 @@ extension String {
     func PhoneNumberIsValidated() -> Bool {
         return ValidateText(validatedType: ValidatedType.PhoneNumber, validateString: self)
     }
+    
+    func pbkdf2SHA256(password: String, salt: Data, keyByteCount: Int, rounds: Int) -> Data? {
+        
+        func pbkdf2(hash :CCPBKDFAlgorithm, password: String, salt: Data, keyByteCount: Int, rounds: Int) -> Data? {
+            let passwordData = password.data(using:String.Encoding.utf8)!
+            var derivedKeyData = Data(repeating:0, count:keyByteCount)
+            
+            let derivationStatus = derivedKeyData.withUnsafeMutableBytes {derivedKeyBytes in
+                salt.withUnsafeBytes { saltBytes in
+                    
+                    CCKeyDerivationPBKDF(
+                        CCPBKDFAlgorithm(kCCPBKDF2),
+                        password, passwordData.count,
+                        saltBytes, salt.count,
+                        hash,
+                        UInt32(rounds),
+                        derivedKeyBytes, derivedKeyData.count)
+                }
+            }
+            if (derivationStatus != 0) {
+                print("Error: \(derivationStatus)")
+                return nil
+            }
+            
+            return derivedKeyData
+        }
+
+        return pbkdf2(hash:CCPBKDFAlgorithm(kCCPRFHmacAlgSHA256), password:password, salt:salt, keyByteCount:keyByteCount, rounds:rounds)
+    }
+    
 }

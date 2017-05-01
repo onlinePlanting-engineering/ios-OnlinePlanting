@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-            timestampString = "515265421.521628"
+            timestampString = "515295868.619303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "380"
-            endingLineNumber = "380"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
             landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
             landmarkType = "7">
             <Locations>
@@ -106,12 +106,12 @@
                   moduleName = "OnlinePlanting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ibm/Documents/PersonalProject/OnlinePlanting/OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-                  timestampString = "515265422.783442"
+                  timestampString = "515296199.390477"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "380"
-                  endingLineNumber = "380"
-                  offsetFromSymbolStart = "1183">
+                  startingLineNumber = "366"
+                  endingLineNumber = "366"
+                  offsetFromSymbolStart = "928">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -121,12 +121,12 @@
                   moduleName = "OnlinePlanting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ibm/Documents/PersonalProject/OnlinePlanting/OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-                  timestampString = "515265422.786083"
+                  timestampString = "515296199.392074"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "380"
-                  endingLineNumber = "380"
-                  offsetFromSymbolStart = "4">
+                  startingLineNumber = "366"
+                  endingLineNumber = "366"
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-            timestampString = "515264960.076902"
+            timestampString = "515291528.070257"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "getMSMSecurityCode(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,27 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-            timestampString = "515265397.077463"
+            timestampString = "515294695.931193"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "doRegistration(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-            timestampString = "515265398.548819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "doRegistration(_:)"
             landmarkType = "7">
          </BreakpointContent>
