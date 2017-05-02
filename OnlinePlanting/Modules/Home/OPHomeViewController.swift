@@ -9,6 +9,22 @@
 import UIKit
 
 class OPHomeViewController: UIViewController {
+    
+    @IBOutlet weak var user: UIImageView!
+    
+    @IBAction func updateProfile(_ sender: UIButton) {
+        let nickname = "Alex"
+        let gender = 1
+        let address = "Ningbo, Zhe Jiang"
+        let image = user.image
+        OPDataService.sharedInstance.updateUserProfile(nickname, address: address, gender: gender, headImage: image) { (success, error) in
+            if success {
+                print("success")
+            } else {
+                print("failed")
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

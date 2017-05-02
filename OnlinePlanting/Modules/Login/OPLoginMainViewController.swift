@@ -19,6 +19,7 @@ enum OPTextFieldType: String {
 }
 
 import UIKit
+import CoreData
 
 class OPLoginMainViewController: UIViewController {
     
@@ -91,18 +92,26 @@ class OPLoginMainViewController: UIViewController {
     
     @IBAction func doLogin(_ sender: UIButton) {
         if checkUsernamePassword() {
-            guard let username = loginUsername.text, let password = loginPassword.text else { return }
+            //guard let username = loginUsername.text, let password = loginPassword.text else { return }
             //let salt = Data(bytes: [0x73, 0x61, 0x6c, 0x74, 0x44, 0x61, 0x74, 0x61])
             //let _ = password.pbkdf2SHA256(password: password, salt: salt, keyByteCount: 16, rounds: SHA256Interation)
             showLoginButton(false)
-            OPDataService.sharedInstance.userLogin(username, pwd: password) { [weak self](success, error) in
+            OPDataService.sharedInstance.userLogin(loginUsername.text, pwd: loginPassword.text) { [weak self](success, error) in
                 if error != nil {
                     self?.showLoginButton(true)
                 } else {
                     if success {
                     //TOTO: LOGIN SUCCESS
                     print("login success")
-                    
+                    OPDataService.sharedInstance.getUserProfile(handler: { [weak self] (success, error) in
+                        if success {
+                            self?.loginSuccess()
+                            
+                        } else {
+                            print("get failed")
+                        }
+                    })
+                    //self?.loginSuccess()
                     } else {
                         self?.showLoginButton(true)
                         let image = UIImage.init(named: "toast_password")
@@ -115,6 +124,19 @@ class OPLoginMainViewController: UIViewController {
             let image = UIImage.init(named: "toast_password")
             OPToastWindow.show(image, title: "请检查您的用户名或者密码", content: hitMessage)
         }
+    }
+    
+    func fetchCurrentObjects() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        let user = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [User]
+        print("user information is: \(user[0].profile)")
+        
+    }
+    
+    func loginSuccess() {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "LoginSuccess"), object: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     

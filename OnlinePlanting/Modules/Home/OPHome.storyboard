@@ -20,15 +20,43 @@
                     <view key="view" contentMode="scaleToFill" id="3q3-Ta-stu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="RkO-9O-m0X">
+                                <rect key="frame" x="155.5" y="80" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="Ovz-eh-wDH"/>
+                                    <constraint firstAttribute="height" constant="64" id="sNR-8q-OfO"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ery-Tq-NHM">
+                                <rect key="frame" x="164" y="202" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="updateProfile:" destination="hJ2-w3-14s" eventType="touchUpInside" id="Eef-2c-dKe"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.27058823529999998" green="0.47843137250000001" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ery-Tq-NHM" firstAttribute="centerX" secondItem="RkO-9O-m0X" secondAttribute="centerX" id="Dpx-Gj-qPr"/>
+                            <constraint firstItem="RkO-9O-m0X" firstAttribute="top" secondItem="na5-QQ-fbu" secondAttribute="bottom" constant="16" id="Sac-6L-hLf"/>
+                            <constraint firstItem="RkO-9O-m0X" firstAttribute="centerX" secondItem="3q3-Ta-stu" secondAttribute="centerX" id="ijj-5u-pQB"/>
+                            <constraint firstItem="ery-Tq-NHM" firstAttribute="top" secondItem="RkO-9O-m0X" secondAttribute="bottom" constant="58" id="mwE-ND-Lsh"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="uL6-2I-AJl" userLabel="Home"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="user" destination="RkO-9O-m0X" id="9hj-Tv-Gq3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLn-fz-skq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="15" y="-18"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="60" height="60"/>
+    </resources>
 </document>

@@ -32,16 +32,23 @@ class Networking {
         }
     }
     
-    var token: String {
-        get {
-            return self.token
-        }
-    }
+    lazy var token: String? = {
+        let token = UserDefaults.standard.value(forKey: "token") as? String
+        return token
+    }()
 }
 
 extension Networking {
     
-    func configHeaders() -> [String : String]? {
+    func isLoginOrRegisterAPI(_ api: String) -> Bool {
+        if api == WebServiceAPIMapping.UserLogin.rawValue || api == WebServiceAPIMapping.UserRegistraion.rawValue {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func initialHeaders() -> [String : String]? {
         let headers = [
             "Allow": "POST,OPTIONS",
             "Content-Type": "application/json"
@@ -49,20 +56,31 @@ extension Networking {
         return headers
     }
     
-    func authedHeaders() -> [String : String]? {
+    func getHeaders() -> [String : String]? {
+        guard let unwrapToken = token else { return nil }
         let headers = [
-        "Authorization": "Token \(token)"
+        "Authorization": "Token \(unwrapToken)"
         ]
         return headers
     }
     
+    func updatedHeaders() -> [String : String]? {
+        guard let unwrapToken = token else { return nil }
+        let headers = [
+            "Content-Type":"multipart/form-data",
+            "Authorization": "Token \(unwrapToken)"
+        ]
+        return headers
+    }
+
+    
     //POST request
-    func postRequest(urlString : String, params : [String : Any], success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()) {
+    func postRequest(urlString : String, params : [String : Any], success : @escaping (_ response : [String : Any])->(), failture : @escaping (_ error : Error)->()) {
         
         Alamofire.request(urlString, method: HTTPMethod.post, parameters: params).responseJSON { (response) in
             switch response.result{
             case .success:
-                if let value = response.result.value as? [String: AnyObject] {
+                if let value = response.result.value as? [String: Any] {
                     success(value)
                     let json = JSON(value)
                     print(json)

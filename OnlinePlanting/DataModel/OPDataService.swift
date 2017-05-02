@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Sync
 
 class OPDataService: NSObject {
     
@@ -18,7 +19,7 @@ class OPDataService: NSObject {
         return Static.instance
     }
     
-    func userRegistration(_ username: String, pwd: String, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+    func userRegistration(_ username: String?, pwd: String?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         Networking.shareInstance.userRegister(username, password: pwd) { (success, json, error) in
             if success {
                 print("json is: \(json)")
@@ -29,16 +30,50 @@ class OPDataService: NSObject {
         }
     }
     
-    func userLogin(_ username: String, pwd: String, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+    func userLogin(_ username: String?, pwd: String?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         Networking.shareInstance.userLogin(username, password: pwd) { (success, json, error) in
             if success {
-                guard let token = json?["token"] else { handler(false, nil)
-                    return}
-                UserDefaults.standard.set(token, forKey: "token")
-                handler(true, nil)
+                guard let token = json?["token"].string else { handler(false, nil)
+                    return }
+                if token != "" {
+                    UserDefaults.standard.set(token, forKey: "token")
+                    UserDefaults.standard.synchronize()
+                    handler(true, nil)
+                } else {
+                    handler(false, nil)
+                }
             } else {
                 handler(false, error)
             }
+        }
+    }
+    
+    func getUserProfile(handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.getUserProfile() { (success, json, error) in
+            if success {
+                guard let data = json?.dictionaryObject?["data"] as? [String: Any] else { return }
+                Sync.changes([data], inEntityNamed: "User", dataStack: appDelegate.dataStack) { error in
+                    appDelegate.currentUser = data as? User
+                    handler(true, nil)
+                }
+            } else {
+                handler(false, error)
+            }
+        }
+    }
+    
+    func updateUserProfile(_ nickname: String?, address: String?, gender: Int?, headImage: UIImage?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.updateUserProfile(nickname, address: address, gender: gender, image: headImage) { (success, json, error) in
+            if success {
+                guard let data = json?.dictionaryObject?["data"] as? [String: Any] else { return }
+                print(data)
+//                Sync.changes([data], inEntityNamed: "User", dataStack: appDelegate.dataStack) { error in
+                    handler(true, nil)
+//                }
+            } else {
+                handler(false, error)
+            }
+
         }
     }
 
