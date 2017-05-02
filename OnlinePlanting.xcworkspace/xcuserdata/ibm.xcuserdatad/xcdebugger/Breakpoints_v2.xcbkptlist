@@ -89,61 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-            timestampString = "515295868.619303"
+            filePath = "OnlinePlanting/Networking/NetworkingAPIs.swift"
+            timestampString = "515417254.137783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
-            landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OnlinePlanting.OPLoginMainViewController.textField (__ObjC.UITextField, shouldChangeCharactersIn : __C._NSRange, replacementString : Swift.String) -&gt; Swift.Bool"
-                  moduleName = "OnlinePlanting"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ibm/Documents/PersonalProject/OnlinePlanting/OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-                  timestampString = "515296199.390477"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "366"
-                  endingLineNumber = "366"
-                  offsetFromSymbolStart = "928">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OnlinePlanting.OPLoginMainViewController.(textField (__ObjC.UITextField, shouldChangeCharactersIn : __C._NSRange, replacementString : Swift.String) -&gt; Swift.Bool).(closure #1)"
-                  moduleName = "OnlinePlanting"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ibm/Documents/PersonalProject/OnlinePlanting/OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-                  timestampString = "515296199.392074"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "366"
-                  endingLineNumber = "366"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-            timestampString = "515291528.070257"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "getMSMSecurityCode(_:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "syncWithAppServer(_:params:handler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,28 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-            timestampString = "515264962.304319"
+            timestampString = "515417881.509466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "getMSMSecurityCode(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnlinePlanting/Modules/Login/OPLoginMainViewController.swift"
-            timestampString = "515294695.931193"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "doRegistration(_:)"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "doLogin(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

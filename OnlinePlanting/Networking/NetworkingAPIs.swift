@@ -12,12 +12,12 @@ import Alamofire
 
 extension Networking {
     
-    func userRegister(_ username: String, emailaddress: String, password: String, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
-        _ = syncWithAppServer(.UserRegistraion, params: ["username": username,"email":emailaddress, "email2": emailaddress, "password": password], handler: handler)
+    func userRegister(_ username: String,password: String, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
+        _ = syncWithAppServer(.UserRegistraion, params: ["username": username,"password": password], handler: handler)
     }
     
-    func userLogin(_ username: String, emailaddress: String, password: String, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
-        _ = syncWithAppServer(.UserLogin, params: ["username": username,"email":emailaddress, "password": password], handler: handler)
+    func userLogin(_ username: String, password: String, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
+        _ = syncWithAppServer(.UserLogin, params: ["username": username,"password": password], handler: handler)
     }
     
     fileprivate func syncWithAppServer(_ apiMapping: WebServiceAPIMapping, params:[String: String]? = nil,handler: @escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) -> DataRequest? {

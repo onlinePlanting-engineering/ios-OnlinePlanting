@@ -47,14 +47,13 @@ class OPChangePasswordViewController: UIViewController {
         super.viewDidLoad()
         
         prepareUI()
-        // Do any additional setup after loading the view.
     }
     
     func prepareUI() {
         loadingContainer.layer.cornerRadius = loadingContainer.bounds.height / 2
         loadingContainer.layer.masksToBounds = true
         loadingContainer.isHidden = true
-        phoneTextfield.addTarget(self, action: #selector(mobilePhonetextFieldDidChange), for: .editingChanged)
+//        phoneTextfield.addTarget(self, action: #selector(mobilePhonetextFieldDidChange), for: .editingChanged)
     }
     
     func mobilePhonetextFieldDidChange() {

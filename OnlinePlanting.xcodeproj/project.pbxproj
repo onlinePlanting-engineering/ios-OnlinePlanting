@@ -23,6 +23,8 @@
 		188A5ED11EAE2CE3006CE839 /* OnlinePlantingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */; };
 		18B2822D1EB6B6C600010595 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B2822C1EB6B6C600010595 /* Security.framework */; };
 		18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2822E1EB6C82800010595 /* UIView+Ext.swift */; };
+		18B282311EB7147D00010595 /* SMSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B282301EB7147D00010595 /* SMSUtils.swift */; };
+		18B282331EB85D6300010595 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B282321EB85D6300010595 /* Common.swift */; };
 		18C1E6521EB62C0F001D611B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6511EB62C0F001D611B /* libz.tbd */; };
 		18C1E6541EB62C1E001D611B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6531EB62C1E001D611B /* libicucore.tbd */; };
 		18C1E6561EB62C28001D611B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6551EB62C28001D611B /* MessageUI.framework */; };
@@ -93,6 +95,8 @@
 		18B2822B1EB64EC000010595 /* OnlinePlanting-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnlinePlanting-Bridging-Header.h"; sourceTree = "<group>"; };
 		18B2822C1EB6B6C600010595 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		18B2822E1EB6C82800010595 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		18B282301EB7147D00010595 /* SMSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSUtils.swift; sourceTree = "<group>"; };
+		18B282321EB85D6300010595 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		18C1E6511EB62C0F001D611B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		18C1E6531EB62C1E001D611B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		18C1E6551EB62C28001D611B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -349,6 +353,8 @@
 				183D828A1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift */,
 				183D828C1EB64C3000B9F028 /* UIColor+Ext.swift */,
 				18B2822E1EB6C82800010595 /* UIView+Ext.swift */,
+				18B282301EB7147D00010595 /* SMSUtils.swift */,
+				18B282321EB85D6300010595 /* Common.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -571,9 +577,11 @@
 				18C1F0561EB63E0E001D611B /* OPTextField.swift in Sources */,
 				183D828B1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift in Sources */,
 				18C1F0671EB63E0E001D611B /* OPVegetableListViewController.swift in Sources */,
+				18B282331EB85D6300010595 /* Common.swift in Sources */,
 				18C1F0631EB63E0E001D611B /* OPMeViewController.swift in Sources */,
 				18C1F0591EB63E0E001D611B /* OPDataService.swift in Sources */,
 				18C1F05C1EB63E0E001D611B /* OPHomeViewController.swift in Sources */,
+				18B282311EB7147D00010595 /* SMSUtils.swift in Sources */,
 				183D828D1EB64C3000B9F028 /* UIColor+Ext.swift in Sources */,
 				18C1F0691EB63E0E001D611B /* NetworkingAPIMapping.swift in Sources */,
 				18C1F0611EB63E0E001D611B /* OPLoginMainViewController.swift in Sources */,

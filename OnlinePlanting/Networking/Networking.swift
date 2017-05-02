@@ -31,6 +31,12 @@ class Networking {
             return "http://dry-shore-37942.herokuapp.com"
         }
     }
+    
+    var token: String {
+        get {
+            return self.token
+        }
+    }
 }
 
 extension Networking {
@@ -39,6 +45,13 @@ extension Networking {
         let headers = [
             "Allow": "POST,OPTIONS",
             "Content-Type": "application/json"
+        ]
+        return headers
+    }
+    
+    func authedHeaders() -> [String : String]? {
+        let headers = [
+        "Authorization": "Token \(token)"
         ]
         return headers
     }

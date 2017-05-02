@@ -18,12 +18,14 @@ var appDelegate: AppDelegate {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-
+    var isLogin = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         SMSSDK.registerApp("1d75ef2990800", withSecret: "e417f1d73f075effd2f4e7a048afbb7c")
+        
+        
         //SMSSDK.enableAppContactFriends(false)
         return true
     }

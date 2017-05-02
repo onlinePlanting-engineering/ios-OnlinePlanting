@@ -25,8 +25,6 @@ class OPLoginMainViewController: UIViewController {
     
     //Register
     @IBOutlet weak var backGroundImage: UIImageView!
-    @IBOutlet weak var usernameView: UIView!
-    @IBOutlet weak var usernameTextField: OPTextField!
     @IBOutlet weak var mobilePhoneTextField: OPTextField!
     @IBOutlet weak var mobilePhoneView: UIView!
     @IBOutlet weak var passwordView: UIView!
@@ -36,7 +34,8 @@ class OPLoginMainViewController: UIViewController {
     @IBOutlet weak var loginContainerView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loadingContainer: UIView!
-    fileprivate var pageStatus: PageStatusType = .signUp
+    @IBOutlet weak var getSecurityButton: UIButton!
+    fileprivate var pageStatus: PageStatusType = .signIn
     fileprivate var hitMessage = ""
     fileprivate var isMobilePhone = false
     fileprivate let SHA256Interation = 360000
@@ -53,29 +52,30 @@ class OPLoginMainViewController: UIViewController {
     
     @IBAction func getMSMSecurityCode(_ sender: UIButton) {
         
-        SMSSDK.getVerificationCode(by: SMSGetCodeMethodSMS, phoneNumber: mobilePhoneTextField.text, zone: "86", customIdentifier: nil) { (error) in
-            if (error == nil) {
-                print("send Success,please waiting～")
-            } else {
-                print("request failed")
+        SMSUtils.getVerificationCode(mobilePhoneTextField.text) { (success) in
+            if success {
+                //TODO: count down logic
+            } else{
+                //TODO: send again logic
             }
         }
+        
+        let timer = OPCountDown(button: getSecurityButton, defaultCol: UIColor.white, dynamicCol: UIColor.darkGray)
+        timer.isCounting = true
     }
     
     @IBAction func doRegistration(_ sender: UIButton) {
-        let email = "alex_decimal@126.com"
-        let username = "Alex_BlackMamba"
-        let password = "passw0rd"
-        
-        SMSSDK.commitVerificationCode(securityCodeTextField.text, phoneNumber: mobilePhoneTextField.text, zone: "86") { (infor, error) in
-            if (error == nil) {
-                print("success")
-                OPDataService.sharedInstance.userRegistration(username, email: email, pwd: password) { [weak self](success, error) in
+        SMSUtils.commitVerificationCode(securityCodeTextField.text, phoneNumber: mobilePhoneTextField.text, handler: { [weak self] (success) in
+            if success {
+                guard let username = self?.mobilePhoneTextField.text, let password = self?.passwordTextField.text else { return }
+                OPDataService.sharedInstance.userRegistration(username, pwd: password) { [weak self](regSuccess, error) in
                     if error != nil {
                         self?.showSaveRegistrationButton(true)
+                        //TODO:popup sign up failed
                     } else {
-                        if success {
-                            
+                        if regSuccess {
+                            //TODO: go to signed in status
+                            print("sign up success")
                         } else {
                             self?.showSaveRegistrationButton(true)
                         }
@@ -83,26 +83,26 @@ class OPLoginMainViewController: UIViewController {
                 }
                 
             }else{
-                print("failed")
+                self?.showSaveRegistrationButton(false)
+                //TODO:popup code verification failed message
             }
-            
-        }
-        showSaveRegistrationButton(false)
+        })
     }
-    
     
     @IBAction func doLogin(_ sender: UIButton) {
         if checkUsernamePassword() {
             guard let username = loginUsername.text, let password = loginPassword.text else { return }
-            let salt = Data(bytes: [0x73, 0x61, 0x6c, 0x74, 0x44, 0x61, 0x74, 0x61])
-            let _ = password.pbkdf2SHA256(password: password, salt: salt, keyByteCount: 16, rounds: SHA256Interation)
+            //let salt = Data(bytes: [0x73, 0x61, 0x6c, 0x74, 0x44, 0x61, 0x74, 0x61])
+            //let _ = password.pbkdf2SHA256(password: password, salt: salt, keyByteCount: 16, rounds: SHA256Interation)
             showLoginButton(false)
-            OPDataService.sharedInstance.userLogin("", email: username, pwd: password) { [weak self](success, error) in
+            OPDataService.sharedInstance.userLogin(username, pwd: password) { [weak self](success, error) in
                 if error != nil {
                     self?.showLoginButton(true)
                 } else {
                     if success {
-                        
+                    //TOTO: LOGIN SUCCESS
+                    print("login success")
+                    
                     } else {
                         self?.showLoginButton(true)
                         let image = UIImage.init(named: "toast_password")
@@ -143,13 +143,13 @@ class OPLoginMainViewController: UIViewController {
                 return false
             }
         } else {
-            if pageStatus == .signIn {
-                if usernameTextField.text == "" || usernameTextField.text == nil {
-                    hitMessage = "Please input your user name"
-                    errorCount += 1
-                }
+            if pageStatus == .signUp {
                 if mobilePhoneTextField.text == "" || mobilePhoneTextField.text == nil {
                     hitMessage = "Please input your email address or phone number"
+                    errorCount += 1
+                }
+                if securityCodeTextField.text == "" || securityCodeTextField.text == nil {
+                    hitMessage = "Please input your security code"
                     errorCount += 1
                 }
                 if passwordTextField.text == "" || passwordTextField.text == nil {
@@ -202,7 +202,7 @@ class OPLoginMainViewController: UIViewController {
     }
     
     func prepareUI() {
-        loginContainerView.alpha = 0
+        registerContainerView.alpha = 0
         
         loadingContainer.isHidden = true
         loadingContainer.layer.cornerRadius = loadingContainer.bounds.height / 2
@@ -210,11 +210,10 @@ class OPLoginMainViewController: UIViewController {
         
         navigationItem.title = "Sign Up"
         
-        usernameTextField.customType = OPTextFieldType.username.rawValue
         mobilePhoneTextField.customType = OPTextFieldType.emailaddress.rawValue
         mobilePhoneTextField.customType = OPTextFieldType.password.rawValue
-        mobilePhoneTextField.addTarget(self, action: #selector(mobilePhonetextFieldDidChange), for: .editingChanged)
-        mobilePhoneTextField.delegate = self
+        //        mobilePhoneTextField.addTarget(self, action: #selector(mobilePhonetextFieldDidChange), for: .editingChanged)
+        //        mobilePhoneTextField.delegate = self
     }
     
     func mobilePhonetextFieldDidChange() {
@@ -252,9 +251,10 @@ class OPLoginMainViewController: UIViewController {
         pageStatus = .signIn
         navigationItem.title = "Sign In"
         registerContainerView.alpha = 0.0
-        loginContainerView.alpha = 1.0
+        loginContainerView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         UIView.animate(withDuration: 0.65, animations: {[weak self] in
-            self?.loginContainerView.transform = CGAffineTransform.init(translationX: 0, y: -53)
+            self?.loginContainerView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self?.loginContainerView.alpha = 1.0
             self?.loadingContainer.transform = CGAffineTransform.init(translationX: 0, y: -53)
             }, completion: nil)
     }
@@ -269,18 +269,12 @@ class OPLoginMainViewController: UIViewController {
         registerContainerView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         UIView.animate(withDuration: 0.65, animations: {[weak self] in
             self?.registerContainerView.alpha = 1.0
-            UIView.animate(withDuration: 0.8, animations: { [weak self] in
-                self?.registerContainerView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                self?.registerContainerView.alpha = 1.0
-                }, completion: nil)
+            self?.registerContainerView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self?.registerContainerView.alpha = 1.0
             }, completion: nil)
     }
     
     func closeKeyboard() {
-        if usernameTextField.isFirstResponder {
-            usernameTextField.resignFirstResponder()
-        }
-        
         if passwordTextField.isFirstResponder {
             passwordTextField.resignFirstResponder()
         }
@@ -307,6 +301,7 @@ class OPLoginMainViewController: UIViewController {
         if !isShow {
             closeKeyboard()
             saveButton.transform = CGAffineTransform(scaleX: 1.0, y: 0.1)
+            loadingContainer.transform = CGAffineTransform(translationX: 0, y: 53)
             UIView.animate(withDuration: 0.15, animations: {
                 [weak self] () -> Void in
                 self?.saveButton.transform = CGAffineTransform(scaleX: 0.2, y: 0.1)
@@ -316,6 +311,7 @@ class OPLoginMainViewController: UIViewController {
                 self?.loadingContainer.startLoadingAnimation(true)
             }
         } else {
+            loadingContainer.transform = .identity
             saveButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
             loadingContainer.startLoadingAnimation(false)
             loadingContainer.isHidden = true

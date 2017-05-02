@@ -18,9 +18,8 @@ class OPDataService: NSObject {
         return Static.instance
     }
     
-    
-    func userRegistration(_ username: String, email:String, pwd: String, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
-        Networking.shareInstance.userRegister(username, emailaddress: email, password: pwd) { (success, json, error) in
+    func userRegistration(_ username: String, pwd: String, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.userRegister(username, password: pwd) { (success, json, error) in
             if success {
                 print("json is: \(json)")
                 handler(true, nil)
@@ -30,9 +29,12 @@ class OPDataService: NSObject {
         }
     }
     
-    func userLogin(_ username: String, email:String, pwd: String, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
-        Networking.shareInstance.userLogin(username, emailaddress: email, password: pwd) { (success, json, error) in
+    func userLogin(_ username: String, pwd: String, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.userLogin(username, password: pwd) { (success, json, error) in
             if success {
+                guard let token = json?["token"] else { handler(false, nil)
+                    return}
+                UserDefaults.standard.set(token, forKey: "token")
                 handler(true, nil)
             } else {
                 handler(false, error)
