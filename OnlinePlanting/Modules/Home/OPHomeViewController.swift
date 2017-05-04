@@ -17,11 +17,11 @@ class OPHomeViewController: UIViewController {
         let gender = 1
         let address = "Ningbo, Zhe Jiang"
         let image = user.image
-        OPDataService.sharedInstance.updateUserProfile(nickname, address: address, gender: gender, headImage: image) { (success, error) in
-            if success {
-                print("success")
+        OPDataService.sharedInstance.updateUserProfile(appDelegate.currentUser?.id, username: appDelegate.currentUser?.username, gender: gender, address: address, nickname: nickname, portriate: image) { (success, error) in
+            if error != nil {
+                print("process failed")
             } else {
-                print("failed")
+                print("success")
             }
         }
     }

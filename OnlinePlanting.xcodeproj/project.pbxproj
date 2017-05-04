@@ -11,6 +11,8 @@
 		180688CE1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180688CA1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift */; };
 		180688CF1EB8C28300CEE3BF /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180688CB1EB8C28300CEE3BF /* User+CoreDataClass.swift */; };
 		180688D01EB8C28300CEE3BF /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180688CC1EB8C28300CEE3BF /* User+CoreDataProperties.swift */; };
+		1818CD541EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */; };
+		1818CD551EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1818CD531EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib */; };
 		183D82711EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 183D826F1EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld */; };
 		183D82771EB647DF00B9F028 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D82761EB647DF00B9F028 /* AppDelegate.swift */; };
 		183D82821EB64AE200B9F028 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D827E1EB64AE200B9F028 /* LaunchScreen.storyboard */; };
@@ -23,12 +25,20 @@
 		183D82921EB64CB300B9F028 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D828F1EB64CB300B9F028 /* MOBFoundation.framework */; };
 		183D82931EB64CB300B9F028 /* MOBFoundationEx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D82901EB64CB300B9F028 /* MOBFoundationEx.framework */; };
 		183D82941EB64CB300B9F028 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D82911EB64CB300B9F028 /* SMS_SDK.framework */; };
+		187F4B2E1EBBE444000AA4DB /* UpdateProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B2D1EBBE444000AA4DB /* UpdateProfileTableViewController.swift */; };
+		187F4B311EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B2F1EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift */; };
+		1885BCB11EB97DDB0099EAEA /* OPMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1885BCB01EB97DDB0099EAEA /* OPMeTableViewController.swift */; };
 		188A5EC61EAE2CE3006CE839 /* OnlinePlantingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */; };
 		188A5ED11EAE2CE3006CE839 /* OnlinePlantingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */; };
+		1897E6A81EB99A8C008BC24D /* OPMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897E6A61EB99A8C008BC24D /* OPMeTableViewCell.swift */; };
+		1897E6A91EB99A8C008BC24D /* OPMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897E6A71EB99A8C008BC24D /* OPMeTableViewCell.xib */; };
+		1897E6AB1EB9C58B008BC24D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897E6AA1EB9C58B008BC24D /* ProfileViewController.swift */; };
 		18B2822D1EB6B6C600010595 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B2822C1EB6B6C600010595 /* Security.framework */; };
 		18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2822E1EB6C82800010595 /* UIView+Ext.swift */; };
 		18B282311EB7147D00010595 /* SMSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B282301EB7147D00010595 /* SMSUtils.swift */; };
 		18B282331EB85D6300010595 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B282321EB85D6300010595 /* Common.swift */; };
+		18C06B751EBA91C0007DDC09 /* OPSplitBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C06B741EBA91C0007DDC09 /* OPSplitBaseViewController.swift */; };
+		18C06B771EBA9657007DDC09 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C06B761EBA9657007DDC09 /* UIViewController+Ext.swift */; };
 		18C1E6521EB62C0F001D611B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6511EB62C0F001D611B /* libz.tbd */; };
 		18C1E6541EB62C1E001D611B /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6531EB62C1E001D611B /* libicucore.tbd */; };
 		18C1E6561EB62C28001D611B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6551EB62C28001D611B /* MessageUI.framework */; };
@@ -81,6 +91,8 @@
 		180688CA1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		180688CB1EB8C28300CEE3BF /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		180688CC1EB8C28300CEE3BF /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeDetailedTableViewCell.swift; sourceTree = "<group>"; };
+		1818CD531EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPMeDetailedTableViewCell.xib; sourceTree = "<group>"; };
 		183D82701EB6442D00B9F028 /* OnlinePlanting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnlinePlanting.xcdatamodel; sourceTree = "<group>"; };
 		183D82761EB647DF00B9F028 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		183D827F1EB64AE200B9F028 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,6 +105,9 @@
 		183D828F1EB64CB300B9F028 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 		183D82901EB64CB300B9F028 /* MOBFoundationEx.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundationEx.framework; sourceTree = "<group>"; };
 		183D82911EB64CB300B9F028 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		187F4B2D1EBBE444000AA4DB /* UpdateProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileTableViewController.swift; sourceTree = "<group>"; };
+		187F4B2F1EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileTableViewCell.swift; sourceTree = "<group>"; };
+		1885BCB01EB97DDB0099EAEA /* OPMeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeTableViewController.swift; sourceTree = "<group>"; };
 		188A5EAA1EAE2CE3006CE839 /* OnlinePlanting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlinePlanting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5EC11EAE2CE3006CE839 /* OnlinePlantingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingTests.swift; sourceTree = "<group>"; };
@@ -100,11 +115,16 @@
 		188A5ECC1EAE2CE3006CE839 /* OnlinePlantingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingUITests.swift; sourceTree = "<group>"; };
 		188A5ED21EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1897E6A61EB99A8C008BC24D /* OPMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeTableViewCell.swift; sourceTree = "<group>"; };
+		1897E6A71EB99A8C008BC24D /* OPMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPMeTableViewCell.xib; sourceTree = "<group>"; };
+		1897E6AA1EB9C58B008BC24D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		18B2822B1EB64EC000010595 /* OnlinePlanting-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnlinePlanting-Bridging-Header.h"; sourceTree = "<group>"; };
 		18B2822C1EB6B6C600010595 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		18B2822E1EB6C82800010595 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		18B282301EB7147D00010595 /* SMSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSUtils.swift; sourceTree = "<group>"; };
 		18B282321EB85D6300010595 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		18C06B741EBA91C0007DDC09 /* OPSplitBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPSplitBaseViewController.swift; sourceTree = "<group>"; };
+		18C06B761EBA9657007DDC09 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		18C1E6511EB62C0F001D611B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		18C1E6531EB62C1E001D611B /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		18C1E6551EB62C28001D611B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -262,6 +282,7 @@
 				18C1E6671EB63E0B001D611B /* OPTabBarController.swift */,
 				18C1E6681EB63E0B001D611B /* OPTextField.swift */,
 				18C1E6691EB63E0B001D611B /* OPToastWindow.swift */,
+				18C06B741EBA91C0007DDC09 /* OPSplitBaseViewController.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -324,7 +345,15 @@
 			isa = PBXGroup;
 			children = (
 				18C1E67B1EB63E0B001D611B /* OPMe.storyboard */,
+				187F4B2D1EBBE444000AA4DB /* UpdateProfileTableViewController.swift */,
 				18C1E67C1EB63E0B001D611B /* OPMeViewController.swift */,
+				1885BCB01EB97DDB0099EAEA /* OPMeTableViewController.swift */,
+				1897E6A61EB99A8C008BC24D /* OPMeTableViewCell.swift */,
+				1897E6A71EB99A8C008BC24D /* OPMeTableViewCell.xib */,
+				1897E6AA1EB9C58B008BC24D /* ProfileViewController.swift */,
+				1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */,
+				1818CD531EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib */,
+				187F4B2F1EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -367,6 +396,7 @@
 				18B2822E1EB6C82800010595 /* UIView+Ext.swift */,
 				18B282301EB7147D00010595 /* SMSUtils.swift */,
 				18B282321EB85D6300010595 /* Common.swift */,
+				18C06B761EBA9657007DDC09 /* UIViewController+Ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -492,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C1F05F1EB63E0E001D611B /* Login.storyboard in Resources */,
+				1897E6A91EB99A8C008BC24D /* OPMeTableViewCell.xib in Resources */,
 				18C1F0661EB63E0E001D611B /* OPVegetableList.storyboard in Resources */,
 				183D82821EB64AE200B9F028 /* LaunchScreen.storyboard in Resources */,
 				18C1F0621EB63E0E001D611B /* OPMe.storyboard in Resources */,
@@ -500,6 +531,7 @@
 				18C1F05B1EB63E0E001D611B /* OPHome.storyboard in Resources */,
 				183D82851EB64B2600B9F028 /* Assets.xcassets in Resources */,
 				183D82871EB64B3900B9F028 /* Info.plist in Resources */,
+				1818CD551EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib in Resources */,
 				18C1F05D1EB63E0E001D611B /* OPLive.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,14 +609,19 @@
 				18C1F0681EB63E0E001D611B /* Networking.swift in Sources */,
 				18C1F06A1EB63E0E001D611B /* NetworkingAPIs.swift in Sources */,
 				18C1F05E1EB63E0E001D611B /* OPLiveViewController.swift in Sources */,
+				1897E6A81EB99A8C008BC24D /* OPMeTableViewCell.swift in Sources */,
 				18C1F0541EB63E0E001D611B /* CoreDataTableViewController.swift in Sources */,
 				180688CF1EB8C28300CEE3BF /* User+CoreDataClass.swift in Sources */,
 				18C1F0531EB63E0E001D611B /* CoreDataCollectionViewController.swift in Sources */,
 				183D82891EB64B6400B9F028 /* String+Ext.swift in Sources */,
 				18C1F0551EB63E0E001D611B /* OPTabBarController.swift in Sources */,
+				1885BCB11EB97DDB0099EAEA /* OPMeTableViewController.swift in Sources */,
 				18C1F0651EB63E0E001D611B /* OPMyGardenViewController.swift in Sources */,
+				1897E6AB1EB9C58B008BC24D /* ProfileViewController.swift in Sources */,
 				180688D01EB8C28300CEE3BF /* User+CoreDataProperties.swift in Sources */,
+				18C06B771EBA9657007DDC09 /* UIViewController+Ext.swift in Sources */,
 				183D82711EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld in Sources */,
+				187F4B2E1EBBE444000AA4DB /* UpdateProfileTableViewController.swift in Sources */,
 				18C1F0601EB63E0E001D611B /* OPChangePasswordViewController.swift in Sources */,
 				18C1F0571EB63E0E001D611B /* OPToastWindow.swift in Sources */,
 				18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */,
@@ -593,14 +630,17 @@
 				18C1F0671EB63E0E001D611B /* OPVegetableListViewController.swift in Sources */,
 				18B282331EB85D6300010595 /* Common.swift in Sources */,
 				18C1F0631EB63E0E001D611B /* OPMeViewController.swift in Sources */,
+				1818CD541EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift in Sources */,
 				18C1F0591EB63E0E001D611B /* OPDataService.swift in Sources */,
 				18C1F05C1EB63E0E001D611B /* OPHomeViewController.swift in Sources */,
 				18B282311EB7147D00010595 /* SMSUtils.swift in Sources */,
 				180688CD1EB8C28300CEE3BF /* Profile+CoreDataClass.swift in Sources */,
 				180688CE1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift in Sources */,
 				183D828D1EB64C3000B9F028 /* UIColor+Ext.swift in Sources */,
+				187F4B311EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift in Sources */,
 				18C1F0691EB63E0E001D611B /* NetworkingAPIMapping.swift in Sources */,
 				18C1F0611EB63E0E001D611B /* OPLoginMainViewController.swift in Sources */,
+				18C06B751EBA91C0007DDC09 /* OPSplitBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +796,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/OnlinePlanting/SMS_SDK",
 					"$(PROJECT_DIR)/OnlinePlanting/Utils/SMS_SDK",
+					"$(PROJECT_DIR)/OnlinePlanting/Utils",
+					"$(PROJECT_DIR)/OnlinePlanting/Utils/expanding_collection",
 				);
 				INFOPLIST_FILE = OnlinePlanting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -763,6 +805,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OnlinePlanting/OnlinePlanting-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -776,6 +819,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/OnlinePlanting/SMS_SDK",
 					"$(PROJECT_DIR)/OnlinePlanting/Utils/SMS_SDK",
+					"$(PROJECT_DIR)/OnlinePlanting/Utils",
+					"$(PROJECT_DIR)/OnlinePlanting/Utils/expanding_collection",
 				);
 				INFOPLIST_FILE = OnlinePlanting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -783,6 +828,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OnlinePlanting/OnlinePlanting-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

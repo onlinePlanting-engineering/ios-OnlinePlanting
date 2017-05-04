@@ -368,6 +368,7 @@
                     <navigationItem key="navigationItem" id="A5s-jZ-bKA"/>
                     <connections>
                         <outlet property="backGroundImage" destination="vKK-0I-5dv" id="WMc-5n-Nfo"/>
+                        <outlet property="background" destination="FCZ-Zp-tpe" id="hVM-j0-3kO"/>
                         <outlet property="getSecurityButton" destination="zyD-l5-loT" id="AmJ-vn-MA8"/>
                         <outlet property="loadingContainer" destination="fva-NM-nVz" id="gzL-I0-m6j"/>
                         <outlet property="loginButton" destination="DeB-Ll-JsR" id="jzh-LN-jbX"/>

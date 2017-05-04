@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var currentUser: User? {
         didSet{
             //update User informaton
+            print("current user's id is: \(currentUser?.id)")
         }
     }
     

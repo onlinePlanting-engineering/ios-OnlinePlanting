@@ -53,7 +53,6 @@ class OPDataService: NSObject {
             if success {
                 guard let data = json?.dictionaryObject?["data"] as? [String: Any] else { return }
                 Sync.changes([data], inEntityNamed: "User", dataStack: appDelegate.dataStack) { error in
-                    appDelegate.currentUser = data as? User
                     handler(true, nil)
                 }
             } else {
@@ -62,19 +61,16 @@ class OPDataService: NSObject {
         }
     }
     
-    func updateUserProfile(_ nickname: String?, address: String?, gender: Int?, headImage: UIImage?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
-        Networking.shareInstance.updateUserProfile(nickname, address: address, gender: gender, image: headImage) { (success, json, error) in
+    func updateUserProfile(_ userId: Int64?, username: String?, gender: Int?, address: String?, nickname: String?, portriate: UIImage?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.updateUserProfile(userId, username: username, gender: gender, address: address, nickname: nickname, portriate: portriate) { (success, json, error) in
             if success {
                 guard let data = json?.dictionaryObject?["data"] as? [String: Any] else { return }
-                print(data)
-//                Sync.changes([data], inEntityNamed: "User", dataStack: appDelegate.dataStack) { error in
+                Sync.changes([data], inEntityNamed: "User", dataStack: appDelegate.dataStack) { error in
                     handler(true, nil)
-//                }
+                }
             } else {
                 handler(false, error)
             }
-
         }
     }
-
 }

@@ -26,6 +26,8 @@ class OPLoginMainViewController: UIViewController {
     
     //Register
     @IBOutlet weak var backGroundImage: UIImageView!
+    @IBOutlet weak var background: UIVisualEffectView!
+    
     @IBOutlet weak var mobilePhoneTextField: OPTextField!
     @IBOutlet weak var mobilePhoneView: UIView!
     @IBOutlet weak var passwordView: UIView!
@@ -105,8 +107,8 @@ class OPLoginMainViewController: UIViewController {
                     print("login success")
                     OPDataService.sharedInstance.getUserProfile(handler: { [weak self] (success, error) in
                         if success {
+                            self?.fetchCurrentUserObjects()
                             self?.loginSuccess()
-                            
                         } else {
                             print("get failed")
                         }
@@ -126,12 +128,12 @@ class OPLoginMainViewController: UIViewController {
         }
     }
     
-    func fetchCurrentObjects() {
+    func fetchCurrentUserObjects() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         let user = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [User]
+        appDelegate.currentUser = user[0]
         print("user information is: \(user[0].profile)")
-        
     }
     
     func loginSuccess() {

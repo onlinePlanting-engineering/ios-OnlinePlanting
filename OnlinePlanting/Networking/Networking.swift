@@ -109,41 +109,6 @@ extension Networking {
         }
     }
     
-    //update load
-    func upLoadImageRequest(urlString : String, params:[String:String], data: [Data], name: [String],success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()){
-        
-        let headers = ["content-type":"multipart/form-data"]
-        
-        Alamofire.upload(
-            multipartFormData: { multipartFormData in
-                let flag = params["flag"]
-                let userId = params["userId"]
-                
-                multipartFormData.append((flag?.data(using: String.Encoding.utf8)!)!, withName: "flag")
-                multipartFormData.append( (userId?.data(using: String.Encoding.utf8)!)!, withName: "userId")
-                
-                for i in 0..<data.count {
-                    multipartFormData.append(data[i], withName: "appPhoto", fileName: name[i], mimeType: "image/png")
-                }
-        },
-            to: urlString,
-            headers: headers,
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.responseJSON { response in
-                        if let value = response.result.value as? [String: AnyObject]{
-                            success(value)
-                            let json = JSON(value)
-                            print(json)
-                        }
-                    }
-                case .failure(let encodingError):
-                    failture(encodingError)
-                }
-        })
-    }
-
     func downloadFileRequest(_ fileURL:String, finalPath: URL?,
                       completeHandler:((_ localPath: URL?, _ error: NSError?)->())? = nil,
                       progressHandler:((_ bytesRead: Int64?, _ totalBytesRead: Int64?, _ totalBytesExpectedToRead: Int64?)->())? = nil)
