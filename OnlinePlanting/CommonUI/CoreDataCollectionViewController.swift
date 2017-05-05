@@ -2,7 +2,7 @@
 //  CoreDataCollectionViewController.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 4/24/17.
+//  Created by Alex on 4/24/17.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 

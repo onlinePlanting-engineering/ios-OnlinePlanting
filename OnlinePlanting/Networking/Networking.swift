@@ -2,7 +2,7 @@
 //  Networking.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 4/25/17.
+//  Created by Alex on 4/25/17.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 
@@ -25,26 +25,62 @@ class Networking {
         }
         return Static.instance
     }
+    
+    var baseURL: String! {
+        get {
+            return "http://dry-shore-37942.herokuapp.com"
+        }
+    }
+    
+    lazy var token: String? = {
+        let token = UserDefaults.standard.value(forKey: "token") as? String
+        return token
+    }()
 }
 
 extension Networking {
     
-    func configHeaders() -> [String : String]? {
+    func isLoginOrRegisterAPI(_ api: String) -> Bool {
+        if api == WebServiceAPIMapping.UserLogin.rawValue || api == WebServiceAPIMapping.UserRegistraion.rawValue {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func initialHeaders() -> [String : String]? {
         let headers = [
-            "content": "application/x-www-form-urlencoded; charset=utf-8",
-            "Accept": "application/json",
-            "token": "AOS51ADKH7881391"
+            "Allow": "POST,OPTIONS",
+            "Content-Type": "application/json"
         ]
         return headers
     }
     
+    func getHeaders() -> [String : String]? {
+        guard let unwrapToken = token else { return nil }
+        let headers = [
+        "Authorization": "Token \(unwrapToken)"
+        ]
+        return headers
+    }
+    
+    func updatedHeaders() -> [String : String]? {
+        guard let unwrapToken = token else { return nil }
+        let headers = [
+            "Content-Type":"multipart/form-data",
+            "Authorization": "Token \(unwrapToken)"
+        ]
+        return headers
+    }
+
+    
     //POST request
-    func postRequest(urlString : String, params : [String : Any], success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()) {
+    func postRequest(urlString : String, params : [String : Any], success : @escaping (_ response : [String : Any])->(), failture : @escaping (_ error : Error)->()) {
         
         Alamofire.request(urlString, method: HTTPMethod.post, parameters: params).responseJSON { (response) in
             switch response.result{
             case .success:
-                if let value = response.result.value as? [String: AnyObject] {
+                if let value = response.result.value as? [String: Any] {
                     success(value)
                     let json = JSON(value)
                     print(json)
@@ -73,41 +109,6 @@ extension Networking {
         }
     }
     
-    //update load
-    func upLoadImageRequest(urlString : String, params:[String:String], data: [Data], name: [String],success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()){
-        
-        let headers = ["content-type":"multipart/form-data"]
-        
-        Alamofire.upload(
-            multipartFormData: { multipartFormData in
-                let flag = params["flag"]
-                let userId = params["userId"]
-                
-                multipartFormData.append((flag?.data(using: String.Encoding.utf8)!)!, withName: "flag")
-                multipartFormData.append( (userId?.data(using: String.Encoding.utf8)!)!, withName: "userId")
-                
-                for i in 0..<data.count {
-                    multipartFormData.append(data[i], withName: "appPhoto", fileName: name[i], mimeType: "image/png")
-                }
-        },
-            to: urlString,
-            headers: headers,
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.responseJSON { response in
-                        if let value = response.result.value as? [String: AnyObject]{
-                            success(value)
-                            let json = JSON(value)
-                            print(json)
-                        }
-                    }
-                case .failure(let encodingError):
-                    failture(encodingError)
-                }
-        })
-    }
-
     func downloadFileRequest(_ fileURL:String, finalPath: URL?,
                       completeHandler:((_ localPath: URL?, _ error: NSError?)->())? = nil,
                       progressHandler:((_ bytesRead: Int64?, _ totalBytesRead: Int64?, _ totalBytesExpectedToRead: Int64?)->())? = nil)

@@ -2,13 +2,29 @@
 //  OPHomeViewController.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 4/27/17.
+//  Created by Alex on 4/27/17.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 
 import UIKit
 
 class OPHomeViewController: UIViewController {
+    
+    @IBOutlet weak var user: UIImageView!
+    
+    @IBAction func updateProfile(_ sender: UIButton) {
+        let nickname = "Alex"
+        let gender = 1
+        let address = "Ningbo, Zhe Jiang"
+        let image = user.image
+        OPDataService.sharedInstance.updateUserProfile(appDelegate.currentUser?.id, username: appDelegate.currentUser?.username, gender: gender, address: address, nickname: nickname, portriate: image) { (success, error) in
+            if error != nil {
+                print("process failed")
+            } else {
+                print("success")
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
