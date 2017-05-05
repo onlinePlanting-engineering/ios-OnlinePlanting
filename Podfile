@@ -10,4 +10,5 @@ target ‘OnlinePlanting’ do
     pod 'KeychainAccess', '~>3.0.1'
     pod 'STRegex', '~> 0.4.3'
     pod 'Sync', '~> 2.0’
+    pod 'SDWebImage', '~>3.8'
 end

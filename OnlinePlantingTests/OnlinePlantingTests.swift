@@ -2,18 +2,34 @@
 //  OnlinePlantingTests.swift
 //  OnlinePlantingTests
 //
-//  Created by IBM on 4/24/17.
+//  Created by Alex on 4/24/17.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 
 import XCTest
-@testable import OnlinePlanting
 
 class OnlinePlantingTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+    
+    func testSaveLocation() {
+        let locationArray: [String: String] = ["countryCode": "111", "country": "China", "province": "Zhe Jiang", "city": "Ningbo", "subLocality": "Yinzhou", "street": "yangfan"]
+        let dataJson: NSData! = try? JSONSerialization.data(withJSONObject: locationArray, options: []) as NSData!
+        let JSONString = NSString(data: dataJson as Data, encoding: String.Encoding.utf8.rawValue)
+        
+//        let json = JSON(JSONString!).dictionaryObject
+//        Sync.changes([json!], inEntityNamed: "Location", dataStack: appDelegate.dataStack, completion: { [weak self] (error) in
+//            if error != nil {
+//                print("location saveing error")
+//            } else {
+//                print("location saved successfully")
+//                //self?.fetchCurrentUserObjects()
+//            }
+//        })
+
     }
     
     override func tearDown() {
