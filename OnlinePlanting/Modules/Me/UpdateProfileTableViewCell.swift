@@ -15,6 +15,8 @@ class UpdateProfileTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        updateTextField.borderStyle = .none
         // Initialization code
     }
 

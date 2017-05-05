@@ -18,7 +18,7 @@ class SMSUtils: NSObject {
         return Static.instance
     }
     
-    static func getVerificationCode(_ phoneNumber: String?, handler:@escaping (_ success: Bool)->()){
+    func getVerificationCode(_ phoneNumber: String?, handler:@escaping (_ success: Bool)->()){
         SMSSDK.getVerificationCode(by: SMSGetCodeMethodSMS, phoneNumber: phoneNumber, zone: "86", customIdentifier: nil) { (error) in
             if (error == nil) {
                 print("send Success,please waiting～")
@@ -30,7 +30,7 @@ class SMSUtils: NSObject {
         }
     }
     
-    static func commitVerificationCode(_ securityCode: String?, phoneNumber: String?, handler:@escaping (_ success: Bool)->()) {
+    func commitVerificationCode(_ securityCode: String?, phoneNumber: String?, handler:@escaping (_ success: Bool)->()) {
         SMSSDK.commitVerificationCode(securityCode, phoneNumber: phoneNumber, zone: "86") { (infor, error) in
             if (error == nil) {
                 handler(true)

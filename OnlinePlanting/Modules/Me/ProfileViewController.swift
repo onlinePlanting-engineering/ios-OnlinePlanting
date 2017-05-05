@@ -14,10 +14,15 @@ enum UserProfile: Int {
     case nickname
 }
 
+enum Gender: Int {
+    case unknow, male, female, others
+}
+
 class ProfileViewController: UIViewController {
     
     fileprivate let numberOfRows = 4 //portrait, gender, address, nickname
     fileprivate var uploadAlertController: UIAlertController?
+    fileprivate var genderSettingController: UIAlertController?
     fileprivate var imagePickerController: UIImagePickerController?
     fileprivate var imgHeading: UIImageView?
     fileprivate var gender: Int?
@@ -47,6 +52,7 @@ class ProfileViewController: UIViewController {
         setNavigarationBar()
         initChangePortraitAlertController()
         initImagePickerController()
+        initChangeGenderAlertController()
     }
     
     func setNavigarationBar() {
@@ -77,6 +83,12 @@ class ProfileViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let _ = LocationUtils.sharedInstance.getCurrentLocation()
     }
 }
 
@@ -123,29 +135,30 @@ extension ProfileViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let alterView = uploadAlertController else { return }
+        guard let alterView = uploadAlertController, let genderView = genderSettingController else { return }
         switch indexPath.row {
         case UserProfile.portrait.rawValue:
             present(alterView, animated: true, completion: nil)
         case UserProfile.address.rawValue:
             //TODO
 //            showUpdateProfileVC(UserProfile.address, defaultValue: appDelegate.currentUser?.profile?.addr as AnyObject)
-            showUpdateProfileVC(UserProfile.address, defaultValue: "Ning Bo, Zhe Jiang" as AnyObject)
+            showUpdateProfileVC(UserProfile.address, defaultValue: "Ning Bo, Zhe Jiang" as AnyObject, title: "Address")
         case UserProfile.gender.rawValue:
-            break
+            present(genderView, animated: true, completion: nil)
         case UserProfile.nickname.rawValue:
-            showUpdateProfileVC(UserProfile.nickname, defaultValue: appDelegate.currentUser?.profile?.nickname as AnyObject)
+            showUpdateProfileVC(UserProfile.nickname, defaultValue: appDelegate.currentUser?.profile?.nickname as AnyObject, title: "Nick name")
         default:
             break
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func showUpdateProfileVC(_ type: UserProfile, defaultValue: AnyObject) {
+    func showUpdateProfileVC(_ type: UserProfile, defaultValue: AnyObject, title: String) {
         if let updatedVC = UIStoryboard(name: "OPMe", bundle: nil).instantiateViewController(withIdentifier: "UpdateProfileTableViewController") as? UpdateProfileTableViewController {
             updatedVC.type = type
             updatedVC.defaultValue = defaultValue
             updatedVC.delegate = self
+            updatedVC.title = title
             navigationController?.pushViewController(updatedVC, animated: true)
         }
     }
@@ -176,7 +189,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         imagePickerController?.allowsEditing = true
     }
     
-    func actionAction(_ action: UIAlertAction) {
+    func actionPhotoAction(_ action: UIAlertAction) {
         if action.title == "Take Photo" {
             getImageFromPhotoLib(type: .camera)
         } else if action.title == "Choose from Library" || action.title == "Change Portrait" {
@@ -198,24 +211,59 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     func initChangePortraitAlertController()
     {
         uploadAlertController = UIAlertController(title: "Change profile picture", message: nil, preferredStyle:UIAlertControllerStyle.actionSheet)
-        //uploadAlertController?.view.tintColor = UIColor.lightGray
+        uploadAlertController?.view.tintColor = UIColor(hexString: OPGreenColor)
         
         let takePhoto = UIAlertAction(title: "Take Photo", style: .default, handler: { [weak self] (action) in
-            self?.actionAction(action)
+            self?.actionPhotoAction(action)
         })
         
         let photoLib = UIAlertAction(title: "Choose from Library", style: .default, handler: { [weak self] (action) in
-            self?.actionAction(action)
+            self?.actionPhotoAction(action)
         })
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak self] (action) in
-            self?.actionAction(action)
+            self?.actionPhotoAction(action)
         })
         
         uploadAlertController?.addAction(takePhoto)
         uploadAlertController?.addAction(photoLib)
         uploadAlertController?.addAction(cancel)
     }
+}
+
+extension ProfileViewController {
+    
+    func actionGenderAction(_ genderType: Gender) {
+        gender = genderType.rawValue
+    }
+    
+    func initChangeGenderAlertController()
+    {
+        genderSettingController = UIAlertController(title: "Setting your gender", message: nil, preferredStyle:UIAlertControllerStyle.actionSheet)
+        genderSettingController?.view.tintColor = UIColor(hexString: OPGreenColor)
+        
+        let other = UIAlertAction(title: "Other", style: .default, handler: { [weak self] (action) in
+            self?.actionGenderAction(.others)
+        })
+        
+        let male = UIAlertAction(title: "Male", style: .default, handler: { [weak self] (action) in
+            self?.actionGenderAction(.male)
+        })
+        
+        let female = UIAlertAction(title: "Female", style: .default, handler: { [weak self] (action) in
+            self?.actionGenderAction(.female)
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            //self?.genderSettingController?.dismiss(animated: true, completion: nil)
+        })
+        
+        genderSettingController?.addAction(other)
+        genderSettingController?.addAction(male)
+        genderSettingController?.addAction(female)
+        genderSettingController?.addAction(cancel)
+    }
+
 }
 
 extension ProfileViewController: UpdateProfileTableViewControllerDelegate {

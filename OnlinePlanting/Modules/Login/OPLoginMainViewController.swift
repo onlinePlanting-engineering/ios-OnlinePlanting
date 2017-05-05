@@ -55,7 +55,7 @@ class OPLoginMainViewController: UIViewController {
     
     @IBAction func getMSMSecurityCode(_ sender: UIButton) {
         
-        SMSUtils.getVerificationCode(mobilePhoneTextField.text) { (success) in
+        SMSUtils.sharedInstance.getVerificationCode(mobilePhoneTextField.text) { (success) in
             if success {
                 //TODO: count down logic
             } else{
@@ -68,7 +68,7 @@ class OPLoginMainViewController: UIViewController {
     }
     
     @IBAction func doRegistration(_ sender: UIButton) {
-        SMSUtils.commitVerificationCode(securityCodeTextField.text, phoneNumber: mobilePhoneTextField.text, handler: { [weak self] (success) in
+        SMSUtils.sharedInstance.commitVerificationCode(securityCodeTextField.text, phoneNumber: mobilePhoneTextField.text, handler: { [weak self] (success) in
             if success {
                 guard let username = self?.mobilePhoneTextField.text, let password = self?.passwordTextField.text else { return }
                 OPDataService.sharedInstance.userRegistration(username, pwd: password) { [weak self](regSuccess, error) in
