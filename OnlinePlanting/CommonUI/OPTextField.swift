@@ -17,7 +17,7 @@ class OPTextField: UITextField {
         didSet {
             guard let placeStrig = placeholder, let color = placeHolderColor else { return }
             self.attributedPlaceholder = NSAttributedString(string: placeStrig, attributes: [NSForegroundColorAttributeName : color, NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 15)! ])
-            self.tintColor = .white
+            self.tintColor = UIColor(hexString: OPGreenColor)
         }
     }
     
