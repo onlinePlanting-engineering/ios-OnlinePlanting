@@ -9,3 +9,4 @@
 import Foundation
 
 let OPGreenColor = "#69C391"
+let OPGrayColor = "#F5F6FA"

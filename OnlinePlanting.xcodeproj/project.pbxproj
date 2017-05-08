@@ -33,6 +33,7 @@
 		187F4B3C1EBC41A2000AA4DB /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B3A1EBC41A2000AA4DB /* Location+CoreDataProperties.swift */; };
 		187F4B401EBC6BB9000AA4DB /* UISaveLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B3F1EBC6BB9000AA4DB /* UISaveLocation.swift */; };
 		187F4B421EBF3431000AA4DB /* OPLoadingHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B411EBF3431000AA4DB /* OPLoadingHUD.swift */; };
+		187F4B481EC011F4000AA4DB /* OPTransitioningAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B471EC011F4000AA4DB /* OPTransitioningAnimator.swift */; };
 		1885BCB11EB97DDB0099EAEA /* OPMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1885BCB01EB97DDB0099EAEA /* OPMeTableViewController.swift */; };
 		188A5EC61EAE2CE3006CE839 /* OnlinePlantingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */; };
 		188A5ED11EAE2CE3006CE839 /* OnlinePlantingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */; };
@@ -43,6 +44,9 @@
 		18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2822E1EB6C82800010595 /* UIView+Ext.swift */; };
 		18B282311EB7147D00010595 /* SMSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B282301EB7147D00010595 /* SMSUtils.swift */; };
 		18B282331EB85D6300010595 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B282321EB85D6300010595 /* Common.swift */; };
+		18B53E431EC09AE4003B6D6A /* FarmImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B53E411EC09AE4003B6D6A /* FarmImage+CoreDataClass.swift */; };
+		18B53E441EC09AE4003B6D6A /* FarmImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B53E421EC09AE4003B6D6A /* FarmImage+CoreDataProperties.swift */; };
+		18B53E4A1EC0A305003B6D6A /* OPFarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B53E491EC0A305003B6D6A /* OPFarm.storyboard */; };
 		18C06B751EBA91C0007DDC09 /* OPSplitBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C06B741EBA91C0007DDC09 /* OPSplitBaseViewController.swift */; };
 		18C06B771EBA9657007DDC09 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C06B761EBA9657007DDC09 /* UIViewController+Ext.swift */; };
 		18C1E6521EB62C0F001D611B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6511EB62C0F001D611B /* libz.tbd */; };
@@ -67,11 +71,16 @@
 		18C1F0631EB63E0E001D611B /* OPMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E67C1EB63E0B001D611B /* OPMeViewController.swift */; };
 		18C1F0641EB63E0E001D611B /* OPMyGarden.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C1E67E1EB63E0B001D611B /* OPMyGarden.storyboard */; };
 		18C1F0651EB63E0E001D611B /* OPMyGardenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E67F1EB63E0B001D611B /* OPMyGardenViewController.swift */; };
-		18C1F0661EB63E0E001D611B /* OPVegetableList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C1E6811EB63E0B001D611B /* OPVegetableList.storyboard */; };
-		18C1F0671EB63E0E001D611B /* OPVegetableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6821EB63E0B001D611B /* OPVegetableListViewController.swift */; };
+		18C1F0661EB63E0E001D611B /* OPFarmTemp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C1E6811EB63E0B001D611B /* OPFarmTemp.storyboard */; };
+		18C1F0671EB63E0E001D611B /* OPFarmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6821EB63E0B001D611B /* OPFarmListViewController.swift */; };
 		18C1F0681EB63E0E001D611B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6841EB63E0B001D611B /* Networking.swift */; };
 		18C1F0691EB63E0E001D611B /* NetworkingAPIMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6851EB63E0B001D611B /* NetworkingAPIMapping.swift */; };
 		18C1F06A1EB63E0E001D611B /* NetworkingAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6861EB63E0B001D611B /* NetworkingAPIs.swift */; };
+		18E810C51EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E810C41EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift */; };
+		18E810C81EC028A000EDA5D8 /* OPFarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E810C61EC028A000EDA5D8 /* OPFarmTableViewCell.swift */; };
+		18E810C91EC028A000EDA5D8 /* OPFarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E810C71EC028A000EDA5D8 /* OPFarmTableViewCell.xib */; };
+		18E810D01EC07B0400EDA5D8 /* Farm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E810CE1EC07B0400EDA5D8 /* Farm+CoreDataClass.swift */; };
+		18E810D11EC07B0400EDA5D8 /* Farm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E810CF1EC07B0400EDA5D8 /* Farm+CoreDataProperties.swift */; };
 		834DBDF917F40DD8ADCCAF54 /* Pods_OnlinePlanting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +129,7 @@
 		187F4B3A1EBC41A2000AA4DB /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		187F4B3F1EBC6BB9000AA4DB /* UISaveLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISaveLocation.swift; sourceTree = "<group>"; };
 		187F4B411EBF3431000AA4DB /* OPLoadingHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPLoadingHUD.swift; sourceTree = "<group>"; };
+		187F4B471EC011F4000AA4DB /* OPTransitioningAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPTransitioningAnimator.swift; sourceTree = "<group>"; };
 		1885BCB01EB97DDB0099EAEA /* OPMeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeTableViewController.swift; sourceTree = "<group>"; };
 		188A5EAA1EAE2CE3006CE839 /* OnlinePlanting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlinePlanting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5EC11EAE2CE3006CE839 /* OnlinePlantingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +146,9 @@
 		18B2822E1EB6C82800010595 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		18B282301EB7147D00010595 /* SMSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSUtils.swift; sourceTree = "<group>"; };
 		18B282321EB85D6300010595 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		18B53E411EC09AE4003B6D6A /* FarmImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FarmImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		18B53E421EC09AE4003B6D6A /* FarmImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FarmImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18B53E491EC0A305003B6D6A /* OPFarm.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPFarm.storyboard; path = Farm/OPFarm.storyboard; sourceTree = "<group>"; };
 		18C06B741EBA91C0007DDC09 /* OPSplitBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPSplitBaseViewController.swift; sourceTree = "<group>"; };
 		18C06B761EBA9657007DDC09 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		18C1E6511EB62C0F001D611B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -160,11 +173,16 @@
 		18C1E67C1EB63E0B001D611B /* OPMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeViewController.swift; sourceTree = "<group>"; };
 		18C1E67E1EB63E0B001D611B /* OPMyGarden.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OPMyGarden.storyboard; sourceTree = "<group>"; };
 		18C1E67F1EB63E0B001D611B /* OPMyGardenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMyGardenViewController.swift; sourceTree = "<group>"; };
-		18C1E6811EB63E0B001D611B /* OPVegetableList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OPVegetableList.storyboard; sourceTree = "<group>"; };
-		18C1E6821EB63E0B001D611B /* OPVegetableListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPVegetableListViewController.swift; sourceTree = "<group>"; };
+		18C1E6811EB63E0B001D611B /* OPFarmTemp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OPFarmTemp.storyboard; sourceTree = "<group>"; };
+		18C1E6821EB63E0B001D611B /* OPFarmListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmListViewController.swift; path = VegetableList/OPFarmListViewController.swift; sourceTree = "<group>"; };
 		18C1E6841EB63E0B001D611B /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		18C1E6851EB63E0B001D611B /* NetworkingAPIMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAPIMapping.swift; sourceTree = "<group>"; };
 		18C1E6861EB63E0B001D611B /* NetworkingAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAPIs.swift; sourceTree = "<group>"; };
+		18E810C41EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmDetailedViewController.swift; path = VegetableList/OPFarmDetailedViewController.swift; sourceTree = "<group>"; };
+		18E810C61EC028A000EDA5D8 /* OPFarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmTableViewCell.swift; path = VegetableList/OPFarmTableViewCell.swift; sourceTree = "<group>"; };
+		18E810C71EC028A000EDA5D8 /* OPFarmTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OPFarmTableViewCell.xib; path = VegetableList/OPFarmTableViewCell.xib; sourceTree = "<group>"; };
+		18E810CE1EC07B0400EDA5D8 /* Farm+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Farm+CoreDataClass.swift"; sourceTree = "<group>"; };
+		18E810CF1EC07B0400EDA5D8 /* Farm+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Farm+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7424C03F9FA7E5B963FAC11B /* Pods-OnlinePlanting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.release.xcconfig"; sourceTree = "<group>"; };
 		7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlinePlanting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98016D2B3BE8EF95B755B48 /* Pods-OnlinePlanting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.debug.xcconfig"; sourceTree = "<group>"; };
@@ -273,6 +291,18 @@
 			path = OnlinePlantingUITests;
 			sourceTree = "<group>";
 		};
+		18B53E461EC0A14F003B6D6A /* Farm */ = {
+			isa = PBXGroup;
+			children = (
+				18B53E491EC0A305003B6D6A /* OPFarm.storyboard */,
+				18E810C41EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift */,
+				18C1E6821EB63E0B001D611B /* OPFarmListViewController.swift */,
+				18E810C61EC028A000EDA5D8 /* OPFarmTableViewCell.swift */,
+				18E810C71EC028A000EDA5D8 /* OPFarmTableViewCell.xib */,
+			);
+			name = Farm;
+			sourceTree = "<group>";
+		};
 		18C1E65D1EB63E0B001D611B /* OnlinePlanting */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +324,7 @@
 		18C1E6641EB63E0B001D611B /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				187F4B471EC011F4000AA4DB /* OPTransitioningAnimator.swift */,
 				18C1E6651EB63E0B001D611B /* CoreDataCollectionViewController.swift */,
 				18C1E6661EB63E0B001D611B /* CoreDataTableViewController.swift */,
 				18C1E6671EB63E0B001D611B /* OPTabBarController.swift */,
@@ -308,6 +339,10 @@
 		18C1E66A1EB63E0B001D611B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				18B53E411EC09AE4003B6D6A /* FarmImage+CoreDataClass.swift */,
+				18B53E421EC09AE4003B6D6A /* FarmImage+CoreDataProperties.swift */,
+				18E810CE1EC07B0400EDA5D8 /* Farm+CoreDataClass.swift */,
+				18E810CF1EC07B0400EDA5D8 /* Farm+CoreDataProperties.swift */,
 				187F4B391EBC41A2000AA4DB /* Location+CoreDataClass.swift */,
 				187F4B3A1EBC41A2000AA4DB /* Location+CoreDataProperties.swift */,
 				180688C91EB8C28300CEE3BF /* Profile+CoreDataClass.swift */,
@@ -323,6 +358,7 @@
 		18C1E66F1EB63E0B001D611B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				18B53E461EC0A14F003B6D6A /* Farm */,
 				18C1E6701EB63E0B001D611B /* Home */,
 				18C1E6731EB63E0B001D611B /* Live */,
 				18C1E6761EB63E0B001D611B /* Login */,
@@ -390,8 +426,7 @@
 		18C1E6801EB63E0B001D611B /* VegetableList */ = {
 			isa = PBXGroup;
 			children = (
-				18C1E6811EB63E0B001D611B /* OPVegetableList.storyboard */,
-				18C1E6821EB63E0B001D611B /* OPVegetableListViewController.swift */,
+				18C1E6811EB63E0B001D611B /* OPFarmTemp.storyboard */,
 			);
 			path = VegetableList;
 			sourceTree = "<group>";
@@ -543,8 +578,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C1F05F1EB63E0E001D611B /* Login.storyboard in Resources */,
+				18E810C91EC028A000EDA5D8 /* OPFarmTableViewCell.xib in Resources */,
 				1897E6A91EB99A8C008BC24D /* OPMeTableViewCell.xib in Resources */,
-				18C1F0661EB63E0E001D611B /* OPVegetableList.storyboard in Resources */,
+				18C1F0661EB63E0E001D611B /* OPFarmTemp.storyboard in Resources */,
 				183D82821EB64AE200B9F028 /* LaunchScreen.storyboard in Resources */,
 				18C1F0621EB63E0E001D611B /* OPMe.storyboard in Resources */,
 				183D82831EB64AE200B9F028 /* Main.storyboard in Resources */,
@@ -554,6 +590,7 @@
 				183D82871EB64B3900B9F028 /* Info.plist in Resources */,
 				1818CD551EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib in Resources */,
 				18C1F05D1EB63E0E001D611B /* OPLive.storyboard in Resources */,
+				18B53E4A1EC0A305003B6D6A /* OPFarm.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,18 +675,23 @@
 				18C1F0551EB63E0E001D611B /* OPTabBarController.swift in Sources */,
 				1885BCB11EB97DDB0099EAEA /* OPMeTableViewController.swift in Sources */,
 				18C1F0651EB63E0E001D611B /* OPMyGardenViewController.swift in Sources */,
+				187F4B481EC011F4000AA4DB /* OPTransitioningAnimator.swift in Sources */,
+				18E810C51EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift in Sources */,
+				18E810C81EC028A000EDA5D8 /* OPFarmTableViewCell.swift in Sources */,
 				1897E6AB1EB9C58B008BC24D /* ProfileViewController.swift in Sources */,
 				180688D01EB8C28300CEE3BF /* User+CoreDataProperties.swift in Sources */,
 				18C06B771EBA9657007DDC09 /* UIViewController+Ext.swift in Sources */,
 				183D82711EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld in Sources */,
+				18B53E431EC09AE4003B6D6A /* FarmImage+CoreDataClass.swift in Sources */,
 				187F4B2E1EBBE444000AA4DB /* UpdateProfileTableViewController.swift in Sources */,
 				187F4B3C1EBC41A2000AA4DB /* Location+CoreDataProperties.swift in Sources */,
+				18E810D01EC07B0400EDA5D8 /* Farm+CoreDataClass.swift in Sources */,
 				18C1F0601EB63E0E001D611B /* OPChangePasswordViewController.swift in Sources */,
 				18C1F0571EB63E0E001D611B /* OPToastWindow.swift in Sources */,
 				18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */,
 				18C1F0561EB63E0E001D611B /* OPTextField.swift in Sources */,
 				183D828B1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift in Sources */,
-				18C1F0671EB63E0E001D611B /* OPVegetableListViewController.swift in Sources */,
+				18C1F0671EB63E0E001D611B /* OPFarmListViewController.swift in Sources */,
 				18B282331EB85D6300010595 /* Common.swift in Sources */,
 				18C1F0631EB63E0E001D611B /* OPMeViewController.swift in Sources */,
 				1818CD541EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift in Sources */,
@@ -662,10 +704,12 @@
 				180688CD1EB8C28300CEE3BF /* Profile+CoreDataClass.swift in Sources */,
 				180688CE1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift in Sources */,
 				183D828D1EB64C3000B9F028 /* UIColor+Ext.swift in Sources */,
+				18B53E441EC09AE4003B6D6A /* FarmImage+CoreDataProperties.swift in Sources */,
 				187F4B311EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift in Sources */,
 				18C1F0691EB63E0E001D611B /* NetworkingAPIMapping.swift in Sources */,
 				18C1F0611EB63E0E001D611B /* OPLoginMainViewController.swift in Sources */,
 				18C06B751EBA91C0007DDC09 /* OPSplitBaseViewController.swift in Sources */,
+				18E810D11EC07B0400EDA5D8 /* Farm+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

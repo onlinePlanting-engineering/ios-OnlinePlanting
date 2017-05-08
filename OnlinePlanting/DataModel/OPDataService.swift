@@ -87,4 +87,26 @@ class OPDataService: NSObject {
             }
         })
     }
+    
+    func getFarmList(handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.getFarmList() { (success, json, error) in
+            guard let data = json?["data"].arrayObject as? [[String : Any]] else { return }
+            Sync.changes(data, inEntityNamed: "Farm", dataStack: appDelegate.dataStack, completion: { (error) in
+                if error != nil {
+                    handler(false, error)
+                } else {
+                    self.fetchCurrentUserObjects()
+                    handler(true, nil)
+                }
+            })
+
+        }
+    }
+    
+    func fetchCurrentUserObjects() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Farm")
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        let farm = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [Farm]
+        print("farm information is: \(farm[0].price)")
+    }
 }

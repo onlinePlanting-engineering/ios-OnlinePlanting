@@ -64,6 +64,16 @@ extension Networking {
         return headers
     }
     
+    func getFarmHeader() -> [String : String]? {
+        guard let unwrapToken = token else { return nil }
+        let headers = [
+            "Allow": "GET,OPTIONS",
+            "Content-Type": "application/json",
+            "Authorization": "Token \(unwrapToken)"
+        ]
+        return headers
+    }
+    
     func updatedHeaders() -> [String : String]? {
         guard let unwrapToken = token else { return nil }
         let headers = [

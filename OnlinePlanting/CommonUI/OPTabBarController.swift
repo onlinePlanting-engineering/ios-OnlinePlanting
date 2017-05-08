@@ -21,6 +21,7 @@ class OPTabBarController: UITabBarController {
     
     func prepareUI() {
         tabBar.tintColor = UIColor(hexString: OPGreenColor)
+
     }
 
     override func didReceiveMemoryWarning() {

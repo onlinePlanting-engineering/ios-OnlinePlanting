@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="OPFarmTableViewCell" rowHeight="300" id="KGk-i7-Jjw" customClass="OPFarmTableViewCell" customModule="OnlinePlanting" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="299"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBX-EP-L4O">
+                        <rect key="frame" x="0.0" y="-1" width="300" height="300"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bjx-1k-WHU">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="236"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="圃朗庭|宁波鄞州" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHd-Pk-mkW">
+                                <rect key="frame" x="10" y="236" width="290" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Qxh-iU-CGn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="tHd-Pk-mkW" secondAttribute="bottom" id="8yU-hz-EV8"/>
+                            <constraint firstItem="Bjx-1k-WHU" firstAttribute="width" secondItem="GBX-EP-L4O" secondAttribute="width" id="Nmg-gg-c3s"/>
+                            <constraint firstItem="Bjx-1k-WHU" firstAttribute="centerX" secondItem="GBX-EP-L4O" secondAttribute="centerX" id="OQK-u0-Nyv"/>
+                            <constraint firstItem="Bjx-1k-WHU" firstAttribute="top" secondItem="GBX-EP-L4O" secondAttribute="top" id="UkY-wM-ytC"/>
+                            <constraint firstAttribute="trailing" secondItem="tHd-Pk-mkW" secondAttribute="trailing" id="Yqp-p6-Fa7"/>
+                            <constraint firstItem="tHd-Pk-mkW" firstAttribute="leading" secondItem="GBX-EP-L4O" secondAttribute="leading" constant="10" id="aHl-Bz-RaY"/>
+                            <constraint firstItem="tHd-Pk-mkW" firstAttribute="top" secondItem="Bjx-1k-WHU" secondAttribute="bottom" id="rPb-AX-Sei"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="GBX-EP-L4O" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PAG-wY-TAG"/>
+                    <constraint firstItem="GBX-EP-L4O" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="lpU-W5-h1c"/>
+                    <constraint firstItem="GBX-EP-L4O" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="omr-sM-1bb"/>
+                    <constraint firstItem="GBX-EP-L4O" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="qkO-uy-vgk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="farmTitle" destination="tHd-Pk-mkW" id="eXY-aO-wqh"/>
+                <outlet property="framImage" destination="Bjx-1k-WHU" id="oQG-ZJ-uda"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

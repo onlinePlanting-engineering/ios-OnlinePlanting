@@ -29,6 +29,10 @@ extension Networking {
         _ = syncWithAppServer(.GetUserProfile, httpMethod: .put, httpHeaders: updatedHeaders(), params: paramersPost, handler: handler)
     }
     
+    func getFarmList(handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
+        _ = syncWithAppServer(.GetFarmList, httpMethod: .get, httpHeaders: getFarmHeader(), params: nil, handler: handler)
+    }
+    
     fileprivate func syncWithAppServer(_ apiMapping: WebServiceAPIMapping, httpMethod: HTTPMethod ,httpHeaders: HTTPHeaders? = nil, params:[String: Any?]? = nil,handler: @escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) -> DataRequest? {
         
         let url = baseURL! + apiMapping.rawValue
