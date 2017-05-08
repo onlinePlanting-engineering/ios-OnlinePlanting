@@ -58,16 +58,6 @@ class OPMeViewController: UIViewController, UIScrollViewDelegate, SubScrollDeleg
         } else {
             headerView.layer.zPosition = 0
         }
-        
-//        if (headerView.bounds.height-min_header+bar_offset) < offset {
-//            barView.layer.zPosition = 3
-//        } else {
-//            barView.layer.zPosition = 1
-//        }
-        
-//        var barTransform = CATransform3DIdentity
-//        barTransform = CATransform3DTranslate(barTransform, 0, max(-(headerView.bounds.height-min_header+bar_offset), -offset), 0)
-//        barView.layer.transform = barTransform
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

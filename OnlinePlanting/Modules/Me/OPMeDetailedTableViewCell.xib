@@ -24,13 +24,22 @@
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-8k-Tuo">
+                        <rect key="frame" x="272.5" y="12" width="39.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="pHJ-Jp-zfO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="6Jx-eY-8mH"/>
                     <constraint firstItem="pHJ-Jp-zfO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HaG-pt-Hjw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ios-8k-Tuo" secondAttribute="trailing" id="Mn6-WN-j9H"/>
+                    <constraint firstItem="Ios-8k-Tuo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Nh9-Ae-Qsu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="profileinfor" destination="Ios-8k-Tuo" id="kgg-oH-q0U"/>
                 <outlet property="title" destination="pHJ-Jp-zfO" id="bml-g6-LQ6"/>
             </connections>
         </tableViewCell>

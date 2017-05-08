@@ -41,6 +41,8 @@ class UpdateProfileTableViewController: UITableViewController {
     }
     
     func dismissCurrentView() {
+        let cell = tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? UpdateProfileTableViewCell
+        delegate?.saveUpdatedInformation(type, information: cell?.updateTextField.text as AnyObject?)
         let _ = navigationController?.popViewController(animated: true)
     }
     
@@ -54,14 +56,6 @@ class UpdateProfileTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let _ = LocationUtils.sharedInstance.getCurrentLocation()
-    }
-    
-    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

@@ -2,7 +2,7 @@
 //  Profile+CoreDataProperties.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 5/2/17.
+//  Created by IBM on 5/6/17.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 
@@ -16,10 +16,10 @@ extension Profile {
         return NSFetchRequest<Profile>(entityName: "Profile");
     }
 
-    @NSManaged public var nickname: String?
     @NSManaged public var addr: String?
+    @NSManaged public var gender: String?
     @NSManaged public var img_heading: String?
-    @NSManaged public var gender: Int16
+    @NSManaged public var nickname: String?
     @NSManaged public var owner: User?
 
 }

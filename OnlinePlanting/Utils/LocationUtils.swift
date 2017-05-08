@@ -50,7 +50,6 @@ class LocationUtils: NSObject, CLLocationManagerDelegate {
     
     
     func changeNotification(notification: NSNotification) {
-//        let deletedObjects = notification.userInfo?[NSDeletedObjectsKey]
         let insertedObjects = notification.userInfo?[NSInsertedObjectsKey]
         print("insertedObjects:\(insertedObjects)")
     }
@@ -83,30 +82,27 @@ class LocationUtils: NSObject, CLLocationManagerDelegate {
                 let subLocality: String = (userLocationData.addressDictionary! as NSDictionary).value(forKey: "SubLocality") as! String
                 let street: String = (userLocationData.addressDictionary! as NSDictionary).value(forKey: "Name") as! String
                 
-                let locationArray: [String: String] = ["countryCode": countryCode, "country": country, "province": province, "city": city, "subLocality": subLocality, "street": street]
-                let dataJson: NSData! = try? JSONSerialization.data(withJSONObject: locationArray, options: []) as NSData!
-                let JSONString = NSString(data: dataJson as Data, encoding: String.Encoding.utf8.rawValue)
+                let locationArray: [String: String] = ["id": "1", "countryCode": countryCode, "country": country, "province": province, "city": city, "subLocality": subLocality, "street": street]
                 
-                let json = JSON(JSONString!).dictionaryObject
-                Sync.changes([json!], inEntityNamed: "Location", dataStack: appDelegate.dataStack, completion: { [weak self] (error) in
+                OPDataService.sharedInstance.saveUserLocationData(locationArray, handler: { [weak self](success, error) in
                     if error != nil {
-                        print("location saveing error")
+                        print("save location data failed")
                     } else {
-                        print("location saved successfully")
-                        //self?.fetchCurrentUserObjects()
+                        self?.fetchCurrentUserLocationObjects()
                     }
                 })
+                
             } else {
                 print("failed")
             }
         }
     }
     
-    func fetchCurrentUserObjects() {
+    func fetchCurrentUserLocationObjects() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
-        request.sortDescriptors = [NSSortDescriptor(key: "city", ascending: true)]
         let location = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [Location]
-        let userLocation = location[0]
-        print("user information is: \(userLocation.province)")
+        if location.count > 0 {
+            appDelegate.currentLocation = location[0]
+        }
     }
 }

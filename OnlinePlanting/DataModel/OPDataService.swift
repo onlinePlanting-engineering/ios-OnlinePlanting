@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 import Sync
 
 class OPDataService: NSObject {
@@ -61,16 +62,29 @@ class OPDataService: NSObject {
         }
     }
     
-    func updateUserProfile(_ userId: Int64?, username: String?, gender: Int?, address: String?, nickname: String?, portriate: UIImage?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+    func updateUserProfile(_ userId: Int64?, username: String?, gender: String?, address: String?, nickname: String?, portriate: UIImage?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         Networking.shareInstance.updateUserProfile(userId, username: username, gender: gender, address: address, nickname: nickname, portriate: portriate) { (success, json, error) in
             if success {
                 guard let data = json?.dictionaryObject?["data"] as? [String: Any] else { return }
                 Sync.changes([data], inEntityNamed: "User", dataStack: appDelegate.dataStack) { error in
                     handler(true, nil)
+//                    let user = (try! Sync.fetch(appDelegate.currentUser?.id, inEntityNamed: "User", using: appDelegate.dataStack.mainContext)) as! User
+//                    appDelegate.currentUser = user
                 }
             } else {
                 handler(false, error)
             }
         }
+    }
+    
+    func saveUserLocationData(_ parameters: [String: String]?,handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        guard let parameter = parameters else { return }
+        Sync.changes([parameter], inEntityNamed: "Location", dataStack: appDelegate.dataStack, completion: { (error) in
+            if error != nil {
+                handler(false, error)
+            } else {
+                handler(true, nil)
+            }
+        })
     }
 }

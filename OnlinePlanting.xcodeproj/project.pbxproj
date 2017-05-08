@@ -32,6 +32,7 @@
 		187F4B3B1EBC41A2000AA4DB /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B391EBC41A2000AA4DB /* Location+CoreDataClass.swift */; };
 		187F4B3C1EBC41A2000AA4DB /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B3A1EBC41A2000AA4DB /* Location+CoreDataProperties.swift */; };
 		187F4B401EBC6BB9000AA4DB /* UISaveLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B3F1EBC6BB9000AA4DB /* UISaveLocation.swift */; };
+		187F4B421EBF3431000AA4DB /* OPLoadingHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B411EBF3431000AA4DB /* OPLoadingHUD.swift */; };
 		1885BCB11EB97DDB0099EAEA /* OPMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1885BCB01EB97DDB0099EAEA /* OPMeTableViewController.swift */; };
 		188A5EC61EAE2CE3006CE839 /* OnlinePlantingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */; };
 		188A5ED11EAE2CE3006CE839 /* OnlinePlantingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */; };
@@ -118,6 +119,7 @@
 		187F4B391EBC41A2000AA4DB /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		187F4B3A1EBC41A2000AA4DB /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		187F4B3F1EBC6BB9000AA4DB /* UISaveLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISaveLocation.swift; sourceTree = "<group>"; };
+		187F4B411EBF3431000AA4DB /* OPLoadingHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPLoadingHUD.swift; sourceTree = "<group>"; };
 		1885BCB01EB97DDB0099EAEA /* OPMeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeTableViewController.swift; sourceTree = "<group>"; };
 		188A5EAA1EAE2CE3006CE839 /* OnlinePlanting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlinePlanting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5EC11EAE2CE3006CE839 /* OnlinePlantingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +300,7 @@
 				18C1E6681EB63E0B001D611B /* OPTextField.swift */,
 				18C1E6691EB63E0B001D611B /* OPToastWindow.swift */,
 				18C06B741EBA91C0007DDC09 /* OPSplitBaseViewController.swift */,
+				187F4B411EBF3431000AA4DB /* OPLoadingHUD.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				18B282331EB85D6300010595 /* Common.swift in Sources */,
 				18C1F0631EB63E0E001D611B /* OPMeViewController.swift in Sources */,
 				1818CD541EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift in Sources */,
+				187F4B421EBF3431000AA4DB /* OPLoadingHUD.swift in Sources */,
 				18C1F0591EB63E0E001D611B /* OPDataService.swift in Sources */,
 				187F4B381EBC27DF000AA4DB /* LocationUtils.swift in Sources */,
 				187F4B3B1EBC41A2000AA4DB /* Location+CoreDataClass.swift in Sources */,
