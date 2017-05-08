@@ -20,6 +20,7 @@ extension FarmImage {
     @NSManaged public var image: String?
     @NSManaged public var is_delete: Bool
     @NSManaged public var flags: String?
+    @NSManaged public var id: Int16
     @NSManaged public var owner: Farm?
 
 }

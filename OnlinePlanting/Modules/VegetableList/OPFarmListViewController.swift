@@ -91,10 +91,6 @@ extension OPFarmListViewController {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return urlCollection.count
-    }
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 320
     }
@@ -111,7 +107,9 @@ extension OPFarmListViewController {
         farmDetailedVC = nav?.childViewControllers.first as? OPFarmDetailedViewController
         nav?.transitioningDelegate = self
         let cell = farmTableview.cellForRow(at: indexPath) as! OPFarmTableViewCell
+        guard let farm = fetchedResultsController?.object(at: indexPath) as? Farm else { return }
         farmDetailedVC?.newImage = cell.framImage.image
+        farmDetailedVC?.farmData = farm
         let cellRect = farmTableview.convert(cell.frame, to: farmTableview)
         let currentScreenCell = farmTableview.convert(cellRect, to: view)
         presentAnimator.originFrame = currentScreenCell
@@ -119,6 +117,14 @@ extension OPFarmListViewController {
         guard let navigatVc = nav else { return }
         present(navigatVc, animated: true, completion: nil)
         cell.setSelected(false, animated: true)
+    }
+    
+    override func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        super.controllerDidChangeContent(controller)
+        
+//        if let count = fetchedResultsController?.sections?[0].numberOfObjects {
+//            noCommentView.isHidden = count > 0
+//        }
     }
 }
 

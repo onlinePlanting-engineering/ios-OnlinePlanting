@@ -13,10 +13,17 @@ class OPFarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var framImage: UIImageView!
     @IBOutlet weak var farmTitle: UILabel!
+    @IBOutlet weak var commentIcon: UIImageView!
+    fileprivate var commentGesture: UITapGestureRecognizer?
+    @IBOutlet weak var touchView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+    }
+
+    func viewComment() {
+        print("tap on comments")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -25,13 +32,32 @@ class OPFarmTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateDataSource(_ farm: Farm?) {
+    func addTapGesureForComment() {
         
-        let imageList = farm?.imageList?.allObjects as? [FarmImage]
-        for farmimage in imageList! {
-            print("the image link is:\(farmimage.image)")
+        if let gestures = touchView.gestureRecognizers {
+            for gesture in gestures {
+                touchView.removeGestureRecognizer(gesture)
+            }
         }
-        //framImage.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "toast_image"))
+        
+        commentGesture = UITapGestureRecognizer(target: self, action: #selector(viewComment))
+        guard let gesture = commentGesture else { return }
+        touchView.addGestureRecognizer(gesture)
+        
+    }
+    
+    func updateDataSource(_ farm: Farm?) {
+        addTapGesureForComment()
+        
+        let imageList = farm?.images?.allObjects as? [FarmImage]
+        if let imagecount = imageList?.count, imagecount > 0 {
+            guard let imageURL = imageList?.first?.image  else { return }
+            framImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "toast_image"))
+        }
+        
+        if let name = farm?.name, let address = farm?.addr {
+            farmTitle.text = "\(name) | \(address)"
+        }
     }
     
 }

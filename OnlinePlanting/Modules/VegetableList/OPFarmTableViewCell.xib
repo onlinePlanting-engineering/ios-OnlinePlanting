@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="299"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="299.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBX-EP-L4O">
@@ -33,20 +33,41 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCy-OH-qnu">
+                                <rect key="frame" x="236" y="236" width="64" height="64"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="Vpa-VE-UHZ"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comments" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-4U-mqJ">
+                                <rect key="frame" x="260" y="253" width="30" height="30"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="PF9-qg-5hF"/>
+                                    <constraint firstAttribute="height" constant="30" id="gHi-Xk-tkm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZCy-OH-qnu" firstAttribute="trailing" secondItem="tHd-Pk-mkW" secondAttribute="trailing" id="2ae-oP-dmy"/>
                             <constraint firstAttribute="bottom" secondItem="tHd-Pk-mkW" secondAttribute="bottom" id="8yU-hz-EV8"/>
+                            <constraint firstItem="ZCy-OH-qnu" firstAttribute="height" secondItem="tHd-Pk-mkW" secondAttribute="height" id="Hfp-C1-rli"/>
+                            <constraint firstItem="z3r-4U-mqJ" firstAttribute="centerY" secondItem="tHd-Pk-mkW" secondAttribute="centerY" id="Jh0-jn-eMY"/>
                             <constraint firstItem="Bjx-1k-WHU" firstAttribute="width" secondItem="GBX-EP-L4O" secondAttribute="width" id="Nmg-gg-c3s"/>
                             <constraint firstItem="Bjx-1k-WHU" firstAttribute="centerX" secondItem="GBX-EP-L4O" secondAttribute="centerX" id="OQK-u0-Nyv"/>
                             <constraint firstItem="Bjx-1k-WHU" firstAttribute="top" secondItem="GBX-EP-L4O" secondAttribute="top" id="UkY-wM-ytC"/>
                             <constraint firstAttribute="trailing" secondItem="tHd-Pk-mkW" secondAttribute="trailing" id="Yqp-p6-Fa7"/>
                             <constraint firstItem="tHd-Pk-mkW" firstAttribute="leading" secondItem="GBX-EP-L4O" secondAttribute="leading" constant="10" id="aHl-Bz-RaY"/>
+                            <constraint firstItem="ZCy-OH-qnu" firstAttribute="top" secondItem="tHd-Pk-mkW" secondAttribute="top" id="aTA-Jd-doG"/>
+                            <constraint firstItem="tHd-Pk-mkW" firstAttribute="trailing" secondItem="z3r-4U-mqJ" secondAttribute="trailing" constant="10" id="i1g-CS-Xo0"/>
                             <constraint firstItem="tHd-Pk-mkW" firstAttribute="top" secondItem="Bjx-1k-WHU" secondAttribute="bottom" id="rPb-AX-Sei"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <gestureRecognizers/>
                 <constraints>
                     <constraint firstItem="GBX-EP-L4O" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PAG-wY-TAG"/>
                     <constraint firstItem="GBX-EP-L4O" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="lpU-W5-h1c"/>
@@ -55,9 +76,14 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="commentIcon" destination="z3r-4U-mqJ" id="Ztj-NZ-x9R"/>
                 <outlet property="farmTitle" destination="tHd-Pk-mkW" id="eXY-aO-wqh"/>
                 <outlet property="framImage" destination="Bjx-1k-WHU" id="oQG-ZJ-uda"/>
+                <outlet property="touchView" destination="ZCy-OH-qnu" id="2cM-kE-beU"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="comments" width="64" height="64"/>
+    </resources>
 </document>

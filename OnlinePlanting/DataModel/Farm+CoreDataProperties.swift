@@ -18,7 +18,6 @@ extension Farm {
 
     @NSManaged public var content: String?
     @NSManaged public var id: Int16
-    @NSManaged public var images: NSObject?
     @NSManaged public var is_delete: Bool
     @NSManaged public var name: String?
     @NSManaged public var notice: String?
@@ -26,23 +25,24 @@ extension Farm {
     @NSManaged public var price: Double
     @NSManaged public var subject: String?
     @NSManaged public var url: String?
-    @NSManaged public var imageList: NSSet?
+    @NSManaged public var addr: String?
+    @NSManaged public var images: NSSet?
 
 }
 
-// MARK: Generated accessors for imageList
+// MARK: Generated accessors for images
 extension Farm {
 
-    @objc(addImageListObject:)
-    @NSManaged public func addToImageList(_ value: FarmImage)
+    @objc(addImagesObject:)
+    @NSManaged public func addToImages(_ value: FarmImage)
 
-    @objc(removeImageListObject:)
-    @NSManaged public func removeFromImageList(_ value: FarmImage)
+    @objc(removeImagesObject:)
+    @NSManaged public func removeFromImages(_ value: FarmImage)
 
-    @objc(addImageList:)
-    @NSManaged public func addToImageList(_ values: NSSet)
+    @objc(addImages:)
+    @NSManaged public func addToImages(_ values: NSSet)
 
-    @objc(removeImageList:)
-    @NSManaged public func removeFromImageList(_ values: NSSet)
+    @objc(removeImages:)
+    @NSManaged public func removeFromImages(_ values: NSSet)
 
 }

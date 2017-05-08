@@ -107,6 +107,6 @@ class OPDataService: NSObject {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Farm")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         let farm = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [Farm]
-        print("farm information is: \(farm[0].price)")
+        print("farm information is: \(farm[0].images)")
     }
 }

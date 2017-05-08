@@ -18,6 +18,7 @@ class OPFarmDetailedViewController: UIViewController {
     var newImage: UIImage!
     var farmData: Farm?
     @IBOutlet weak var buttonAnimatedView: UIView!
+    @IBOutlet weak var webview: UIWebView!
     
     @IBAction func detailedButton(_ sender: UIButton) {
         buttonAnimation(sender)
@@ -47,6 +48,20 @@ class OPFarmDetailedViewController: UIViewController {
         farmComments.tag = 1
         farmOther.setTitleColor(UIColor.darkGray, for: .normal)
         farmOther.tag = 2
+        
+        webview.scrollView.showsVerticalScrollIndicator = false
+        webview.scrollView.showsHorizontalScrollIndicator = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadFarmData()
+    }
+    
+    func loadFarmData() {
+        guard let contentURL = farmData?.content, let url = URL(string: contentURL) else { return }
+        webview.loadRequest(URLRequest(url: url))
     }
 
     override func didReceiveMemoryWarning() {
