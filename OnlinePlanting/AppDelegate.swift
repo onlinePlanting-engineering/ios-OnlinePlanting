@@ -26,6 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didSet{
             //update User informaton
             print("current user's id is: \(currentUser?.id)")
+//            OPDataService.sharedInstance.updateUserProfile(currentUser?.id, username: currentUser?.username, gender: currentUser?.profile?.gender., address: <#T##String?#>, nickname: currentUser?.profile?.nickname, portriate: <#T##UIImage?#>) { (<#Bool#>, <#NSError?#>) in
+//                <#code#>
+//            }
+        }
+    }
+    
+    var currentLocation: Location? {
+        didSet{
+            //update User informaton
+            print("current user's city is: \(currentLocation?.city)")
+            
         }
     }
     
@@ -38,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.loginSuccess), name: NSNotification.Name(rawValue: "LoginSuccess"), object: nil)
         
         SMSSDK.registerApp("1d75ef2990800", withSecret: "e417f1d73f075effd2f4e7a048afbb7c")
+        
+        let _ = LocationUtils.sharedInstance.currLocation
         //SMSSDK.enableAppContactFriends(false)
         return true
     }

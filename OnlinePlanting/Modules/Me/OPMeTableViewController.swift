@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol SubScrollDelegate: NSObjectProtocol {
     func customScrollViewDidScroll(_ scrollView: UIScrollView)
@@ -17,6 +18,14 @@ class OPMeTableViewController: UITableViewController {
     weak var delegate: SubScrollDelegate?
     @IBOutlet var meTableView: UITableView!
     @IBOutlet weak var portraitView: UIImageView!
+    
+    var updatedView: UIImage? {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.portraitView.image = self?.updatedView
+            }
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -33,11 +42,19 @@ class OPMeTableViewController: UITableViewController {
     func prepareUI() {
         portraitView.layer.cornerRadius = portraitView.bounds.height / 2
         portraitView.layer.masksToBounds = true
+        guard let imageURL = appDelegate.currentUser?.profile?.img_heading else { return }
+        portraitView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -86,11 +103,19 @@ extension OPMeTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let profileVc = UIStoryboard.init(name: "OPMe", bundle: nil).instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController {
+            profileVc.delegate = self
+            profileVc.imgHeading = portraitView
             navigationController?.pushViewController(profileVc, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+extension OPMeTableViewController: ProfileViewControllerDelegate {
     
+    func updateUserImage(_ image: UIImage?) {
+        updatedView = image
+    }
 }
 
 /*

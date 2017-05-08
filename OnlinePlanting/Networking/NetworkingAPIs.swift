@@ -24,7 +24,7 @@ extension Networking {
         _ = syncWithAppServer(.GetUserProfile, httpMethod: .get, httpHeaders: getHeaders(), handler: handler)
     }
     
-    func updateUserProfile(_ username: String?, nickname: String?, address: String?, gender: Int?, image: UIImage?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
+    func updateUserProfile(_ username: String?, nickname: String?, address: String?, gender: Int16?, image: UIImage?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
         let paramersPost = ["username": username as Any, "profile": ["nickname":nickname as Any,"address":address as Any, "gender": gender as Any]] as [String : Any]
         _ = syncWithAppServer(.GetUserProfile, httpMethod: .put, httpHeaders: updatedHeaders(), params: paramersPost, handler: handler)
     }
@@ -52,7 +52,7 @@ extension Networking {
     }
     
     //update profile
-    func updateUserProfile(_ userId: Int64?, username: String?, gender: Int?, address: String?, nickname: String?, portriate: UIImage?, handler: @escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
+    func updateUserProfile(_ userId: Int64?, username: String?, gender: String?, address: String?, nickname: String?, portriate: UIImage?, handler: @escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
         var url = ""
         var params: Parameters = [String: Any]()
         if let myId = userId, let myUsername = username, let myGender = gender, let myAddr = address, let myNickname = nickname {
@@ -67,12 +67,13 @@ extension Networking {
         }
 
         Alamofire.upload(multipartFormData: { (multipartFormData) in
-            if let userImage = portriate, let imageData = UIImageJPEGRepresentation(userImage, 1){
+            if let userImage = portriate, let imageData = UIImageJPEGRepresentation(userImage,1){
                 multipartFormData.append(imageData, withName: "profile.img_heading", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
             }
             
             for (key, value) in params {
-                multipartFormData.append((value as! String).data(using: .utf8)!, withName: key)
+                //multipartFormData.append((value as! String).data(using: .utf8)!, withName: key)
+                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
             }
             
         }, usingThreshold: UInt64.init(), to: url, method: HTTPMethod.put, headers: updatedHeaders(), encodingCompletion: { encodingResult in

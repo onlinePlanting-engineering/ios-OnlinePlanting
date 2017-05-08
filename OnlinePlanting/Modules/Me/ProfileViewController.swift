@@ -6,16 +6,23 @@
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 import UIKit
+import SDWebImage
+import CoreData
 
 enum UserProfile: Int {
     case portrait
     case gender
     case address
     case nickname
+    case none
 }
 
-enum Gender: Int {
-    case unknow, male, female, others
+enum Gender: String {
+    case M, F, O
+}
+
+protocol ProfileViewControllerDelegate: NSObjectProtocol {
+    func updateUserImage(_ image: UIImage?)
 }
 
 class ProfileViewController: UIViewController {
@@ -24,10 +31,12 @@ class ProfileViewController: UIViewController {
     fileprivate var uploadAlertController: UIAlertController?
     fileprivate var genderSettingController: UIAlertController?
     fileprivate var imagePickerController: UIImagePickerController?
-    fileprivate var imgHeading: UIImageView?
-    fileprivate var gender: Int?
-    fileprivate var address: String?
-    fileprivate var nickname: String?
+    
+    fileprivate var userProfile: Profile?
+    fileprivate var changedType: UserProfile = .none
+    weak var delegate: ProfileViewControllerDelegate?
+    var imgHeading: UIImageView?
+    
     
     lazy var profileTableView: UITableView = {
         let profileTableView = UITableView()
@@ -73,7 +82,6 @@ class ProfileViewController: UIViewController {
         profileTableView.register(nib, forCellReuseIdentifier: "OPMeDetailedTableViewCell")
         profileTableView.dataSource = self
         profileTableView.delegate = self
-        // Do any additional setup after loading the view.
     }
     
     func dismissLoginView() {
@@ -87,12 +95,13 @@ class ProfileViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        let _ = LocationUtils.sharedInstance.getCurrentLocation()
+        let imageAbsoluteURL = appDelegate.currentUser?.profile?.img_heading ?? ""
+        imgHeading?.sd_setImage(with: URL(string: imageAbsoluteURL), placeholderImage: UIImage(named: "logo"))
+        userProfile = appDelegate.currentUser?.profile
     }
 }
 
-extension ProfileViewController: UITableViewDataSource {
+extension ProfileViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -114,19 +123,35 @@ extension ProfileViewController: UITableViewDataSource {
     
 }
 
-extension ProfileViewController: UITableViewDelegate {
+extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OPMeDetailedTableViewCell", for: indexPath) as! OPMeDetailedTableViewCell
         switch indexPath.row {
         case UserProfile.portrait.rawValue:
             cell.title.text = "Avatar"
+            cell.profileinfor.text = ""
         case UserProfile.address.rawValue:
-            cell.title.text = "Nick name"
+            cell.title.text = "Location"
+            cell.profileinfor.text = appDelegate.currentUser?.profile?.addr
         case UserProfile.gender.rawValue:
             cell.title.text = "Sex"
+            //display sex information
+            let gender = appDelegate.currentUser?.profile?.gender ?? "O"
+            switch  gender {
+            case  Gender.M.rawValue:
+                cell.profileinfor.text = "Male"
+            case  Gender.F.rawValue:
+                cell.profileinfor.text = "Female"
+            case  Gender.O.rawValue:
+                cell.profileinfor.text = "Others"
+            default:
+                cell.profileinfor.text = "Others"
+            }
+            
         case UserProfile.nickname.rawValue:
-            cell.title.text = "Region"
+            cell.title.text = "Nick name"
+            cell.profileinfor.text = appDelegate.currentUser?.profile?.nickname
         default:
             break
         }
@@ -141,8 +166,15 @@ extension ProfileViewController: UITableViewDelegate {
             present(alterView, animated: true, completion: nil)
         case UserProfile.address.rawValue:
             //TODO
-//            showUpdateProfileVC(UserProfile.address, defaultValue: appDelegate.currentUser?.profile?.addr as AnyObject)
-            showUpdateProfileVC(UserProfile.address, defaultValue: "Ning Bo, Zhe Jiang" as AnyObject, title: "Address")
+            var userAddress = ""
+            if let profileAddress = appDelegate.currentUser?.profile?.addr, profileAddress != "" {
+                userAddress = profileAddress
+            } else if let userCity = appDelegate.currentLocation?.city, let userProvince = appDelegate.currentLocation?.province {
+                userAddress = userCity + ", " + userProvince
+            } else {
+                userAddress = "unknow"
+            }
+            showUpdateProfileVC(UserProfile.address, defaultValue: userAddress as AnyObject, title: "Address")
         case UserProfile.gender.rawValue:
             present(genderView, animated: true, completion: nil)
         case UserProfile.nickname.rawValue:
@@ -170,13 +202,16 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     //MARK:- UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String :Any]) {
         
-        let type: String = (info[UIImagePickerControllerMediaType] as! String)
-        
-        if type == "public.image" {
-            let chooseImg = info[UIImagePickerControllerOriginalImage] as? UIImage
-            imgHeading?.image = chooseImg
-            picker.dismiss(animated:true, completion:nil)
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            imgHeading?.image = image
         }
+        else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imgHeading?.image = image
+        } else{
+            print("Something went wrong")
+        }
+        saveUpdatedInformation(.portrait, information: imgHeading)
+        picker.dismiss(animated:true, completion:nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
@@ -233,8 +268,8 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 extension ProfileViewController {
     
-    func actionGenderAction(_ genderType: Gender) {
-        gender = genderType.rawValue
+    func actionGenderAction(_ gender: Gender) {
+        saveUpdatedInformation(UserProfile.gender, information: gender.rawValue as AnyObject?)
     }
     
     func initChangeGenderAlertController()
@@ -243,15 +278,15 @@ extension ProfileViewController {
         genderSettingController?.view.tintColor = UIColor(hexString: OPGreenColor)
         
         let other = UIAlertAction(title: "Other", style: .default, handler: { [weak self] (action) in
-            self?.actionGenderAction(.others)
+            self?.actionGenderAction(.O)
         })
         
         let male = UIAlertAction(title: "Male", style: .default, handler: { [weak self] (action) in
-            self?.actionGenderAction(.male)
+            self?.actionGenderAction(.M)
         })
         
         let female = UIAlertAction(title: "Female", style: .default, handler: { [weak self] (action) in
-            self?.actionGenderAction(.female)
+            self?.actionGenderAction(.F)
         })
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
@@ -263,18 +298,56 @@ extension ProfileViewController {
         genderSettingController?.addAction(female)
         genderSettingController?.addAction(cancel)
     }
-
+    
 }
 
 extension ProfileViewController: UpdateProfileTableViewControllerDelegate {
+    
     func saveUpdatedInformation(_ type: UserProfile?, information: AnyObject?) {
         guard let profileType = type else { return }
-        switch profileType.rawValue {
-        case UserProfile.address.rawValue:
-            address = information as? String
-        case UserProfile.nickname.rawValue:
-            nickname = information as? String
-        default: break
+        switch profileType {
+        case .address:
+            if userProfile?.addr == information as? String { return }
+            userProfile?.addr = information as? String ?? ""
+            changedType = .address
+        case .gender:
+            if userProfile?.gender == information as? String { return }
+            userProfile?.gender = information as? String ?? "O"
+            changedType = .gender
+        case .nickname:
+            if userProfile?.nickname == information as? String { return }
+            userProfile?.nickname = information as? String ?? ""
+            changedType = .nickname
+        case .portrait:
+            changedType = .portrait
+        default:
+            changedType = .none
+            break
+        }
+        
+        OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Saving profile", animated: true, delay: 0.0)
+        updateUserProfile(type) { [weak self](success) in
+            self?.userProfile = appDelegate.currentUser?.profile
+            self?.profileTableView.reloadData()
+            //TODO:refresh the cell
+            if success {
+                if self?.changedType == .portrait {
+                    self?.delegate?.updateUserImage(self?.imgHeading?.image)
+                }
+                OPLoadingHUD.show(UIImage(named: "operate_success"), title: "Saving success", animated: false, delay: 0.5)
+            } else {
+                OPLoadingHUD.show(UIImage(named: "operate_failed"), title: "Saving failed", animated: false, delay: 0.5)
+            }
+        }
+    }
+    
+    func updateUserProfile(_ changeType: UserProfile?, handler: @escaping (Bool)-> Void) {
+        OPDataService.sharedInstance.updateUserProfile(appDelegate.currentUser?.id, username: appDelegate.currentUser?.username, gender: userProfile?.gender, address: userProfile?.addr, nickname: userProfile?.nickname, portriate: imgHeading?.image ?? UIImage(named: "logo")) { (success, error) in
+            if success {
+                handler(true)
+            } else {
+                handler(false)
+            }
         }
     }
 }

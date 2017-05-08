@@ -11,6 +11,7 @@ import UIKit
 class OPMeDetailedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var profileinfor: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

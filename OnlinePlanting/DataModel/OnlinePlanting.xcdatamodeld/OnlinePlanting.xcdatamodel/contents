@@ -3,18 +3,15 @@
     <entity name="Location" representedClassName=".Location" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="countryCode" optional="YES" attributeType="String" syncable="YES">
-            <userInfo>
-                <entry key="hyper.isPrimaryKey" value="true"/>
-            </userInfo>
-        </attribute>
+        <attribute name="countryCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="province" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subLocality" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Profile" representedClassName=".Profile" syncable="YES">
         <attribute name="addr" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="img_heading" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="profile" inverseEntity="User" syncable="YES"/>
@@ -25,8 +22,8 @@
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="owner" inverseEntity="Profile" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Profile" positionX="-3159" positionY="-2178" width="128" height="118"/>
+        <element name="Location" positionX="-3303" positionY="-2196" width="128" height="150"/>
+        <element name="Profile" positionX="-3159" positionY="-2178" width="128" height="120"/>
         <element name="User" positionX="-3447" positionY="-2313" width="128" height="88"/>
-        <element name="Location" positionX="-3303" positionY="-2196" width="128" height="135"/>
     </elements>
 </model>
