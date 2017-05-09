@@ -16,9 +16,9 @@ class OPFarmDetailedViewController: UIViewController {
     @IBOutlet weak var detailed: UIButton!
     @IBOutlet weak var farmImage: UIImageView!
     var newImage: UIImage!
+    fileprivate var farmContainerVc: OPFarmContainerViewController?
     var farmData: Farm?
     @IBOutlet weak var buttonAnimatedView: UIView!
-    @IBOutlet weak var webview: UIWebView!
     
     @IBAction func detailedButton(_ sender: UIButton) {
         buttonAnimation(sender)
@@ -48,9 +48,6 @@ class OPFarmDetailedViewController: UIViewController {
         farmComments.tag = 1
         farmOther.setTitleColor(UIColor.darkGray, for: .normal)
         farmOther.tag = 2
-        
-        webview.scrollView.showsVerticalScrollIndicator = false
-        webview.scrollView.showsHorizontalScrollIndicator = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,9 +56,16 @@ class OPFarmDetailedViewController: UIViewController {
         loadFarmData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "embedContainer" {
+            farmContainerVc = segue.destination as? OPFarmContainerViewController
+            farmContainerVc?.parentVC = self
+        }
+    }
+    
     func loadFarmData() {
         guard let contentURL = farmData?.content, let url = URL(string: contentURL) else { return }
-        webview.loadRequest(URLRequest(url: url))
+        //webview.loadRequest(URLRequest(url: url))
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,4 +106,5 @@ class OPFarmDetailedViewController: UIViewController {
             self?.buttonAnimatedView.center.x = button.center.x
         }, completion: nil)
     }
+    
 }

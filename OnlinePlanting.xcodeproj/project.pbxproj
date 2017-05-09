@@ -37,6 +37,12 @@
 		1885BCB11EB97DDB0099EAEA /* OPMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1885BCB01EB97DDB0099EAEA /* OPMeTableViewController.swift */; };
 		188A5EC61EAE2CE3006CE839 /* OnlinePlantingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */; };
 		188A5ED11EAE2CE3006CE839 /* OnlinePlantingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */; };
+		189052BF1EC13C8000F8DB1A /* OPFarmStorybardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052BE1EC13C8000F8DB1A /* OPFarmStorybardSegue.swift */; };
+		189052E51EC1EDE100F8DB1A /* OPFarmContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052E41EC1EDE100F8DB1A /* OPFarmContainerViewController.swift */; };
+		189052E71EC1EF4F00F8DB1A /* OPFarmContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052E61EC1EF4F00F8DB1A /* OPFarmContentViewController.swift */; };
+		189052EB1EC1F00300F8DB1A /* OPFarmImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052EA1EC1F00300F8DB1A /* OPFarmImagesViewController.swift */; };
+		189052ED1EC1F0CE00F8DB1A /* OPSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052EC1EC1F0CE00F8DB1A /* OPSegue.swift */; };
+		189052EF1EC1F63F00F8DB1A /* OPFarmContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052EE1EC1F63F00F8DB1A /* OPFarmContentTableViewCell.swift */; };
 		1897E6A81EB99A8C008BC24D /* OPMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897E6A61EB99A8C008BC24D /* OPMeTableViewCell.swift */; };
 		1897E6A91EB99A8C008BC24D /* OPMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897E6A71EB99A8C008BC24D /* OPMeTableViewCell.xib */; };
 		1897E6AB1EB9C58B008BC24D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897E6AA1EB9C58B008BC24D /* ProfileViewController.swift */; };
@@ -138,6 +144,12 @@
 		188A5ECC1EAE2CE3006CE839 /* OnlinePlantingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingUITests.swift; sourceTree = "<group>"; };
 		188A5ED21EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		189052BE1EC13C8000F8DB1A /* OPFarmStorybardSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmStorybardSegue.swift; path = Farm/OPFarmStorybardSegue.swift; sourceTree = "<group>"; };
+		189052E41EC1EDE100F8DB1A /* OPFarmContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmContainerViewController.swift; path = Farm/OPFarmContainerViewController.swift; sourceTree = "<group>"; };
+		189052E61EC1EF4F00F8DB1A /* OPFarmContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmContentViewController.swift; path = Farm/OPFarmContentViewController.swift; sourceTree = "<group>"; };
+		189052EA1EC1F00300F8DB1A /* OPFarmImagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmImagesViewController.swift; path = Farm/OPFarmImagesViewController.swift; sourceTree = "<group>"; };
+		189052EC1EC1F0CE00F8DB1A /* OPSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPSegue.swift; sourceTree = "<group>"; };
+		189052EE1EC1F63F00F8DB1A /* OPFarmContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmContentTableViewCell.swift; path = Farm/OPFarmContentTableViewCell.swift; sourceTree = "<group>"; };
 		1897E6A61EB99A8C008BC24D /* OPMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeTableViewCell.swift; sourceTree = "<group>"; };
 		1897E6A71EB99A8C008BC24D /* OPMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPMeTableViewCell.xib; sourceTree = "<group>"; };
 		1897E6AA1EB9C58B008BC24D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -299,6 +311,11 @@
 				18C1E6821EB63E0B001D611B /* OPFarmListViewController.swift */,
 				18E810C61EC028A000EDA5D8 /* OPFarmTableViewCell.swift */,
 				18E810C71EC028A000EDA5D8 /* OPFarmTableViewCell.xib */,
+				189052BE1EC13C8000F8DB1A /* OPFarmStorybardSegue.swift */,
+				189052E41EC1EDE100F8DB1A /* OPFarmContainerViewController.swift */,
+				189052E61EC1EF4F00F8DB1A /* OPFarmContentViewController.swift */,
+				189052EA1EC1F00300F8DB1A /* OPFarmImagesViewController.swift */,
+				189052EE1EC1F63F00F8DB1A /* OPFarmContentTableViewCell.swift */,
 			);
 			name = Farm;
 			sourceTree = "<group>";
@@ -332,6 +349,7 @@
 				18C1E6691EB63E0B001D611B /* OPToastWindow.swift */,
 				18C06B741EBA91C0007DDC09 /* OPSplitBaseViewController.swift */,
 				187F4B411EBF3431000AA4DB /* OPLoadingHUD.swift */,
+				189052EC1EC1F0CE00F8DB1A /* OPSegue.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -670,12 +688,14 @@
 				1897E6A81EB99A8C008BC24D /* OPMeTableViewCell.swift in Sources */,
 				18C1F0541EB63E0E001D611B /* CoreDataTableViewController.swift in Sources */,
 				180688CF1EB8C28300CEE3BF /* User+CoreDataClass.swift in Sources */,
+				189052E51EC1EDE100F8DB1A /* OPFarmContainerViewController.swift in Sources */,
 				18C1F0531EB63E0E001D611B /* CoreDataCollectionViewController.swift in Sources */,
 				183D82891EB64B6400B9F028 /* String+Ext.swift in Sources */,
 				18C1F0551EB63E0E001D611B /* OPTabBarController.swift in Sources */,
 				1885BCB11EB97DDB0099EAEA /* OPMeTableViewController.swift in Sources */,
 				18C1F0651EB63E0E001D611B /* OPMyGardenViewController.swift in Sources */,
 				187F4B481EC011F4000AA4DB /* OPTransitioningAnimator.swift in Sources */,
+				189052BF1EC13C8000F8DB1A /* OPFarmStorybardSegue.swift in Sources */,
 				18E810C51EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift in Sources */,
 				18E810C81EC028A000EDA5D8 /* OPFarmTableViewCell.swift in Sources */,
 				1897E6AB1EB9C58B008BC24D /* ProfileViewController.swift in Sources */,
@@ -685,6 +705,7 @@
 				18B53E431EC09AE4003B6D6A /* FarmImage+CoreDataClass.swift in Sources */,
 				187F4B2E1EBBE444000AA4DB /* UpdateProfileTableViewController.swift in Sources */,
 				187F4B3C1EBC41A2000AA4DB /* Location+CoreDataProperties.swift in Sources */,
+				189052ED1EC1F0CE00F8DB1A /* OPSegue.swift in Sources */,
 				18E810D01EC07B0400EDA5D8 /* Farm+CoreDataClass.swift in Sources */,
 				18C1F0601EB63E0E001D611B /* OPChangePasswordViewController.swift in Sources */,
 				18C1F0571EB63E0E001D611B /* OPToastWindow.swift in Sources */,
@@ -694,6 +715,7 @@
 				18C1F0671EB63E0E001D611B /* OPFarmListViewController.swift in Sources */,
 				18B282331EB85D6300010595 /* Common.swift in Sources */,
 				18C1F0631EB63E0E001D611B /* OPMeViewController.swift in Sources */,
+				189052E71EC1EF4F00F8DB1A /* OPFarmContentViewController.swift in Sources */,
 				1818CD541EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift in Sources */,
 				187F4B421EBF3431000AA4DB /* OPLoadingHUD.swift in Sources */,
 				18C1F0591EB63E0E001D611B /* OPDataService.swift in Sources */,
@@ -704,7 +726,9 @@
 				180688CD1EB8C28300CEE3BF /* Profile+CoreDataClass.swift in Sources */,
 				180688CE1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift in Sources */,
 				183D828D1EB64C3000B9F028 /* UIColor+Ext.swift in Sources */,
+				189052EB1EC1F00300F8DB1A /* OPFarmImagesViewController.swift in Sources */,
 				18B53E441EC09AE4003B6D6A /* FarmImage+CoreDataProperties.swift in Sources */,
+				189052EF1EC1F63F00F8DB1A /* OPFarmContentTableViewCell.swift in Sources */,
 				187F4B311EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift in Sources */,
 				18C1F0691EB63E0E001D611B /* NetworkingAPIMapping.swift in Sources */,
 				18C1F0611EB63E0E001D611B /* OPLoginMainViewController.swift in Sources */,
