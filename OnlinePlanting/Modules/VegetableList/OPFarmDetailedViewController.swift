@@ -8,17 +8,20 @@
 
 import UIKit
 
-class OPFarmDetailedViewController: UIViewController {
+class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
 
     
     @IBOutlet weak var farmOther: UIButton!
     @IBOutlet weak var farmComments: UIButton!
     @IBOutlet weak var detailed: UIButton!
     @IBOutlet weak var farmImage: UIImageView!
+    @IBOutlet weak var buttonAnimatedView: UIView!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var headerImageView: UIImageView!
+
+    var farmData: Farm?
     var newImage: UIImage!
     fileprivate var farmContainerVc: OPFarmContainerViewController?
-    var farmData: Farm?
-    @IBOutlet weak var buttonAnimatedView: UIView!
     
     @IBAction func detailedButton(_ sender: UIButton) {
         buttonAnimation(sender)
@@ -53,19 +56,39 @@ class OPFarmDetailedViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        loadFarmData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "embedContainer" {
             farmContainerVc = segue.destination as? OPFarmContainerViewController
             farmContainerVc?.parentVC = self
+            farmContainerVc?.delegate = self
+            farmContainerVc?.farm = farmData
         }
     }
     
-    func loadFarmData() {
-        guard let contentURL = farmData?.content, let url = URL(string: contentURL) else { return }
-        //webview.loadRequest(URLRequest(url: url))
+    func customScrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        let offset = scrollView.contentOffset.y
+        
+        if offset < 0 {
+            var headerTransform = CATransform3DIdentity
+            let headerScaleFactor:CGFloat = -(offset) / headerView.bounds.height
+            let headerSizevariation = ((headerView.bounds.height * (1.0 + headerScaleFactor)) - headerView.bounds.height)/2.0
+            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 0)
+            headerView.layer.transform = headerTransform
+        } else {
+            var headerTransform = CATransform3DIdentity
+            headerTransform = CATransform3DTranslate(headerTransform, 0, max(-(headerView.bounds.height-min_header), -offset), 0)
+            headerView.layer.transform = headerTransform
+        }
+        
+        if (headerView.bounds.height-min_header) < offset {
+            headerView.layer.zPosition = 3
+        } else {
+            headerView.layer.zPosition = 0
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,23 +111,30 @@ class OPFarmDetailedViewController: UIViewController {
     
     func buttonAnimation(_ button: UIButton) {
         
+        UIView.animate(withDuration: 0.2, animations: {[weak self] in
+            self?.headerView.layer.transform = CATransform3DIdentity
+        })
+        
         if button.tag == 0 {
             detailed.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
-            farmComments.setTitleColor(UIColor.darkGray, for: .normal)
-            farmOther.setTitleColor(UIColor.darkGray, for: .normal)
+            farmComments.setTitleColor(UIColor.white, for: .normal)
+            farmOther.setTitleColor(UIColor.white, for: .normal)
+            farmContainerVc?.swapViewControllers("contentsegue")
         } else if button.tag == 1 {
-            detailed.setTitleColor(UIColor.darkGray, for: .normal)
+            detailed.setTitleColor(UIColor.white, for: .normal)
             farmComments.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
-            farmOther.setTitleColor(UIColor.darkGray, for: .normal)
+            farmOther.setTitleColor(UIColor.white, for: .normal)
+            farmContainerVc?.swapViewControllers("imagesegue")
         } else if button.tag == 2 {
-            detailed.setTitleColor(UIColor.darkGray, for: .normal)
-            farmComments.setTitleColor(UIColor.darkGray, for: .normal)
+            detailed.setTitleColor(UIColor.white, for: .normal)
+            farmComments.setTitleColor(UIColor.white, for: .normal)
             farmOther.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
+            farmContainerVc?.swapViewControllers("contentsegue")
         }
         
         UIView.animate(withDuration: 0.2, animations: {[weak self] in
             self?.buttonAnimatedView.center.x = button.center.x
-        }, completion: nil)
+            }, completion: nil)
     }
     
 }

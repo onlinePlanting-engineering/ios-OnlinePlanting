@@ -15,10 +15,10 @@ class OPFarmContainerViewController: UIViewController {
     var currentSegue: String?
     
     var contentViewController: OPFarmContentViewController?
-    var imageViewController: OPFarmImagesViewController?
+    var commentViewController: OPFarmCommentViewController?
     var transactionProcess = false
     var farm: Farm?
-    var delegate: SubScrollDelegate?
+    weak var delegate: SubScrollDelegate?
     var parentVC: UIViewController?
 
     override func viewDidLoad() {
@@ -39,17 +39,18 @@ class OPFarmContainerViewController: UIViewController {
         
         if segue.identifier == contentSegue {
             contentViewController = segue.destination as? OPFarmContentViewController
-            //contentViewController?.delegate = parentVC as! SubScrollDelegate?
+            contentViewController?.delegate = parentVC as! SubScrollDelegate?
             contentViewController?.farm = self.farm
         } else if segue.identifier == imageSegue {
-            imageViewController = segue.destination as? OPFarmImagesViewController
+            commentViewController = segue.destination as? OPFarmCommentViewController
+            commentViewController?.delegate = parentVC as! SubScrollDelegate?
         }
         
         // If we're going to the first view controller.
         if segue.identifier == contentSegue {
             // If this is not the first time we're loading this.
             if childViewControllers.count > 0 {
-                swapFromViewController(childViewControllers.first, toVC: imageViewController)
+                swapFromViewController(childViewControllers.first, toVC: commentViewController)
             } else {
                 // If this is the very first time we're loading this we need to do
                 // an initial load and not a swap.
@@ -64,7 +65,7 @@ class OPFarmContainerViewController: UIViewController {
         }    // By definition the second view controller will always be swapped with the
             // first one.
         else if segue.identifier == imageSegue {
-            swapFromViewController(childViewControllers.first, toVC: imageViewController)
+            swapFromViewController(childViewControllers.first, toVC: commentViewController)
         }
     }
     
@@ -81,20 +82,20 @@ class OPFarmContainerViewController: UIViewController {
         }
     }
     
-    public func swapViewControllers() {
+    public func swapViewControllers(_ segue: String) {
         if transactionProcess {
             return
         }
         transactionProcess = true
-        currentSegue = (currentSegue == contentSegue ? imageSegue : contentSegue)
+        currentSegue = segue
         
         if currentSegue == contentSegue && (contentViewController != nil) {
-            swapFromViewController(imageViewController, toVC: contentViewController)
+            swapFromViewController(commentViewController, toVC: contentViewController)
             return
         }
         
-        if currentSegue == imageSegue && (imageViewController != nil) {
-            swapFromViewController(contentViewController, toVC: imageViewController)
+        if currentSegue == imageSegue && (commentViewController != nil) {
+            swapFromViewController(contentViewController, toVC: commentViewController)
             return
         }
         guard let current = currentSegue else { return }

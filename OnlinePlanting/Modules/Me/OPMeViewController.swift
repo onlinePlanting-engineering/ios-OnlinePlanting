@@ -8,7 +8,7 @@
 
 import UIKit
 
-let min_header: CGFloat = 22
+let min_header: CGFloat = -5
 let bar_offset: CGFloat = 110
 
 class OPMeViewController: UIViewController, UIScrollViewDelegate, SubScrollDelegate {

@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="299.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="300" height="299"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBX-EP-L4O">
@@ -41,11 +41,11 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comments" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-4U-mqJ">
-                                <rect key="frame" x="260" y="253" width="30" height="30"/>
+                                <rect key="frame" x="266" y="256" width="24" height="24"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="PF9-qg-5hF"/>
-                                    <constraint firstAttribute="height" constant="30" id="gHi-Xk-tkm"/>
+                                    <constraint firstAttribute="width" constant="24" id="PF9-qg-5hF"/>
+                                    <constraint firstAttribute="height" constant="24" id="gHi-Xk-tkm"/>
                                 </constraints>
                             </imageView>
                         </subviews>

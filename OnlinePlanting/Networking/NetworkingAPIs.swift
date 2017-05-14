@@ -33,6 +33,23 @@ extension Networking {
         _ = syncWithAppServer(.GetFarmList, httpMethod: .get, httpHeaders: getFarmHeader(), params: nil, handler: handler)
     }
     
+    func getComments(_ farmId: String?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
+        
+    }
+    
+    func createComment(_ type: String?, object_id: String?, parent_id: String, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())){
+        _ = syncWithAppServer(.GetFarmList, httpMethod: .post, httpHeaders: getFarmHeader(), params: ["type": type,"object_id": object_id, "parent_id": parent_id], handler: handler)
+    }
+    
+//    func deleteComment(_ commentId: String?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())){
+//        _ = syncWithAppServer(.GetFarmList, httpMethod: .post, httpHeaders: getFarmHeader(), params: ["type": type,"object_id": object_id, "parent_id": parent_id], handler: handler)
+//    }
+//    
+//    func deleteComment(_ commentId: String?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())){
+//        
+//    }
+    
+    
     fileprivate func syncWithAppServer(_ apiMapping: WebServiceAPIMapping, httpMethod: HTTPMethod ,httpHeaders: HTTPHeaders? = nil, params:[String: Any?]? = nil,handler: @escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) -> DataRequest? {
         
         let url = baseURL! + apiMapping.rawValue

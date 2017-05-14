@@ -32,7 +32,7 @@
                                 <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue destination="dLZ-S0-QYg" kind="embed" id="coM-bm-pyM"/>
+                                    <segue destination="dLZ-S0-QYg" kind="embed" identifier="meDetailedVC" id="coM-bm-pyM"/>
                                 </connections>
                             </containerView>
                         </subviews>

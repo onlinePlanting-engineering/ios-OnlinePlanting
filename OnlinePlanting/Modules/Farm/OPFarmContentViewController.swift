@@ -10,41 +10,68 @@ import UIKit
 
 class OPFarmContentViewController: UIViewController {
     
-    
-    @IBOutlet weak var farmContentTableview: UITableView!
-    @IBOutlet weak var farmContentHeaderView: UIView!
     var farm: Farm?
+    weak var delegate: SubScrollDelegate?
+    @IBOutlet weak var farmScrollView: UIScrollView!
+    @IBOutlet weak var farmContentWebview: UIWebView!
+    @IBOutlet weak var webviewheight: NSLayoutConstraint!
+    @IBOutlet weak var loadingIndicator: OPLoadingIndicator!
+    fileprivate var currentScrollView: UIScrollView?
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadingIndicator.startAnimating()
+        guard let contentURL = farm?.content, let url = URL(string: contentURL) else { return }
+        farmContentWebview.loadRequest(URLRequest(url: url))
         
-        // Do any additional setup after loading the view.
+        prepareUI()
     }
-
+    
+    func prepareUI() {
+        farmContentWebview.scrollView.showsVerticalScrollIndicator = false
+        farmContentWebview.scrollView.showsHorizontalScrollIndicator = false
+        farmContentWebview.scrollView.isScrollEnabled = false
+        farmContentWebview.delegate = self
+        farmScrollView.delegate = self
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-}
-
-extension OPFarmContentViewController: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.currentScrollView?.contentOffset.y = 0
+        }
     }
 }
 
-extension OPFarmContentViewController: UITableViewDelegate {
+extension OPFarmContentViewController: UIScrollViewDelegate {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = farmContentTableview.dequeueReusableCell(withIdentifier: "OPFarmContentTableViewCell", for: indexPath as IndexPath) as! OPFarmContentTableViewCell
-        cell.updateDataSource(farm)
-        return cell
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        currentScrollView = scrollView
+        delegate?.customScrollViewDidScroll(scrollView)
     }
+}
 
+extension OPFarmContentViewController: UIWebViewDelegate {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        loadingIndicator.stopAnimating()
+        let contentHeight = webView.stringByEvaluatingJavaScript(from: "document.body.scrollHeight")
+        if let content = contentHeight, let webviewHegith = NumberFormatter().number(from: content){
+            print("Webview height is::\(contentHeight)")
+            if CGFloat(webviewHegith) > view.bounds.height {
+                webviewheight.constant = CGFloat(webviewHegith) - view.bounds.height
+                view.layoutIfNeeded()
+            }
+        }
+
+    }
 }

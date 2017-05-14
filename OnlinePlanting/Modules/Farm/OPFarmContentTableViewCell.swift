@@ -19,6 +19,7 @@ class OPFarmContentTableViewCell: UITableViewCell {
         farmContentWebView.scrollView.showsVerticalScrollIndicator = false
         farmContentWebView.scrollView.showsHorizontalScrollIndicator = false
         farmContentWebView.delegate = self
+        farmContentWebView.scrollView.isScrollEnabled = false
         // Initialization code
     }
 
@@ -37,10 +38,18 @@ class OPFarmContentTableViewCell: UITableViewCell {
 extension OPFarmContentTableViewCell: UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
+        let contentHeight = webView.stringByEvaluatingJavaScript(from: "document.body.scrollHeight")
+        print("Webview height is::\(contentHeight)")
+//        if let content = contentHeight, let webviewHegith = NumberFormatter().number(from: content){
+//            
+//            let height = CGFloat(webviewHegith)
+//            let fittingSize = webView.sizeThatFits(CGSize.init(width: self.frame.width, height: height))
+//            frame.size.height = fittingSize.height
+//            webView.frame = CGRect(x: 0, y: 0, width: fittingSize.width, height: fittingSize.height)
+//            
+//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FarmContentHeight"), object: nil, userInfo: nil)
+//
+//        }
         
-        let height = webView.scrollView.contentSize.height
-        var wRect = webView.frame
-        wRect.size.height = height
-        webView.frame = wRect
     }
 }
