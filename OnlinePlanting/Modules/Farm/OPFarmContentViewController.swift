@@ -17,6 +17,8 @@ class OPFarmContentViewController: UIViewController {
     @IBOutlet weak var webviewheight: NSLayoutConstraint!
     @IBOutlet weak var loadingIndicator: OPLoadingIndicator!
     fileprivate var currentScrollView: UIScrollView?
+    @IBOutlet weak var iNeedRent: UIButton!
+    
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -37,6 +39,12 @@ class OPFarmContentViewController: UIViewController {
         farmContentWebview.scrollView.isScrollEnabled = false
         farmContentWebview.delegate = self
         farmScrollView.delegate = self
+        
+        iNeedRent.layer.borderColor = UIColor.init(hexString: OPGreenColor).cgColor
+        iNeedRent.layer.borderWidth = 1
+        iNeedRent.layer.cornerRadius = iNeedRent.frame.height / 2
+        iNeedRent.layer.masksToBounds = true
+        iNeedRent.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
     }
     
     override func didReceiveMemoryWarning() {

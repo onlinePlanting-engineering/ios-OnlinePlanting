@@ -117,17 +117,17 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
         
         if button.tag == 0 {
             detailed.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
-            farmComments.setTitleColor(UIColor.white, for: .normal)
-            farmOther.setTitleColor(UIColor.white, for: .normal)
+            farmComments.setTitleColor(UIColor.darkGray, for: .normal)
+            farmOther.setTitleColor(UIColor.darkGray, for: .normal)
             farmContainerVc?.swapViewControllers("contentsegue")
         } else if button.tag == 1 {
-            detailed.setTitleColor(UIColor.white, for: .normal)
+            detailed.setTitleColor(UIColor.darkGray, for: .normal)
             farmComments.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
-            farmOther.setTitleColor(UIColor.white, for: .normal)
+            farmOther.setTitleColor(UIColor.darkGray, for: .normal)
             farmContainerVc?.swapViewControllers("imagesegue")
         } else if button.tag == 2 {
-            detailed.setTitleColor(UIColor.white, for: .normal)
-            farmComments.setTitleColor(UIColor.white, for: .normal)
+            detailed.setTitleColor(UIColor.darkGray, for: .normal)
+            farmComments.setTitleColor(UIColor.darkGray, for: .normal)
             farmOther.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
             farmContainerVc?.swapViewControllers("contentsegue")
         }

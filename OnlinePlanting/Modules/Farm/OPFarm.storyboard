@@ -81,9 +81,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9c-2C-Btg">
                                         <rect key="frame" x="0.0" y="256" width="375" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh2-Ns-3dV">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh2-Ns-3dV">
                                                 <rect key="frame" x="0.0" y="0.0" width="125.5" height="50"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Information">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,9 +92,9 @@
                                                     <action selector="detailedButton:" destination="uG4-EP-DWE" eventType="touchUpInside" id="1D2-OA-sDe"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAW-Yx-67c">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAW-Yx-67c">
                                                 <rect key="frame" x="125.5" y="0.0" width="126" height="50"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Comments">
                                                     <color key="titleColor" red="0.47450980390000003" green="0.80000000000000004" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -103,9 +103,9 @@
                                                     <action selector="commentsButton:" destination="uG4-EP-DWE" eventType="touchUpInside" id="P9S-vu-ksG"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M51-ei-kdx">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M51-ei-kdx">
                                                 <rect key="frame" x="251.5" y="0.0" width="125.5" height="50"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Releated">
                                                     <color key="titleColor" red="0.47450980390000003" green="0.80000000000000004" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -535,8 +535,48 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0F-wa-3Dy">
                                 <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7G-ac-6JT">
+                                        <rect key="frame" x="0.0" y="306" width="375" height="150"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_background" translatesAutoresizingMaskIntoConstraints="NO" id="cWY-Ry-B5p">
+                                                <rect key="frame" x="0.0" y="-0.5" width="375" height="150"/>
+                                            </imageView>
+                                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oOj-xK-RFh">
+                                                <rect key="frame" x="0.0" y="-0.5" width="375" height="150"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.34999999999999998" contentMode="center" id="Ete-NZ-n9t">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <blurEffect style="light"/>
+                                            </visualEffectView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1u-CM-mp7">
+                                                <rect key="frame" x="122.5" y="20" width="130" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="1zs-m0-TXz"/>
+                                                </constraints>
+                                                <state key="normal" title="我要租地">
+                                                    <color key="titleColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="cWY-Ry-B5p" firstAttribute="height" secondItem="O7G-ac-6JT" secondAttribute="height" id="3td-91-P4R"/>
+                                            <constraint firstItem="cWY-Ry-B5p" firstAttribute="centerY" secondItem="O7G-ac-6JT" secondAttribute="centerY" id="9xS-e3-Bz4"/>
+                                            <constraint firstItem="b1u-CM-mp7" firstAttribute="centerX" secondItem="O7G-ac-6JT" secondAttribute="centerX" id="HfH-iR-Pm2"/>
+                                            <constraint firstItem="oOj-xK-RFh" firstAttribute="width" secondItem="O7G-ac-6JT" secondAttribute="width" id="T50-HK-d18"/>
+                                            <constraint firstItem="cWY-Ry-B5p" firstAttribute="width" secondItem="O7G-ac-6JT" secondAttribute="width" id="a3N-xm-Cee"/>
+                                            <constraint firstItem="cWY-Ry-B5p" firstAttribute="centerX" secondItem="O7G-ac-6JT" secondAttribute="centerX" id="aOd-D0-N24"/>
+                                            <constraint firstItem="b1u-CM-mp7" firstAttribute="top" secondItem="O7G-ac-6JT" secondAttribute="top" constant="20" id="dLe-nb-FUv"/>
+                                            <constraint firstItem="oOj-xK-RFh" firstAttribute="height" secondItem="O7G-ac-6JT" secondAttribute="height" id="pth-Oi-Y6x"/>
+                                            <constraint firstItem="oOj-xK-RFh" firstAttribute="centerY" secondItem="O7G-ac-6JT" secondAttribute="centerY" id="qAl-Ks-dyq"/>
+                                            <constraint firstItem="oOj-xK-RFh" firstAttribute="centerX" secondItem="O7G-ac-6JT" secondAttribute="centerX" id="tul-e1-efD"/>
+                                            <constraint firstAttribute="height" constant="150" id="xwI-fW-yUm"/>
+                                        </constraints>
+                                    </view>
                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Srl-in-rZS">
-                                        <rect key="frame" x="0.0" y="306" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="456" width="375" height="667"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </webView>
                                     <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1CH-qx-z6e" customClass="OPLoadingIndicator" customModule="OnlinePlanting" customModuleProvider="target">
@@ -556,9 +596,12 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Srl-in-rZS" secondAttribute="trailing" id="0KY-G1-aBn"/>
-                                    <constraint firstItem="Srl-in-rZS" firstAttribute="top" secondItem="i0F-wa-3Dy" secondAttribute="top" constant="306" id="5H6-jz-QAw"/>
+                                    <constraint firstItem="Srl-in-rZS" firstAttribute="top" secondItem="O7G-ac-6JT" secondAttribute="bottom" id="42u-wu-l1X"/>
+                                    <constraint firstItem="O7G-ac-6JT" firstAttribute="leading" secondItem="i0F-wa-3Dy" secondAttribute="leading" id="DYF-5x-WlU"/>
                                     <constraint firstAttribute="bottom" secondItem="Srl-in-rZS" secondAttribute="bottom" id="GZI-o5-QOg"/>
                                     <constraint firstItem="Srl-in-rZS" firstAttribute="leading" secondItem="i0F-wa-3Dy" secondAttribute="leading" id="kN9-hh-zSs"/>
+                                    <constraint firstAttribute="trailing" secondItem="O7G-ac-6JT" secondAttribute="trailing" id="nWJ-De-hNV"/>
+                                    <constraint firstItem="O7G-ac-6JT" firstAttribute="top" secondItem="i0F-wa-3Dy" secondAttribute="top" constant="306" id="q05-KS-k3p"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -577,6 +620,7 @@
                     <connections>
                         <outlet property="farmContentWebview" destination="Srl-in-rZS" id="JNR-RZ-nqP"/>
                         <outlet property="farmScrollView" destination="i0F-wa-3Dy" id="RSy-dM-LMa"/>
+                        <outlet property="iNeedRent" destination="b1u-CM-mp7" id="Dnf-GI-dTB"/>
                         <outlet property="loadingIndicator" destination="1CH-qx-z6e" id="miz-YH-N9X"/>
                         <outlet property="webviewheight" destination="rJQ-9c-eDu" id="Yrm-Ne-b0O"/>
                     </connections>
