@@ -19,5 +19,8 @@ enum WebServiceAPIMapping: String {
     
     //farm
     case GetFarmList = "/api/farms/"
+    case GetFarmComments = "/api/comments/"
+    case CreateComment = "/api/comments/create/"
 }
+
 

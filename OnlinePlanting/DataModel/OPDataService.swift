@@ -95,7 +95,7 @@ class OPDataService: NSObject {
                 if error != nil {
                     handler(false, error)
                 } else {
-                    self.fetchCurrentUserObjects()
+                    //self.fetchCurrentUserObjects()
                     handler(true, nil)
                 }
             })
@@ -103,10 +103,84 @@ class OPDataService: NSObject {
         }
     }
     
+    func getFarmComment(_ farmId: Int16?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        
+        Networking.shareInstance.getFarmComments(farmId) { (success, json, error) in
+            
+            guard let data = json?["data"].arrayObject as? [[String : Any]] else { return }
+            Sync.changes(data, inEntityNamed: "FarmComment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
+                if error != nil {
+                    handler(false, error)
+                } else {
+                    handler(true, nil)
+                }
+            })
+
+        }
+    }
+    
+    func getRepliedComment(_ parentId: Int64?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.getRepliedComments(parentId, handler: {(success, json, error) in
+            
+            guard let jsonData = json?["data"]["replies"].arrayObject as? [[String : Any]] else { return }
+            var tempdata = [[String : Any]]()
+            for var data in jsonData{
+                data.removeValue(forKey: "replies")
+                guard let id = data["id"] else { return }
+                data["url"] = "/api/comments/\(id)"
+                tempdata.append(data)
+            }
+            
+            Sync.changes(tempdata, inEntityNamed: "FarmComment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
+                if error != nil {
+                    handler(false, error)
+                } else {
+                    //self.fetchCurrentUserObjects()
+                    handler(true, nil)
+                }
+            })
+        })
+    }
+    
+    func createFarmComment(_ type: String?, object_id: Int16?, parent_id: Int64?, content: String?, grade: String?,handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.createComment(type, object_id: object_id, parent_id: parent_id, content: content, grade: grade) { [weak self](success, json, error) in
+            if success {
+                if parent_id == nil {
+                self?.getFarmComment(object_id, handler: { (success, error) in
+                    if success {
+                        handler(true, nil)
+                    } else {
+                        handler(true, nil)
+                    }
+                })
+                } else {
+                    self?.getRepliedComment(parent_id, handler: { (success, error) in
+                        if success {
+                            //after updating the child data, then update the parent data
+                            self?.getFarmComment(object_id, handler: { (success, error) in
+                                if success {
+                                    handler(true, nil)
+                                } else {
+                                    handler(true, nil)
+                                }
+                            })
+                        } else {
+                            handler(true, nil)
+                        }
+                    })
+                }
+            } else {
+                handler(false, error)
+            }
+        }
+    }
+    
+    
+    
     func fetchCurrentUserObjects() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Farm")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
-        let farm = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [Farm]
-        print("farm information is: \(farm[0].images)")
+        let farm = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [FarmComment]
+        print("farm information is: \(farm[0].content)")
     }
 }

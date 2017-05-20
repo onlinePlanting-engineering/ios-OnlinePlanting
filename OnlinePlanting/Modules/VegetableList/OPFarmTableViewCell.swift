@@ -20,6 +20,7 @@ class OPFarmTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        framImage.contentMode = .scaleAspectFit
     }
 
     func viewComment() {
@@ -51,7 +52,7 @@ class OPFarmTableViewCell: UITableViewCell {
         
         let imageList = farm?.images?.allObjects as? [FarmImage]
         if let imagecount = imageList?.count, imagecount > 0 {
-            guard let imageURL = imageList?.first?.image  else { return }
+            guard let imageURL = imageList?.first?.img  else { return }
             framImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "toast_image"))
         }
         

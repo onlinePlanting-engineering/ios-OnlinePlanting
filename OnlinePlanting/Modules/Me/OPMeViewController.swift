@@ -66,4 +66,10 @@ class OPMeViewController: UIViewController, UIScrollViewDelegate, SubScrollDeleg
             profileVC.delegate = self
         }
     }
+    
+    func previousPage(_ offset: CGFloat) {
+        //TODO
+    }
+    
+    
 }

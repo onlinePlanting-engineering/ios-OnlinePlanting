@@ -13,9 +13,19 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FarmImage" inverseName="owner" inverseEntity="FarmImage" syncable="YES"/>
     </entity>
+    <entity name="FarmComment" representedClassName=".FarmComment" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grade" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="parent" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="reply_count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="farmcomment" inverseEntity="User" syncable="YES"/>
+    </entity>
     <entity name="FarmImage" representedClassName=".FarmImage" syncable="YES">
         <attribute name="flags" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="img" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="is_delete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
@@ -46,13 +56,15 @@
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="farmcomment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FarmComment" inverseName="user" inverseEntity="FarmComment" syncable="YES"/>
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="owner" inverseEntity="Profile" syncable="YES"/>
     </entity>
     <elements>
         <element name="Farm" positionX="-3303" positionY="-2196" width="128" height="210"/>
+        <element name="FarmComment" positionX="-3303" positionY="-2160" width="128" height="165"/>
         <element name="FarmImage" positionX="-3303" positionY="-2178" width="128" height="120"/>
         <element name="Location" positionX="-3303" positionY="-2196" width="128" height="150"/>
         <element name="Profile" positionX="-3159" positionY="-2178" width="128" height="120"/>
-        <element name="User" positionX="-3447" positionY="-2313" width="128" height="88"/>
+        <element name="User" positionX="-3447" positionY="-2313" width="128" height="105"/>
     </elements>
 </model>

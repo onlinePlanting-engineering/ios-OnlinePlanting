@@ -11,4 +11,5 @@ target ‘OnlinePlanting’ do
     pod 'STRegex', '~> 0.4.3'
     pod 'Sync', '~> 2.0’
     pod 'SDWebImage', '~>3.8'
+    pod 'INSPhotoGallery'
 end

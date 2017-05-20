@@ -10,7 +10,6 @@ import UIKit
 
 class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
 
-    
     @IBOutlet weak var farmOther: UIButton!
     @IBOutlet weak var farmComments: UIButton!
     @IBOutlet weak var detailed: UIButton!
@@ -22,6 +21,9 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
     var farmData: Farm?
     var newImage: UIImage!
     fileprivate var farmContainerVc: OPFarmContainerViewController?
+    fileprivate var currentPage = 0
+    fileprivate var scrollOffSet = [Int: CGFloat]()
+    fileprivate var previousButton = 0
     
     @IBAction func detailedButton(_ sender: UIButton) {
         buttonAnimation(sender)
@@ -55,7 +57,7 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,7 +72,15 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
     func customScrollViewDidScroll(_ scrollView: UIScrollView) {
 
         let offset = scrollView.contentOffset.y
+        scrollHeaderView(offset)
+    }
+    
+    func previousPage(_ offset: CGFloat) {
         
+        scrollHeaderView(offset)
+    }
+    
+    func scrollHeaderView(_ offset: CGFloat) {
         if offset < 0 {
             var headerTransform = CATransform3DIdentity
             let headerScaleFactor:CGFloat = -(offset) / headerView.bounds.height
@@ -96,12 +106,17 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touch begins")
+    }
+    
     func setNavigarationBar() {
-        guard let backImage = UIImage(named: "back_black") else { return }
+        UIApplication.shared.statusBarStyle = .lightContent
+        guard let backImage = UIImage(named: "back_white") else { return }
         let leftArrowItem = UIBarButtonItem.createBarButtonItemWithImage(backImage, CGRect(x: 0, y: 0, width: 28, height: 30), self, #selector(dismissCurrentView))
         navigationItem.leftBarButtonItem = leftArrowItem
         
-        navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.barTintColor = UIColor.init(hexString: "#2D363C")
         navigationController?.navigationBar.isTranslucent = false
     }
     
@@ -111,30 +126,29 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
     
     func buttonAnimation(_ button: UIButton) {
         
-        UIView.animate(withDuration: 0.2, animations: {[weak self] in
-            self?.headerView.layer.transform = CATransform3DIdentity
-        })
-        
         if button.tag == 0 {
             detailed.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
             farmComments.setTitleColor(UIColor.darkGray, for: .normal)
             farmOther.setTitleColor(UIColor.darkGray, for: .normal)
             farmContainerVc?.swapViewControllers("contentsegue")
+            currentPage = 0
         } else if button.tag == 1 {
             detailed.setTitleColor(UIColor.darkGray, for: .normal)
             farmComments.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
             farmOther.setTitleColor(UIColor.darkGray, for: .normal)
-            farmContainerVc?.swapViewControllers("imagesegue")
+            farmContainerVc?.swapViewControllers("commentsegue")
+            currentPage = 1
         } else if button.tag == 2 {
             detailed.setTitleColor(UIColor.darkGray, for: .normal)
             farmComments.setTitleColor(UIColor.darkGray, for: .normal)
             farmOther.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
-            farmContainerVc?.swapViewControllers("contentsegue")
+            farmContainerVc?.swapViewControllers("activitysegue")
+            currentPage = 2
         }
         
         UIView.animate(withDuration: 0.2, animations: {[weak self] in
             self?.buttonAnimatedView.center.x = button.center.x
+            //self?.headerView.layer.transform = CATransform3DIdentity
             }, completion: nil)
     }
-    
 }

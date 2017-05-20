@@ -16,9 +16,9 @@ class OPFarmContentViewController: UIViewController {
     @IBOutlet weak var farmContentWebview: UIWebView!
     @IBOutlet weak var webviewheight: NSLayoutConstraint!
     @IBOutlet weak var loadingIndicator: OPLoadingIndicator!
-    fileprivate var currentScrollView: UIScrollView?
     @IBOutlet weak var iNeedRent: UIButton!
-    
+    @IBOutlet weak var farmAlbum: UIButton!
+    var currentScrollOffSet: CGFloat = 0
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -45,6 +45,12 @@ class OPFarmContentViewController: UIViewController {
         iNeedRent.layer.cornerRadius = iNeedRent.frame.height / 2
         iNeedRent.layer.masksToBounds = true
         iNeedRent.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
+        
+        farmAlbum.layer.borderColor = UIColor.init(hexString: OPGreenColor).cgColor
+        farmAlbum.layer.borderWidth = 1
+        farmAlbum.layer.cornerRadius = iNeedRent.frame.height / 2
+        farmAlbum.layer.masksToBounds = true
+        farmAlbum.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,17 +60,19 @@ class OPFarmContentViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            self?.currentScrollView?.contentOffset.y = 0
-        }
+
+        delegate?.previousPage(currentScrollOffSet)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 }
 
 extension OPFarmContentViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        currentScrollView = scrollView
+        currentScrollOffSet = scrollView.contentOffset.y
         delegate?.customScrollViewDidScroll(scrollView)
     }
 }

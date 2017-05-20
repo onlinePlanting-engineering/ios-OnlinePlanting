@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 class OPFarmCommentViewController: CoreDataTableViewController {
     
-    
+    var farm: Farm?
     @IBOutlet var tableViewReference: UITableView!
     weak var delegate: SubScrollDelegate?
-    var backgroundView: UIView?
-    var currentScrollView: UIScrollView?
+    var currentScrollOffSet: CGFloat = 0
+    fileprivate var initialize = false
+    
+    lazy var commentRepliedViewController: OPFarmCommentRepliedTableViewController = {
+        let commentRepliedViewController = UIStoryboard.init(name: "OPFarm", bundle: nil).instantiateViewController(withIdentifier: "OPFarmCommentRepliedTableViewController") as! OPFarmCommentRepliedTableViewController
+        commentRepliedViewController.loadViewIfNeeded()
+        return commentRepliedViewController
+    }()
     
     lazy var commentBottmonView: UIView = {
         let commentBottmonView = OPCommentHereView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 44, width: UIScreen.main.bounds.width, height: 44))
@@ -23,33 +30,23 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     
     lazy var commentInputView: UIView = {
         let commentInputView = OPCommentInputView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 136, width: UIScreen.main.bounds.width, height: 136))
+        commentInputView.commentTextView.delegate = self
         return commentInputView
     }()
     
-    lazy var backgroundImage: UIImageView = {
-        let backgroundImage = UIImageView()
-        let image = UIImage.init(named: "login_background")
-        backgroundImage.image = image
-        backgroundImage.frame = self.tableView.bounds
-        self.backgroundView?.addSubview(backgroundImage)
-        return backgroundImage
+    lazy var setup: () = {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+        request.predicate = NSPredicate(format: "parent == nil")
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
     }()
-    
-    lazy var effectiveView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .light)
-        let effectiveView = UIVisualEffectView(effect: blurEffect)
-        effectiveView.contentView.backgroundColor = UIColor.black
-        effectiveView.contentView.alpha = 0.35
-        self.backgroundView?.addSubview(effectiveView)
-        effectiveView.frame = self.tableView.bounds
-        return effectiveView
-    }()
-    
-    let commentData = ["如果对大家有帮助我很荣幸、有什么问题可以留言、有什么错误也可以留言提醒、感谢","have you tried implementing this delegate method: func tabl","动态计算文本高度！这里有一点说明一下、计算文本的方法提示打不出来、只有自己硬打出来！方法返回的类型是CGRect、可以自己看一下","tableview默认是不支持cell有间隔的，让美工把cell的背景图片切成有一段是透明的。也就是感觉上是有间隔的，但实际上cell还是连着的。或者做两个cell，其中一个是透明的cell。简单点直接设置tableview的类型为group ，设置各个区块的间隔。"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         prepareUI()
+        let _ = setup
+        initialize = true
         // Do any additional setup after loading the view.
     }
     
@@ -60,22 +57,12 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     
     func prepareUI() {
         
-        backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
-        backgroundView?.backgroundColor = UIColor.orange
-        let _ = backgroundImage
-        let _ = effectiveView
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.backgroundView = backgroundView
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let commentInput = commentInputView as? OPCommentInputView else { return }
-        commentInput.commentTextView.customTextView.resignFirstResponder()
     }
     
     func keyBoardWillShow(_ notification: Notification){
@@ -94,7 +81,8 @@ class OPFarmCommentViewController: CoreDataTableViewController {
             UIView.animate(withDuration: duration, animations: { [weak self] in
                 self?.commentInputView.alpha = 1.0
                 self?.commentInputView.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height - offset - 136, width: UIScreen.main.bounds.width, height: 136)
-                guard let commentInput = self?.commentInputView as? OPCommentInputView else { return }
+                guard let commentInput = self?.commentInputView as? OPCommentInputView, let commentHere = self?.commentBottmonView as? OPCommentHereView else { return }
+                commentHere.textfield.resignFirstResponder()
                 commentInput.commentTextView.customTextView.becomeFirstResponder()
             })
         }
@@ -116,22 +104,31 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
+        commentInputView.alpha = 0.0
+        commentBottmonView.alpha = 1.0
         self.navigationController?.view.addSubview(commentBottmonView)
         self.navigationController?.view.bringSubview(toFront: commentBottmonView)
         
         self.navigationController?.view.addSubview(commentInputView)
         self.navigationController?.view.bringSubview(toFront: commentInputView)
-        commentInputView.alpha = 0.0
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+         delegate?.previousPage(currentScrollOffSet)
+        let _ = commentRepliedViewController
         
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            self?.currentScrollView?.contentOffset.y = 0
+        OPDataService.sharedInstance.getFarmComment(farm?.id) { (success, error) in
+            if success {
+                print("get data successfully")
+            } else {
+                print("get the comment data failed")
+            }
         }
         
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -143,27 +140,47 @@ class OPFarmCommentViewController: CoreDataTableViewController {
 
 extension OPFarmCommentViewController {
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return commentData.count
-    }
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OPComentTableViewCell", for: indexPath) as! OPComentTableViewCell
-        cell.commentContent.text = commentData[indexPath.row]
+        guard let comment = fetchedResultsController?.object(at: indexPath) as? FarmComment else { return cell }
+        cell.updateDataSource(comment)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let comment = fetchedResultsController?.object(at: indexPath) as? FarmComment , let height = tableView.cellForRow(at: indexPath)?.frame.height else { return }
+        commentRepliedViewController.farm = farm
+        commentRepliedViewController.parentComment = comment
+        commentRepliedViewController.headViewHeight = height
+        navigationController?.pushViewController(commentRepliedViewController, animated: true)
     }
 }
 
 extension OPFarmCommentViewController {
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        currentScrollView = scrollView
+        currentScrollOffSet = scrollView.contentOffset.y
         delegate?.customScrollViewDidScroll(scrollView)
+    }
+}
+
+extension OPFarmCommentViewController: OPCommentTextViewDelegate {
+    
+    func sendMessage(_ message: String?, handler: @escaping (Bool, NSError?) -> Void) {
+        OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Saving comment", animated: true, delay: 0.0)
+        OPDataService.sharedInstance.createFarmComment(CommentType.farm.rawValue, object_id: farm?.id, parent_id: nil, content: message, grade: "5") {(success, error) in
+            if success {
+                handler(true, nil)
+            } else {
+                handler(false, error)
+                
+            }
+            OPLoadingHUD.hide()
+        }
+    }
+    
+    func saveMessageToContainer(_ message: String?) {
+        (commentBottmonView as? OPCommentHereView)?.textfield.resignFirstResponder()
     }
 }
 

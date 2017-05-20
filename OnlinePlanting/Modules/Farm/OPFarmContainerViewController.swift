@@ -11,11 +11,14 @@ import UIKit
 class OPFarmContainerViewController: UIViewController {
     
     let contentSegue = "contentsegue"
-    let imageSegue = "imagesegue"
+    let commentSegue = "commentsegue"
+    let activitySegue = "activitysegue"
     var currentSegue: String?
     
     var contentViewController: OPFarmContentViewController?
     var commentViewController: OPFarmCommentViewController?
+    var activityViewController: OPActivityTableViewController?
+    var currentViewController: UIViewController?
     var transactionProcess = false
     var farm: Farm?
     weak var delegate: SubScrollDelegate?
@@ -41,9 +44,13 @@ class OPFarmContainerViewController: UIViewController {
             contentViewController = segue.destination as? OPFarmContentViewController
             contentViewController?.delegate = parentVC as! SubScrollDelegate?
             contentViewController?.farm = self.farm
-        } else if segue.identifier == imageSegue {
+        } else if segue.identifier == commentSegue {
             commentViewController = segue.destination as? OPFarmCommentViewController
             commentViewController?.delegate = parentVC as! SubScrollDelegate?
+            commentViewController?.farm = self.farm
+        } else if segue.identifier == activitySegue {
+            activityViewController = segue.destination as? OPActivityTableViewController
+            activityViewController?.delegate = parentVC as! SubScrollDelegate?
         }
         
         // If we're going to the first view controller.
@@ -64,8 +71,13 @@ class OPFarmContainerViewController: UIViewController {
             }
         }    // By definition the second view controller will always be swapped with the
             // first one.
-        else if segue.identifier == imageSegue {
+        else if segue.identifier == commentSegue {
             swapFromViewController(childViewControllers.first, toVC: commentViewController)
+            
+        }
+        
+        else if segue.identifier == activitySegue {
+            swapFromViewController(childViewControllers.first, toVC: activityViewController)
         }
     }
     
@@ -75,6 +87,7 @@ class OPFarmContainerViewController: UIViewController {
         fromVC?.didMove(toParentViewController: nil)
         guard let fromvc = fromVC, let tovc = toVC else { return }
         addChildViewController(tovc)
+        currentViewController = toVC
         transition(from: fromvc, to: tovc, duration: 0, options: .transitionCrossDissolve, animations: nil) { [weak self] (finished) in
             fromvc.removeFromParentViewController()
             tovc.didMove(toParentViewController: self)
@@ -87,15 +100,21 @@ class OPFarmContainerViewController: UIViewController {
             return
         }
         transactionProcess = true
+        
         currentSegue = segue
         
         if currentSegue == contentSegue && (contentViewController != nil) {
-            swapFromViewController(commentViewController, toVC: contentViewController)
+            swapFromViewController(currentViewController, toVC: contentViewController)
             return
         }
         
-        if currentSegue == imageSegue && (commentViewController != nil) {
-            swapFromViewController(contentViewController, toVC: commentViewController)
+        if currentSegue == commentSegue && (commentViewController != nil) {
+            swapFromViewController(currentViewController, toVC: commentViewController)
+            return
+        }
+        
+        if currentSegue == activitySegue && (activityViewController != nil) {
+            swapFromViewController(currentViewController, toVC: activityViewController)
             return
         }
         guard let current = currentSegue else { return }

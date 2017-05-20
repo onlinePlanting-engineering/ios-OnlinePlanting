@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class OPComentTableViewCell: UITableViewCell {
     
@@ -15,14 +16,18 @@ class OPComentTableViewCell: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var commentContent: UILabel!
     @IBOutlet weak var comemmentDate: UILabel!
-    @IBOutlet weak var commentButton: UIImageView!
     @IBOutlet weak var replyNumber: UILabel!
     @IBOutlet weak var commentContainer: UIView!
     
+    @IBOutlet weak var replyBackground: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        commentContainer.layer.cornerRadius = 3
-        commentContent.layer.masksToBounds = true
+        replyBackground.layer.cornerRadius = 3
+        replyBackground.layer.masksToBounds = true
+        
+        userImageView.layer.cornerRadius = userImageView.bounds.height / 2
+        userImageView.layer.masksToBounds = true
         // Initialization code
     }
 
@@ -32,9 +37,22 @@ class OPComentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateDataSource(_ content: String?){
-        guard let comment = content else { return }
-        commentContent.text = comment
+    func updateDataSource(_ comments: FarmComment?){
+        guard let content = comments else { return }
+        commentContent.text = content.content
+        username.text = content.user?.profile?.nickname != "" ? content.user?.profile?.nickname: content.user?.username
+        
+        let count  = String(content.reply_count)
+        if count == "0" {
+            replyBackground.backgroundColor = UIColor.lightGray
+        } else {
+            replyBackground.backgroundColor = UIColor(hexString: OPGreenColor)
+        }
+        replyNumber.text = "+\(count)"
+        guard let time = content.timestamp else { return }
+        comemmentDate.text = TimeUtils.timeAgoSinceDate(time, numericDates: false)
+        guard let userimageURL = content.user?.profile?.img_heading else { return }
+        userImageView.sd_setImage(with: URL(string: userimageURL), placeholderImage: UIImage(named: "user_default"))
     }
 
 }

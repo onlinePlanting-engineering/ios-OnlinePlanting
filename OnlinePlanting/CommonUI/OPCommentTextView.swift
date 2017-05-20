@@ -53,8 +53,25 @@ class OPCommentTextView: UIView {
         return sendButton
     }()
     
+    lazy var closeKeyboardButton: UIImageView = {
+        let closeKeyboardButton = UIImageView()
+        closeKeyboardButton.isUserInteractionEnabled = true
+        closeKeyboardButton.image = UIImage.init(named: "keyboard_close")
+        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(closeKeyBoard))
+        closeKeyboardButton.addGestureRecognizer(gesture)
+        self.addSubview(closeKeyboardButton)
+        closeKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+        closeKeyboardButton.widthAnchor.constraint(equalToConstant: 36).isActive = true
+        closeKeyboardButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        closeKeyboardButton.trailingAnchor.constraint(equalTo: self.sendButton.leadingAnchor, constant: -20).isActive = true
+        closeKeyboardButton.topAnchor.constraint(equalTo: self.sendButton.topAnchor).isActive = true
+        return closeKeyboardButton
+    }()
+    
     lazy var customTextView: UITextView = {
         let customTextView = UITextView()
+        customTextView.delegate = self
+        customTextView.resignFirstResponder()
         self.addSubview(customTextView)
         customTextView.layer.borderWidth = 0.6
         customTextView.layer.borderColor = UIColor.lightGray.cgColor
@@ -74,12 +91,15 @@ class OPCommentTextView: UIView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+    
     }
     
     override func didMoveToSuperview() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        customTextView.resignFirstResponder()
+        let _ = closeKeyboardButton
     }
     
     override init(frame: CGRect) {
@@ -89,6 +109,10 @@ class OPCommentTextView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func closeKeyBoard() {
+        customTextView.resignFirstResponder()
     }
     
     func keyBoardWillShow(_ notification: Notification){
@@ -122,13 +146,14 @@ class OPCommentTextView: UIView {
             return
         }
         isSending = true
+        customTextView.resignFirstResponder()
         delegate?.sendMessage(customTextView.text, handler: { [weak self](success, error) in
             if success {
                 //TODO: success
                 self?.customTextView.text = ""
-                
+                self?.customTextView.resignFirstResponder()
             } else {
-                //
+                self?.customTextView.becomeFirstResponder()
             }
             self?.isSending = false
         })
@@ -139,5 +164,6 @@ extension OPCommentTextView: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         //
+        print("here")
     }
 }

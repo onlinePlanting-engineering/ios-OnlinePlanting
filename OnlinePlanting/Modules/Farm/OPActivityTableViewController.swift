@@ -1,18 +1,42 @@
 //
-//  OPFarmContentTableViewController.swift
+//  OPActivityTableViewController.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 5/10/17.
+//  Created by IBM on 5/15/17.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 
 import UIKit
 
-class OPFarmContentTableViewController: UITableViewController {
-
+class OPActivityTableViewController: CoreDataTableViewController {
+    
+    weak var delegate: SubScrollDelegate?
+    var currentScrollView: UIScrollView?
+    var currentScrollOffSet: CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func prepareUI() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.currentScrollView?.contentOffset.y = 0
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        delegate?.previousPage(currentScrollOffSet)
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,23 +48,19 @@ class OPFarmContentTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 5
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FarmActivityTableViewCell", for: indexPath) as! FarmActivityTableViewCell
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -87,4 +107,12 @@ class OPFarmContentTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension OPActivityTableViewController {
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        currentScrollOffSet = scrollView.contentOffset.y
+        delegate?.customScrollViewDidScroll(scrollView)
+    }
 }

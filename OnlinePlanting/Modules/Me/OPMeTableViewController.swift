@@ -11,6 +11,7 @@ import SDWebImage
 
 protocol SubScrollDelegate: NSObjectProtocol {
     func customScrollViewDidScroll(_ scrollView: UIScrollView)
+    func previousPage(_ offset: CGFloat)
 }
 
 class OPMeTableViewController: UITableViewController {

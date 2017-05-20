@@ -28,7 +28,7 @@ class Networking {
     
     var baseURL: String! {
         get {
-            return "http://dry-shore-37942.herokuapp.com"
+            return "http://localhost:8000"
         }
     }
     
@@ -82,7 +82,6 @@ extension Networking {
         ]
         return headers
     }
-
     
     //POST request
     func postRequest(urlString : String, params : [String : Any], success : @escaping (_ response : [String : Any])->(), failture : @escaping (_ error : Error)->()) {

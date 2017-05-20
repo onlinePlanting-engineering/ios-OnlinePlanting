@@ -216,7 +216,7 @@
         <scene sceneID="SXS-ju-vIE">
             <objects>
                 <viewControllerPlaceholder storyboardName="OPFarm" id="1Wv-ys-W0C" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="xoc-Z2-aiG"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="xoc-Z2-aiG"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMo-G5-mHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -225,6 +225,6 @@
     </scenes>
     <resources>
         <image name="login_background" width="640" height="426"/>
-        <image name="toast_image" width="960" height="639"/>
+        <image name="toast_image" width="630" height="315"/>
     </resources>
 </document>
