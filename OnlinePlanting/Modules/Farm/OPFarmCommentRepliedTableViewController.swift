@@ -31,8 +31,11 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
                 let parentId = parent.id
                 request.predicate = NSPredicate(format: "parent == %lld", parentId)
                 self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
-                // check has old comments? if yes, hide no comments image
-                if let count = self.fetchedResultsController?.sections?[0].numberOfObjects, count == 0 {
+                
+                guard let count = fetchedResultsController?.fetchedObjects?.count else { return }
+                (commentBottmonView as? OPCommentHereView)?.commentNumber.text = String(count)
+                
+                if let count = self.fetchedResultsController?.fetchedObjects?.count, count == 0 {
                     let _ = noCommentView
                 }
             }
@@ -182,8 +185,10 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "OPCommentRepliedTableViewCell", for: indexPath) as! OPCommentRepliedTableViewCell
+        guard let count = fetchedResultsController?.fetchedObjects?.count else { return cell }
+        noCommentView.removeFromSuperview()
+        (commentBottmonView as? OPCommentHereView)?.commentNumber.text = String(count)
         guard let comment = fetchedResultsController?.object(at: indexPath) as? FarmComment else { return cell }
         cell.updateDataSource(comment)
         return cell
@@ -198,6 +203,8 @@ extension OPFarmCommentRepliedTableViewController: OPCommentTextViewDelegate {
         OPDataService.sharedInstance.createFarmComment(CommentType.farm.rawValue, object_id: farm?.id, parent_id: id, content: message, grade: "5") {[weak self](success, error) in
             if success {
                 handler(true, nil)
+                (self?.commentBottmonView as? OPCommentHereView)?.textfield.text = ""
+                (self?.commentBottmonView as? OPCommentHereView)?.textfield.resignFirstResponder()
                 self?.fetchParentObject()
             } else {
                 handler(false, error)
@@ -208,7 +215,8 @@ extension OPFarmCommentRepliedTableViewController: OPCommentTextViewDelegate {
     }
     
     func saveMessageToContainer(_ message: String?) {
-        //
+        (commentBottmonView as? OPCommentHereView)?.textfield.text = message
+        (commentBottmonView as? OPCommentHereView)?.textfield.resignFirstResponder()
     }
     
     func fetchParentObject() {

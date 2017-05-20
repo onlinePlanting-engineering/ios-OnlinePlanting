@@ -15,7 +15,6 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     @IBOutlet var tableViewReference: UITableView!
     weak var delegate: SubScrollDelegate?
     var currentScrollOffSet: CGFloat = 0
-    fileprivate var initialize = false
     
     lazy var commentRepliedViewController: OPFarmCommentRepliedTableViewController = {
         let commentRepliedViewController = UIStoryboard.init(name: "OPFarm", bundle: nil).instantiateViewController(withIdentifier: "OPFarmCommentRepliedTableViewController") as! OPFarmCommentRepliedTableViewController
@@ -39,6 +38,9 @@ class OPFarmCommentViewController: CoreDataTableViewController {
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
         request.predicate = NSPredicate(format: "parent == nil")
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        guard let count = self.fetchedResultsController?.fetchedObjects?.count else { return }
+        (self.commentBottmonView as? OPCommentHereView)?.commentNumber.text = String(count)
     }()
     
     override func viewDidLoad() {
@@ -46,7 +48,6 @@ class OPFarmCommentViewController: CoreDataTableViewController {
         
         prepareUI()
         let _ = setup
-        initialize = true
         // Do any additional setup after loading the view.
     }
     
@@ -143,6 +144,8 @@ extension OPFarmCommentViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OPComentTableViewCell", for: indexPath) as! OPComentTableViewCell
         guard let comment = fetchedResultsController?.object(at: indexPath) as? FarmComment else { return cell }
+        guard let count = fetchedResultsController?.fetchedObjects?.count else { return cell }
+        (commentBottmonView as? OPCommentHereView)?.commentNumber.text = String(count)
         cell.updateDataSource(comment)
         return cell
     }
@@ -168,9 +171,11 @@ extension OPFarmCommentViewController: OPCommentTextViewDelegate {
     
     func sendMessage(_ message: String?, handler: @escaping (Bool, NSError?) -> Void) {
         OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Saving comment", animated: true, delay: 0.0)
-        OPDataService.sharedInstance.createFarmComment(CommentType.farm.rawValue, object_id: farm?.id, parent_id: nil, content: message, grade: "5") {(success, error) in
+        OPDataService.sharedInstance.createFarmComment(CommentType.farm.rawValue, object_id: farm?.id, parent_id: nil, content: message, grade: "5") {[weak self](success, error) in
             if success {
                 handler(true, nil)
+                (self?.commentBottmonView as? OPCommentHereView)?.textfield.text = ""
+                (self?.commentBottmonView as? OPCommentHereView)?.textfield.resignFirstResponder()
             } else {
                 handler(false, error)
                 
@@ -180,6 +185,7 @@ extension OPFarmCommentViewController: OPCommentTextViewDelegate {
     }
     
     func saveMessageToContainer(_ message: String?) {
+        (commentBottmonView as? OPCommentHereView)?.textfield.text = message
         (commentBottmonView as? OPCommentHereView)?.textfield.resignFirstResponder()
     }
 }

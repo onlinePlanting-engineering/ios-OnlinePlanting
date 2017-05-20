@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OPCommentHereView" customModule="OnlinePlanting" customModuleProvider="target">
             <connections>
+                <outlet property="commentNumber" destination="KNI-h2-7Yn" id="wjR-Wi-XSh"/>
                 <outlet property="textfield" destination="fpY-ED-DFK" id="00Q-RR-Zp8"/>
             </connections>
         </placeholder>

@@ -12,7 +12,7 @@ class OPCommentHereView: UIView {
     
     @IBOutlet weak var textfield: OPTextField!
     var type = "CommentHere"
-    
+    @IBOutlet weak var commentNumber: UILabel!
     override func draw(_ rect: CGRect) {
         textfield.layer.borderWidth = 0.5
         textfield.layer.borderColor = UIColor.lightGray.cgColor

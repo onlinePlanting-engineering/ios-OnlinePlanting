@@ -49,7 +49,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZCy-OH-qnu" firstAttribute="trailing" secondItem="tHd-Pk-mkW" secondAttribute="trailing" id="2ae-oP-dmy"/>
                             <constraint firstAttribute="bottom" secondItem="tHd-Pk-mkW" secondAttribute="bottom" id="8yU-hz-EV8"/>

@@ -21,6 +21,7 @@ class OPFarmTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         framImage.contentMode = .scaleAspectFit
+        //self.backgroundColor = UIColor.clear
     }
 
     func viewComment() {

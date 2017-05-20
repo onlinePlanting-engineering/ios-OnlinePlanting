@@ -63,8 +63,8 @@ class OPCommentTextView: UIView {
         closeKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         closeKeyboardButton.widthAnchor.constraint(equalToConstant: 36).isActive = true
         closeKeyboardButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        closeKeyboardButton.trailingAnchor.constraint(equalTo: self.sendButton.leadingAnchor, constant: -20).isActive = true
-        closeKeyboardButton.topAnchor.constraint(equalTo: self.sendButton.topAnchor).isActive = true
+        closeKeyboardButton.leadingAnchor.constraint(equalTo: self.customTextView.leadingAnchor).isActive = true
+        closeKeyboardButton.topAnchor.constraint(equalTo: self.customTextView.bottomAnchor, constant: 10).isActive = true
         return closeKeyboardButton
     }()
     

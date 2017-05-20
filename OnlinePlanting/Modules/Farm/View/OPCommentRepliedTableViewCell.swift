@@ -27,8 +27,8 @@ class OPCommentRepliedTableViewCell: UITableViewCell {
         userImage.layer.cornerRadius = userImage.bounds.height / 2
         userImage.layer.masksToBounds = true
         
-        replyNumber.layer.cornerRadius = 3
-        replyNumber.layer.masksToBounds = true
+        replyNumber.isHidden = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
