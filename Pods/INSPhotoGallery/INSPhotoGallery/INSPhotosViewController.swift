@@ -158,6 +158,7 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
 
     override open func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.setStatusBarHidden(true, with: .fade)
         view.tintColor = UIColor.white
         view.backgroundColor = UIColor.black
         pageViewController.view.backgroundColor = UIColor.clear
@@ -210,6 +211,11 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
         if let currentPhoto = currentPhoto {
             overlayView.populateWithPhoto(currentPhoto)
         }
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.setStatusBarHidden(false, with: .fade)
     }
     
     // MARK: - Public

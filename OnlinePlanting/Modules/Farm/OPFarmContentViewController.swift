@@ -19,6 +19,7 @@ class OPFarmContentViewController: UIViewController {
     @IBOutlet weak var iNeedRent: UIButton!
     @IBOutlet weak var farmAlbum: UIButton!
     var currentScrollOffSet: CGFloat = 0
+    fileprivate var albumVC: OPFarmAlbumCollectionViewController?
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -67,6 +68,14 @@ class OPFarmContentViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
+    
+    @IBAction func showFarmAlbum(_ sender: UIButton) {
+        albumVC = UIStoryboard(name: "OPFarm", bundle: nil).instantiateViewController(withIdentifier: "OPFarmAlbumCollectionViewController") as? OPFarmAlbumCollectionViewController
+        albumVC?.currentFarm = farm
+        guard let album = albumVC else { return }
+        navigationController?.pushViewController(album, animated: true)
+    }
+    
 }
 
 extension OPFarmContentViewController: UIScrollViewDelegate {

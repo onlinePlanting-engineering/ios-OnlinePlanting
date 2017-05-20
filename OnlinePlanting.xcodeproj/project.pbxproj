@@ -97,6 +97,8 @@
 		18E31DF41ECC881E004A8505 /* OPCommentRepliedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DF31ECC881E004A8505 /* OPCommentRepliedTableViewCell.swift */; };
 		18E31DF71ECECC45004A8505 /* FarmImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DF51ECECC45004A8505 /* FarmImage+CoreDataClass.swift */; };
 		18E31DF81ECECC45004A8505 /* FarmImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DF61ECECC45004A8505 /* FarmImage+CoreDataProperties.swift */; };
+		18E31DFA1ED07696004A8505 /* OPFarmAlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DF91ED07696004A8505 /* OPFarmAlbumCollectionViewController.swift */; };
+		18E31DFC1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DFB1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift */; };
 		18E810C51EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E810C41EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift */; };
 		18E810C81EC028A000EDA5D8 /* OPFarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E810C61EC028A000EDA5D8 /* OPFarmTableViewCell.swift */; };
 		18E810D01EC07B0400EDA5D8 /* Farm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E810CE1EC07B0400EDA5D8 /* Farm+CoreDataClass.swift */; };
@@ -219,6 +221,8 @@
 		18E31DF31ECC881E004A8505 /* OPCommentRepliedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPCommentRepliedTableViewCell.swift; path = Farm/View/OPCommentRepliedTableViewCell.swift; sourceTree = "<group>"; };
 		18E31DF51ECECC45004A8505 /* FarmImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FarmImage+CoreDataClass.swift"; sourceTree = "<group>"; };
 		18E31DF61ECECC45004A8505 /* FarmImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FarmImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18E31DF91ED07696004A8505 /* OPFarmAlbumCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmAlbumCollectionViewController.swift; path = Farm/OPFarmAlbumCollectionViewController.swift; sourceTree = "<group>"; };
+		18E31DFB1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmAlbumCollectionViewCell.swift; path = Farm/View/OPFarmAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		18E810C41EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmDetailedViewController.swift; path = VegetableList/OPFarmDetailedViewController.swift; sourceTree = "<group>"; };
 		18E810C61EC028A000EDA5D8 /* OPFarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmTableViewCell.swift; path = VegetableList/OPFarmTableViewCell.swift; sourceTree = "<group>"; };
 		18E810CE1EC07B0400EDA5D8 /* Farm+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Farm+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 				18E31DB91EC9AA76004A8505 /* FarmActivityTableViewCell.swift */,
 				18E31DBA1EC9AA76004A8505 /* FarmActivityTableViewCell.xib */,
 				18E31DF31ECC881E004A8505 /* OPCommentRepliedTableViewCell.swift */,
+				18E31DFB1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				1894AB361EC5E538004DED5E /* OPFarmCommentViewController.swift */,
 				18E31DBD1EC9B108004A8505 /* OPActivityTableViewController.swift */,
 				18E31DF11ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift */,
+				18E31DF91ED07696004A8505 /* OPFarmAlbumCollectionViewController.swift */,
 			);
 			name = Farm;
 			sourceTree = "<group>";
@@ -743,6 +749,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				183D82771EB647DF00B9F028 /* AppDelegate.swift in Sources */,
+				18E31DFC1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift in Sources */,
 				18C1F0681EB63E0E001D611B /* Networking.swift in Sources */,
 				18C1F06A1EB63E0E001D611B /* NetworkingAPIs.swift in Sources */,
 				18E31DBE1EC9B108004A8505 /* OPActivityTableViewController.swift in Sources */,
@@ -796,6 +803,7 @@
 				1894AB411EC7F165004DED5E /* OPCommentHereView.swift in Sources */,
 				18C1F05C1EB63E0E001D611B /* OPHomeViewController.swift in Sources */,
 				18B282311EB7147D00010595 /* SMSUtils.swift in Sources */,
+				18E31DFA1ED07696004A8505 /* OPFarmAlbumCollectionViewController.swift in Sources */,
 				180688CD1EB8C28300CEE3BF /* Profile+CoreDataClass.swift in Sources */,
 				180688CE1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift in Sources */,
 				1894AB3A1EC5E984004DED5E /* OPComentTableViewCell.swift in Sources */,

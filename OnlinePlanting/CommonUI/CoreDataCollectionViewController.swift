@@ -25,7 +25,7 @@ open class CoreDataCollectionViewController: UICollectionViewController, NSFetch
     // MARK: - Properties
     
     /// The controller *(this class fetches nothing if this is not set)*.
-    open var fetchedResultsController: NSFetchedResultsController<NSManagedObject>? {
+    open var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>? {
         didSet {
             if let frc = fetchedResultsController {
                 if frc != oldValue {
@@ -42,21 +42,15 @@ open class CoreDataCollectionViewController: UICollectionViewController, NSFetch
         }
     }
     
-    /**
-     Turn this on before making any changes in the managed object context that
-     are a one-for-one result of the user manipulating cells directly in the collection view.
-     Such changes cause the context to report them (after a brief delay),
-     and normally our `fetchedResultsController` would then try to update the collection view,
-     but that is unnecessary because the changes were made in the collection view already (by the user)
-     so the `fetchedResultsController` has nothing to do and needs to ignore those reports.
-     Turn this back off after the user has finished the change.
-     Note that the effect of setting this to NO actually gets delayed slightly
-     so as to ignore previously-posted, but not-yet-processed context-changed notifications,
-     therefore it is fine to set this to YES at the beginning of `collectionView:moveItemAtIndexPath:toIndexPath:`,
-     and then set it back to NO at the end of your implementation of that method.
-     It is not necessary (in fact, not desirable) to set this during row deletion or insertion
-     (but definitely for cell moves).
-     */
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        
+            super.viewDidLoad()
+            let bgView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+            bgView.backgroundColor = UIColor(hexString: "#CDD2D7")
+            collectionView?.backgroundView = bgView
+    }
+    
     open var suspendAutomaticTrackingOfChangesInManagedObjectContext: Bool {
         get {
             return _suspendAutomaticTrackingOfChangesInManagedObjectContext
@@ -74,16 +68,6 @@ open class CoreDataCollectionViewController: UICollectionViewController, NSFetch
     
     fileprivate var _suspendAutomaticTrackingOfChangesInManagedObjectContext: Bool = false
     
-    // MARK: - API
-    
-    /**
-     Causes the `fetchedResultsController` to refetch the data.
-     You almost certainly never need to call this.
-     The `NSFetchedResultsController` class observes the context
-     (so if the objects in the context change, you do not need to call `performFetch`
-     since the `NSFetchedResultsController` will notice and update the collection view automatically).
-     This will also automatically be called if you change the `fetchedResultsController` property.
-     */
     open func performFetch() throws {
         guard let frc = fetchedResultsController else { return }
         

@@ -199,6 +199,54 @@
             </objects>
             <point key="canvasLocation" x="2432.8000000000002" y="-76.011994002998506"/>
         </scene>
+        <!--Farm Album Collection View Controller-->
+        <scene sceneID="tHj-zO-ffs">
+            <objects>
+                <collectionViewController storyboardIdentifier="OPFarmAlbumCollectionViewController" id="ZOi-Dz-87N" customClass="OPFarmAlbumCollectionViewController" customModule="OnlinePlanting" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="mhj-29-eD9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="J1f-25-due">
+                            <size key="itemSize" width="152" height="97"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="OPFarmAlbumCollectionViewCell" id="GbQ-d9-4D7" customClass="OPFarmAlbumCollectionViewCell" customModule="OnlinePlanting" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="152" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="152" height="97"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="owl-40-hKA">
+                                            <rect key="frame" x="0.0" y="0.0" width="152" height="97"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="owl-40-hKA" firstAttribute="height" secondItem="GbQ-d9-4D7" secondAttribute="height" id="5zV-yL-0eV"/>
+                                    <constraint firstItem="owl-40-hKA" firstAttribute="centerX" secondItem="GbQ-d9-4D7" secondAttribute="centerX" id="b6c-Vv-uvD"/>
+                                    <constraint firstItem="owl-40-hKA" firstAttribute="centerY" secondItem="GbQ-d9-4D7" secondAttribute="centerY" id="gqq-Zh-IeD"/>
+                                    <constraint firstItem="owl-40-hKA" firstAttribute="width" secondItem="GbQ-d9-4D7" secondAttribute="width" id="yjm-dk-CoI"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="albumImage" destination="owl-40-hKA" id="UHm-tL-LOP"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="ZOi-Dz-87N" id="5Xh-HS-IFf"/>
+                            <outlet property="delegate" destination="ZOi-Dz-87N" id="1kq-o5-oJK"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pTa-Yy-FaA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2413.5999999999999" y="742.5787106446777"/>
+        </scene>
         <!--Farm Container View Controller-->
         <scene sceneID="ko2-Lj-fMa">
             <objects>
@@ -679,6 +727,9 @@
                                                 <state key="normal" title="农场相册">
                                                     <color key="titleColor" red="0.41176470590000003" green="0.76470588240000004" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="showFarmAlbum:" destination="jZW-yZ-Fzl" eventType="touchUpInside" id="x0y-jy-zM5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.1764705882352941" green="0.21176470588235294" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>

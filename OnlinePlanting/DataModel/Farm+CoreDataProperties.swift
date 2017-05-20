@@ -34,15 +34,15 @@ extension Farm {
 extension Farm {
 
     @objc(addImagesObject:)
-    @NSManaged public func addToImages(_ value: FarmImage)
+    @NSManaged func addToImages(_ value: FarmImage)
 
     @objc(removeImagesObject:)
-    @NSManaged public func removeFromImages(_ value: FarmImage)
+    @NSManaged func removeFromImages(_ value: FarmImage)
 
     @objc(addImages:)
-    @NSManaged public func addToImages(_ values: NSSet)
+    @NSManaged func addToImages(_ values: NSSet)
 
     @objc(removeImages:)
-    @NSManaged public func removeFromImages(_ values: NSSet)
+    @NSManaged func removeFromImages(_ values: NSSet)
 
 }
