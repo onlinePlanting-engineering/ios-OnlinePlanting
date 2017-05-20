@@ -120,6 +120,7 @@ class OPCommentTextView: UIView {
     }
     
     func keyBoardWillHide(_ notification: Notification){
+        customTextView.resignFirstResponder()
         if isSending {
             return
         } else {
