@@ -26,9 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didSet{
             //update User informaton
             print("current user's id is: \(currentUser?.id)")
-//            OPDataService.sharedInstance.updateUserProfile(currentUser?.id, username: currentUser?.username, gender: currentUser?.profile?.gender., address: <#T##String?#>, nickname: currentUser?.profile?.nickname, portriate: <#T##UIImage?#>) { (<#Bool#>, <#NSError?#>) in
-//                <#code#>
-//            }
         }
     }
     
@@ -52,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let _ = LocationUtils.sharedInstance.currLocation
         //SMSSDK.enableAppContactFriends(false)
+        let user = UserDefaults.standard.object(forKey: "last_logined_user") as? String
+        currentUser = OPDataService.sharedInstance.fetchCurrentUserObjects(user)
         return true
     }
     

@@ -20,6 +20,8 @@ class OPFarmContentViewController: UIViewController {
     @IBOutlet weak var farmAlbum: UIButton!
     var currentScrollOffSet: CGFloat = 0
     fileprivate var albumVC: OPFarmAlbumCollectionViewController?
+    fileprivate var noticeVC: OPFarmRendNoticeViewController?
+    fileprivate var landVC: OPLandViewController?
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -40,18 +42,6 @@ class OPFarmContentViewController: UIViewController {
         farmContentWebview.scrollView.isScrollEnabled = false
         farmContentWebview.delegate = self
         farmScrollView.delegate = self
-        
-        iNeedRent.layer.borderColor = UIColor.init(hexString: OPGreenColor).cgColor
-        iNeedRent.layer.borderWidth = 1
-        iNeedRent.layer.cornerRadius = iNeedRent.frame.height / 2
-        iNeedRent.layer.masksToBounds = true
-        iNeedRent.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
-        
-        farmAlbum.layer.borderColor = UIColor.init(hexString: OPGreenColor).cgColor
-        farmAlbum.layer.borderWidth = 1
-        farmAlbum.layer.cornerRadius = iNeedRent.frame.height / 2
-        farmAlbum.layer.masksToBounds = true
-        farmAlbum.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,6 +66,20 @@ class OPFarmContentViewController: UIViewController {
         navigationController?.pushViewController(album, animated: true)
     }
     
+    @IBAction func showLand(_ sender: UIButton) {
+        landVC = UIStoryboard(name: "OPFarm", bundle: nil).instantiateViewController(withIdentifier: "OPLandViewController") as? OPLandViewController
+        guard let lands = landVC else { return }
+        navigationController?.pushViewController(lands, animated: true)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "OPFarmRendNoticeViewController" {
+            noticeVC = (segue.destination as? UINavigationController)?.childViewControllers.first as? OPFarmRendNoticeViewController
+            noticeVC?.farm = farm
+        }
+    }
+    
 }
 
 extension OPFarmContentViewController: UIScrollViewDelegate {
@@ -83,6 +87,10 @@ extension OPFarmContentViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         currentScrollOffSet = scrollView.contentOffset.y
         delegate?.customScrollViewDidScroll(scrollView)
+    }
+    
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        delegate?.hideOrShowBottomViewBeginScroll(scrollView)
     }
 }
 

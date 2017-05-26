@@ -46,9 +46,9 @@ open class CoreDataCollectionViewController: UICollectionViewController, NSFetch
         super.viewDidLoad()
         
             super.viewDidLoad()
-            let bgView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
-            bgView.backgroundColor = UIColor(hexString: "#CDD2D7")
-            collectionView?.backgroundView = bgView
+//            let bgView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+//            bgView.backgroundColor = UIColor(hexString: "#CDD2D7")
+//            collectionView?.backgroundView = bgView
     }
     
     open var suspendAutomaticTrackingOfChangesInManagedObjectContext: Bool {

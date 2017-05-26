@@ -51,8 +51,14 @@ class OPComentTableViewCell: UITableViewCell {
         replyNumber.text = "+\(count)"
         guard let time = content.timestamp else { return }
         comemmentDate.text = TimeUtils.timeAgoSinceDate(time, numericDates: false)
+        
+        var url = ""
         guard let userimageURL = content.user?.profile?.img_heading else { return }
-        userImageView.sd_setImage(with: URL(string: userimageURL), placeholderImage: UIImage(named: "user_default"))
+        url = userimageURL
+        if !url.hasPrefix(Networking.shareInstance.baseURL) {
+            url = Networking.shareInstance.baseURL + url
+        }
+        userImageView.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "user_default"))
     }
 
 }

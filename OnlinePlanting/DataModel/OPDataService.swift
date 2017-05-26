@@ -108,6 +108,12 @@ class OPDataService: NSObject {
         Networking.shareInstance.getFarmComments(farmId) { (success, json, error) in
             
             guard let data = json?["data"].arrayObject as? [[String : Any]] else { return }
+            var tempdata = [[String : Any]]()
+            for var data in data{
+                data["replies"] = nil
+                tempdata.append(data)
+            }
+            
             Sync.changes(data, inEntityNamed: "FarmComment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
                 if error != nil {
                     handler(false, error)
@@ -125,13 +131,12 @@ class OPDataService: NSObject {
             guard let jsonData = json?["data"]["replies"].arrayObject as? [[String : Any]] else { return }
             var tempdata = [[String : Any]]()
             for var data in jsonData{
-                data.removeValue(forKey: "replies")
                 guard let id = data["id"] else { return }
                 data["url"] = "/api/comments/\(id)"
                 tempdata.append(data)
             }
             
-            Sync.changes(tempdata, inEntityNamed: "FarmComment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
+            Sync.changes(tempdata, inEntityNamed: "FarmComment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update,], completion: { (error) in
                 if error != nil {
                     handler(false, error)
                 } else {
@@ -175,12 +180,40 @@ class OPDataService: NSObject {
         }
     }
     
+    func deleteComment(_ commentId: Int64?, parentId: Int64?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.deleteComment(commentId) { (success, json, error) in
+            if success {
+                do {
+                    try Sync.delete(commentId as Any, inEntityNamed: "FarmComment", using: appDelegate.dataStack.mainContext)
+                    handler(true, nil)
+                } catch{
+                    handler(false, nil)
+                    print("delete data error")
+                }
+            } else {
+                handler(false, error)
+            }
+        }
+    }
     
     
-    func fetchCurrentUserObjects() {
+    
+    func fetchCurrentFarmObjects() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         let farm = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [FarmComment]
         print("farm information is: \(farm[0].content)")
+    }
+    
+    func fetchCurrentUserObjects(_ username: String?) -> User? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        guard let user = username else { return nil }
+        request.predicate = NSPredicate(format: "username = %@", user)
+        let users = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [User]
+        if users.count > 0{
+            return users[0]
+        }
+        return nil
     }
 }

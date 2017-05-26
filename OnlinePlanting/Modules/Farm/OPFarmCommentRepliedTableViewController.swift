@@ -21,25 +21,63 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
     @IBOutlet weak var timeStamp: UILabel!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var replyNumber: UILabel!
+    fileprivate var replyAlertController: UIAlertController?
     
     var parentComment: FarmComment? {
         didSet {
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
-            request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
             if let parent = self.parentComment {
                 updateHeaderVieDataSource(parent)
-                let parentId = parent.id
-                request.predicate = NSPredicate(format: "parent == %lld", parentId)
-                self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
                 
-                guard let count = fetchedResultsController?.fetchedObjects?.count else { return }
-                (commentBottmonView as? OPCommentHereView)?.commentNumber.text = String(count)
+                let preRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+                preRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+                preRequest.predicate = NSPredicate(format: "parent.id == %lld", parent.id)
+                let farmcomments = (try! appDelegate.dataStack.mainContext.fetch(preRequest)) as! [FarmComment]
+                //print("farm information is: \(farm[0].content)")
+                var tempArray = [Int64]()
+                if farmcomments.count > 0 {
+                    for farmcomment in farmcomments {
+                        tempArray.append(farmcomment.id)
+                    }
+                }
+                
+                for id in tempArray {
+                    let preRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+                    preRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+                    preRequest.predicate = NSPredicate(format: "parent.id == %lld", id)
+                    let childcomments = (try! appDelegate.dataStack.mainContext.fetch(preRequest)) as! [FarmComment]
+                    if childcomments.count > 0 {
+                        for childcomment in childcomments {
+                            tempArray.append(childcomment.id)
+                        }
+                    }
+                }
+                
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+                request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+                request.predicate = NSPredicate(format:"parent == %lld OR parent IN %@",parent.id, tempArray)
+                self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
                 
                 if let count = self.fetchedResultsController?.fetchedObjects?.count, count == 0 {
                     let _ = noCommentView
                 }
             }
         }
+    }
+    
+    lazy var maskView: UIView = {
+        let maskView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        maskView.backgroundColor = UIColor.black
+        maskView.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(closeCommentInputView))
+        maskView.addGestureRecognizer(gesture)
+        maskView.alpha = 0.55
+        return maskView
+    }()
+    
+    func closeCommentInputView() {
+        maskView.isHidden = true
+        let commentView = (commentInputView as? OPCommentInputView)?.commentTextView.customTextView
+        commentView?.resignFirstResponder()
     }
     
     lazy var noCommentView: UIImageView = {
@@ -76,12 +114,6 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
         userImage.sd_setImage(with: URL(string: userimageURL), placeholderImage: UIImage(named: "user_default"))
     }
 
-    
-    lazy var commentBottmonView: UIView = {
-        let commentBottmonView = OPCommentHereView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 44, width: UIScreen.main.bounds.width, height: 44))
-        return commentBottmonView
-    }()
-    
     lazy var commentInputView: UIView = {
         let commentInputView = OPCommentInputView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 136, width: UIScreen.main.bounds.width, height: 136))
         commentInputView.commentTextView.delegate = self
@@ -119,15 +151,14 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
             UIView.animate(withDuration: duration, animations: { [weak self] in
                 self?.commentInputView.alpha = 1.0
                 self?.commentInputView.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height - offset - 136, width: UIScreen.main.bounds.width, height: 136)
-                guard let commentInput = self?.commentInputView as? OPCommentInputView, let commentHere = self?.commentBottmonView as? OPCommentHereView else { return }
-                commentHere.textfield.resignFirstResponder()
-                commentInput.commentTextView.customTextView.becomeFirstResponder()
+//                guard let commentInput = self?.commentInputView as? OPCommentInputView else { return }
+//                commentInput.commentTextView.customTextView.becomeFirstResponder()
             })
         }
-        
     }
     
     func keyBoardWillHide(_ notification: Notification){
+        maskView.isHidden = true
         UIView.animate(withDuration: 0.5) { [weak self] in
             self?.commentInputView.alpha = 0.0
             self?.commentInputView.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height  - 136, width: UIScreen.main.bounds.width, height: 136)
@@ -137,12 +168,14 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.view.addSubview(commentBottmonView)
-        self.navigationController?.view.bringSubview(toFront: commentBottmonView)
+        maskView.isHidden = true
+        navigationController?.view.addSubview(maskView)
         
         commentInputView.alpha = 0.0
-        self.navigationController?.view.addSubview(commentInputView)
-        self.navigationController?.view.bringSubview(toFront: commentInputView)
+        maskView.isHidden = true
+        navigationController?.view.addSubview(maskView)
+        navigationController?.view.addSubview(commentInputView)
+        navigationController?.view.bringSubview(toFront: commentInputView)
         
         headerView.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: headViewHeight + 5)
         tableView.layoutSubviews()
@@ -160,11 +193,10 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
         }
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        commentBottmonView.removeFromSuperview()
-        commentInputView.removeFromSuperview()
+    
     }
     
     func setNavigarationBar() {
@@ -186,26 +218,69 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OPCommentRepliedTableViewCell", for: indexPath) as! OPCommentRepliedTableViewCell
-        guard let count = fetchedResultsController?.fetchedObjects?.count else { return cell }
         noCommentView.removeFromSuperview()
-        (commentBottmonView as? OPCommentHereView)?.commentNumber.text = String(count)
         guard let comment = fetchedResultsController?.object(at: indexPath) as? FarmComment else { return cell }
-        cell.updateDataSource(comment)
+        let parent = fetchDetailedParentComment(comment.parent)
+        if parent?.id == parentComment?.id {
+            cell.updateDataSource(comment, nil)
+        } else {
+            cell.updateDataSource(comment, parent)
+        }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let parent = fetchedResultsController?.object(at: indexPath) as? FarmComment
+        if parent?.user?.username == appDelegate.currentUser?.username {
+            guard let alterVC = showReplyAlertController(parentComment?.id, showDelete: true, commentId: parent?.id) else { return }
+            present(alterVC, animated: true, completion: nil)
+        } else {
+            guard let alterVC = showReplyAlertController(parent?.id) else { return }
+            present(alterVC, animated: true, completion: nil)
+        }
+    }
+    
+    func fetchDetailedParentComment(_ parentId: Int64?) -> FarmComment? {
+        guard let parent = parentId else { return nil }
+        let preRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+        preRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        preRequest.predicate = NSPredicate(format: "id == %lld", parent)
+        let farmcomments = (try! appDelegate.dataStack.mainContext.fetch(preRequest)) as! [FarmComment]
+        if farmcomments.count > 0 {
+            return farmcomments[0]
+        }
+        return nil
+    }
+    
+    func showCommentView(_ parentId: Int64?) {
+        maskView.isHidden = false
+        let commentView = (commentInputView as? OPCommentInputView)?.commentTextView
+        commentView?.parentId = parentId
+        commentView?.customTextView.becomeFirstResponder()
+    }
+    
+    func deleteComment(_ commentId: Int64?, parentId: Int64?) {
+        OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Deleting", animated: true, delay: 0.0)
+        OPDataService.sharedInstance.deleteComment(commentId, parentId: parentId) { (success, error) in
+            if success {
+                print("delete successfully")
+            } else {
+                print("delete failed")
+            }
+            OPLoadingHUD.hide()
+        }
     }
 }
 
 extension OPFarmCommentRepliedTableViewController: OPCommentTextViewDelegate {
     
-    func sendMessage(_ message: String?, handler: @escaping (Bool, NSError?) -> Void) {
+    func sendMessage(_ message: String?, parent: Int64?, handler: @escaping (Bool, NSError?) -> Void) {
         OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Saving comment", animated: true, delay: 0.0)
-        guard let id = parentComment?.id else { return }
+        guard let id = parent else { return }
         OPDataService.sharedInstance.createFarmComment(CommentType.farm.rawValue, object_id: farm?.id, parent_id: id, content: message, grade: "5") {[weak self](success, error) in
             if success {
                 handler(true, nil)
-                (self?.commentBottmonView as? OPCommentHereView)?.textfield.text = ""
-                (self?.commentBottmonView as? OPCommentHereView)?.textfield.resignFirstResponder()
-                self?.fetchParentObject()
+                self?.closeCommentInputView()
             } else {
                 handler(false, error)
                 
@@ -215,8 +290,7 @@ extension OPFarmCommentRepliedTableViewController: OPCommentTextViewDelegate {
     }
     
     func saveMessageToContainer(_ message: String?) {
-        (commentBottmonView as? OPCommentHereView)?.textfield.text = message
-        (commentBottmonView as? OPCommentHereView)?.textfield.resignFirstResponder()
+        //
     }
     
     func fetchParentObject() {
@@ -231,5 +305,29 @@ extension OPFarmCommentRepliedTableViewController: OPCommentTextViewDelegate {
             guard let parent = self.parentComment else { return }
             updateHeaderVieDataSource(parent)
         }
+    }
+    
+    func showReplyAlertController(_ parentId: Int64?, showDelete: Bool = false, commentId: Int64? = nil) -> UIAlertController? {
+        replyAlertController = nil
+        
+        replyAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        replyAlertController?.view.tintColor = UIColor(hexString: OPGreenColor)
+        let replyAction = UIAlertAction(title: "回复", style: .default, handler: { [weak self] (action) in
+            self?.showCommentView(parentId)
+        })
+        replyAlertController?.addAction(replyAction)
+        
+        if showDelete {
+            let deleteAction = UIAlertAction(title: "删除回复", style: .default, handler: { [weak self] (action) in
+                self?.deleteComment(commentId, parentId: parentId)
+            })
+            replyAlertController?.addAction(deleteAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: { (action) in
+            //self?.actionPhotoAction(action)
+        })
+        replyAlertController?.addAction(cancelAction)
+        return replyAlertController
     }
 }

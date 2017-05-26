@@ -2,7 +2,7 @@
 //  FarmImage+CoreDataProperties.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 5/19/17.
+//  Created by IBM on 5/25/17.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 
@@ -20,6 +20,7 @@ extension FarmImage {
     @NSManaged public var img: String?
     @NSManaged public var is_delete: Bool
     @NSManaged public var url: String?
+    @NSManaged public var updated_date: String?
     @NSManaged public var owner: Farm?
 
 }

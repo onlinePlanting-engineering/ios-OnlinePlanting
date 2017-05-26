@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.3.0)
-  - DATAStack (6.1.2)
+  - DATAStack (7.0.1)
   - INSPhotoGallery (1.1.0)
   - KeychainAccess (3.0.2)
   - SDWebImage (3.8.2):
@@ -8,8 +8,8 @@ PODS:
   - SDWebImage/Core (3.8.2)
   - STRegex (0.4.3)
   - SwiftyJSON (3.1.4)
-  - Sync (2.6.3):
-    - DATAStack (~> 6.1.2)
+  - Sync (2.7.0):
+    - DATAStack (~> 7.0.1)
     - SYNCPropertyMapper (~> 5.2.0)
   - SYNCPropertyMapper (5.2.0)
 
@@ -24,15 +24,15 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
-  DATAStack: a45fc144e15193f1b22c26b507cc46655ce96a71
+  DATAStack: 9ca4ba8e8e4f389f1593ad3178d7a4d4df69d648
   INSPhotoGallery: 81056815e82fb7ee6f271ca017db5985b4f96d0a
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   STRegex: c7decbba8601717274774a3f341c4807a327a6d0
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  Sync: a41b41cf61625676d3fe66efc09daf25b1548d9d
+  Sync: b02ce41aa8080049a2932fd7342fe189edb2298a
   SYNCPropertyMapper: b3157f5183285c8a25ba23877b95a06ec2547e73
 
-PODFILE CHECKSUM: 2914d3a6efe8de8366c8a2cd20100fec23b90831
+PODFILE CHECKSUM: 3a4620c84597eb7c62b52e007a8950a998709e2c
 
 COCOAPODS: 1.1.1

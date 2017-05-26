@@ -22,8 +22,6 @@ class OPFarmListViewController: CoreDataTableViewController {
     lazy var presentAnimator = PresentAnimator()
     lazy var dismissAnimator = DismisssAnimator()
     
-    let urlCollection = ["https://images.pexels.com/photos/36740/vegetables-vegetable-basket-harvest-garden.jpg?h=350&auto=compress&cs=tinysrgb","https://images.pexels.com/photos/196643/pexels-photo-196643.jpeg?h=350&auto=compress&cs=tinysrgb","https://images.pexels.com/photos/36156/pexels-photo.jpg?h=350&auto=compress&cs=tinysrgb","https://images.pexels.com/photos/89267/pexels-photo-89267.jpeg?h=350&auto=compress&cs=tinysrgb","https://images.pexels.com/photos/33307/carrot-kale-walnuts-tomatoes.jpg?h=350&auto=compress&cs=tinysrgb","https://images.pexels.com/photos/41123/pexels-photo-41123.jpeg?h=350&auto=compress&cs=tinysrgb"]
-    
     lazy var maskView: UIView = {
         let maskView = UIView()
         maskView.backgroundColor = UIColor.darkGray
@@ -140,11 +138,7 @@ extension OPFarmListViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension OPFarmListViewController {
-    //    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-    //        //hidingNavBarManager?.shouldScrollToTop()
-    //        return true
-    //    }
-    
+
     //hide or show the tabbar while scrolling up and down
     override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
@@ -171,7 +165,6 @@ extension OPFarmListViewController {
 
 extension OPFarmListViewController: presentAnimatorDelegate {
     func addMaskViewToPrevious() {
-        //self.navigationController?.navigationBar.barTintColor = UIColor.red
         navigationController?.view.addSubview(maskView)
     }
     

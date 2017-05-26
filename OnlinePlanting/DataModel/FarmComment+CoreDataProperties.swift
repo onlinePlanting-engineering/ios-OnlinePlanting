@@ -2,7 +2,7 @@
 //  FarmComment+CoreDataProperties.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 5/16/17.
+//  Created by IBM on 5/25/17.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 
@@ -22,7 +22,24 @@ extension FarmComment {
     @NSManaged public var parent: Int64
     @NSManaged public var reply_count: Int16
     @NSManaged public var timestamp: NSDate?
-    @NSManaged public var url: String?
     @NSManaged public var user: User?
+    @NSManaged public var replies: NSSet?
+
+}
+
+// MARK: Generated accessors for replies
+extension FarmComment {
+
+    @objc(addRepliesObject:)
+    @NSManaged public func addToReplies(_ value: FarmComment)
+
+    @objc(removeRepliesObject:)
+    @NSManaged public func removeFromReplies(_ value: FarmComment)
+
+    @objc(addReplies:)
+    @NSManaged public func addToReplies(_ values: NSSet)
+
+    @objc(removeReplies:)
+    @NSManaged public func removeFromReplies(_ values: NSSet)
 
 }

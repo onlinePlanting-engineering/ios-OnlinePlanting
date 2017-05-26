@@ -11,6 +11,7 @@ import SDWebImage
 
 protocol SubScrollDelegate: NSObjectProtocol {
     func customScrollViewDidScroll(_ scrollView: UIScrollView)
+    func hideOrShowBottomViewBeginScroll(_ scrollView: UIScrollView)
     func previousPage(_ offset: CGFloat)
 }
 
@@ -60,6 +61,10 @@ class OPMeTableViewController: UITableViewController {
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.customScrollViewDidScroll(scrollView)
+    }
+    
+    override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        delegate?.hideOrShowBottomViewBeginScroll(scrollView)
     }
 }
 

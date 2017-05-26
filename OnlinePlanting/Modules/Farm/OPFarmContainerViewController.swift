@@ -96,7 +96,7 @@ class OPFarmContainerViewController: UIViewController {
     }
     
     public func swapViewControllers(_ segue: String) {
-        if transactionProcess {
+        if segue == currentSegue || transactionProcess {
             return
         }
         transactionProcess = true

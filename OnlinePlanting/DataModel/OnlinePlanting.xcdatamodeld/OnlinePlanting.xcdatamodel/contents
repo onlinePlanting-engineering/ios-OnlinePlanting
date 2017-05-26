@@ -20,13 +20,14 @@
         <attribute name="parent" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="reply_count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FarmComment" inverseName="replies" inverseEntity="FarmComment" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="farmcomment" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="FarmImage" representedClassName=".FarmImage" syncable="YES">
         <attribute name="flags" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="img" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="is_delete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="updated_date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
                 <entry key="hyper.isPrimaryKey" value="true"/>
@@ -62,7 +63,7 @@
     <elements>
         <element name="Farm" positionX="-3303" positionY="-2196" width="128" height="210"/>
         <element name="FarmComment" positionX="-3303" positionY="-2160" width="128" height="165"/>
-        <element name="FarmImage" positionX="-3303" positionY="-2178" width="128" height="120"/>
+        <element name="FarmImage" positionX="-3303" positionY="-2178" width="128" height="135"/>
         <element name="Location" positionX="-3303" positionY="-2196" width="128" height="150"/>
         <element name="Profile" positionX="-3159" positionY="-2178" width="128" height="120"/>
         <element name="User" positionX="-3447" positionY="-2313" width="128" height="105"/>

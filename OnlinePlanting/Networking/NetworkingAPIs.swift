@@ -51,13 +51,13 @@ extension Networking {
         _ = syncWithAppServer(WebServiceAPIMapping.CreateComment.rawValue, httpMethod: .post, httpHeaders: getHeaders(), urlParams: urlParameter, params: dataParam, handler: handler)
     }
     
-//    func deleteComment(_ commentId: String?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())){
-//        _ = syncWithAppServer(.GetFarmList, httpMethod: .post, httpHeaders: getFarmHeader(), params: ["type": type,"object_id": object_id, "parent_id": parent_id], handler: handler)
-//    }
-//    
-//    func deleteComment(_ commentId: String?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())){
-//        
-//    }
+    func deleteComment(_ commentId: Int64?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())){
+        guard let deleteID = commentId else {
+            handler(false, nil, nil)
+            return }
+        let deleteCommentUrl = "\(WebServiceAPIMapping.GetFarmComments.rawValue)\(deleteID)/"
+        _ = syncWithAppServer(deleteCommentUrl, httpMethod: .delete, httpHeaders: getFarmHeader(), urlParams: nil,params: nil, handler: handler)
+    }
     
     
     fileprivate func syncWithAppServer(_ apiMapping: String, httpMethod: HTTPMethod ,httpHeaders: HTTPHeaders? = nil, urlParams:[String: Any?]? = nil, params:[String: Any?]? = nil, handler: @escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) -> DataRequest? {
@@ -74,14 +74,12 @@ extension Networking {
             urlParam = urlParam.substring(to: index)
             url += urlParam
         }
-        
-        
 
         let request = Alamofire.request(url, method: httpMethod, parameters: params, encoding: JSONEncoding.default, headers: httpHeaders).responseJSON { (data) in
             //TODO: waiting for the status code
             let response = data.response
             
-            if response?.statusCode == 200 || response?.statusCode == 201 {
+            if response?.statusCode == 200 || response?.statusCode == 201 || response?.statusCode == 204 {
                 if let value = data.result.value {
                     let json = JSON(value)
                     handler(true, json, nil)

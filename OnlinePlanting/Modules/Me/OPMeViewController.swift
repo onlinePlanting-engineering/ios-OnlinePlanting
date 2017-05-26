@@ -36,6 +36,10 @@ class OPMeViewController: UIViewController, UIScrollViewDelegate, SubScrollDeleg
         // Dispose of any resources that can be recreated.
     }
     
+    func hideOrShowBottomViewBeginScroll(_ scrollView: UIScrollView) {
+        //TODO
+    }
+    
     func customScrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let offset = scrollView.contentOffset.y

@@ -8,56 +8,96 @@
 
 import UIKit
 
-class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
+enum ButttonType: Int {
+    case information, comments, activity, album
+}
 
-    @IBOutlet weak var farmOther: UIButton!
+class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
+    
+    @IBOutlet weak var farmInformation: UIButton!
     @IBOutlet weak var farmComments: UIButton!
-    @IBOutlet weak var detailed: UIButton!
+    @IBOutlet weak var activity: UIButton!
+    @IBOutlet weak var farmAlbum: UIButton!
     @IBOutlet weak var farmImage: UIImageView!
-    @IBOutlet weak var buttonAnimatedView: UIView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerImageView: UIImageView!
-
+    @IBOutlet weak var bottomNavView: UIView!
+    @IBOutlet weak var farmHome: UILabel!
+    @IBOutlet weak var farmActivity: UILabel!
+    @IBOutlet weak var farmAlbumTitle: UILabel!
+    @IBOutlet weak var farmCommentsTitle: UILabel!
+    
+    
+    fileprivate var buttons = [UIButton]()
     var farmData: Farm?
     var newImage: UIImage!
+    fileprivate var albumVC: OPFarmAlbumCollectionViewController?
     fileprivate var farmContainerVc: OPFarmContainerViewController?
-    fileprivate var currentPage = 0
-    fileprivate var scrollOffSet = [Int: CGFloat]()
-    fileprivate var previousButton = 0
+    fileprivate var currentButton: ButttonType = .information
+    
+    @IBOutlet weak var rentLand: UIButton!
+    
+    @IBAction func showRentLand(_ sender: UIButton) {
+        
+    }
+    
     
     @IBAction func detailedButton(_ sender: UIButton) {
-        buttonAnimation(sender)
+        if currentButton == .information { return }
+        showSelectedButton(sender)
+        buttonAnimation(sender, type: .information)
     }
     
     @IBAction func commentsButton(_ sender: UIButton) {
-        buttonAnimation(sender)
+        if currentButton == .comments { return }
+        showSelectedButton(sender)
+        buttonAnimation(sender, type: .comments)
     }
     
     @IBAction func farmOther(_ sender: UIButton) {
-        buttonAnimation(sender)
+        if currentButton == .activity { return }
+        showSelectedButton(sender)
+        buttonAnimation(sender, type: .activity)
+    }
+    
+    @IBAction func showAlbum(_ sender: UIButton) {
+        currentButton = .album
+        //showSelectedButton(sender)
+        buttonAnimation(sender, type: .album)
+    }
+    
+    func prepareUI(){
+        
+        farmInformation.tag = 0
+        buttons.append(farmInformation)
+        farmComments.tag = 1
+        buttons.append(farmComments)
+        activity.tag = 2
+        buttons.append(activity)
+        farmAlbum.tag = 3
+        buttons.append(farmAlbum)
+        
+        rentLand.layer.cornerRadius = rentLand.bounds.height / 2
+        rentLand.layer.masksToBounds = true
+        rentLand.layer.borderWidth = 1
+        rentLand.layer.borderColor = UIColor.lightGray.cgColor
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         farmImage.image = newImage
         UIApplication.shared.statusBarStyle = .default
         setNavigarationBar()
+        
         prepareUI()
         // Do any additional setup after loading the view.
     }
     
-    func prepareUI() {
-        detailed.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
-        detailed.tag = 0
-        farmComments.setTitleColor(UIColor.darkGray, for: .normal)
-        farmComments.tag = 1
-        farmOther.setTitleColor(UIColor.darkGray, for: .normal)
-        farmOther.tag = 2
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,8 +109,32 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
         }
     }
     
+    
+    func showHideTabBar(hidden hide: Bool, animated: Bool) {
+        var originY: CGFloat = 0
+        if hide {
+            originY = (self.view.frame.height)
+        } else {
+            originY = (self.view.frame.height) - 49
+        }
+        
+        UIView.animate(withDuration: 0.35, delay: 0, options: .curveEaseIn, animations: {[weak self] in
+            self?.bottomNavView.frame.origin.y = originY
+            }, completion: nil)
+    }
+    
+    func hideOrShowBottomViewBeginScroll(_ scrollView: UIScrollView) {
+        
+        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
+            showHideTabBar(hidden: true, animated: true)
+        }
+        else {
+            showHideTabBar(hidden: false, animated: true)
+        }
+    }
+    
     func customScrollViewDidScroll(_ scrollView: UIScrollView) {
-
+        
         let offset = scrollView.contentOffset.y
         scrollHeaderView(offset)
     }
@@ -100,14 +164,10 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
             headerView.layer.zPosition = 0
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touch begins")
     }
     
     func setNavigarationBar() {
@@ -118,37 +178,99 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
         
         navigationController?.navigationBar.barTintColor = UIColor.init(hexString: "#2D363C")
         navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSForegroundColorAttributeName : UIColor.white]
+        navigationItem.title = farmData?.name
     }
     
     func dismissCurrentView(){
         dismiss(animated: true, completion: nil)
     }
     
-    func buttonAnimation(_ button: UIButton) {
-        
-        if button.tag == 0 {
-            detailed.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
-            farmComments.setTitleColor(UIColor.darkGray, for: .normal)
-            farmOther.setTitleColor(UIColor.darkGray, for: .normal)
-            farmContainerVc?.swapViewControllers("contentsegue")
-            currentPage = 0
-        } else if button.tag == 1 {
-            detailed.setTitleColor(UIColor.darkGray, for: .normal)
-            farmComments.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
-            farmOther.setTitleColor(UIColor.darkGray, for: .normal)
-            farmContainerVc?.swapViewControllers("commentsegue")
-            currentPage = 1
-        } else if button.tag == 2 {
-            detailed.setTitleColor(UIColor.darkGray, for: .normal)
-            farmComments.setTitleColor(UIColor.darkGray, for: .normal)
-            farmOther.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
-            farmContainerVc?.swapViewControllers("activitysegue")
-            currentPage = 2
+    func showSelectedButton(_ button: UIButton) {
+        for buttonChange in buttons {
+            if button.tag == buttonChange.tag {
+                switch button.tag {
+                case 0:
+                    farmInformation.setBackgroundImage(UIImage(named: "farmHome_selected"), for: .normal)
+                    farmComments.setBackgroundImage(UIImage(named: "farmComment_default"), for: .normal)
+                    activity.setBackgroundImage(UIImage(named: "farmActivity_default"), for: .normal)
+                    farmAlbum.setBackgroundImage(UIImage(named: "farmAlbum_default"), for: .normal)
+                    farmHome.textColor = UIColor(hexString: OPGreenColor)
+                    farmCommentsTitle.textColor = UIColor.white
+                    farmActivity.textColor = UIColor.white
+                    farmAlbumTitle.textColor = UIColor.white
+                case 1:
+                    farmInformation.setBackgroundImage(UIImage(named: "farmHome_default"), for: .normal)
+                    farmComments.setBackgroundImage(UIImage(named: "farmComment_selected"), for: .normal)
+                    activity.setBackgroundImage(UIImage(named: "farmActivity_default"), for: .normal)
+                    farmAlbum.setBackgroundImage(UIImage(named: "farmAlbum_default"), for: .normal)
+                    farmHome.textColor = UIColor.white
+                    farmCommentsTitle.textColor = UIColor(hexString: OPGreenColor)
+                    farmActivity.textColor = UIColor.white
+                    farmAlbumTitle.textColor = UIColor.white
+                case 2:
+                    farmInformation.setBackgroundImage(UIImage(named: "farmHome_default"), for: .normal)
+                    farmComments.setBackgroundImage(UIImage(named: "farmComment_default"), for: .normal)
+                    activity.setBackgroundImage(UIImage(named: "farmActivity_selected"), for: .normal)
+                    farmAlbum.setBackgroundImage(UIImage(named: "farmAlbum_default"), for: .normal)
+                    farmHome.textColor = UIColor.white
+                    farmCommentsTitle.textColor = UIColor.white
+                    farmActivity.textColor = UIColor(hexString: OPGreenColor)
+                    farmAlbumTitle.textColor = UIColor.white
+                case 3:
+                    farmInformation.setBackgroundImage(UIImage(named: "farmHome_default"), for: .normal)
+                    farmComments.setBackgroundImage(UIImage(named: "farmComment_default"), for: .normal)
+                    activity.setBackgroundImage(UIImage(named: "farmActivity_default"), for: .normal)
+                    farmAlbum.setBackgroundImage(UIImage(named: "farmAlbum_selected"), for: .normal)
+                    farmHome.textColor = UIColor.white
+                    farmCommentsTitle.textColor = UIColor.white
+                    farmActivity.textColor = UIColor.white
+                    farmAlbumTitle.textColor = UIColor(hexString: OPGreenColor)
+                default: break
+                }
+            }
         }
+    }
+    
+    
+    func buttonAnimation(_ button: UIButton, type: ButttonType) {
         
-        UIView.animate(withDuration: 0.2, animations: {[weak self] in
-            self?.buttonAnimatedView.center.x = button.center.x
-            //self?.headerView.layer.transform = CATransform3DIdentity
-            }, completion: nil)
+        button.layer.removeAllAnimations()
+        let pulse = CAKeyframeAnimation(keyPath: "transform.scale")
+        pulse.calculationMode = kCAAnimationCubic
+        pulse.values = [0.8,1.0,1.1,1.0]
+        pulse.duration = 0.5
+        button.layer.add(pulse, forKey: nil)
+        
+        switch type {
+        case .information:
+            activity.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
+            farmComments.setTitleColor(UIColor.darkGray, for: .normal)
+            farmInformation.setTitleColor(UIColor.darkGray, for: .normal)
+            farmContainerVc?.swapViewControllers("contentsegue")
+            currentButton = .information
+            
+        case .comments:
+            activity.setTitleColor(UIColor.darkGray, for: .normal)
+            farmComments.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
+            farmInformation.setTitleColor(UIColor.darkGray, for: .normal)
+            farmContainerVc?.swapViewControllers("commentsegue")
+            currentButton = .comments
+            
+        case .activity:
+            activity.setTitleColor(UIColor.darkGray, for: .normal)
+            farmComments.setTitleColor(UIColor.darkGray, for: .normal)
+            farmInformation.setTitleColor(UIColor(hexString: OPGreenColor), for: .normal)
+            farmContainerVc?.swapViewControllers("activitysegue")
+            currentButton = .activity
+        case .album:
+            albumVC = UIStoryboard(name: "OPFarm", bundle: nil).instantiateViewController(withIdentifier: "OPFarmAlbumCollectionViewController") as? OPFarmAlbumCollectionViewController
+            albumVC?.currentFarm = farmData
+            guard let album = albumVC else { return }
+            navigationController?.pushViewController(album, animated: true)
+            currentButton = .album
+        }
     }
 }

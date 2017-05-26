@@ -2,7 +2,7 @@
 //  Farm+CoreDataProperties.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 5/8/17.
+//  Created by IBM on 5/25/17.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 
@@ -16,6 +16,7 @@ extension Farm {
         return NSFetchRequest<Farm>(entityName: "Farm");
     }
 
+    @NSManaged public var addr: String?
     @NSManaged public var content: String?
     @NSManaged public var id: Int16
     @NSManaged public var is_delete: Bool
@@ -25,7 +26,6 @@ extension Farm {
     @NSManaged public var price: Double
     @NSManaged public var subject: String?
     @NSManaged public var url: String?
-    @NSManaged public var addr: String?
     @NSManaged public var images: NSSet?
 
 }

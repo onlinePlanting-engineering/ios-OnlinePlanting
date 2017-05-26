@@ -115,4 +115,8 @@ extension OPActivityTableViewController {
         currentScrollOffSet = scrollView.contentOffset.y
         delegate?.customScrollViewDidScroll(scrollView)
     }
+    
+    override func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        delegate?.hideOrShowBottomViewBeginScroll(scrollView)
+    }
 }

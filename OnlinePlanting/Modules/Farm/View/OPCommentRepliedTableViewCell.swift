@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class OPCommentRepliedTableViewCell: UITableViewCell {
 
@@ -37,11 +38,19 @@ class OPCommentRepliedTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateDataSource(_ comments: FarmComment?){
+    func updateDataSource(_ comments: FarmComment?, _ parentComment: FarmComment? = nil){
         guard let commentContent = comments else { return }
         content.text = commentContent.content
-        username.text = commentContent.user?.profile?.nickname != "" ? commentContent.user?.profile?.nickname: commentContent.user?.username
-        
+        var user = ""
+        if let currentUser = commentContent.user?.profile?.nickname != "" ? commentContent.user?.profile?.nickname: commentContent.user?.username {
+                user = "\(currentUser)"
+        }
+        if let parent = parentComment {
+            if let parentUser = parent.user?.profile?.nickname != "" ? parent.user?.profile?.nickname: commentContent.user?.username {
+                user += " 回复 \(parentUser)"
+            }
+        }
+        username.text = user
         let count  = String(commentContent.reply_count)
         replyPlus.text = "+\(count)"
         if count == "0" {
@@ -51,8 +60,13 @@ class OPCommentRepliedTableViewCell: UITableViewCell {
         }
         guard let time = commentContent.timestamp else { return }
         replyDate.text = TimeUtils.timeAgoSinceDate(time, numericDates: false)
+        var url = ""
         guard let userimageURL = commentContent.user?.profile?.img_heading else { return }
-        userImage.sd_setImage(with: URL(string: userimageURL), placeholderImage: UIImage(named: "user_default"))
+        url = userimageURL
+        if !url.hasPrefix(Networking.shareInstance.baseURL) {
+            url = Networking.shareInstance.baseURL + url
+        }
+        userImage.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "user_default"))
     }
 
 }

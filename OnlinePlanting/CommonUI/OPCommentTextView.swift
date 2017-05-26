@@ -9,7 +9,7 @@
 import UIKit
 
 protocol OPCommentTextViewDelegate: NSObjectProtocol {
-    func sendMessage(_ message: String?, handler: @escaping(_ success: Bool, _ error: NSError?) -> Void)
+    func sendMessage(_ message: String?, parent: Int64?, handler: @escaping(_ success: Bool, _ error: NSError?) -> Void)
     func saveMessageToContainer(_ message: String?)
 }
 
@@ -18,6 +18,7 @@ class OPCommentTextView: UIView {
     
     weak var delegate: OPCommentTextViewDelegate?
     fileprivate var isSending = false
+    var parentId: Int64?
     @IBInspectable var sendButtonTitle: String? {
         didSet {
             self.sendButton.setTitle(sendButtonTitle, for: .normal)
@@ -53,20 +54,20 @@ class OPCommentTextView: UIView {
         return sendButton
     }()
     
-    lazy var closeKeyboardButton: UIImageView = {
-        let closeKeyboardButton = UIImageView()
-        closeKeyboardButton.isUserInteractionEnabled = true
-        closeKeyboardButton.image = UIImage.init(named: "keyboard_close")
-        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(closeKeyBoard))
-        closeKeyboardButton.addGestureRecognizer(gesture)
-        self.addSubview(closeKeyboardButton)
-        closeKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-        closeKeyboardButton.widthAnchor.constraint(equalToConstant: 36).isActive = true
-        closeKeyboardButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        closeKeyboardButton.leadingAnchor.constraint(equalTo: self.customTextView.leadingAnchor).isActive = true
-        closeKeyboardButton.topAnchor.constraint(equalTo: self.customTextView.bottomAnchor, constant: 10).isActive = true
-        return closeKeyboardButton
-    }()
+//    lazy var closeKeyboardButton: UIImageView = {
+//        let closeKeyboardButton = UIImageView()
+//        closeKeyboardButton.isUserInteractionEnabled = true
+//        closeKeyboardButton.image = UIImage.init(named: "keyboard_close")
+//        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(closeKeyBoard))
+//        closeKeyboardButton.addGestureRecognizer(gesture)
+//        self.addSubview(closeKeyboardButton)
+//        closeKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+//        closeKeyboardButton.widthAnchor.constraint(equalToConstant: 36).isActive = true
+//        closeKeyboardButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//        closeKeyboardButton.leadingAnchor.constraint(equalTo: self.customTextView.leadingAnchor).isActive = true
+//        closeKeyboardButton.topAnchor.constraint(equalTo: self.customTextView.bottomAnchor, constant: 10).isActive = true
+//        return closeKeyboardButton
+//    }()
     
     lazy var customTextView: UITextView = {
         let customTextView = UITextView()
@@ -99,7 +100,7 @@ class OPCommentTextView: UIView {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
         customTextView.resignFirstResponder()
-        let _ = closeKeyboardButton
+        //let _ = closeKeyboardButton
     }
     
     override init(frame: CGRect) {
@@ -148,7 +149,7 @@ class OPCommentTextView: UIView {
         }
         isSending = true
         customTextView.resignFirstResponder()
-        delegate?.sendMessage(customTextView.text, handler: { [weak self](success, error) in
+        delegate?.sendMessage(customTextView.text, parent: parentId, handler: { [weak self](success, error) in
             if success {
                 //TODO: success
                 self?.customTextView.text = ""

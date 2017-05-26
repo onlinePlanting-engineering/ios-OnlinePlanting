@@ -19,8 +19,6 @@ class OPFarmTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        framImage.contentMode = .scaleAspectFit
         //self.backgroundColor = UIColor.clear
     }
 
