@@ -27,9 +27,9 @@ class FarmImage: NSManagedObject, INSPhotoViewable{
         if let url = imageURL {
             SDWebImageManager.shared().downloadImage(with: url, options: SDWebImageOptions.cacheMemoryOnly, progress: { (min, max) in
                 //value is
-                print("min is: \(min) max is: \(max)")
+                //print("min is: \(min) max is: \(max)")
             }, completed: { (image, error, cacheType, success, url) in
-                print("value is: \(image)\(error)\(cacheType)\(success)\(url)")
+//                print("value is: \(String(describing: image))\(String(describing: error))\(cacheType)\(success)\(String(describing: url))")
                 completion(image, error)
             })
         } else {
@@ -43,6 +43,4 @@ class FarmImage: NSManagedObject, INSPhotoViewable{
             return
         }
     }
-
-    
 }
