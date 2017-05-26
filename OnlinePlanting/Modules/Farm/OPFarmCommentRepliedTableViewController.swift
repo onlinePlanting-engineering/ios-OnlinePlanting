@@ -280,6 +280,7 @@ extension OPFarmCommentRepliedTableViewController: OPCommentTextViewDelegate {
         OPDataService.sharedInstance.createFarmComment(CommentType.farm.rawValue, object_id: farm?.id, parent_id: id, content: message, grade: "5") {[weak self](success, error) in
             if success {
                 handler(true, nil)
+                self?.tableView.scrollsToTop = true
                 self?.closeCommentInputView()
             } else {
                 handler(false, error)
