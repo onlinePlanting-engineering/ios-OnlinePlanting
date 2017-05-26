@@ -22,7 +22,6 @@
 		183D82821EB64AE200B9F028 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D827E1EB64AE200B9F028 /* LaunchScreen.storyboard */; };
 		183D82831EB64AE200B9F028 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D82801EB64AE200B9F028 /* Main.storyboard */; };
 		183D82851EB64B2600B9F028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183D82841EB64B2600B9F028 /* Assets.xcassets */; };
-		183D82871EB64B3900B9F028 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183D82861EB64B3900B9F028 /* Info.plist */; };
 		183D82891EB64B6400B9F028 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D82881EB64B6400B9F028 /* String+Ext.swift */; };
 		183D828B1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D828A1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift */; };
 		183D828D1EB64C3000B9F028 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D828C1EB64C3000B9F028 /* UIColor+Ext.swift */; };
@@ -172,7 +171,6 @@
 		188A5EAA1EAE2CE3006CE839 /* OnlinePlanting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlinePlanting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5EC11EAE2CE3006CE839 /* OnlinePlantingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingTests.swift; sourceTree = "<group>"; };
-		188A5EC71EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188A5ECC1EAE2CE3006CE839 /* OnlinePlantingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingUITests.swift; sourceTree = "<group>"; };
 		188A5ED21EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -340,7 +338,6 @@
 			isa = PBXGroup;
 			children = (
 				188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */,
-				188A5EC71EAE2CE3006CE839 /* Info.plist */,
 			);
 			path = OnlinePlantingTests;
 			sourceTree = "<group>";
@@ -652,7 +649,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = onlinePlanting;
 				TargetAttributes = {
 					188A5EA91EAE2CE3006CE839 = {
@@ -711,7 +708,6 @@
 				18C1F05B1EB63E0E001D611B /* OPHome.storyboard in Resources */,
 				182E98A61ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.xib in Resources */,
 				183D82851EB64B2600B9F028 /* Assets.xcassets in Resources */,
-				183D82871EB64B3900B9F028 /* Info.plist in Resources */,
 				1818CD551EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib in Resources */,
 				18C1F05D1EB63E0E001D611B /* OPLive.storyboard in Resources */,
 				18B53E4A1EC0A305003B6D6A /* OPFarm.storyboard in Resources */,

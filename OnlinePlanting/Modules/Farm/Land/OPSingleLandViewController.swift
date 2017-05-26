@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OPSingleLandViewController: CoreDataCollectionViewController {
+class OPSingleLandViewController: CoreDataCollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +20,6 @@ class OPSingleLandViewController: CoreDataCollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-}
-
-extension OPSingleLandViewController: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -31,6 +28,9 @@ extension OPSingleLandViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
+}
+
+extension OPSingleLandViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OPLandCollectionViewCell", for: indexPath) as! OPLandCollectionViewCell

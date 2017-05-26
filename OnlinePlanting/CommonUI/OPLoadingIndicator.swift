@@ -74,7 +74,7 @@ class OPLoadingIndicator: UIView {
         if isAnimating { return }
         isAnimating = true
         let animation = CABasicAnimation(keyPath: "transform.rotation")
-        animation.toValue = 2*M_PI
+        animation.toValue = 2*Double.pi
         animation.duration = 1
         animation.repeatCount = .infinity
         imageView.layer.add(animation, forKey: nil)

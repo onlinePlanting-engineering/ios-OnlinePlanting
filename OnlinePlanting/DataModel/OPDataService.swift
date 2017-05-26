@@ -23,7 +23,6 @@ class OPDataService: NSObject {
     func userRegistration(_ username: String?, pwd: String?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         Networking.shareInstance.userRegister(username, password: pwd) { (success, json, error) in
             if success {
-                print("json is: \(json)")
                 handler(true, nil)
             } else {
                 handler(false, error)
@@ -201,8 +200,8 @@ class OPDataService: NSObject {
     func fetchCurrentFarmObjects() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
-        let farm = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [FarmComment]
-        print("farm information is: \(farm[0].content)")
+        _ = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [FarmComment]
+        //print("farm information is: \(farm[0].content)")
     }
     
     func fetchCurrentUserObjects(_ username: String?) -> User? {

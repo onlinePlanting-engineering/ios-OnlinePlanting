@@ -25,14 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var currentUser: User? {
         didSet{
             //update User informaton
-            print("current user's id is: \(currentUser?.id)")
+            print("current user's id is: \(String(describing: currentUser?.id))")
         }
     }
     
     var currentLocation: Location? {
         didSet{
             //update User informaton
-            print("current user's city is: \(currentLocation?.city)")
+            print("current user's city is: \(String(describing: currentLocation?.city))")
             
         }
     }
