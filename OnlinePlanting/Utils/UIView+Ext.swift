@@ -15,7 +15,7 @@ extension UIView {
         if isShow {
             let animationFull : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
             animationFull.fromValue     = 0
-            animationFull.toValue       = 2*M_PI
+            animationFull.toValue       = 2*Double.pi
             animationFull.duration      = 1
             animationFull.repeatCount   = Float.infinity
             layer.add(animationFull, forKey: "rotation")

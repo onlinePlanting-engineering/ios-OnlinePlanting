@@ -99,7 +99,7 @@ extension OPFarmContentViewController: UIWebViewDelegate {
         loadingIndicator.stopAnimating()
         let contentHeight = webView.stringByEvaluatingJavaScript(from: "document.body.scrollHeight")
         if let content = contentHeight, let webviewHegith = NumberFormatter().number(from: content){
-            print("Webview height is::\(contentHeight)")
+            //print("Webview height is::\(contentHeight)")
             if CGFloat(webviewHegith) > view.bounds.height {
                 webviewheight.constant = CGFloat(webviewHegith) - view.bounds.height
                 view.layoutIfNeeded()

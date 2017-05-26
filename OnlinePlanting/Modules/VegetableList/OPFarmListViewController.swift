@@ -80,10 +80,6 @@ class OPFarmListViewController: CoreDataTableViewController {
     func dismissSearchView() {
         
     }
-}
-
-extension OPFarmListViewController {
-    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -120,9 +116,6 @@ extension OPFarmListViewController {
     override func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         super.controllerDidChangeContent(controller)
         
-//        if let count = fetchedResultsController?.sections?[0].numberOfObjects {
-//            noCommentView.isHidden = count > 0
-//        }
     }
 }
 

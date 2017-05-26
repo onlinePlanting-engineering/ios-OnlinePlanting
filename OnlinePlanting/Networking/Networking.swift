@@ -28,7 +28,7 @@ class Networking {
     
     var baseURL: String! {
         get {
-            return "http://192.168.1.100:8000"
+            return "http://192.168.1.104:8000"
         }
     }
     
@@ -136,7 +136,7 @@ extension Networking {
                 return (localPath!, [.removePreviousFile, .createIntermediateDirectories])
             }
             }.responseData { (downloadResponse) in
-                if let error = downloadResponse.error as? NSError {
+                if let error = downloadResponse.error as NSError? {
                     completeHandler?(localPath, error)
                 } else {
                     completeHandler?(localPath, nil)
