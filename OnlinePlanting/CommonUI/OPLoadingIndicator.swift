@@ -60,7 +60,7 @@ class OPLoadingIndicator: UIView {
         
     }
     
-    convenience init(_ title: String?) {
+    convenience init(_ title: String?, frame: CGRect) {
         self.init()
         titleView.text = title
     }

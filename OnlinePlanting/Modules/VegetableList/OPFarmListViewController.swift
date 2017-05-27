@@ -22,6 +22,26 @@ class OPFarmListViewController: CoreDataTableViewController {
     lazy var presentAnimator = PresentAnimator()
     lazy var dismissAnimator = DismisssAnimator()
     
+    lazy var refresh: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.backgroundColor = UIColor.clear
+        refresh.tintColor = UIColor.clear
+        refresh.insertSubview(UIImageView(image: UIImage(named: "hud_loading")), at: 0)
+        refresh.addTarget(self, action: #selector(reloadFarmList), for: .valueChanged)
+        self.farmTableview.addSubview(refresh)
+        return refresh
+    }()
+    
+    lazy var oploadingView: OPLoadingIndicator = {
+        let oploadingView = OPLoadingIndicator.init(frame: CGRect(x: 0, y: 0, width: 96, height: 70))
+        oploadingView.image = UIImage(named: "hud_loading")
+        oploadingView.titleView.text = "Loading"
+        oploadingView.titleView.textColor = UIColor.white
+        oploadingView.backgroundColor = UIColor.clear
+        oploadingView.center.x = self.farmTableview.center.x
+        return oploadingView
+    }()
+    
     lazy var maskView: UIView = {
         let maskView = UIView()
         maskView.backgroundColor = UIColor.darkGray
@@ -43,26 +63,32 @@ class OPFarmListViewController: CoreDataTableViewController {
     }()
     
     func prepareUI() {
-        
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        
-        guard let search = UIImage(named: "logo") else { return }
-        let rightArrowItem = UIBarButtonItem.createBarButtonItemWithImage(search, CGRect(x: 0, y: 0, width: 28, height: 30), self, #selector(dismissSearchView))
-        navigationItem.leftBarButtonItem = rightArrowItem
-        
-        
         let nib = UINib(nibName: "OPFarmTableViewCell", bundle: Bundle.main)
         farmTableview.register(nib, forCellReuseIdentifier: "OPFarmTableViewCell")
         farmTableview.delegate = self
         farmTableview.dataSource = self
+        
+        setNavigarationBar()
+        //let _ = refresh
+        
     }
+    
+    func reloadFarmList() {
+        refreshControl?.beginRefreshing()
+    }
+    
+    func setNavigarationBar() {
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSForegroundColorAttributeName : UIColor.init(hexString: "#2D363C")]
+        navigationController?.navigationBar.topItem?.title = "入住农场"
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let _ = setup
-        
+        UIApplication.shared.statusBarStyle = .default
         OPDataService.sharedInstance.getFarmList() { (success, error) in
             if success {
                 print("load farm list success")
@@ -105,7 +131,7 @@ class OPFarmListViewController: CoreDataTableViewController {
         farmDetailedVC?.newImage = cell.framImage.image
         farmDetailedVC?.farmData = farm
         let cellRect = farmTableview.convert(cell.frame, to: farmTableview)
-        let currentScreenCell = farmTableview.convert(cellRect, to: view)
+        let currentScreenCell = farmTableview.convert(cellRect, to: farmTableview.backgroundView!)
         presentAnimator.originFrame = currentScreenCell
         dismissAnimator.originFrame = currentScreenCell
         guard let navigatVc = nav else { return }

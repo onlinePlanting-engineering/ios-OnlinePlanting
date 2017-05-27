@@ -13,7 +13,6 @@ class OPFarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var framImage: UIImageView!
     @IBOutlet weak var farmTitle: UILabel!
-    @IBOutlet weak var commentIcon: UIImageView!
     fileprivate var commentGesture: UITapGestureRecognizer?
     @IBOutlet weak var touchView: UIView!
     

@@ -126,7 +126,6 @@ class OPDataService: NSObject {
     
     func getRepliedComment(_ parentId: Int64?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         Networking.shareInstance.getRepliedComments(parentId, handler: {(success, json, error) in
-            
             guard let jsonData = json?["data"]["replies"].arrayObject as? [[String : Any]] else { return }
             var tempdata = [[String : Any]]()
             for var data in jsonData{
@@ -180,11 +179,18 @@ class OPDataService: NSObject {
     }
     
     func deleteComment(_ commentId: Int64?, parentId: Int64?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
-        Networking.shareInstance.deleteComment(commentId) { (success, json, error) in
+        Networking.shareInstance.deleteComment(commentId) { [weak self](success, json, error) in
             if success {
                 do {
                     try Sync.delete(commentId as Any, inEntityNamed: "FarmComment", using: appDelegate.dataStack.mainContext)
-                    handler(true, nil)
+                    self?.getRepliedComment(parentId, handler: { (success, error) in
+                        if success {
+                            handler(true, nil)
+                        } else {
+                            handler(false, error)
+                        }
+                    })
+                    
                 } catch{
                     handler(false, nil)
                     print("delete data error")

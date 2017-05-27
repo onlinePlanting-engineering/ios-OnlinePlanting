@@ -81,12 +81,12 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
     }
     
     lazy var noCommentView: UIImageView = {
-        let noCommentView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 64, height: 64))
-        noCommentView.image = UIImage.init(named: "no_comments")
+        let noCommentView = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 44, height: 44))
+        noCommentView.image = UIImage(named: "load_failed")
         self.tableView.backgroundView?.addSubview(noCommentView)
         noCommentView.translatesAutoresizingMaskIntoConstraints = false
-        noCommentView.widthAnchor.constraint(equalToConstant: 64).isActive = true
-        noCommentView.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        noCommentView.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        noCommentView.heightAnchor.constraint(equalToConstant: 44).isActive = true
         noCommentView.centerXAnchor.constraint(equalTo: (self.tableView.backgroundView?.centerXAnchor)!).isActive = true
         noCommentView.centerYAnchor.constraint(equalTo: (self.tableView.backgroundView?.centerYAnchor)!).isActive = true
         return noCommentView
@@ -110,8 +110,14 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
         replyNumber.text = "+\(count)"
         guard let time = content.timestamp else { return }
         timeStamp.text = TimeUtils.timeAgoSinceDate(time, numericDates: false)
+        var url = ""
         guard let userimageURL = content.user?.profile?.img_heading else { return }
-        userImage.sd_setImage(with: URL(string: userimageURL), placeholderImage: UIImage(named: "user_default"))
+        url = userimageURL
+        if !url.hasPrefix(Networking.shareInstance.baseURL) {
+            url = Networking.shareInstance.baseURL + url
+        }
+        userImage.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "user_default"))
+
     }
 
     lazy var commentInputView: UIView = {
@@ -182,13 +188,13 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
         
         let footview = UIView()
         tableView.tableFooterView = footview
-        tableView.reloadData()
         
-        
-        
-        OPDataService.sharedInstance.getRepliedComment(parentComment?.id) { (success, error) in
+        OPDataService.sharedInstance.getRepliedComment(parentComment?.id) { [weak self](success, error) in
+            self?.showNoCommentView()
             if success {
                 print("get data successfully")
+            } else {
+                print("get data failed")
             }
         }
     }
@@ -218,7 +224,6 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OPCommentRepliedTableViewCell", for: indexPath) as! OPCommentRepliedTableViewCell
-        noCommentView.removeFromSuperview()
         guard let comment = fetchedResultsController?.object(at: indexPath) as? FarmComment else { return cell }
         let parent = fetchDetailedParentComment(comment.parent)
         if parent?.id == parentComment?.id {
@@ -261,7 +266,8 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
     
     func deleteComment(_ commentId: Int64?, parentId: Int64?) {
         OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Deleting", animated: true, delay: 0.0)
-        OPDataService.sharedInstance.deleteComment(commentId, parentId: parentId) { (success, error) in
+        OPDataService.sharedInstance.deleteComment(commentId, parentId: parentId) { [weak self](success, error) in
+            self?.showNoCommentView()
             if success {
                 print("delete successfully")
             } else {
@@ -278,6 +284,7 @@ extension OPFarmCommentRepliedTableViewController: OPCommentTextViewDelegate {
         OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Saving comment", animated: true, delay: 0.0)
         guard let id = parent else { return }
         OPDataService.sharedInstance.createFarmComment(CommentType.farm.rawValue, object_id: farm?.id, parent_id: id, content: message, grade: "5") {[weak self](success, error) in
+            self?.showNoCommentView()
             if success {
                 handler(true, nil)
                 self?.tableView.scrollsToTop = true
@@ -330,5 +337,14 @@ extension OPFarmCommentRepliedTableViewController: OPCommentTextViewDelegate {
         })
         replyAlertController?.addAction(cancelAction)
         return replyAlertController
+    }
+    
+    func showNoCommentView() {
+        if let count = fetchedResultsController?.fetchedObjects?.count, count > 0 {
+            noCommentView.isHidden = true
+        } else {
+            noCommentView.isHidden = false
+        }
+        fetchParentObject()
     }
 }

@@ -19,7 +19,7 @@ class OPLandViewController: UIViewController {
     
     @IBOutlet weak var confirmButton: UIButton!
     
-    fileprivate var selectedDataSource = ["A-01","A-02","A-03"]
+    fileprivate var selectedDataSource = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,35 @@ class OPLandViewController: UIViewController {
         selectedCollectionView.dataSource = self
         blankShoppingCar.isHidden = true
         confirmButton.layer.cornerRadius = confirmButton.bounds.height / 2
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(landSelected(notification:)),
+                                                   name: Notification.Name(rawValue: OPNotificationName.landSelected.rawValue), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func landSelected(notification: NSNotification){
+        let info = notification.userInfo
+        guard let landID = info?["Land"] as? String, let status = info?["status"] as? String else { return }
+        print("selected land is: \(landID) \(status)")
+        if status == "selected" {
+            if let index = selectedDataSource.index(of: landID), index >= 0 {
+                return
+            } else {
+                selectedDataSource.append(landID)
+                selectedCollectionView.reloadData()
+            }
+        } else if status == "available" {
+            if let index = selectedDataSource.index(of: landID), index >= 0 {
+                selectedDataSource.remove(at: index)
+                let indexpath = IndexPath.init(item: index, section: 0)
+                selectedCollectionView.deleteItems(at: [indexpath])
+            } else {
+                return
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +90,7 @@ extension OPLandViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OPLandSelectedCollectionViewCell", for: indexPath) as! OPLandSelectedCollectionViewCell
+        cell.updateDataSource(selectedDataSource[indexPath.item])
         return cell
     }
     

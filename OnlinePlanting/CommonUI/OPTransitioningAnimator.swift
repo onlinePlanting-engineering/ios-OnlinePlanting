@@ -22,7 +22,7 @@ class PresentAnimator: NSObject,UIViewControllerAnimatedTransitioning{
         let containView = transitionContext.containerView
         let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
         let finalFrame = toView.frame
-        toView.frame.origin = CGPoint(x: originFrame.origin.x, y: originFrame.origin.y - 64)
+        toView.frame.origin = CGPoint(x: originFrame.origin.x, y: originFrame.origin.y)
         containView.addSubview(toView)
         delegate?.addMaskViewToPrevious()
         UIView.animate(withDuration: duration, animations: {() -> Void in
@@ -48,7 +48,7 @@ class DismisssAnimator:NSObject,UIViewControllerAnimatedTransitioning{
         containView.addSubview(toView)
         containView.bringSubview(toFront: fromView)
         UIView.animate(withDuration: duration, animations: { () -> Void in
-            fromView.frame.origin = CGPoint(x: self.originFrame.origin.x, y: self.originFrame.origin.y - 64)
+            fromView.frame.origin = CGPoint(x: self.originFrame.origin.x, y: self.originFrame.origin.y)
             }) { [weak self] (finished) -> Void in
                 self?.delegate?.removeMaskViewFromPrevious()
                 transitionContext.completeTransition(true)

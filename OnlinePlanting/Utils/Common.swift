@@ -15,3 +15,8 @@ let OPGrayColor = "#F5F6FA"
 enum CommentType: String {
     case farm = "farm"
 }
+
+enum OPNotificationName: String {
+    case landSelected = "landSelected"
+}
+

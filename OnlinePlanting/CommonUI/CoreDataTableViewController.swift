@@ -14,35 +14,10 @@ import CoreData
 
 class CoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var backgroundView: UIView?
-    
-    lazy var backgroundImage: UIImageView = {
-        let backgroundImage = UIImageView()
-        let image = UIImage.init(named: "login_background")
-        backgroundImage.image = image
-        backgroundImage.frame = self.tableView.bounds
-        self.backgroundView?.addSubview(backgroundImage)
-        return backgroundImage
-    }()
-    
-    lazy var effectiveView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .light)
-        let effectiveView = UIVisualEffectView(effect: blurEffect)
-        effectiveView.contentView.backgroundColor = UIColor.black
-        effectiveView.contentView.alpha = 0.35
-        self.backgroundView?.addSubview(effectiveView)
-        effectiveView.frame = self.tableView.bounds
-        return effectiveView
-    }()
-    
     override func viewDidLoad() {
         
-        backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
-        let _ = backgroundImage
-        let _ = effectiveView
         let bgView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
-        bgView.backgroundColor = UIColor(hexString: "#CDD2D7")
-        //bgView.backgroundColor = UIColor.lightGray
+        bgView.backgroundColor = UIColor.white
         tableView.backgroundView = bgView
     }
     

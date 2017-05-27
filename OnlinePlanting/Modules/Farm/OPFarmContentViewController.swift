@@ -16,12 +16,27 @@ class OPFarmContentViewController: UIViewController {
     @IBOutlet weak var farmContentWebview: UIWebView!
     @IBOutlet weak var webviewheight: NSLayoutConstraint!
     @IBOutlet weak var loadingIndicator: OPLoadingIndicator!
-    @IBOutlet weak var iNeedRent: UIButton!
-    @IBOutlet weak var farmAlbum: UIButton!
+    @IBOutlet weak var failedRefreshView: UIView!
+    
+    
     var currentScrollOffSet: CGFloat = 0
     fileprivate var albumVC: OPFarmAlbumCollectionViewController?
     fileprivate var noticeVC: OPFarmRendNoticeViewController?
     fileprivate var landVC: OPLandViewController?
+    fileprivate var isLoading = false
+    
+    fileprivate var loadSuccess = false {
+        didSet {
+            loadingIndicator.isHidden = true
+            loadingIndicator.stopAnimating()
+            isLoading = false
+            if loadSuccess {
+                return
+            } else {
+                failedRefreshView.isHidden = false
+            }
+        }
+    }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -29,9 +44,6 @@ class OPFarmContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadingIndicator.startAnimating()
-        guard let contentURL = farm?.content, let url = URL(string: contentURL) else { return }
-        farmContentWebview.loadRequest(URLRequest(url: url))
         
         prepareUI()
     }
@@ -42,6 +54,11 @@ class OPFarmContentViewController: UIViewController {
         farmContentWebview.scrollView.isScrollEnabled = false
         farmContentWebview.delegate = self
         farmScrollView.delegate = self
+        
+        failedRefreshView.isHidden = true
+        loadingIndicator.isHidden = true
+        
+        startLoadingContent()
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,12 +68,27 @@ class OPFarmContentViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        if isLoading {
+            loadingIndicator.isHidden = false
+            loadingIndicator.startAnimating()
+            
+        }
         delegate?.previousPage(currentScrollOffSet)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        if isLoading {
+            loadingIndicator.isHidden = true
+            loadingIndicator.stopAnimating()
+        }
+        
+    }
+    
+    
+    @IBAction func refreshButton(_ sender: UIButton) {
+        startLoadingContent()
     }
     
     @IBAction func showFarmAlbum(_ sender: UIButton) {
@@ -80,6 +112,22 @@ class OPFarmContentViewController: UIViewController {
         }
     }
     
+    func startLoadingContent(){
+        isLoading = true
+        loadingIndicator.isHidden = false
+        loadingIndicator.startAnimating()
+        failedRefreshView.isHidden = true
+        guard let contentURL = farm?.content, let url = URL(string: contentURL) else { return }
+        farmContentWebview.loadRequest(URLRequest(url: url))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [weak self] in
+            if let load = self?.loadSuccess, load == true {
+                return
+            } else {
+                self?.loadSuccess = false
+            }
+        }
+    }
+    
 }
 
 extension OPFarmContentViewController: UIScrollViewDelegate {
@@ -96,7 +144,7 @@ extension OPFarmContentViewController: UIScrollViewDelegate {
 
 extension OPFarmContentViewController: UIWebViewDelegate {
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        loadingIndicator.stopAnimating()
+        loadSuccess = true
         let contentHeight = webView.stringByEvaluatingJavaScript(from: "document.body.scrollHeight")
         if let content = contentHeight, let webviewHegith = NumberFormatter().number(from: content){
             //print("Webview height is::\(contentHeight)")

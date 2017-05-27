@@ -20,8 +20,30 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     fileprivate var parentComment: FarmComment?
     fileprivate var parentCellHeight: CGFloat?
     
+    lazy var oploadingView: OPLoadingIndicator = {
+        let oploadingView = OPLoadingIndicator.init(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 270, width: 96, height: 70))
+        oploadingView.image = UIImage(named: "hud_loading")
+        oploadingView.titleView.text = "Loading"
+        oploadingView.titleView.textColor = UIColor.white
+        oploadingView.alpha = 0.75
+        oploadingView.center.x = self.tableView.center.x
+        return oploadingView
+    }()
+    
+    lazy var noCommentView: UIImageView = {
+        let noCommentView = UIImageView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        noCommentView.image = UIImage(named: "load_failed")
+        self.tableView.backgroundView?.addSubview(noCommentView)
+        noCommentView.translatesAutoresizingMaskIntoConstraints = false
+        noCommentView.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        noCommentView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        noCommentView.centerXAnchor.constraint(equalTo: (self.tableView.backgroundView?.centerXAnchor)!).isActive = true
+        noCommentView.bottomAnchor.constraint(equalTo: (self.tableView.backgroundView?.bottomAnchor)!, constant: -200).isActive = true
+        return noCommentView
+    }()
+    
     lazy var maskView: UIView = {
-        let maskView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        let maskView = UIView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         maskView.backgroundColor = UIColor.black
         maskView.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(closeCommentInputView))
@@ -47,6 +69,8 @@ class OPFarmCommentViewController: CoreDataTableViewController {
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
         request.predicate = NSPredicate(format: "parent == nil")
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        self.showNoCommentView()
     }()
     
     override func viewDidLoad() {
@@ -66,6 +90,7 @@ class OPFarmCommentViewController: CoreDataTableViewController {
         
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView()//remove the lines if there is no data
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         
@@ -120,29 +145,34 @@ class OPFarmCommentViewController: CoreDataTableViewController {
         navigationController?.view.addSubview(maskView)
         navigationController?.view.addSubview(commentInputView)
         navigationController?.view.bringSubview(toFront: commentInputView)
+        
+        loadingNewData()
     }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
          delegate?.previousPage(currentScrollOffSet)
         let _ = commentRepliedViewController
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        OPDataService.sharedInstance.getFarmComment(farm?.id) { (success, error) in
+        commentInputView.removeFromSuperview()
+    }
+    
+    func loadingNewData() {
+        OPDataService.sharedInstance.getFarmComment(farm?.id) { [weak self](success, error) in
+            self?.showNoCommentView()
             if success {
                 print("get data successfully")
             } else {
                 print("get the comment data failed")
             }
         }
-        
-    }
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //commentBottmonView.removeFromSuperview()
-        commentInputView.removeFromSuperview()
+
     }
 }
 
@@ -225,7 +255,8 @@ extension OPFarmCommentViewController {
     
     func deleteComment(_ commentId: Int64?, parentId: Int64?) {
         OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Deleting", animated: true, delay: 0.0)
-        OPDataService.sharedInstance.deleteComment(commentId, parentId: parentId) { (success, error) in
+        OPDataService.sharedInstance.deleteComment(commentId, parentId: parentId) { [weak self](success, error) in
+            self?.showNoCommentView()
             if success {
                 print("delete successfully")
             } else {
@@ -287,6 +318,7 @@ extension OPFarmCommentViewController: OPCommentTextViewDelegate {
     func sendMessage(_ message: String?, parent: Int64?, handler: @escaping (Bool, NSError?) -> Void) {
         OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Saving comment", animated: true, delay: 0.0)
         OPDataService.sharedInstance.createFarmComment(CommentType.farm.rawValue, object_id: farm?.id, parent_id: parent, content: message, grade: "5") {[weak self](success, error) in
+            self?.showNoCommentView()
             if success {
                 handler(true, nil)
                 self?.tableView.scrollsToTop = true
@@ -301,6 +333,14 @@ extension OPFarmCommentViewController: OPCommentTextViewDelegate {
     
     func saveMessageToContainer(_ message: String?) {
         //
+    }
+    
+    func showNoCommentView() {
+        if let count = fetchedResultsController?.fetchedObjects?.count, count > 0 {
+            noCommentView.isHidden = true
+        } else {
+            noCommentView.isHidden = false
+        }
     }
 }
 

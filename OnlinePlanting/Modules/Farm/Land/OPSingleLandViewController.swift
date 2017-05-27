@@ -8,8 +8,22 @@
 
 import UIKit
 
-class OPSingleLandViewController: CoreDataCollectionViewController, UICollectionViewDelegateFlowLayout {
+enum LandStatus: Int {
+    case selected, available, unavailable
+}
 
+class OPSingleLandViewController: CoreDataCollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    let dataSource = ["A-001","A-002","A-003","A-004","A-005","A-006","A-007","A-008","A-009","A-010","A-010","A-011","A-012","A-013","A-014","A-015","A-016"]
+
+    lazy var chooseAnimation: CAKeyframeAnimation = {
+        let chooseAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+        chooseAnimation.calculationMode = kCAAnimationCubic
+        chooseAnimation.values = [0.8,1.0,1.2,1.0]
+        chooseAnimation.duration = 0.3
+        return chooseAnimation
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +40,7 @@ class OPSingleLandViewController: CoreDataCollectionViewController, UICollection
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return dataSource.count
     }
 }
 
@@ -34,11 +48,28 @@ extension OPSingleLandViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OPLandCollectionViewCell", for: indexPath) as! OPLandCollectionViewCell
+        cell.undateDataSource(dataSource[indexPath.item])
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! OPLandCollectionViewCell
+        //add animation
+        cell.layer.add(chooseAnimation, forKey: nil)
+        guard let name = cell.metasName.text else { return }
+        if cell.status == .available {
+            cell.status = .selected
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: OPNotificationName.landSelected.rawValue), object: nil, userInfo:["Land" : name, "status": "selected"])
+        } else if cell.status == .selected {
+            cell.status = .available
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: OPNotificationName.landSelected.rawValue), object: nil, userInfo:["Land" : name, "status": "available"])
+        } else {
+            return
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width / 6 - 2, height: UIScreen.main.bounds.width / 6 - 2)
+        return CGSize(width: 66, height: 66)
         
     }
     

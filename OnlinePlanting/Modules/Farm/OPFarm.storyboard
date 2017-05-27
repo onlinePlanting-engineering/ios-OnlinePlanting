@@ -26,7 +26,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="abS-TX-msf"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="farmTableview" destination="ZNA-TM-khy" id="rkI-Do-l4N"/>
                     </connections>
@@ -964,7 +963,7 @@
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHW-PC-dbJ">
                                                                     <rect key="frame" x="-0.5" y="0.0" width="50" height="50"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <state key="normal" title="A-001">
+                                                                    <state key="normal">
                                                                         <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </state>
                                                                 </button>
@@ -985,6 +984,9 @@
                                                             <constraint firstItem="98a-hh-FTr" firstAttribute="top" secondItem="XHW-PC-dbJ" secondAttribute="top" constant="2" id="onP-nH-dac"/>
                                                             <constraint firstItem="XHW-PC-dbJ" firstAttribute="centerY" secondItem="Flo-TR-APB" secondAttribute="centerY" id="xqf-ez-vXX"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outlet property="landName" destination="XHW-PC-dbJ" id="YwN-Ws-lm5"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -1084,16 +1086,30 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="land_available" translatesAutoresizingMaskIntoConstraints="NO" id="alR-wk-E7m">
-                                            <rect key="frame" x="0.0" y="0.0" width="175" height="106"/>
+                                            <rect key="frame" x="65.5" y="3" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="Ltq-E5-iye"/>
+                                                <constraint firstAttribute="width" constant="44" id="R4F-aA-qZx"/>
+                                            </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A-001" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suQ-es-ZF1">
+                                            <rect key="frame" x="70" y="52" width="34.5" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="alR-wk-E7m" firstAttribute="centerX" secondItem="dYy-Zu-bxl" secondAttribute="centerX" id="3SA-O4-0gU"/>
-                                    <constraint firstItem="alR-wk-E7m" firstAttribute="height" secondItem="dYy-Zu-bxl" secondAttribute="height" id="LSC-6B-IeM"/>
-                                    <constraint firstItem="alR-wk-E7m" firstAttribute="width" secondItem="dYy-Zu-bxl" secondAttribute="width" id="VcY-K4-EW5"/>
-                                    <constraint firstItem="alR-wk-E7m" firstAttribute="centerY" secondItem="dYy-Zu-bxl" secondAttribute="centerY" id="edJ-2s-TZp"/>
+                                    <constraint firstItem="suQ-es-ZF1" firstAttribute="top" secondItem="alR-wk-E7m" secondAttribute="bottom" constant="5" id="FgR-2w-z63"/>
+                                    <constraint firstItem="alR-wk-E7m" firstAttribute="top" secondItem="dYy-Zu-bxl" secondAttribute="topMargin" constant="-5" id="YZW-sn-7kM"/>
+                                    <constraint firstItem="suQ-es-ZF1" firstAttribute="centerX" secondItem="dYy-Zu-bxl" secondAttribute="centerX" id="heg-TV-3bQ"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="metasName" destination="suQ-es-ZF1" id="5YP-HP-vDb"/>
+                                    <outlet property="statusImage" destination="alR-wk-E7m" id="2F1-cB-ypy"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -1104,7 +1120,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8f-gh-LA3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4617" y="-1487"/>
+            <point key="canvasLocation" x="4616.8000000000002" y="-1487.4062968515743"/>
         </scene>
         <!--Farm Content View Controller-->
         <scene sceneID="ALF-ci-vbf">
@@ -1139,11 +1155,45 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4n-1l-tYX">
+                                        <rect key="frame" x="0.0" y="392.5" width="375" height="80"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMd-1O-KUd">
+                                                <rect key="frame" x="140.5" y="18" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="T9P-ZK-s2I"/>
+                                                    <constraint firstAttribute="width" constant="44" id="lP9-g9-M9W"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="load_failed"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfa-WX-HxV">
+                                                <rect key="frame" x="189.5" y="25.5" width="58" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="点我刷新">
+                                                    <color key="titleColor" red="0.1764705882" green="0.21176470589999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="refreshButton:" destination="jZW-yZ-Fzl" eventType="touchUpInside" id="4Zd-gd-BpM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Pfa-WX-HxV" firstAttribute="leading" secondItem="XMd-1O-KUd" secondAttribute="trailing" constant="5" id="23Q-6I-Ivt"/>
+                                            <constraint firstItem="XMd-1O-KUd" firstAttribute="centerX" secondItem="w4n-1l-tYX" secondAttribute="centerX" constant="-25" id="Ggd-NY-fjw"/>
+                                            <constraint firstAttribute="height" constant="80" id="J8y-Y8-L9r"/>
+                                            <constraint firstItem="XMd-1O-KUd" firstAttribute="centerY" secondItem="w4n-1l-tYX" secondAttribute="centerY" id="uO4-Po-pwn"/>
+                                            <constraint firstItem="Pfa-WX-HxV" firstAttribute="centerY" secondItem="XMd-1O-KUd" secondAttribute="centerY" id="y73-kG-o5V"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Srl-in-rZS" secondAttribute="trailing" id="0KY-G1-aBn"/>
                                     <constraint firstAttribute="bottom" secondItem="Srl-in-rZS" secondAttribute="bottom" id="GZI-o5-QOg"/>
+                                    <constraint firstItem="w4n-1l-tYX" firstAttribute="width" secondItem="i0F-wa-3Dy" secondAttribute="width" id="LX7-4s-LGf"/>
+                                    <constraint firstItem="w4n-1l-tYX" firstAttribute="centerX" secondItem="i0F-wa-3Dy" secondAttribute="centerX" id="POo-tO-Wlo"/>
                                     <constraint firstItem="Srl-in-rZS" firstAttribute="leading" secondItem="i0F-wa-3Dy" secondAttribute="leading" id="kN9-hh-zSs"/>
+                                    <constraint firstItem="w4n-1l-tYX" firstAttribute="centerY" secondItem="1CH-qx-z6e" secondAttribute="centerY" id="kV7-Xe-psa"/>
                                     <constraint firstItem="Srl-in-rZS" firstAttribute="top" secondItem="i0F-wa-3Dy" secondAttribute="top" constant="276" id="tes-tq-drO"/>
                                 </constraints>
                             </scrollView>
@@ -1161,6 +1211,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="failedRefreshView" destination="w4n-1l-tYX" id="HpM-Nb-oOg"/>
                         <outlet property="farmContentWebview" destination="Srl-in-rZS" id="JNR-RZ-nqP"/>
                         <outlet property="farmScrollView" destination="i0F-wa-3Dy" id="RSy-dM-LMa"/>
                         <outlet property="loadingIndicator" destination="1CH-qx-z6e" id="miz-YH-N9X"/>
@@ -1248,6 +1299,7 @@
         <image name="land_available" width="100" height="100"/>
         <image name="land_selected" width="100" height="100"/>
         <image name="land_unavailable" width="100" height="100"/>
+        <image name="load_failed" width="100" height="100"/>
         <image name="outside_land" width="100" height="72"/>
         <image name="toast_image" width="630" height="315"/>
         <image name="toast_password" width="630" height="365"/>
