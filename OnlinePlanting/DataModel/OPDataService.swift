@@ -171,13 +171,17 @@ class OPDataService: NSObject {
             if success {
                 do {
                     try Sync.delete(commentId as Any, inEntityNamed: "FarmComment", using: appDelegate.dataStack.mainContext)
-                    self?.getRepliedComment(parentId, handler: { (success, error) in
-                        if success {
-                            handler(true, nil)
-                        } else {
-                            handler(false, error)
-                        }
-                    })
+                    if let parent = parentId {
+                        self?.getRepliedComment(parent, handler: { (success, error) in
+                            if success {
+                                handler(true, nil)
+                            } else {
+                                handler(false, error)
+                            }
+                        })
+                    } else {
+                        handler(true,nil)
+                    }
                     
                 } catch{
                     handler(false, nil)

@@ -26,9 +26,7 @@ class OPFarmListViewController: CoreDataTableViewController {
         let refresh = UIRefreshControl()
         refresh.backgroundColor = UIColor.clear
         refresh.tintColor = UIColor.clear
-        refresh.insertSubview(UIImageView(image: UIImage(named: "hud_loading")), at: 0)
         refresh.addTarget(self, action: #selector(reloadFarmList), for: .valueChanged)
-        self.farmTableview.addSubview(refresh)
         return refresh
     }()
     
@@ -38,7 +36,6 @@ class OPFarmListViewController: CoreDataTableViewController {
         oploadingView.titleView.text = "Loading"
         oploadingView.titleView.textColor = UIColor.white
         oploadingView.backgroundColor = UIColor.clear
-        oploadingView.center.x = self.farmTableview.center.x
         return oploadingView
     }()
     
@@ -69,8 +66,7 @@ class OPFarmListViewController: CoreDataTableViewController {
         farmTableview.dataSource = self
         
         setNavigarationBar()
-        //let _ = refresh
-        
+        let _ = refresh
     }
     
     func reloadFarmList() {
