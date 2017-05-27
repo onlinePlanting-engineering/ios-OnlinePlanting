@@ -107,12 +107,6 @@ class OPDataService: NSObject {
         Networking.shareInstance.getFarmComments(farmId) { (success, json, error) in
             
             guard let data = json?["data"].arrayObject as? [[String : Any]] else { return }
-            var tempdata = [[String : Any]]()
-            for var data in data{
-                data["replies"] = nil
-                tempdata.append(data)
-            }
-            
             Sync.changes(data, inEntityNamed: "FarmComment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
                 if error != nil {
                     handler(false, error)
@@ -126,15 +120,9 @@ class OPDataService: NSObject {
     
     func getRepliedComment(_ parentId: Int64?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         Networking.shareInstance.getRepliedComments(parentId, handler: {(success, json, error) in
-            guard let jsonData = json?["data"]["replies"].arrayObject as? [[String : Any]] else { return }
-            var tempdata = [[String : Any]]()
-            for var data in jsonData{
-                guard let id = data["id"] else { return }
-                data["url"] = "/api/comments/\(id)"
-                tempdata.append(data)
-            }
+            guard let jsonData = json?["data"].dictionaryObject else { return }
             
-            Sync.changes(tempdata, inEntityNamed: "FarmComment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update,], completion: { (error) in
+            Sync.changes([jsonData], inEntityNamed: "FarmComment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update,], completion: { (error) in
                 if error != nil {
                     handler(false, error)
                 } else {

@@ -67,7 +67,8 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     lazy var setup: () = {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
-        request.predicate = NSPredicate(format: "parent == nil")
+        guard let id = self.farm?.id else { return }
+        request.predicate = NSPredicate(format: "parent == nil AND object_id == %d", id)
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
         
         self.showNoCommentView()

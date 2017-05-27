@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		180688CD1EB8C28300CEE3BF /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180688C91EB8C28300CEE3BF /* Profile+CoreDataClass.swift */; };
 		180688CE1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180688CA1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift */; };
+		180E873F1ED9CE45009F4B83 /* FarmComment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E873D1ED9CE44009F4B83 /* FarmComment+CoreDataClass.swift */; };
+		180E87401ED9CE45009F4B83 /* FarmComment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E873E1ED9CE45009F4B83 /* FarmComment+CoreDataProperties.swift */; };
 		1818CD541EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */; };
 		1818CD551EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1818CD531EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib */; };
 		182E989A1ED6367D006FEBBA /* UIAlertController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E98991ED6367D006FEBBA /* UIAlertController+Ext.swift */; };
@@ -96,8 +98,6 @@
 		18E31DBE1EC9B108004A8505 /* OPActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DBD1EC9B108004A8505 /* OPActivityTableViewController.swift */; };
 		18E31DEB1ECB47E4004A8505 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DE71ECB47E4004A8505 /* User+CoreDataClass.swift */; };
 		18E31DEC1ECB47E4004A8505 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DE81ECB47E4004A8505 /* User+CoreDataProperties.swift */; };
-		18E31DED1ECB47E4004A8505 /* FarmComment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DE91ECB47E4004A8505 /* FarmComment+CoreDataClass.swift */; };
-		18E31DEE1ECB47E4004A8505 /* FarmComment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DEA1ECB47E4004A8505 /* FarmComment+CoreDataProperties.swift */; };
 		18E31DF01ECB4DFA004A8505 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DEF1ECB4DFA004A8505 /* TimeUtils.swift */; };
 		18E31DF21ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DF11ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift */; };
 		18E31DF41ECC881E004A8505 /* OPCommentRepliedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DF31ECC881E004A8505 /* OPCommentRepliedTableViewCell.swift */; };
@@ -135,6 +135,8 @@
 /* Begin PBXFileReference section */
 		180688C91EB8C28300CEE3BF /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		180688CA1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		180E873D1ED9CE44009F4B83 /* FarmComment+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FarmComment+CoreDataClass.swift"; sourceTree = "<group>"; };
+		180E873E1ED9CE45009F4B83 /* FarmComment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FarmComment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeDetailedTableViewCell.swift; sourceTree = "<group>"; };
 		1818CD531EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPMeDetailedTableViewCell.xib; sourceTree = "<group>"; };
 		182E98991ED6367D006FEBBA /* UIAlertController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Ext.swift"; sourceTree = "<group>"; };
@@ -229,8 +231,6 @@
 		18E31DBD1EC9B108004A8505 /* OPActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPActivityTableViewController.swift; path = Farm/OPActivityTableViewController.swift; sourceTree = "<group>"; };
 		18E31DE71ECB47E4004A8505 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		18E31DE81ECB47E4004A8505 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		18E31DE91ECB47E4004A8505 /* FarmComment+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FarmComment+CoreDataClass.swift"; sourceTree = "<group>"; };
-		18E31DEA1ECB47E4004A8505 /* FarmComment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FarmComment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18E31DEF1ECB4DFA004A8505 /* TimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		18E31DF11ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmCommentRepliedTableViewController.swift; path = Farm/OPFarmCommentRepliedTableViewController.swift; sourceTree = "<group>"; };
 		18E31DF31ECC881E004A8505 /* OPCommentRepliedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPCommentRepliedTableViewCell.swift; path = Farm/View/OPCommentRepliedTableViewCell.swift; sourceTree = "<group>"; };
@@ -441,12 +441,12 @@
 		18C1E66A1EB63E0B001D611B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				180E873D1ED9CE44009F4B83 /* FarmComment+CoreDataClass.swift */,
+				180E873E1ED9CE45009F4B83 /* FarmComment+CoreDataProperties.swift */,
 				182E989F1ED6EE1F006FEBBA /* FarmImage+CoreDataClass.swift */,
 				182E98A01ED6EE1F006FEBBA /* FarmImage+CoreDataProperties.swift */,
 				18E31DE71ECB47E4004A8505 /* User+CoreDataClass.swift */,
 				18E31DE81ECB47E4004A8505 /* User+CoreDataProperties.swift */,
-				18E31DE91ECB47E4004A8505 /* FarmComment+CoreDataClass.swift */,
-				18E31DEA1ECB47E4004A8505 /* FarmComment+CoreDataProperties.swift */,
 				18E810CE1EC07B0400EDA5D8 /* Farm+CoreDataClass.swift */,
 				18E810CF1EC07B0400EDA5D8 /* Farm+CoreDataProperties.swift */,
 				187F4B391EBC41A2000AA4DB /* Location+CoreDataClass.swift */,
@@ -796,6 +796,7 @@
 				1894AB451EC89C6C004DED5E /* OPCommentTextView.swift in Sources */,
 				18C1F0531EB63E0E001D611B /* CoreDataCollectionViewController.swift in Sources */,
 				183D82891EB64B6400B9F028 /* String+Ext.swift in Sources */,
+				180E873F1ED9CE45009F4B83 /* FarmComment+CoreDataClass.swift in Sources */,
 				18C1F0551EB63E0E001D611B /* OPTabBarController.swift in Sources */,
 				1885BCB11EB97DDB0099EAEA /* OPMeTableViewController.swift in Sources */,
 				18C1F0651EB63E0E001D611B /* OPMyGardenViewController.swift in Sources */,
@@ -823,11 +824,10 @@
 				1845F2F31EC3696C0061E259 /* OPLoadingIndicator.swift in Sources */,
 				18C1F0571EB63E0E001D611B /* OPToastWindow.swift in Sources */,
 				18F6F6491ED31EA5006FB8A3 /* OPLandCollectionViewCell.swift in Sources */,
+				180E87401ED9CE45009F4B83 /* FarmComment+CoreDataProperties.swift in Sources */,
 				18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */,
 				18E31DBB1EC9AA76004A8505 /* FarmActivityTableViewCell.swift in Sources */,
-				18E31DEE1ECB47E4004A8505 /* FarmComment+CoreDataProperties.swift in Sources */,
 				18C1F0561EB63E0E001D611B /* OPTextField.swift in Sources */,
-				18E31DED1ECB47E4004A8505 /* FarmComment+CoreDataClass.swift in Sources */,
 				182E98A51ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift in Sources */,
 				183D828B1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift in Sources */,
 				18F6F6471ED30322006FB8A3 /* OPSingleLandViewController.swift in Sources */,

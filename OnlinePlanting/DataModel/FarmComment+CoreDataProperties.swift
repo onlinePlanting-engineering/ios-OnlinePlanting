@@ -2,7 +2,7 @@
 //  FarmComment+CoreDataProperties.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 5/25/17.
+//  Created by IBM on 27/05/2017.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ import CoreData
 extension FarmComment {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<FarmComment> {
-        return NSFetchRequest<FarmComment>(entityName: "FarmComment");
+        return NSFetchRequest<FarmComment>(entityName: "FarmComment")
     }
 
     @NSManaged public var content: String?
@@ -22,8 +22,11 @@ extension FarmComment {
     @NSManaged public var parent: Int64
     @NSManaged public var reply_count: Int16
     @NSManaged public var timestamp: NSDate?
-    @NSManaged public var user: User?
+    @NSManaged public var object_id: Int16
+    @NSManaged public var type: String?
+    @NSManaged public var url: String?
     @NSManaged public var replies: NSSet?
+    @NSManaged public var user: User?
 
 }
 
