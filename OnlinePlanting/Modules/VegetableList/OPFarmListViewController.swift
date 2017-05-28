@@ -22,6 +22,37 @@ class OPFarmListViewController: CoreDataTableViewController {
     lazy var presentAnimator = PresentAnimator()
     lazy var dismissAnimator = DismisssAnimator()
     
+    lazy var rightArrowItem: UIBarButtonItem = {
+        let searchImage = UIImage(named: "search")
+        let rightArrowItem = UIBarButtonItem.createBarButtonItemWithImage(searchImage!, CGRect(x: 0, y: 0, width: 22, height: 22), self, #selector(showSearchBar))
+        return rightArrowItem
+    }()
+    
+    lazy var searchView: UIView = {
+        let searchView = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 20, height: 32))
+        let cancelButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 60, height: 20))
+        cancelButton.setAttributedTitle(NSAttributedString.init(string: "Cancel", attributes: [NSForegroundColorAttributeName: UIColor(hexString: OPGreenColor),NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 15)!]), for: .normal)
+        let searchBar = UISearchBar(frame: CGRect.init(x: 0, y: 0, width: 280, height: 30))
+        searchBar.delegate = self
+        searchBar.placeholder = "按照农场名字, 城市查询"
+        searchBar.tintColor = UIColor(hexString: OPGreenColor) 
+        searchView.addSubview(searchBar)
+        searchView.addSubview(cancelButton)
+        cancelButton.addTarget(self, action: #selector(closeSearchBar), for: .touchUpInside)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        cancelButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        cancelButton.centerYAnchor.constraint(equalTo: searchView.centerYAnchor).isActive = true
+        cancelButton.trailingAnchor.constraint(equalTo: searchView.trailingAnchor, constant: 0).isActive = true
+        cancelButton.titleLabel?.sizeToFit()
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.widthAnchor.constraint(equalToConstant: 280).isActive = true
+        searchBar.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        searchBar.centerYAnchor.constraint(equalTo: searchView.centerYAnchor).isActive = true
+        searchBar.centerXAnchor.constraint(equalTo: searchView.centerXAnchor, constant: 0).isActive = true
+        return searchView
+    }()
+    
     lazy var refresh: UIRefreshControl = {
         let refresh = UIRefreshControl()
         refresh.backgroundColor = UIColor.clear
@@ -53,12 +84,6 @@ class OPFarmListViewController: CoreDataTableViewController {
         // Do any additional setup after loading the view.
     }
     
-    lazy var setup: () = {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Farm")
-        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
-        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
-    }()
-    
     func prepareUI() {
         let nib = UINib(nibName: "OPFarmTableViewCell", bundle: Bundle.main)
         farmTableview.register(nib, forCellReuseIdentifier: "OPFarmTableViewCell")
@@ -69,6 +94,15 @@ class OPFarmListViewController: CoreDataTableViewController {
         let _ = refresh
     }
     
+    func updateNSPredicate(_ search: String) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Farm")
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+        if search != "" {
+            request.predicate = NSPredicate(format: "name CONTAINS[cd] %@ OR addr CONTAINS[cd] %@", search, search)
+        }
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+    }
+    
     func reloadFarmList() {
         refreshControl?.beginRefreshing()
     }
@@ -76,14 +110,28 @@ class OPFarmListViewController: CoreDataTableViewController {
     func setNavigarationBar() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.titleTextAttributes = [
-            NSForegroundColorAttributeName : UIColor.init(hexString: "#2D363C")]
+            NSForegroundColorAttributeName: UIColor.init(hexString: "#2D363C")]
         navigationController?.navigationBar.topItem?.title = "入住农场"
+        
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = rightArrowItem
+    }
+    
+    func showSearchBar() {
+       navigationController?.navigationBar.topItem?.titleView = searchView
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
 
+    func closeSearchBar() {
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.updateNSPredicate("")
+            self?.navigationController?.navigationBar.topItem?.titleView = nil
+            self?.navigationController?.navigationBar.topItem?.rightBarButtonItem = self?.rightArrowItem
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let _ = setup
+        updateNSPredicate("")
         UIApplication.shared.statusBarStyle = .default
         OPDataService.sharedInstance.getFarmList() { (success, error) in
             if success {
@@ -92,6 +140,10 @@ class OPFarmListViewController: CoreDataTableViewController {
                 print("load farm list failed")
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -185,5 +237,12 @@ extension OPFarmListViewController: presentAnimatorDelegate {
     
     func removeMaskViewFromPrevious() {
         maskView.removeFromSuperview()
+    }
+}
+
+extension OPFarmListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("test is:\(searchText)")
+        updateNSPredicate(searchText)
     }
 }
