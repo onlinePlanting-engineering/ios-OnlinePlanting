@@ -91,7 +91,23 @@ class OPFarmListViewController: CoreDataTableViewController {
         farmTableview.dataSource = self
         
         setNavigarationBar()
-        let _ = refresh
+        farmTableview.addSubview(refresh)
+        OPDataService.sharedInstance.getFarmList() { (success, error) in
+            if success {
+                print("load farm list success")
+            } else {
+                print("load farm list failed")
+            }
+        }
+    }
+    
+    func clearSearchCondition() {
+        for view in searchView.subviews {
+            if view.isKind(of: UISearchBar.self) {
+                    let textField = (view as? UISearchBar)?.value(forKey: "searchField") as! UITextField
+                    textField.text = ""
+                }
+        }
     }
     
     func updateNSPredicate(_ search: String) {
@@ -104,8 +120,17 @@ class OPFarmListViewController: CoreDataTableViewController {
     }
     
     func reloadFarmList() {
-        refreshControl?.beginRefreshing()
+        refresh.beginRefreshing()
+        OPDataService.sharedInstance.getFarmList() { [weak self] (success, error) in
+            if success {
+                print("load farm list success")
+            } else {
+                print("load farm list failed")
+            }
+            self?.refresh.beginRefreshing()
+        }
     }
+    
     
     func setNavigarationBar() {
         navigationController?.navigationBar.isTranslucent = false
@@ -122,6 +147,7 @@ class OPFarmListViewController: CoreDataTableViewController {
     }
 
     func closeSearchBar() {
+        clearSearchCondition()
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.updateNSPredicate("")
             self?.navigationController?.navigationBar.topItem?.titleView = nil
@@ -133,13 +159,6 @@ class OPFarmListViewController: CoreDataTableViewController {
         super.viewWillAppear(animated)
         updateNSPredicate("")
         UIApplication.shared.statusBarStyle = .default
-        OPDataService.sharedInstance.getFarmList() { (success, error) in
-            if success {
-                print("load farm list success")
-            } else {
-                print("load farm list failed")
-            }
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
