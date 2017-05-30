@@ -1,5 +1,5 @@
 //
-//  User+CoreDataClass.swift
+//  Comment+CoreDataClass.swift
 //  OnlinePlanting
 //
 //  Created by IBM on 29/05/2017.
@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 
-public class User: NSManagedObject {
+public class Comment: NSManagedObject {
 
 }

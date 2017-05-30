@@ -23,15 +23,15 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
     @IBOutlet weak var replyNumber: UILabel!
     fileprivate var replyAlertController: UIAlertController?
     
-    var parentComment: FarmComment? {
+    var parentComment: Comment? {
         didSet {
             if let parent = self.parentComment {
                 updateHeaderVieDataSource(parent)
                 
-                let preRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+                let preRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
                 preRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
                 preRequest.predicate = NSPredicate(format: "parent.id == %lld", parent.id)
-                let farmcomments = (try! appDelegate.dataStack.mainContext.fetch(preRequest)) as! [FarmComment]
+                let farmcomments = (try! appDelegate.dataStack.mainContext.fetch(preRequest)) as! [Comment]
                 //print("farm information is: \(farm[0].content)")
                 var tempArray = [Int64]()
                 if farmcomments.count > 0 {
@@ -41,10 +41,10 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
                 }
                 
                 for id in tempArray {
-                    let preRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+                    let preRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
                     preRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
                     preRequest.predicate = NSPredicate(format: "parent.id == %lld", id)
-                    let childcomments = (try! appDelegate.dataStack.mainContext.fetch(preRequest)) as! [FarmComment]
+                    let childcomments = (try! appDelegate.dataStack.mainContext.fetch(preRequest)) as! [Comment]
                     if childcomments.count > 0 {
                         for childcomment in childcomments {
                             tempArray.append(childcomment.id)
@@ -52,7 +52,7 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
                     }
                 }
                 
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
                 request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
                 request.predicate = NSPredicate(format:"parent == %lld OR parent IN %@",parent.id, tempArray)
                 self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -92,7 +92,7 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
         return noCommentView
     }()
     
-    func updateHeaderVieDataSource(_ comments: FarmComment){
+    func updateHeaderVieDataSource(_ comments: Comment){
         numberBg.layer.cornerRadius = 3
         numberBg.layer.masksToBounds = true
         userImage.layer.cornerRadius = userImage.frame.height / 2
@@ -224,7 +224,7 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OPCommentRepliedTableViewCell", for: indexPath) as! OPCommentRepliedTableViewCell
-        guard let comment = fetchedResultsController?.object(at: indexPath) as? FarmComment else { return cell }
+        guard let comment = fetchedResultsController?.object(at: indexPath) as? Comment else { return cell }
         let parent = fetchDetailedParentComment(comment.parent)
         if parent?.id == parentComment?.id {
             cell.updateDataSource(comment, nil)
@@ -235,7 +235,7 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let parent = fetchedResultsController?.object(at: indexPath) as? FarmComment
+        let parent = fetchedResultsController?.object(at: indexPath) as? Comment
         if parent?.user?.username == appDelegate.currentUser?.username {
             guard let alterVC = showReplyAlertController(parentComment?.id, showDelete: true, commentId: parent?.id) else { return }
             present(alterVC, animated: true, completion: nil)
@@ -245,12 +245,12 @@ class OPFarmCommentRepliedTableViewController: CoreDataTableViewController {
         }
     }
     
-    func fetchDetailedParentComment(_ parentId: Int64?) -> FarmComment? {
+    func fetchDetailedParentComment(_ parentId: Int64?) -> Comment? {
         guard let parent = parentId else { return nil }
-        let preRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+        let preRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
         preRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         preRequest.predicate = NSPredicate(format: "id == %lld", parent)
-        let farmcomments = (try! appDelegate.dataStack.mainContext.fetch(preRequest)) as! [FarmComment]
+        let farmcomments = (try! appDelegate.dataStack.mainContext.fetch(preRequest)) as! [Comment]
         if farmcomments.count > 0 {
             return farmcomments[0]
         }
@@ -302,12 +302,12 @@ extension OPFarmCommentRepliedTableViewController: OPCommentTextViewDelegate {
     }
     
     func fetchParentObject() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
         if let parent = self.parentComment {
             let parentId = parent.id
             request.predicate = NSPredicate(format: "id == %lld", parentId)
         }
-        let farm = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [FarmComment]
+        let farm = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [Comment]
         if farm.count > 0 {
             self.parentComment = farm[0]
             guard let parent = self.parentComment else { return }

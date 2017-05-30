@@ -38,7 +38,7 @@ class OPCommentRepliedTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateDataSource(_ comments: FarmComment?, _ parentComment: FarmComment? = nil){
+    func updateDataSource(_ comments: Comment?, _ parentComment: Comment? = nil){
         guard let commentContent = comments else { return }
         content.text = commentContent.content
         var user = ""

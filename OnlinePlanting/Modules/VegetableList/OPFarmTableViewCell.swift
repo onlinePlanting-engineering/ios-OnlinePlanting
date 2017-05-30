@@ -45,18 +45,17 @@ class OPFarmTableViewCell: UITableViewCell {
         
     }
     
-    func updateDataSource(_ farm: Farm?) {
-        addTapGesureForComment()
-        
-        let imageList = farm?.images?.allObjects as? [FarmImage]
-        if let imagecount = imageList?.count, imagecount > 0 {
-            guard let imageURL = imageList?.first?.img  else { return }
-            framImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "toast_image"))
-        }
-        
+    func updateBasicDataSource(_ farm: Farm?) {
+    
         if let name = farm?.name, let address = farm?.addr {
             farmTitle.text = "\(name) | \(address)"
         }
+        
+        if let headImageUrl = farm?.home_img_url {
+            let url = Networking.shareInstance.baseURL! + headImageUrl
+            framImage.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "toast_image"))
+        }
+
     }
     
 }

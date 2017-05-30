@@ -16,9 +16,9 @@ class OPFarmAlbumCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func updateDataSource(_ imageUrl: FarmImage?){
+    func updateDataSource(_ imageUrl: Images?){
         guard let imageData = imageUrl, let url = imageData.img else { return }
-        imageData.imageURL = URL.init(string: url)
+        imageData.imageURL = URL.init(string: Networking.shareInstance.baseURL! + url)
         imageData.loadImageWithCompletionHandler { [weak self](image, error) in
             if error != nil {
                 //error happens

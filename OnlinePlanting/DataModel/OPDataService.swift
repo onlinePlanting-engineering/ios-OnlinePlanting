@@ -67,8 +67,6 @@ class OPDataService: NSObject {
                 guard let data = json?.dictionaryObject?["data"] as? [String: Any] else { return }
                 Sync.changes([data], inEntityNamed: "User", dataStack: appDelegate.dataStack) { error in
                     handler(true, nil)
-//                    let user = (try! Sync.fetch(appDelegate.currentUser?.id, inEntityNamed: "User", using: appDelegate.dataStack.mainContext)) as! User
-//                    appDelegate.currentUser = user
                 }
             } else {
                 handler(false, error)
@@ -89,40 +87,62 @@ class OPDataService: NSObject {
     
     func getFarmList(handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         Networking.shareInstance.getFarmList() { (success, json, error) in
-            guard let data = json?["data"].arrayObject as? [[String : Any]] else { return }
+            guard let data = json?["data"].arrayObject as? [[String : Any]] else {
+                handler(false, error)
+                return
+            }
             Sync.changes(data, inEntityNamed: "Farm", dataStack: appDelegate.dataStack, completion: { (error) in
                 if error != nil {
                     handler(false, error)
                 } else {
-                    //self.fetchCurrentUserObjects()
                     handler(true, nil)
                 }
             })
 
+        }
+    }
+    
+    func getImageGroup(_ group: Int64?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.getImageByGroup(group) { (success, json, error) in
+            guard let data = json?.dictionaryObject else {
+                handler(false, error)
+                return
+            }
+            Sync.changes([data], inEntityNamed: "ImageGroup", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
+                if error != nil {
+                    handler(false, error)
+                } else {
+                    handler(true, nil)
+                }
+            })
         }
     }
     
     func getFarmComment(_ farmId: Int16?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         
         Networking.shareInstance.getFarmComments(farmId) { (success, json, error) in
-            
-            guard let data = json?["data"].arrayObject as? [[String : Any]] else { return }
-            Sync.changes(data, inEntityNamed: "FarmComment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
+            guard let data = json?["data"].arrayObject as? [[String : Any]] else {
+                handler(false, error)
+                return
+            }
+            Sync.changes(data, inEntityNamed: "Comment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
                 if error != nil {
                     handler(false, error)
                 } else {
                     handler(true, nil)
                 }
             })
-
         }
     }
     
     func getRepliedComment(_ parentId: Int64?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         Networking.shareInstance.getRepliedComments(parentId, handler: {(success, json, error) in
-            guard let jsonData = json?["data"].dictionaryObject else { return }
+            guard let jsonData = json?["data"].dictionaryObject else {
+                handler(false, error)
+                return
+            }
             
-            Sync.changes([jsonData], inEntityNamed: "FarmComment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update,], completion: { (error) in
+            Sync.changes([jsonData], inEntityNamed: "Comment", dataStack: appDelegate.dataStack, operations: [.Insert, .Update,], completion: { (error) in
                 if error != nil {
                     handler(false, error)
                 } else {
@@ -170,7 +190,7 @@ class OPDataService: NSObject {
         Networking.shareInstance.deleteComment(commentId) { [weak self](success, json, error) in
             if success {
                 do {
-                    try Sync.delete(commentId as Any, inEntityNamed: "FarmComment", using: appDelegate.dataStack.mainContext)
+                    try Sync.delete(commentId as Any, inEntityNamed: "Comment", using: appDelegate.dataStack.mainContext)
                     if let parent = parentId {
                         self?.getRepliedComment(parent, handler: { (success, error) in
                             if success {
@@ -193,12 +213,10 @@ class OPDataService: NSObject {
         }
     }
     
-    
-    
     func fetchCurrentFarmObjects() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
-        _ = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [FarmComment]
+        _ = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [Comment]
         //print("farm information is: \(farm[0].content)")
     }
     
@@ -213,4 +231,14 @@ class OPDataService: NSObject {
         }
         return nil
     }
+    
+    func fetchImageGroupById(_ groupId: Int64?) -> [ImageGroup]? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageGroup")
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        guard let id = groupId else { return nil }
+        request.predicate = NSPredicate(format: "id == %lld", id)
+        let imageGroup = ((try! appDelegate.dataStack.mainContext.fetch(request)) as? [ImageGroup])
+        return imageGroup
+    }
+    
 }

@@ -33,6 +33,15 @@ extension Networking {
         _ = syncWithAppServer(WebServiceAPIMapping.GetFarmList.rawValue, httpMethod: .get, httpHeaders: getFarmHeader(), params: nil, handler: handler)
     }
     
+    func getImageByGroup(_ imageGroupId: Int64?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
+        guard let imageGroup = imageGroupId else {
+            handler(false, nil, nil)
+            return }
+        let imageGroupUrl = "\(WebServiceAPIMapping.GetImageByGroup.rawValue)\(imageGroup)/"
+        _ = syncWithAppServer(imageGroupUrl, httpMethod: .get, httpHeaders: getHeaders(), urlParams: nil, params: nil,handler: handler)
+    }
+    
+
     func getFarmComments(_ farmId: Int16?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
         _ = syncWithAppServer(WebServiceAPIMapping.GetFarmComments.rawValue, httpMethod: .get, httpHeaders: getHeaders(), urlParams: ["type": "farm", "id": farmId], params: nil,handler: handler)
     }

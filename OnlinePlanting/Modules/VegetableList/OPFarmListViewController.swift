@@ -55,8 +55,6 @@ class OPFarmListViewController: CoreDataTableViewController {
     
     lazy var refresh: UIRefreshControl = {
         let refresh = UIRefreshControl()
-        refresh.backgroundColor = UIColor.clear
-        refresh.tintColor = UIColor.clear
         refresh.addTarget(self, action: #selector(reloadFarmList), for: .valueChanged)
         return refresh
     }()
@@ -99,6 +97,7 @@ class OPFarmListViewController: CoreDataTableViewController {
                 print("load farm list failed")
             }
         }
+        updateNSPredicate("")
     }
     
     func clearSearchCondition() {
@@ -127,7 +126,7 @@ class OPFarmListViewController: CoreDataTableViewController {
             } else {
                 print("load farm list failed")
             }
-            self?.refresh.beginRefreshing()
+            self?.refresh.endRefreshing()
         }
     }
     
@@ -157,7 +156,6 @@ class OPFarmListViewController: CoreDataTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateNSPredicate("")
         UIApplication.shared.statusBarStyle = .default
     }
     
@@ -185,7 +183,7 @@ class OPFarmListViewController: CoreDataTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = farmTableview.dequeueReusableCell(withIdentifier: "OPFarmTableViewCell", for: indexPath as IndexPath) as! OPFarmTableViewCell
         guard let farm = fetchedResultsController?.object(at: indexPath) as? Farm else { return cell }
-        cell.updateDataSource(farm)
+        cell.updateBasicDataSource(farm)
         return cell
     }
     
@@ -209,6 +207,10 @@ class OPFarmListViewController: CoreDataTableViewController {
     override func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         super.controllerDidChangeContent(controller)
         
+    }
+    
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        closeSearchBar()
     }
 }
 

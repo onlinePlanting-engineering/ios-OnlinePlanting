@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Farm" representedClassName=".Farm" syncable="YES">
-        <attribute name="addr" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="is_delete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="notice" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FarmImage" inverseName="owner" inverseEntity="FarmImage" syncable="YES"/>
-    </entity>
-    <entity name="FarmComment" representedClassName=".FarmComment" syncable="YES">
+    <entity name="Comment" representedClassName=".Comment" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="grade" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -23,23 +10,79 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FarmComment" inverseName="replies" inverseEntity="FarmComment" syncable="YES"/>
+        <relationship name="replies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="replies" inverseEntity="Comment" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="farmcomment" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="FarmImage" representedClassName=".FarmImage" syncable="YES">
-        <attribute name="flags" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="img" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="is_delete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="updated_date" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="CommentURL" representedClassName=".CommentURL" syncable="YES">
         <attribute name="url" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
                 <entry key="hyper.isPrimaryKey" value="true"/>
             </userInfo>
         </attribute>
-        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Farm" inverseName="images" inverseEntity="Farm" syncable="YES"/>
+        <relationship name="farmowner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Farm" inverseName="comments" inverseEntity="Farm" syncable="YES"/>
         <userInfo>
             <entry key="hyper.isPrimaryKey" value="true"/>
         </userInfo>
+    </entity>
+    <entity name="Farm" representedClassName=".Farm" syncable="YES">
+        <attribute name="addr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="home_img_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="is_delete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CommentURL" inverseName="farmowner" inverseEntity="CommentURL" syncable="YES"/>
+        <relationship name="imgs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ImageURL" inverseName="farmowner" inverseEntity="ImageURL" syncable="YES"/>
+        <relationship name="lands" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LandURL" inverseName="farmowner" inverseEntity="LandURL" syncable="YES"/>
+    </entity>
+    <entity name="ImageGroup" representedClassName=".ImageGroup" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="imgs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Images" inverseName="owner" inverseEntity="Images" syncable="YES"/>
+    </entity>
+    <entity name="Images" representedClassName=".Images" syncable="YES">
+        <attribute name="created_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="group" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="img" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_cover" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="is_delete" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="updated_date" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ImageGroup" inverseName="imgs" inverseEntity="ImageGroup" syncable="YES"/>
+    </entity>
+    <entity name="ImageURL" representedClassName=".ImageURL" syncable="YES">
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.isPrimaryKey" value="true"/>
+            </userInfo>
+        </attribute>
+        <relationship name="farmowner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Farm" inverseName="imgs" inverseEntity="Farm" syncable="YES"/>
+        <relationship name="metaowner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meta" inverseName="imgs" inverseEntity="Meta" syncable="YES"/>
+    </entity>
+    <entity name="Land" representedClassName=".Land" syncable="YES">
+        <attribute name="cat" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="farm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="is_active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="is_trusteed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="metas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meta" inverseName="landowner" inverseEntity="Meta" syncable="YES"/>
+    </entity>
+    <entity name="LandURL" representedClassName=".LandURL" syncable="YES">
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.isPrimaryKey" value="true"/>
+            </userInfo>
+        </attribute>
+        <relationship name="farmowner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Farm" inverseName="lands" inverseEntity="Farm" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName=".Location" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
@@ -49,6 +92,21 @@
         <attribute name="province" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subLocality" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Meta" representedClassName=".Meta" syncable="YES">
+        <attribute name="is_rented" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="land" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="num" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.isPrimaryKey" value="true"/>
+            </userInfo>
+        </attribute>
+        <relationship name="imgs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ImageURL" inverseName="metaowner" inverseEntity="ImageURL" syncable="YES"/>
+        <relationship name="landowner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Land" inverseName="metas" inverseEntity="Land" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="metaowner" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Profile" representedClassName=".Profile" syncable="YES">
         <attribute name="addr" optional="YES" attributeType="String" syncable="YES"/>
@@ -60,15 +118,22 @@
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="farmcomment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FarmComment" inverseName="user" inverseEntity="FarmComment" syncable="YES"/>
+        <relationship name="farmcomment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="user" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="metaowner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meta" inverseName="owner" inverseEntity="Meta" syncable="YES"/>
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="owner" inverseEntity="Profile" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Farm" positionX="-3303" positionY="-2196" width="128" height="210"/>
-        <element name="FarmComment" positionX="-3303" positionY="-2160" width="128" height="210"/>
-        <element name="FarmImage" positionX="-3303" positionY="-2178" width="128" height="135"/>
+        <element name="CommentURL" positionX="-3303" positionY="-2160" width="128" height="75"/>
+        <element name="Farm" positionX="-3303" positionY="-2196" width="128" height="270"/>
+        <element name="Comment" positionX="-3303" positionY="-2160" width="128" height="210"/>
+        <element name="Images" positionX="-3303" positionY="-2178" width="128" height="165"/>
+        <element name="LandURL" positionX="-3294" positionY="-2151" width="128" height="75"/>
         <element name="Location" positionX="-3303" positionY="-2196" width="128" height="150"/>
         <element name="Profile" positionX="-3159" positionY="-2178" width="128" height="120"/>
-        <element name="User" positionX="-3447" positionY="-2313" width="128" height="105"/>
+        <element name="User" positionX="-3447" positionY="-2313" width="128" height="120"/>
+        <element name="ImageGroup" positionX="-3303" positionY="-2160" width="128" height="105"/>
+        <element name="ImageURL" positionX="-3294" positionY="-2151" width="128" height="90"/>
+        <element name="Land" positionX="-3285" positionY="-2142" width="128" height="165"/>
+        <element name="Meta" positionX="-3276" positionY="-2133" width="128" height="180"/>
     </elements>
 </model>

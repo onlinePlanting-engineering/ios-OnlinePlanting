@@ -11,7 +11,7 @@ import CoreData
 import INSPhotoGallery
 import SDWebImage
 
-class FarmImage: NSManagedObject, INSPhotoViewable{
+class Images: NSManagedObject, INSPhotoViewable{
     
     var image: UIImage?
     var thumbnailImage: UIImage?
@@ -29,7 +29,7 @@ class FarmImage: NSManagedObject, INSPhotoViewable{
                 //value is
                 //print("min is: \(min) max is: \(max)")
             }, completed: { (image, error, cacheType, success, url) in
-//                print("value is: \(String(describing: image))\(String(describing: error))\(cacheType)\(success)\(String(describing: url))")
+                //                print("value is: \(String(describing: image))\(String(describing: error))\(cacheType)\(success)\(String(describing: url))")
                 completion(image, error)
             })
         } else {
@@ -44,3 +44,4 @@ class FarmImage: NSManagedObject, INSPhotoViewable{
         }
     }
 }
+

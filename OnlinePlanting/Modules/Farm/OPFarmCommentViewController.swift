@@ -17,7 +17,7 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     weak var delegate: SubScrollDelegate?
     var currentScrollOffSet: CGFloat = 0
     fileprivate var replyAlertController: UIAlertController?
-    fileprivate var parentComment: FarmComment?
+    fileprivate var parentComment: Comment?
     fileprivate var parentCellHeight: CGFloat?
     
     lazy var oploadingView: OPLoadingIndicator = {
@@ -65,7 +65,7 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     }()
     
     lazy var setup: () = {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FarmComment")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
         guard let id = self.farm?.id else { return }
         request.predicate = NSPredicate(format: "parent == nil AND object_id == %d", id)
@@ -211,13 +211,13 @@ extension OPFarmCommentViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OPComentTableViewCell", for: indexPath) as! OPComentTableViewCell
-        guard let comment = fetchedResultsController?.object(at: indexPath) as? FarmComment else { return cell }
+        guard let comment = fetchedResultsController?.object(at: indexPath) as? Comment else { return cell }
         cell.updateDataSource(comment)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        parentComment = fetchedResultsController?.object(at: indexPath) as? FarmComment
+        parentComment = fetchedResultsController?.object(at: indexPath) as? Comment
         parentCellHeight = tableView.cellForRow(at: indexPath)?.frame.height
         
         if parentComment?.user?.username == appDelegate.currentUser?.username {

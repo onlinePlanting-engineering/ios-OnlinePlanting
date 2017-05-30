@@ -37,7 +37,7 @@ class OPComentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateDataSource(_ comments: FarmComment?){
+    func updateDataSource(_ comments: Comment?){
         guard let content = comments else { return }
         commentContent.text = content.content
         username.text = content.user?.profile?.nickname != "" ? content.user?.profile?.nickname: content.user?.username
