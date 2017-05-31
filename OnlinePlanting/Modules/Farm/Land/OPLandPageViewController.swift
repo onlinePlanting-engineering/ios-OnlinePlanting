@@ -11,7 +11,10 @@ import UIKit
 class OPLandPageViewController: UIPageViewController {
     
     var landGroup = [OPSingleLandViewController]()
-
+    var landsData: [Land]?
+    var parentVC: OPLandViewController?
+    
+    
     var currentIndex: Int? {
         guard let viewController = viewControllers?.first as? OPSingleLandViewController else {
             return nil
@@ -22,20 +25,16 @@ class OPLandPageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         prepareData()
     }
     
     func prepareData(){
-        for i in 0..<4 {
+        guard let lands  = landsData, lands.count > 0 else { return }
+        for land in lands {
             let singleVC = UIStoryboard.init(name: "OPFarm", bundle: nil).instantiateViewController(withIdentifier: "OPSingleLandViewController") as! OPSingleLandViewController
-            switch i {
-            case 0:
-                singleVC.view.backgroundColor = UIColor.clear
-            case 1:
-                singleVC.view.backgroundColor = UIColor.clear
-            default:
-                singleVC.view.backgroundColor = UIColor.clear
-            }
+            singleVC.land = land
+            singleVC.delegate = self
             landGroup.append(singleVC)
         }
         setupPageViewController(0)
@@ -91,5 +90,18 @@ extension OPLandPageViewController: UIPageViewControllerDelegate {
 //                pageDelegate?.transitionCompleted(currentIndex, pageItem: pageItems?[currentIndex], firstUrl: pageItems?.first?.pageUrl )
             }
         }
+    }
+}
+
+extension OPLandPageViewController: OPSingleLandViewControllerDelegate {
+    func updateSelectedMetas(_ meta: Meta?, status: MetaStatus, handler: @escaping ((Bool, Int) -> ())) {
+        parentVC?.updateSelectMetasView(meta, status: status, handler: { (success, count) in
+            handler(success, count)
+        })
+    }
+    
+    func getSelectedMetasNumber() -> Int {
+        guard let number = parentVC?.selectedDataSource.count else { return 0}
+        return number
     }
 }

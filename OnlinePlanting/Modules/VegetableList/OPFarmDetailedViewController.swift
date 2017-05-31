@@ -33,9 +33,11 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
     var newImage: UIImage!
     fileprivate var albumVC: OPFarmAlbumCollectionViewController?
     fileprivate var farmContainerVc: OPFarmContainerViewController?
+    fileprivate var landsVc: LandOverviewViewController?
     fileprivate var currentButton: ButttonType = .information
     
     @IBOutlet weak var rentLand: UIButton!
+    
     
     @IBAction func showRentLand(_ sender: UIButton) {
         
@@ -106,6 +108,11 @@ class OPFarmDetailedViewController: UIViewController, SubScrollDelegate {
             farmContainerVc?.parentVC = self
             farmContainerVc?.delegate = self
             farmContainerVc?.farm = farmData
+        }
+        
+        if segue.identifier == "showLands" {
+            landsVc = segue.destination as? LandOverviewViewController
+            landsVc?.farm = farmData
         }
     }
     

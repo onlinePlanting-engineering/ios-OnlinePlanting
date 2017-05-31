@@ -33,6 +33,14 @@ extension Networking {
         _ = syncWithAppServer(WebServiceAPIMapping.GetFarmList.rawValue, httpMethod: .get, httpHeaders: getFarmHeader(), params: nil, handler: handler)
     }
     
+    func getLandById(_ landId: Int64?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
+        guard let land = landId else {
+            handler(false, nil, nil)
+            return }
+        let landUrl = "\(WebServiceAPIMapping.GetLandsById.rawValue)\(land)/"
+        _ = syncWithAppServer(landUrl, httpMethod: .get, httpHeaders: getHeaders(), urlParams: nil, params: nil,handler: handler)
+    }
+    
     func getImageByGroup(_ imageGroupId: Int64?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
         guard let imageGroup = imageGroupId else {
             handler(false, nil, nil)

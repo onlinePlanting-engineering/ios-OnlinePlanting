@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
-enum LandStatus: Int {
+enum MetaStatus: Int {
     case selected, available, unavailable
+}
+
+var MAX_META = 3
+
+protocol OPSingleLandViewControllerDelegate: NSObjectProtocol {
+    func updateSelectedMetas(_ meta: Meta?, status: MetaStatus, handler:@escaping ((_ success:Bool, _ count: Int)->()))
+    func getSelectedMetasNumber()->Int
 }
 
 class OPSingleLandViewController: CoreDataCollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let dataSource = ["A-001","A-002","A-003","A-004","A-005","A-006","A-007","A-008","A-009","A-010","A-010","A-011","A-012","A-013","A-014","A-015","A-016"]
+    var land: Land?
+    weak var delegate: OPSingleLandViewControllerDelegate?
 
     lazy var chooseAnimation: CAKeyframeAnimation = {
         let chooseAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
@@ -24,9 +33,18 @@ class OPSingleLandViewController: CoreDataCollectionViewController, UICollection
         return chooseAnimation
     }()
     
+    lazy var setup:() = {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Meta")
+        request.sortDescriptors = [NSSortDescriptor(key: "land", ascending: false)]
+        guard let id = self.land?.id else { return }
+        request.predicate = NSPredicate(format:"land == %lld",id)
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let _  = setup
         // Do any additional setup after loading the view.
     }
 
@@ -34,35 +52,43 @@ class OPSingleLandViewController: CoreDataCollectionViewController, UICollection
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
-    }
 }
 
 extension OPSingleLandViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OPLandCollectionViewCell", for: indexPath) as! OPLandCollectionViewCell
-        cell.undateDataSource(dataSource[indexPath.item])
+        guard let meta = fetchedResultsController?.object(at: indexPath) as? Meta else { return cell }
+        cell.undateDataSource(meta)
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! OPLandCollectionViewCell
         //add animation
-        cell.layer.add(chooseAnimation, forKey: nil)
-        guard let name = cell.metasName.text else { return }
+        if cell.status == .unavailable {
+            OPLoadingHUD.show(UIImage(named: "land_unavailable"), title: "已经被租用", animated: false, delay: 1)
+            return
+        }
+        
+        guard let meta = fetchedResultsController?.object(at: indexPath) as? Meta else { return }
         if cell.status == .available {
+            if  delegate?.getSelectedMetasNumber() == MAX_META {
+                OPLoadingHUD.show(UIImage(named: "land_selected"), title: "最多选3块", animated: false, delay: 1)
+                return
+            }
+            cell.layer.add(chooseAnimation, forKey: nil)
             cell.status = .selected
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: OPNotificationName.landSelected.rawValue), object: nil, userInfo:["Land" : name, "status": "selected"])
+            delegate?.updateSelectedMetas(meta, status: .selected, handler: { (success, count) in
+                //TODO:
+                
+            })
         } else if cell.status == .selected {
+            cell.layer.add(chooseAnimation, forKey: nil)
             cell.status = .available
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: OPNotificationName.landSelected.rawValue), object: nil, userInfo:["Land" : name, "status": "available"])
+            delegate?.updateSelectedMetas(meta, status: .available, handler: { (success, count) in
+                //TODO:
+            })
         } else {
             return
         }

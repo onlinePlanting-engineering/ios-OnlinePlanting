@@ -39,14 +39,14 @@
 		184E67EB1EDB953500CF2DE3 /* Meta+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67D91EDB953500CF2DE3 /* Meta+CoreDataProperties.swift */; };
 		184E67EC1EDB953500CF2DE3 /* CommentURL+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67DA1EDB953500CF2DE3 /* CommentURL+CoreDataClass.swift */; };
 		184E67ED1EDB953500CF2DE3 /* CommentURL+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67DB1EDB953500CF2DE3 /* CommentURL+CoreDataProperties.swift */; };
-		184E67EE1EDB953500CF2DE3 /* Land+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67DC1EDB953500CF2DE3 /* Land+CoreDataClass.swift */; };
-		184E67EF1EDB953500CF2DE3 /* Land+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67DD1EDB953500CF2DE3 /* Land+CoreDataProperties.swift */; };
 		184E67F81EDB971F00CF2DE3 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67F61EDB971F00CF2DE3 /* User+CoreDataClass.swift */; };
 		184E67F91EDB971F00CF2DE3 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67F71EDB971F00CF2DE3 /* User+CoreDataProperties.swift */; };
 		184E67FC1EDCD8C200CF2DE3 /* Farm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67FA1EDCD8C200CF2DE3 /* Farm+CoreDataClass.swift */; };
 		184E67FD1EDCD8C200CF2DE3 /* Farm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67FB1EDCD8C200CF2DE3 /* Farm+CoreDataProperties.swift */; };
 		184E68001EDD48B700CF2DE3 /* Images+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67FE1EDD48B700CF2DE3 /* Images+CoreDataClass.swift */; };
 		184E68011EDD48B700CF2DE3 /* Images+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67FF1EDD48B700CF2DE3 /* Images+CoreDataProperties.swift */; };
+		184E68041EDE3E5500CF2DE3 /* Land+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E68021EDE3E5500CF2DE3 /* Land+CoreDataClass.swift */; };
+		184E68051EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E68031EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift */; };
 		1855E8B61ED10A0400D57019 /* OPFarmRendNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1855E8B51ED10A0400D57019 /* OPFarmRendNoticeViewController.swift */; };
 		187F4B2E1EBBE444000AA4DB /* UpdateProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B2D1EBBE444000AA4DB /* UpdateProfileTableViewController.swift */; };
 		187F4B311EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B2F1EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift */; };
@@ -60,7 +60,6 @@
 		1885BCB11EB97DDB0099EAEA /* OPMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1885BCB01EB97DDB0099EAEA /* OPMeTableViewController.swift */; };
 		188A5EC61EAE2CE3006CE839 /* OnlinePlantingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5EC51EAE2CE3006CE839 /* OnlinePlantingTests.swift */; };
 		188A5ED11EAE2CE3006CE839 /* OnlinePlantingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */; };
-		189052BF1EC13C8000F8DB1A /* OPFarmStorybardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052BE1EC13C8000F8DB1A /* OPFarmStorybardSegue.swift */; };
 		189052E51EC1EDE100F8DB1A /* OPFarmContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052E41EC1EDE100F8DB1A /* OPFarmContainerViewController.swift */; };
 		189052E71EC1EF4F00F8DB1A /* OPFarmContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052E61EC1EF4F00F8DB1A /* OPFarmContentViewController.swift */; };
 		189052ED1EC1F0CE00F8DB1A /* OPSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052EC1EC1F0CE00F8DB1A /* OPSegue.swift */; };
@@ -178,14 +177,14 @@
 		184E67D91EDB953500CF2DE3 /* Meta+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Meta+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		184E67DA1EDB953500CF2DE3 /* CommentURL+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CommentURL+CoreDataClass.swift"; sourceTree = "<group>"; };
 		184E67DB1EDB953500CF2DE3 /* CommentURL+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CommentURL+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		184E67DC1EDB953500CF2DE3 /* Land+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Land+CoreDataClass.swift"; sourceTree = "<group>"; };
-		184E67DD1EDB953500CF2DE3 /* Land+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Land+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		184E67F61EDB971F00CF2DE3 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		184E67F71EDB971F00CF2DE3 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		184E67FA1EDCD8C200CF2DE3 /* Farm+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Farm+CoreDataClass.swift"; sourceTree = "<group>"; };
 		184E67FB1EDCD8C200CF2DE3 /* Farm+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Farm+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		184E67FE1EDD48B700CF2DE3 /* Images+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Images+CoreDataClass.swift"; sourceTree = "<group>"; };
 		184E67FF1EDD48B700CF2DE3 /* Images+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Images+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		184E68021EDE3E5500CF2DE3 /* Land+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Land+CoreDataClass.swift"; sourceTree = "<group>"; };
+		184E68031EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Land+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1855E8B51ED10A0400D57019 /* OPFarmRendNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmRendNoticeViewController.swift; path = Farm/OPFarmRendNoticeViewController.swift; sourceTree = "<group>"; };
 		187F4B2D1EBBE444000AA4DB /* UpdateProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileTableViewController.swift; sourceTree = "<group>"; };
 		187F4B2F1EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -204,7 +203,6 @@
 		188A5ECC1EAE2CE3006CE839 /* OnlinePlantingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlinePlantingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		188A5ED01EAE2CE3006CE839 /* OnlinePlantingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePlantingUITests.swift; sourceTree = "<group>"; };
 		188A5ED21EAE2CE3006CE839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		189052BE1EC13C8000F8DB1A /* OPFarmStorybardSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmStorybardSegue.swift; path = Farm/OPFarmStorybardSegue.swift; sourceTree = "<group>"; };
 		189052E41EC1EDE100F8DB1A /* OPFarmContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmContainerViewController.swift; path = Farm/OPFarmContainerViewController.swift; sourceTree = "<group>"; };
 		189052E61EC1EF4F00F8DB1A /* OPFarmContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmContentViewController.swift; path = Farm/OPFarmContentViewController.swift; sourceTree = "<group>"; };
 		189052EC1EC1F0CE00F8DB1A /* OPSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPSegue.swift; sourceTree = "<group>"; };
@@ -414,7 +412,6 @@
 				18B53E491EC0A305003B6D6A /* OPFarm.storyboard */,
 				18E810C41EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift */,
 				18C1E6821EB63E0B001D611B /* OPFarmListViewController.swift */,
-				189052BE1EC13C8000F8DB1A /* OPFarmStorybardSegue.swift */,
 				189052E41EC1EDE100F8DB1A /* OPFarmContainerViewController.swift */,
 				189052E61EC1EF4F00F8DB1A /* OPFarmContentViewController.swift */,
 				1894AB361EC5E538004DED5E /* OPFarmCommentViewController.swift */,
@@ -465,6 +462,8 @@
 		18C1E66A1EB63E0B001D611B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				184E68021EDE3E5500CF2DE3 /* Land+CoreDataClass.swift */,
+				184E68031EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift */,
 				184E67FE1EDD48B700CF2DE3 /* Images+CoreDataClass.swift */,
 				184E67FF1EDD48B700CF2DE3 /* Images+CoreDataProperties.swift */,
 				184E67FA1EDCD8C200CF2DE3 /* Farm+CoreDataClass.swift */,
@@ -483,8 +482,6 @@
 				184E67D91EDB953500CF2DE3 /* Meta+CoreDataProperties.swift */,
 				184E67DA1EDB953500CF2DE3 /* CommentURL+CoreDataClass.swift */,
 				184E67DB1EDB953500CF2DE3 /* CommentURL+CoreDataProperties.swift */,
-				184E67DC1EDB953500CF2DE3 /* Land+CoreDataClass.swift */,
-				184E67DD1EDB953500CF2DE3 /* Land+CoreDataProperties.swift */,
 				187F4B391EBC41A2000AA4DB /* Location+CoreDataClass.swift */,
 				187F4B3A1EBC41A2000AA4DB /* Location+CoreDataProperties.swift */,
 				180688C91EB8C28300CEE3BF /* Profile+CoreDataClass.swift */,
@@ -821,7 +818,6 @@
 			files = (
 				184E68011EDD48B700CF2DE3 /* Images+CoreDataProperties.swift in Sources */,
 				183D82771EB647DF00B9F028 /* AppDelegate.swift in Sources */,
-				184E67EF1EDB953500CF2DE3 /* Land+CoreDataProperties.swift in Sources */,
 				184E67E21EDB953500CF2DE3 /* ImageURL+CoreDataClass.swift in Sources */,
 				18E31DFC1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift in Sources */,
 				18C1F0681EB63E0E001D611B /* Networking.swift in Sources */,
@@ -844,7 +840,6 @@
 				182E98A81ED71702006FEBBA /* LandOverviewViewController.swift in Sources */,
 				187F4B481EC011F4000AA4DB /* OPTransitioningAnimator.swift in Sources */,
 				18E31DF21ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift in Sources */,
-				189052BF1EC13C8000F8DB1A /* OPFarmStorybardSegue.swift in Sources */,
 				18E810C51EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift in Sources */,
 				18F6F64B1ED32D98006FB8A3 /* OPLandSelectedCollectionViewCell.swift in Sources */,
 				1894AB371EC5E538004DED5E /* OPFarmCommentViewController.swift in Sources */,
@@ -866,6 +861,7 @@
 				1845F2F31EC3696C0061E259 /* OPLoadingIndicator.swift in Sources */,
 				18C1F0571EB63E0E001D611B /* OPToastWindow.swift in Sources */,
 				18F6F6491ED31EA5006FB8A3 /* OPLandCollectionViewCell.swift in Sources */,
+				184E68051EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift in Sources */,
 				18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */,
 				184E67E31EDB953500CF2DE3 /* ImageURL+CoreDataProperties.swift in Sources */,
 				18E31DBB1EC9AA76004A8505 /* FarmActivityTableViewCell.swift in Sources */,
@@ -886,7 +882,6 @@
 				187F4B421EBF3431000AA4DB /* OPLoadingHUD.swift in Sources */,
 				18C1F0591EB63E0E001D611B /* OPDataService.swift in Sources */,
 				187F4B381EBC27DF000AA4DB /* LocationUtils.swift in Sources */,
-				184E67EE1EDB953500CF2DE3 /* Land+CoreDataClass.swift in Sources */,
 				187F4B3B1EBC41A2000AA4DB /* Location+CoreDataClass.swift in Sources */,
 				184E67F81EDB971F00CF2DE3 /* User+CoreDataClass.swift in Sources */,
 				1894AB411EC7F165004DED5E /* OPCommentHereView.swift in Sources */,
@@ -905,6 +900,7 @@
 				187F4B311EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift in Sources */,
 				18C1F0691EB63E0E001D611B /* NetworkingAPIMapping.swift in Sources */,
 				18C1F0611EB63E0E001D611B /* OPLoginMainViewController.swift in Sources */,
+				184E68041EDE3E5500CF2DE3 /* Land+CoreDataClass.swift in Sources */,
 				18C06B751EBA91C0007DDC09 /* OPSplitBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -72,7 +72,7 @@
                                 <state key="normal" backgroundImage="inside_land"/>
                                 <connections>
                                     <action selector="showinsideLand:" destination="jlR-Yt-mKg" eventType="touchUpInside" id="Ncs-rF-p0k"/>
-                                    <segue destination="Zyn-mQ-1GW" kind="show" id="uLx-aG-ma5"/>
+                                    <segue destination="Zyn-mQ-1GW" kind="show" identifier="landDetailed" id="uLx-aG-ma5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大棚菜园" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-NY-Er8">
@@ -257,7 +257,7 @@
                                 </state>
                                 <connections>
                                     <action selector="showRentLand:" destination="uG4-EP-DWE" eventType="touchUpInside" id="6Nh-EW-YCV"/>
-                                    <segue destination="jlR-Yt-mKg" kind="show" id="kFz-Gn-pgH"/>
+                                    <segue destination="jlR-Yt-mKg" kind="show" identifier="showLands" id="kFz-Gn-pgH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我要" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqf-7y-lUJ">
@@ -898,7 +898,7 @@
                                         <rect key="frame" x="30" y="120" width="315" height="363"/>
                                         <color key="backgroundColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="AVr-Mj-ThX" kind="embed" id="VAK-Ug-5XV"/>
+                                            <segue destination="AVr-Mj-ThX" kind="embed" identifier="landPageView" id="VAK-Ug-5XV"/>
                                         </connections>
                                     </containerView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ush-g5-FmZ">
@@ -1046,6 +1046,7 @@
                         <outlet property="available" destination="4E4-Pt-iqg" id="mZ3-WS-mAn"/>
                         <outlet property="blankShoppingCar" destination="seB-xd-r3Q" id="TtA-Oq-QxF"/>
                         <outlet property="confirmButton" destination="SiT-tr-vyG" id="0WQ-eo-zVQ"/>
+                        <outlet property="landPageControl" destination="ush-g5-FmZ" id="aYu-A1-wVB"/>
                         <outlet property="selected" destination="aBD-5P-bYa" id="LLu-pw-KB9"/>
                         <outlet property="selectedCollectionView" destination="KKO-cs-D54" id="nVm-xy-8G0"/>
                         <outlet property="unavailable" destination="H8H-Ka-u8q" id="n58-Wo-HGu"/>

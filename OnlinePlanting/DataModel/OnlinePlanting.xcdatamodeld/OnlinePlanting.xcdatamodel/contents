@@ -68,10 +68,12 @@
     </entity>
     <entity name="Land" representedClassName=".Land" syncable="YES">
         <attribute name="cat" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="farm" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="is_active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="is_trusteed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="metas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meta" inverseName="landowner" inverseEntity="Meta" syncable="YES"/>
@@ -133,7 +135,7 @@
         <element name="User" positionX="-3447" positionY="-2313" width="128" height="120"/>
         <element name="ImageGroup" positionX="-3303" positionY="-2160" width="128" height="105"/>
         <element name="ImageURL" positionX="-3294" positionY="-2151" width="128" height="90"/>
-        <element name="Land" positionX="-3285" positionY="-2142" width="128" height="165"/>
+        <element name="Land" positionX="-3285" positionY="-2142" width="128" height="195"/>
         <element name="Meta" positionX="-3276" positionY="-2133" width="128" height="180"/>
     </elements>
 </model>

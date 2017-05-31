@@ -10,12 +10,11 @@ import UIKit
 
 class OPLandCollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var metasName: UILabel!
     
     
-    var status: LandStatus = .available {
+    var status: MetaStatus = .available {
         didSet {
             changestatus(status)
         }
@@ -27,7 +26,7 @@ class OPLandCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func changestatus(_ status: LandStatus) {
+    func changestatus(_ status: MetaStatus) {
         switch status {
         case .available:
             statusImage.image = UIImage.init(named: "land_available")
@@ -38,7 +37,14 @@ class OPLandCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func undateDataSource(_ number: String) {
-        metasName.text = number
+    func undateDataSource(_ data: Meta?) {
+        guard let metaData = data else { return }
+        if metaData.is_rented {
+            status = .unavailable
+        } else if !metaData.is_rented {
+            status = .available
+        }
+        
+        metasName.text = metaData.num
     }
 }

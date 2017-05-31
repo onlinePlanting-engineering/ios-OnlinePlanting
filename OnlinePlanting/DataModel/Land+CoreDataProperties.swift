@@ -2,7 +2,7 @@
 //  Land+CoreDataProperties.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 29/05/2017.
+//  Created by IBM on 31/05/2017.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 
@@ -23,6 +23,8 @@ extension Land {
     @NSManaged public var is_trusteed: Bool
     @NSManaged public var size: Float
     @NSManaged public var is_active: Bool
+    @NSManaged public var name: String?
+    @NSManaged public var desc: String?
     @NSManaged public var metas: NSSet?
 
 }

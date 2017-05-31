@@ -98,7 +98,7 @@ class OPDataService: NSObject {
                     handler(true, nil)
                 }
             })
-
+            
         }
     }
     
@@ -116,6 +116,52 @@ class OPDataService: NSObject {
                 }
             })
         }
+    }
+    
+    func getLandById(_ landId: Int64?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        Networking.shareInstance.getLandById(landId) { (success, json, error) in
+            guard let data = json?["data"].dictionaryObject else {
+                handler(false, error)
+                return
+            }
+            Sync.changes([data], inEntityNamed: "Land", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
+                if error != nil {
+                    handler(false, error)
+                } else {
+                    handler(true, nil)
+                }
+            })
+        }
+    }
+    
+    func getLandByGroup(_ landIds: [Int64]?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+        guard let ids = landIds else {
+            handler(false, nil)
+            return
+        }
+        var successCount = 0
+        var totalCount = 0
+        for id in ids {
+            OPDataService.sharedInstance.getLandById(id, handler: { (success, error) in
+                if success {
+                    successCount += 1
+                    if successCount == ids.count {
+                        handler(true, nil)
+                        return
+                    }
+                    print("fetch lands data success: \(String(describing: id))")
+                } else {
+                    handler(false, error)
+                    print("fetch lands data failed: \(String(describing: id))")
+                    return
+                }
+                totalCount += 1
+                if totalCount == ids.count {
+                    handler(false, error)
+                }
+            })
+        }
+
     }
     
     func getFarmComment(_ farmId: Int16?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
@@ -157,13 +203,13 @@ class OPDataService: NSObject {
         Networking.shareInstance.createComment(type, object_id: object_id, parent_id: parent_id, content: content, grade: grade) { [weak self](success, json, error) in
             if success {
                 if parent_id == nil {
-                self?.getFarmComment(object_id, handler: { (success, error) in
-                    if success {
-                        handler(true, nil)
-                    } else {
-                        handler(true, nil)
-                    }
-                })
+                    self?.getFarmComment(object_id, handler: { (success, error) in
+                        if success {
+                            handler(true, nil)
+                        } else {
+                            handler(true, nil)
+                        }
+                    })
                 } else {
                     self?.getRepliedComment(parent_id, handler: { (success, error) in
                         if success {
@@ -239,6 +285,15 @@ class OPDataService: NSObject {
         request.predicate = NSPredicate(format: "id == %lld", id)
         let imageGroup = ((try! appDelegate.dataStack.mainContext.fetch(request)) as? [ImageGroup])
         return imageGroup
+    }
+    
+    func fetchLandByPredication(_ landGroup: [Int64]?) -> [Land]? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Land")
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        guard let landgroup = landGroup else { return nil }
+        request.predicate = NSPredicate(format: "id in %@",landgroup)
+        let lands = ((try! appDelegate.dataStack.mainContext.fetch(request)) as? [Land])
+        return lands
     }
     
 }

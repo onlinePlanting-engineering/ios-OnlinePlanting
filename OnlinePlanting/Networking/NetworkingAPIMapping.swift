@@ -24,6 +24,9 @@ enum WebServiceAPIMapping: String {
     
     //Image
     case GetImageByGroup = "/api/image_groups/"
+    
+    //Land & Metas
+    case GetLandsById = "/api/land/lands/"
 }
 
 

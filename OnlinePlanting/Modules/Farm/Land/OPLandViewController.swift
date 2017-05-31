@@ -14,13 +14,17 @@ class OPLandViewController: UIViewController {
     @IBOutlet weak var selected: UIImageView!
     @IBOutlet weak var unavailable: UIImageView!
     @IBOutlet weak var selectedCollectionView: UICollectionView!
-    
     @IBOutlet weak var blankShoppingCar: UIView!
-    
     @IBOutlet weak var confirmButton: UIButton!
     
-    fileprivate var selectedDataSource = [String]()
-
+    lazy fileprivate(set) var selectedDataSource = [Meta]()
+    fileprivate var pageViewVC: OPLandPageViewController?
+    
+    var is_trusteed = false
+    var cat = false
+    var lands: [Land]?
+    @IBOutlet weak var landPageControl: UIPageControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,33 +35,46 @@ class OPLandViewController: UIViewController {
         blankShoppingCar.isHidden = true
         confirmButton.layer.cornerRadius = confirmButton.bounds.height / 2
         
-        NotificationCenter.default.addObserver(self, selector: #selector(landSelected(notification:)),
-                                                   name: Notification.Name(rawValue: OPNotificationName.landSelected.rawValue), object: nil)
+        guard let count = lands?.count  else { return }
+        landPageControl.numberOfPages = count
+        landPageControl.currentPageIndicatorTintColor = UIColor.init(hexString: OPDarkGreenColor)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
-    func landSelected(notification: NSNotification){
-        let info = notification.userInfo
-        guard let landID = info?["Land"] as? String, let status = info?["status"] as? String else { return }
-        print("selected land is: \(landID) \(status)")
-        if status == "selected" {
-            if let index = selectedDataSource.index(of: landID), index >= 0 {
+    func updateSelectMetasView(_ meta: Meta?, status: MetaStatus, handler:@escaping ((_ success:Bool, _ count: Int)->())){
+        guard let metaData = meta else {
+            handler(false, selectedDataSource.count)
+            return
+        }
+        if status == .selected {
+            if let index = selectedDataSource.index(of: metaData), index >= 0 {
+                handler(false, selectedDataSource.count)
                 return
             } else {
-                selectedDataSource.append(landID)
+                selectedDataSource.append(metaData)
                 selectedCollectionView.reloadData()
+                handler(true, selectedDataSource.count)
             }
-        } else if status == "available" {
-            if let index = selectedDataSource.index(of: landID), index >= 0 {
+        } else if status == .available {
+            if let index = selectedDataSource.index(of: metaData), index >= 0 {
                 selectedDataSource.remove(at: index)
                 let indexpath = IndexPath.init(item: index, section: 0)
                 selectedCollectionView.deleteItems(at: [indexpath])
+                handler(true, selectedDataSource.count)
             } else {
+                handler(false, selectedDataSource.count)
                 return
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "landPageView" {
+            pageViewVC = segue.destination as? OPLandPageViewController
+            pageViewVC?.landsData = lands
+            pageViewVC?.parentVC = self
         }
     }
 

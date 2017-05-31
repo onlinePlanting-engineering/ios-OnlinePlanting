@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol OPLandSelectedCollectionViewCellProtocol: NSObjectProtocol{
+    func removeSelectedMeta()
+}
+
 class OPLandSelectedCollectionViewCell: UICollectionViewCell {
     
     
@@ -22,7 +26,14 @@ class OPLandSelectedCollectionViewCell: UICollectionViewCell {
         layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    func updateDataSource(_ name: String) {
-        landName.setTitle(name, for: .normal)
+    func updateDataSource(_ meta: Meta?) {
+        guard let metadata = meta else { return }
+        landName.setTitle(metadata.num, for: .normal)
+        
+        landName.addTarget(self, action: #selector(removeSelectedMeta), for: .touchUpInside)
+    }
+    
+    func removeSelectedMeta() {
+        
     }
 }
