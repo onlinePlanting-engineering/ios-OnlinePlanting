@@ -120,7 +120,10 @@ extension OPLandViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //collectionView.deleteItems(at: [indexPath])
+        
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "RemoveSelectedMeta"), object: nil, userInfo: ["Meta": selectedDataSource[indexPath.item]])
+        selectedDataSource.remove(at: indexPath.item)
+        collectionView.deleteItems(at: [indexPath])
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

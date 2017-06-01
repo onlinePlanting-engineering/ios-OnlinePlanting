@@ -28,7 +28,7 @@ class Networking {
     
     var baseURL: String! {
         get {
-            return "http://192.168.1.100:8000"
+            return "http://9.115.93.185:8000"
         }
     }
     

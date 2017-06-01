@@ -140,7 +140,7 @@ class OPFarmAlbumCollectionViewController: CoreDataCollectionViewController, UIC
             guard let description = groups?.first?.desc, let date = groups?.first?.timestamp else { return headView }
             let cformatter = DateFormatter()
             cformatter.dateFormat = "yyyy-MM-dd"
-            let sDate = cformatter.date(from: date)
+            _ = cformatter.date(from: date)
             cformatter.dateFormat = "yyyy MM dd"
             cformatter.dateStyle = .medium
             headView.headername.text = "\(description)"

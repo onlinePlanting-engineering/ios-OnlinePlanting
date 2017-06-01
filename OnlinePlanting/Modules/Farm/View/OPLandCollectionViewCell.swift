@@ -12,7 +12,7 @@ class OPLandCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var statusImage: UIImageView!
     @IBOutlet weak var metasName: UILabel!
-    
+    var metaDataSource: Meta?
     
     var status: MetaStatus = .available {
         didSet {
@@ -39,6 +39,7 @@ class OPLandCollectionViewCell: UICollectionViewCell {
     
     func undateDataSource(_ data: Meta?) {
         guard let metaData = data else { return }
+        metaDataSource = data
         if metaData.is_rented {
             status = .unavailable
         } else if !metaData.is_rented {

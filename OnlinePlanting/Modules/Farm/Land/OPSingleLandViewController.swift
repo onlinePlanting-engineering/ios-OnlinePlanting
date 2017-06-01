@@ -45,12 +45,34 @@ class OPSingleLandViewController: CoreDataCollectionViewController, UICollection
         super.viewDidLoad()
         
         let _  = setup
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RemoveSelectedMeta), name: Notification.Name(rawValue: "RemoveSelectedMeta"), object: nil)
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func RemoveSelectedMeta(notification: Notification) {
+        let meta = notification.userInfo?["Meta"] as? Meta
+        if meta?.land != land?.id {
+            return
+        }
+        
+        guard let cells = collectionView?.visibleCells else { return }
+        for cell in cells {
+            if let metaCell = cell as? OPLandCollectionViewCell {
+                if metaCell.metaDataSource?.num == meta?.num {
+                    metaCell.status = .available
+                }
+            }
+        }
     }
 }
 
@@ -65,7 +87,6 @@ extension OPSingleLandViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! OPLandCollectionViewCell
-        //add animation
         if cell.status == .unavailable {
             OPLoadingHUD.show(UIImage(named: "land_unavailable"), title: "已经被租用", animated: false, delay: 1)
             return

@@ -29,8 +29,6 @@ class OPLandSelectedCollectionViewCell: UICollectionViewCell {
     func updateDataSource(_ meta: Meta?) {
         guard let metadata = meta else { return }
         landName.setTitle(metadata.num, for: .normal)
-        
-        landName.addTarget(self, action: #selector(removeSelectedMeta), for: .touchUpInside)
     }
     
     func removeSelectedMeta() {
