@@ -46,6 +46,8 @@ class OPMeTableViewController: UITableViewController {
         portraitView.layer.masksToBounds = true
         guard let imageURL = appDelegate.currentUser?.profile?.img_heading else { return }
         portraitView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
+        
+        meTableView.tableFooterView = UIView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,7 +83,7 @@ extension OPMeTableViewController {
         if section == 0 {
             return 1
         } else {
-            return 10
+            return 3
         }
     }
     

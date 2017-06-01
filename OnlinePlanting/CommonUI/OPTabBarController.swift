@@ -49,8 +49,8 @@ class OPTabBarController: UITabBarController {
                 imageView.layer.removeAllAnimations()
                 let pulse = CAKeyframeAnimation(keyPath: "transform.scale")
                 pulse.calculationMode = kCAAnimationCubic
-                pulse.values = [0.5,0.8,1.0,1.1,1.2,1.15,1.1,1.0]
-                pulse.duration = 0.8
+                pulse.values = [0.8,1.0,1.1,1.2,1.0]
+                pulse.duration = 0.5
                 imageView.layer.add(pulse, forKey: nil)
                 indexFlag = index
             }

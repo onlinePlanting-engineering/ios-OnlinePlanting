@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "farm.icon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "用户.png",
+      "filename" : "farm.icon (1).png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "farm.icon (2).png",
       "scale" : "3x"
     }
   ],
