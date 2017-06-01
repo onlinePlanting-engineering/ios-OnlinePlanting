@@ -11,6 +11,7 @@
 		180688CE1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180688CA1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift */; };
 		1818CD541EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */; };
 		1818CD551EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1818CD531EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib */; };
+		182D4D1E1EE0376F00C29B86 /* OPFarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182D4D1D1EE0376F00C29B86 /* OPFarm.storyboard */; };
 		182E989A1ED6367D006FEBBA /* UIAlertController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E98991ED6367D006FEBBA /* UIAlertController+Ext.swift */; };
 		182E98A51ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E98A31ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift */; };
 		182E98A61ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182E98A41ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.xib */; };
@@ -78,7 +79,6 @@
 		18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2822E1EB6C82800010595 /* UIView+Ext.swift */; };
 		18B282311EB7147D00010595 /* SMSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B282301EB7147D00010595 /* SMSUtils.swift */; };
 		18B282331EB85D6300010595 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B282321EB85D6300010595 /* Common.swift */; };
-		18B53E4A1EC0A305003B6D6A /* OPFarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B53E491EC0A305003B6D6A /* OPFarm.storyboard */; };
 		18C06B751EBA91C0007DDC09 /* OPSplitBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C06B741EBA91C0007DDC09 /* OPSplitBaseViewController.swift */; };
 		18C06B771EBA9657007DDC09 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C06B761EBA9657007DDC09 /* UIViewController+Ext.swift */; };
 		18C1E6521EB62C0F001D611B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C1E6511EB62C0F001D611B /* libz.tbd */; };
@@ -148,6 +148,7 @@
 		180688CA1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeDetailedTableViewCell.swift; sourceTree = "<group>"; };
 		1818CD531EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPMeDetailedTableViewCell.xib; sourceTree = "<group>"; };
+		182D4D1D1EE0376F00C29B86 /* OPFarm.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPFarm.storyboard; path = Farm/View/OPFarm.storyboard; sourceTree = "<group>"; };
 		182E98991ED6367D006FEBBA /* UIAlertController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Ext.swift"; sourceTree = "<group>"; };
 		182E98A31ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumHeaderCollectionReusableView.swift; path = Farm/View/AlbumHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		182E98A41ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlbumHeaderCollectionReusableView.xib; path = Farm/View/AlbumHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
@@ -222,7 +223,6 @@
 		18B2822E1EB6C82800010595 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		18B282301EB7147D00010595 /* SMSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMSUtils.swift; sourceTree = "<group>"; };
 		18B282321EB85D6300010595 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
-		18B53E491EC0A305003B6D6A /* OPFarm.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPFarm.storyboard; path = Farm/OPFarm.storyboard; sourceTree = "<group>"; };
 		18C06B741EBA91C0007DDC09 /* OPSplitBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPSplitBaseViewController.swift; sourceTree = "<group>"; };
 		18C06B761EBA9657007DDC09 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		18C1E6511EB62C0F001D611B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -409,7 +409,7 @@
 			children = (
 				18F6F63F1ED30119006FB8A3 /* Land */,
 				1894AB381EC5E952004DED5E /* View */,
-				18B53E491EC0A305003B6D6A /* OPFarm.storyboard */,
+				182D4D1D1EE0376F00C29B86 /* OPFarm.storyboard */,
 				18E810C41EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift */,
 				18C1E6821EB63E0B001D611B /* OPFarmListViewController.swift */,
 				189052E41EC1EDE100F8DB1A /* OPFarmContainerViewController.swift */,
@@ -738,12 +738,12 @@
 				183D82831EB64AE200B9F028 /* Main.storyboard in Resources */,
 				18C1F0641EB63E0E001D611B /* OPMyGarden.storyboard in Resources */,
 				1894AB3F1EC7EF2C004DED5E /* OPCommentHereView.xib in Resources */,
+				182D4D1E1EE0376F00C29B86 /* OPFarm.storyboard in Resources */,
 				18C1F05B1EB63E0E001D611B /* OPHome.storyboard in Resources */,
 				182E98A61ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.xib in Resources */,
 				183D82851EB64B2600B9F028 /* Assets.xcassets in Resources */,
 				1818CD551EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib in Resources */,
 				18C1F05D1EB63E0E001D611B /* OPLive.storyboard in Resources */,
-				18B53E4A1EC0A305003B6D6A /* OPFarm.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

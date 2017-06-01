@@ -26,9 +26,13 @@ class OPMeViewController: UIViewController, UIScrollViewDelegate, SubScrollDeleg
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.topItem?.rightBarButtonItems = nil
+        navigationController?.navigationBar.topItem?.title = nil
+        
     }
 
     override func didReceiveMemoryWarning() {

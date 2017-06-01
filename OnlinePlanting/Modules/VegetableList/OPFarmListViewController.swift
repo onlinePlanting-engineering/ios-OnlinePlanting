@@ -11,9 +11,6 @@ import CoreData
 
 class OPFarmListViewController: CoreDataTableViewController {
     
-    
-    @IBOutlet weak var farmTableview: UITableView!
-    //@IBOutlet var containerView: UIView!
     var lastPosition: CGFloat = 0
     var originalNavbarHeight:CGFloat = 0.0
     var minimumNavbarHeight:CGFloat = 0
@@ -84,12 +81,11 @@ class OPFarmListViewController: CoreDataTableViewController {
     
     func prepareUI() {
         let nib = UINib(nibName: "OPFarmTableViewCell", bundle: Bundle.main)
-        farmTableview.register(nib, forCellReuseIdentifier: "OPFarmTableViewCell")
-        farmTableview.delegate = self
-        farmTableview.dataSource = self
+        tableView.register(nib, forCellReuseIdentifier: "OPFarmTableViewCell")
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        setNavigarationBar()
-        farmTableview.addSubview(refresh)
+        tableView.addSubview(refresh)
         OPDataService.sharedInstance.getFarmList() { (success, error) in
             if success {
                 print("load farm list success")
@@ -138,13 +134,14 @@ class OPFarmListViewController: CoreDataTableViewController {
         navigationController?.navigationBar.topItem?.title = "入住农场"
         
         navigationController?.navigationBar.topItem?.rightBarButtonItem = rightArrowItem
+        navigationController?.navigationBar.topItem?.leftBarButtonItem = nil
     }
     
     func showSearchBar() {
        navigationController?.navigationBar.topItem?.titleView = searchView
         navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
-
+    
     func closeSearchBar() {
         clearSearchCondition()
         UIView.animate(withDuration: 0.3) { [weak self] in
@@ -156,7 +153,9 @@ class OPFarmListViewController: CoreDataTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         UIApplication.shared.statusBarStyle = .default
+        setNavigarationBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -181,7 +180,7 @@ class OPFarmListViewController: CoreDataTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = farmTableview.dequeueReusableCell(withIdentifier: "OPFarmTableViewCell", for: indexPath as IndexPath) as! OPFarmTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OPFarmTableViewCell", for: indexPath as IndexPath) as! OPFarmTableViewCell
         guard let farm = fetchedResultsController?.object(at: indexPath) as? Farm else { return cell }
         cell.updateBasicDataSource(farm)
         return cell
@@ -191,12 +190,12 @@ class OPFarmListViewController: CoreDataTableViewController {
         let nav = storyboard?.instantiateViewController(withIdentifier: "farmDetailedNav") as? UINavigationController
         farmDetailedVC = nav?.childViewControllers.first as? OPFarmDetailedViewController
         nav?.transitioningDelegate = self
-        let cell = farmTableview.cellForRow(at: indexPath) as! OPFarmTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! OPFarmTableViewCell
         guard let farm = fetchedResultsController?.object(at: indexPath) as? Farm else { return }
         farmDetailedVC?.newImage = cell.framImage.image
         farmDetailedVC?.farmData = farm
-        let cellRect = farmTableview.convert(cell.frame, to: farmTableview)
-        let currentScreenCell = farmTableview.convert(cellRect, to: farmTableview.backgroundView!)
+        let cellRect = tableView.convert(cell.frame, to: tableView)
+        let currentScreenCell = tableView.convert(cellRect, to: tableView.backgroundView!)
         presentAnimator.originFrame = currentScreenCell
         dismissAnimator.originFrame = currentScreenCell
         guard let navigatVc = nav else { return }
