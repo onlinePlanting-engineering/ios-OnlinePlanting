@@ -25,7 +25,7 @@
                             <outlet property="delegate" destination="VDC-d9-3Ju" id="pQ1-Ia-2s5"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="入住农场" image="vegetables" selectedImage="vegetables" id="9hj-lo-obM"/>
+                    <tabBarItem key="tabBarItem" title="入住农场" image="farmland" id="9hj-lo-obM"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jmz-PD-rjb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1070,7 +1070,7 @@
         <scene sceneID="wZo-0m-579">
             <objects>
                 <collectionViewController storyboardIdentifier="OPSingleLandViewController" id="HFa-dR-Ecy" customClass="OPSingleLandViewController" customModule="OnlinePlanting" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nrN-Cd-6s9">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="nrN-Cd-6s9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1297,6 +1297,7 @@
         <image name="farmAlbum_default" width="100" height="100"/>
         <image name="farmComment_default" width="100" height="100"/>
         <image name="farmHome_selected" width="100" height="100"/>
+        <image name="farmland" width="30" height="30"/>
         <image name="hud_loading" width="64" height="64"/>
         <image name="inside_land" width="100" height="100"/>
         <image name="land_available" width="100" height="100"/>
@@ -1307,6 +1308,5 @@
         <image name="toast_image" width="630" height="315"/>
         <image name="toast_password" width="630" height="365"/>
         <image name="user_default" width="100" height="100"/>
-        <image name="vegetables" width="25" height="25"/>
     </resources>
 </document>
