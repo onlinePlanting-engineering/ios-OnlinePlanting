@@ -50,8 +50,8 @@ class LocationUtils: NSObject, CLLocationManagerDelegate {
     
     
     func changeNotification(notification: NSNotification) {
-        let insertedObjects = notification.userInfo?[NSInsertedObjectsKey]
-        print("insertedObjects:\(insertedObjects)")
+        _ = notification.userInfo?[NSInsertedObjectsKey]
+        //print("insertedObjects:\(insertedObjects)")
     }
     
     func getCurrentLocation() -> CLLocation? {

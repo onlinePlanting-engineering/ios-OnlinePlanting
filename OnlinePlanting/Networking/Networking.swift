@@ -28,7 +28,7 @@ class Networking {
     
     var baseURL: String! {
         get {
-            return "http://dry-shore-37942.herokuapp.com"
+            return "http://9.115.93.185:8000"
         }
     }
     
@@ -64,6 +64,16 @@ extension Networking {
         return headers
     }
     
+    func getFarmHeader() -> [String : String]? {
+        guard let unwrapToken = token else { return nil }
+        let headers = [
+            "Allow": "GET,OPTIONS",
+            "Content-Type": "application/json",
+            "Authorization": "Token \(unwrapToken)"
+        ]
+        return headers
+    }
+    
     func updatedHeaders() -> [String : String]? {
         guard let unwrapToken = token else { return nil }
         let headers = [
@@ -72,7 +82,6 @@ extension Networking {
         ]
         return headers
     }
-
     
     //POST request
     func postRequest(urlString : String, params : [String : Any], success : @escaping (_ response : [String : Any])->(), failture : @escaping (_ error : Error)->()) {
@@ -127,7 +136,7 @@ extension Networking {
                 return (localPath!, [.removePreviousFile, .createIntermediateDirectories])
             }
             }.responseData { (downloadResponse) in
-                if let error = downloadResponse.error as? NSError {
+                if let error = downloadResponse.error as NSError? {
                     completeHandler?(localPath, error)
                 } else {
                     completeHandler?(localPath, nil)

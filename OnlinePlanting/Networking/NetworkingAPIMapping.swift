@@ -16,5 +16,17 @@ enum WebServiceAPIMapping: String {
     case GetToken          = "/api/auth/token/"
     case GetUserProfile    = "/api/users/user_info/"
     case UpdateUserProfile = "/api/users/"
+    
+    //farm
+    case GetFarmList = "/api/farms/"
+    case GetFarmComments = "/api/comments/"
+    case CreateComment = "/api/comments/create/"
+    
+    //Image
+    case GetImageByGroup = "/api/image_groups/"
+    
+    //Land & Metas
+    case GetLandsById = "/api/land/lands/"
 }
+
 

@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>INSPhotoGallery-INSPhotoGallery.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>INSPhotoGallery.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>KeychainAccess.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,22 +62,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>29CDC3C248F30272361E6B236484D94A</key>
+		<key>0D8DCBC3FFBCFA19CEAE903ED8C9E37D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D490FD505E0E65A0BC614155CF02081</key>
+		<key>160F3D2B181465FD6DEC4E9916DF2092</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5898D5ABC93DE0BAEC1273BFF5FD9797</key>
+		<key>5AB2AFB1E6DC8D2967EF130A030AD1B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>834DB73567F794028F4A942042B14AD9</key>
+		<key>739C4A6D232B4F5A1662AFC2CCF870D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C0E6E3ED5DC4B7A1F2469BF302D82DF3</key>
+		<key>8C7BAC952FFE0E104EF26AD695196B00</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2F21E09115B0F5A6A7788B79609CF77</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +107,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED23048885B8352F603A061FAF6C0B64</key>
+		<key>DFBECB845809A71BDED200DA0ECB22D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F95F980CFE6C256B7FF66AF3F92B61BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

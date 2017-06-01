@@ -9,3 +9,14 @@
 import Foundation
 
 let OPGreenColor = "#69C391"
+let OPDarkGreenColor = "#2D363C"
+let OPGrayColor = "#F5F6FA"
+
+enum CommentType: String {
+    case farm = "farm"
+}
+
+enum OPNotificationName: String {
+    case landSelected = "landSelected"
+}
+

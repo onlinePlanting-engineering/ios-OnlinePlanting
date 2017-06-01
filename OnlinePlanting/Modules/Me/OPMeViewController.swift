@@ -8,7 +8,7 @@
 
 import UIKit
 
-let min_header: CGFloat = 22
+let min_header: CGFloat = -5
 let bar_offset: CGFloat = 110
 
 class OPMeViewController: UIViewController, UIScrollViewDelegate, SubScrollDelegate {
@@ -34,6 +34,10 @@ class OPMeViewController: UIViewController, UIScrollViewDelegate, SubScrollDeleg
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func hideOrShowBottomViewBeginScroll(_ scrollView: UIScrollView) {
+        //TODO
     }
     
     func customScrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -66,4 +70,10 @@ class OPMeViewController: UIViewController, UIScrollViewDelegate, SubScrollDeleg
             profileVC.delegate = self
         }
     }
+    
+    func previousPage(_ offset: CGFloat) {
+        //TODO
+    }
+    
+    
 }

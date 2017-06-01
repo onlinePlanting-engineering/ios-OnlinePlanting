@@ -2,7 +2,7 @@
 //  User+CoreDataClass.swift
 //  OnlinePlanting
 //
-//  Created by IBM on 5/2/17.
+//  Created by IBM on 29/05/2017.
 //  Copyright © 2017 onlinePlanting. All rights reserved.
 //
 

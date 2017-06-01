@@ -129,15 +129,15 @@ class OPLoginMainViewController: UIViewController {
     }
     
     func fetchCurrentUserObjects() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
-        let user = (try! appDelegate.dataStack.mainContext.fetch(request)) as! [User]
-        appDelegate.currentUser = user[0]
-        print("user information is: \(user[0].profile)")
+        if let user = OPDataService.sharedInstance.fetchCurrentUserObjects(loginUsername.text) {
+            appDelegate.currentUser = user
+        }
     }
     
     func loginSuccess() {
         NotificationCenter.default.post(name: Notification.Name(rawValue: "LoginSuccess"), object: nil)
+        guard let username = loginUsername.text else { return }
+        UserDefaults.standard.setValue(username, forKey: "last_logined_user")
         dismiss(animated: true, completion: nil)
     }
     

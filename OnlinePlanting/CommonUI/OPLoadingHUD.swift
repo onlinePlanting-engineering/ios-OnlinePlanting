@@ -37,7 +37,7 @@ class OPLoadingHUD: UIWindow {
     }
     
     fileprivate func show(_ image: UIImage?, title: String?, animated: Bool, delay: Double) {
-        self.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
+        self.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
         loadingView.icon = image
         loadingView.loadingTitle.text = title
         self.isHidden = false
@@ -46,11 +46,11 @@ class OPLoadingHUD: UIWindow {
                 OPLoadingHUD.sharedWindow.hide()
             })
         }
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: .curveEaseInOut, animations: {
-            self.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-            self.alpha = 1.0
-            self.loadingView.loadingImage.startLoadingAnimation(animated)
-        }, completion: nil)
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+            self?.alpha = 1.0
+            self?.loadingView.loadingImage.startLoadingAnimation(animated)
+        }
     }
     
     static func hide() {
@@ -59,11 +59,10 @@ class OPLoadingHUD: UIWindow {
     
     fileprivate func hide() {
         loadingView.startLoadingAnimation(false)
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.6, options: .curveEaseInOut, animations: {
-            self.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
-            self.alpha = 0.0
-            
-        }, completion: {[weak self] (finished) in
+        UIView.animate(withDuration: 0.2, animations: {[weak self] in
+            self?.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
+            self?.alpha = 0.0
+        }, completion: { [weak self](finished) in
             self?.isHidden = true
         })
         
