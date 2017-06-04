@@ -27,6 +27,10 @@ enum WebServiceAPIMapping: String {
     
     //Land & Metas
     case GetLandsById = "/api/land/lands/"
+    
+    //Vegetables
+    case GetSeedCategories = "/api/seed/categories/"
+    case GetSeedVegetables = "/api/seed/vegetables/"
 }
 
 

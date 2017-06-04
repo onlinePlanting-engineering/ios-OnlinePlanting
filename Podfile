@@ -12,4 +12,5 @@ target ‘OnlinePlanting’ do
     pod 'Sync', '~> 2.0’
     pod 'SDWebImage', '~>3.8'
     pod 'INSPhotoGallery'
+    pod 'Charts'
 end

@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.3.0)
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
   - DATAStack (7.0.1)
   - INSPhotoGallery (1.1.0)
   - KeychainAccess (3.0.2)
@@ -15,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.3.0)
+  - Charts
   - INSPhotoGallery
   - KeychainAccess (~> 3.0.1)
   - SDWebImage (~> 3.8)
@@ -24,6 +28,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   DATAStack: 9ca4ba8e8e4f389f1593ad3178d7a4d4df69d648
   INSPhotoGallery: 81056815e82fb7ee6f271ca017db5985b4f96d0a
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
@@ -33,6 +38,6 @@ SPEC CHECKSUMS:
   Sync: b02ce41aa8080049a2932fd7342fe189edb2298a
   SYNCPropertyMapper: b3157f5183285c8a25ba23877b95a06ec2547e73
 
-PODFILE CHECKSUM: 3a4620c84597eb7c62b52e007a8950a998709e2c
+PODFILE CHECKSUM: 92d2d17a128c8d165133191b944d6adc59b0b2d6
 
 COCOAPODS: 1.1.1

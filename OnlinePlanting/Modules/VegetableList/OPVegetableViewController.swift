@@ -8,17 +8,45 @@
 
 import UIKit
 
+enum VegetableViewType: Int {
+    case listView, collectionView
+}
+
 class OPVegetableViewController: UIViewController {
     
-    lazy var rightUserItem: UIBarButtonItem = {
-        let userImage = UIImage(named: "menu_collection")
-        let rightUserItem = UIBarButtonItem.createBarButtonItemWithImage(userImage!, CGRect(x: 0, y: 0, width: 22, height: 22), self, #selector(changeView))
-        return rightUserItem
+    fileprivate var type: VegetableViewType = .listView
+    fileprivate var vegetableContainerVC: OPVegetableContainerViewController?
+    
+    lazy var chooseAnimation: CAKeyframeAnimation = {
+        let chooseAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+        chooseAnimation.calculationMode = kCAAnimationCubic
+        chooseAnimation.values = [0.8,1.0,1.2,1.0]
+        chooseAnimation.duration = 0.3
+        return chooseAnimation
+    }()
+    
+    lazy var rightCollectionItem: UIBarButtonItem = {
+        let collectionImage = UIImage(named: "menu_collection")
+        let rightCollectionItem = UIBarButtonItem.createBarButtonItemWithImage(collectionImage!, CGRect(x: 0, y: 0, width: 26, height: 26), self, #selector(changeViewType))
+        return rightCollectionItem
+    }()
+    
+    lazy var rightTableItem: UIBarButtonItem = {
+        let tableImage = UIImage(named: "menu_list")
+        let rightTableItem = UIBarButtonItem.createBarButtonItemWithImage(tableImage!, CGRect(x: 0, y: 0, width: 28, height: 22), self, #selector(changeViewType))
+        return rightTableItem
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        OPDataService.sharedInstance.getVegetableList { (success, error) in
+            if success {
+                print("fetch vegetables data success")
+            } else {
+                print("fetch vegetables data failed")
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -33,24 +61,38 @@ class OPVegetableViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "vegetableContainer" {
+            vegetableContainerVC = segue.destination as? OPVegetableContainerViewController
+        }
+    }
+    
     func setNavigarationBar() {
-        navigationController?.navigationBar.topItem?.title = nil
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = rightUserItem
+        UIApplication.shared.statusBarStyle = .default
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSForegroundColorAttributeName: UIColor.init(hexString: "#2D363C")]
+        navigationController?.navigationBar.topItem?.title = "当季蔬菜"
+        
+        if type == .listView {
+            navigationController?.navigationBar.topItem?.rightBarButtonItem = rightTableItem
+        } else if type == .collectionView {
+            navigationController?.navigationBar.topItem?.rightBarButtonItem = rightCollectionItem
+        }
     }
 
     
 
-    func changeView() {
-        
+    func changeViewType() {
+        if type == .listView {
+            navigationController?.navigationBar.topItem?.rightBarButtonItem = rightCollectionItem
+            type = .collectionView
+            vegetableContainerVC?.swapViewControllers("collectionviewsegue")
+        } else if type == .collectionView {
+            navigationController?.navigationBar.topItem?.rightBarButtonItem = rightTableItem
+            type = .listView
+            vegetableContainerVC?.swapViewControllers("listviewsegue")
+        }
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

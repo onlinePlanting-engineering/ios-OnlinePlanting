@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2F21E09115B0F5A6A7788B79609CF77"
+               BlueprintIdentifier = "DE41DE30C5BD10F6FE53D2EE6CD21C30"
                BuildableName = "Regex.framework"
                BlueprintName = "STRegex"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2F21E09115B0F5A6A7788B79609CF77"
+            BlueprintIdentifier = "DE41DE30C5BD10F6FE53D2EE6CD21C30"
             BuildableName = "Regex.framework"
             BlueprintName = "STRegex"
             ReferencedContainer = "container:Pods.xcodeproj">

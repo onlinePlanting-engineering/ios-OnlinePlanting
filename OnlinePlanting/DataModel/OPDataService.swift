@@ -161,7 +161,7 @@ class OPDataService: NSObject {
                 }
             })
         }
-
+        
     }
     
     func getFarmComment(_ farmId: Int16?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
@@ -259,6 +259,23 @@ class OPDataService: NSObject {
         }
     }
     
+    func getVegetableList(handler:@escaping ((_ success:Bool, _ error:NSError?)->())){
+        Networking.shareInstance.getVegetableList { (success, json, error) in
+            guard let jsonData = json?["data"].arrayObject as? [[String : Any]] else {
+                handler(false, error)
+                return
+            }
+            
+            Sync.changes(jsonData, inEntityNamed: "SeedCategories", dataStack: appDelegate.dataStack, operations: [.Insert, .Update,], completion: {(error) in
+                if error != nil {
+                    handler(false, error)
+                } else {
+                   handler(true, nil)
+                }
+            })
+        }
+    }
+    
     func fetchCurrentFarmObjects() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
@@ -294,6 +311,31 @@ class OPDataService: NSObject {
         request.predicate = NSPredicate(format: "id in %@",landgroup)
         let lands = ((try! appDelegate.dataStack.mainContext.fetch(request)) as? [Land])
         return lands
+    }
+    
+    func updateVegetablesMeta(handler:@escaping ((_ success:Bool, _ error:NSError?)->())){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SeedVegetablesMeta")
+        request.sortDescriptors = [NSSortDescriptor(key: "url", ascending: true)]
+        guard let  vegetableMetas = ((try! appDelegate.dataStack.mainContext.fetch(request)) as? [SeedVegetablesMeta]) else { return }
+        
+        for vegetable in vegetableMetas {
+            var tempData = [String: Any]()
+            for key in vegetable.entity.attributesByName.keys {
+                tempData[key] = vegetable.value(forKey: key)
+            }
+            tempData["name_pingying"] = vegetable.name?.pinyin
+            if let section = vegetable.name?.pinyin.uppercased().characters.first {
+                tempData["uppercaseFirstLetterOfName"] = String.init(section)
+                Sync.changes([tempData], inEntityNamed: "SeedVegetablesMeta", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
+                    if error != nil {
+                        handler(false, error)
+                    } else {
+                        handler(true, nil)
+                    }
+                })
+
+            }
+        }
     }
     
 }

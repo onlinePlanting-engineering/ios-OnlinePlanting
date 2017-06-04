@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DATAStack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,7 +67,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D8DCBC3FFBCFA19CEAE903ED8C9E37D</key>
+		<key>124EA96AE953AE0852BF19B8626580D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>739C4A6D232B4F5A1662AFC2CCF870D2</key>
+		<key>6D4E4CD9883CF29CFA5B53C80A821AC4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,27 +97,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8C7BAC952FFE0E104EF26AD695196B00</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B2F21E09115B0F5A6A7788B79609CF77</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C78830FFF562149B4B693AB9DB8D3DF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DFBECB845809A71BDED200DA0ECB22D7</key>
+		<key>D95B5CB5EB74258569D6C3E51DDA8B63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F95F980CFE6C256B7FF66AF3F92B61BA</key>
+		<key>DE41DE30C5BD10F6FE53D2EE6CD21C30</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E71D305F08A91E3AA2A33EFBC1417E9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EEFF316B333DD1D790201F3C57F9CE10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F307B842FF76B2DE6C55DB67C0885325</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -16,6 +16,16 @@
 		182E98A51ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E98A31ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift */; };
 		182E98A61ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182E98A41ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.xib */; };
 		182E98A81ED71702006FEBBA /* LandOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E98A71ED71702006FEBBA /* LandOverviewViewController.swift */; };
+		18340A0A1EE1B14E00205A5C /* SeedVegetables+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18340A021EE1B14E00205A5C /* SeedVegetables+CoreDataClass.swift */; };
+		18340A0B1EE1B14E00205A5C /* SeedVegetables+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18340A031EE1B14E00205A5C /* SeedVegetables+CoreDataProperties.swift */; };
+		18340A0C1EE1B14E00205A5C /* ImageURL+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18340A041EE1B14E00205A5C /* ImageURL+CoreDataClass.swift */; };
+		18340A0D1EE1B14E00205A5C /* ImageURL+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18340A051EE1B14E00205A5C /* ImageURL+CoreDataProperties.swift */; };
+		18340A0E1EE1B14E00205A5C /* SeedCategories+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18340A061EE1B14E00205A5C /* SeedCategories+CoreDataClass.swift */; };
+		18340A0F1EE1B14E00205A5C /* SeedCategories+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18340A071EE1B14E00205A5C /* SeedCategories+CoreDataProperties.swift */; };
+		18340A121EE1B32E00205A5C /* OPVegetableMetaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18340A111EE1B32E00205A5C /* OPVegetableMetaTableViewCell.swift */; };
+		18340A281EE28CFE00205A5C /* OPVegetableMetaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18340A271EE28CFE00205A5C /* OPVegetableMetaCollectionViewCell.swift */; };
+		18340A2B1EE290B800205A5C /* OPVegetableCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18340A291EE290B800205A5C /* OPVegetableCollectionReusableView.swift */; };
+		18340A2C1EE290B800205A5C /* OPVegetableCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18340A2A1EE290B800205A5C /* OPVegetableCollectionReusableView.xib */; };
 		183D82711EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 183D826F1EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld */; };
 		183D82771EB647DF00B9F028 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183D82761EB647DF00B9F028 /* AppDelegate.swift */; };
 		183D82821EB64AE200B9F028 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183D827E1EB64AE200B9F028 /* LaunchScreen.storyboard */; };
@@ -30,8 +40,6 @@
 		1845F2F31EC3696C0061E259 /* OPLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845F2F21EC3696C0061E259 /* OPLoadingIndicator.swift */; };
 		184E67E01EDB953500CF2DE3 /* LandURL+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67CE1EDB953500CF2DE3 /* LandURL+CoreDataClass.swift */; };
 		184E67E11EDB953500CF2DE3 /* LandURL+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67CF1EDB953500CF2DE3 /* LandURL+CoreDataProperties.swift */; };
-		184E67E21EDB953500CF2DE3 /* ImageURL+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67D01EDB953500CF2DE3 /* ImageURL+CoreDataClass.swift */; };
-		184E67E31EDB953500CF2DE3 /* ImageURL+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67D11EDB953500CF2DE3 /* ImageURL+CoreDataProperties.swift */; };
 		184E67E61EDB953500CF2DE3 /* Comment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67D41EDB953500CF2DE3 /* Comment+CoreDataClass.swift */; };
 		184E67E71EDB953500CF2DE3 /* Comment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67D51EDB953500CF2DE3 /* Comment+CoreDataProperties.swift */; };
 		184E67E81EDB953500CF2DE3 /* ImageGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E67D61EDB953500CF2DE3 /* ImageGroup+CoreDataClass.swift */; };
@@ -109,6 +117,14 @@
 		18C1F06A1EB63E0E001D611B /* NetworkingAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C1E6861EB63E0B001D611B /* NetworkingAPIs.swift */; };
 		18DA4FC71EE05ADA0025BC51 /* OPVegetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA4FC61EE05ADA0025BC51 /* OPVegetableViewController.swift */; };
 		18DA4FCD1EE05D1A0025BC51 /* OPVegetable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DA4FCC1EE05D1A0025BC51 /* OPVegetable.storyboard */; };
+		18DA4FCF1EE0CA0D0025BC51 /* OPVegetableContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA4FCE1EE0CA0D0025BC51 /* OPVegetableContainerViewController.swift */; };
+		18DA4FD11EE0CA470025BC51 /* OPVegetableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA4FD01EE0CA470025BC51 /* OPVegetableTableViewController.swift */; };
+		18DA4FD31EE0CA630025BC51 /* OPVegetableCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA4FD21EE0CA630025BC51 /* OPVegetableCollectionViewController.swift */; };
+		18DF84401EE2C07700E5E4A6 /* PopInAndOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF843F1EE2C07700E5E4A6 /* PopInAndOutAnimator.swift */; };
+		18DF84421EE2C58600E5E4A6 /* OPVegetableDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF84411EE2C58600E5E4A6 /* OPVegetableDetailedViewController.swift */; };
+		18DF84441EE2D9BA00E5E4A6 /* CollectionPushAndPoppable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF84431EE2D9BA00E5E4A6 /* CollectionPushAndPoppable.swift */; };
+		18DF844B1EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF84491EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataClass.swift */; };
+		18DF844C1EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF844A1EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataProperties.swift */; };
 		18E31DBB1EC9AA76004A8505 /* FarmActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DB91EC9AA76004A8505 /* FarmActivityTableViewCell.swift */; };
 		18E31DBC1EC9AA76004A8505 /* FarmActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E31DBA1EC9AA76004A8505 /* FarmActivityTableViewCell.xib */; };
 		18E31DBE1EC9B108004A8505 /* OPActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DBD1EC9B108004A8505 /* OPActivityTableViewController.swift */; };
@@ -154,6 +170,16 @@
 		182E98A31ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumHeaderCollectionReusableView.swift; path = Farm/View/AlbumHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		182E98A41ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlbumHeaderCollectionReusableView.xib; path = Farm/View/AlbumHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		182E98A71ED71702006FEBBA /* LandOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandOverviewViewController.swift; path = Farm/Land/LandOverviewViewController.swift; sourceTree = "<group>"; };
+		18340A021EE1B14E00205A5C /* SeedVegetables+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SeedVegetables+CoreDataClass.swift"; sourceTree = "<group>"; };
+		18340A031EE1B14E00205A5C /* SeedVegetables+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SeedVegetables+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18340A041EE1B14E00205A5C /* ImageURL+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageURL+CoreDataClass.swift"; sourceTree = "<group>"; };
+		18340A051EE1B14E00205A5C /* ImageURL+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageURL+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18340A061EE1B14E00205A5C /* SeedCategories+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SeedCategories+CoreDataClass.swift"; sourceTree = "<group>"; };
+		18340A071EE1B14E00205A5C /* SeedCategories+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SeedCategories+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18340A111EE1B32E00205A5C /* OPVegetableMetaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPVegetableMetaTableViewCell.swift; path = View/OPVegetableMetaTableViewCell.swift; sourceTree = "<group>"; };
+		18340A271EE28CFE00205A5C /* OPVegetableMetaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPVegetableMetaCollectionViewCell.swift; sourceTree = "<group>"; };
+		18340A291EE290B800205A5C /* OPVegetableCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPVegetableCollectionReusableView.swift; sourceTree = "<group>"; };
+		18340A2A1EE290B800205A5C /* OPVegetableCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPVegetableCollectionReusableView.xib; sourceTree = "<group>"; };
 		183D82701EB6442D00B9F028 /* OnlinePlanting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OnlinePlanting.xcdatamodel; sourceTree = "<group>"; };
 		183D82761EB647DF00B9F028 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		183D827F1EB64AE200B9F028 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -169,8 +195,6 @@
 		1845F2F21EC3696C0061E259 /* OPLoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPLoadingIndicator.swift; sourceTree = "<group>"; };
 		184E67CE1EDB953500CF2DE3 /* LandURL+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LandURL+CoreDataClass.swift"; sourceTree = "<group>"; };
 		184E67CF1EDB953500CF2DE3 /* LandURL+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LandURL+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		184E67D01EDB953500CF2DE3 /* ImageURL+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageURL+CoreDataClass.swift"; sourceTree = "<group>"; };
-		184E67D11EDB953500CF2DE3 /* ImageURL+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageURL+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		184E67D41EDB953500CF2DE3 /* Comment+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comment+CoreDataClass.swift"; sourceTree = "<group>"; };
 		184E67D51EDB953500CF2DE3 /* Comment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		184E67D61EDB953500CF2DE3 /* ImageGroup+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageGroup+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -254,6 +278,14 @@
 		18C1E6861EB63E0B001D611B /* NetworkingAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAPIs.swift; sourceTree = "<group>"; };
 		18DA4FC61EE05ADA0025BC51 /* OPVegetableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPVegetableViewController.swift; sourceTree = "<group>"; };
 		18DA4FCC1EE05D1A0025BC51 /* OPVegetable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OPVegetable.storyboard; sourceTree = "<group>"; };
+		18DA4FCE1EE0CA0D0025BC51 /* OPVegetableContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPVegetableContainerViewController.swift; sourceTree = "<group>"; };
+		18DA4FD01EE0CA470025BC51 /* OPVegetableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPVegetableTableViewController.swift; sourceTree = "<group>"; };
+		18DA4FD21EE0CA630025BC51 /* OPVegetableCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPVegetableCollectionViewController.swift; sourceTree = "<group>"; };
+		18DF843F1EE2C07700E5E4A6 /* PopInAndOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopInAndOutAnimator.swift; sourceTree = "<group>"; };
+		18DF84411EE2C58600E5E4A6 /* OPVegetableDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPVegetableDetailedViewController.swift; sourceTree = "<group>"; };
+		18DF84431EE2D9BA00E5E4A6 /* CollectionPushAndPoppable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionPushAndPoppable.swift; sourceTree = "<group>"; };
+		18DF84491EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SeedVegetablesMeta+CoreDataClass.swift"; sourceTree = "<group>"; };
+		18DF844A1EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SeedVegetablesMeta+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18E31DB91EC9AA76004A8505 /* FarmActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FarmActivityTableViewCell.swift; path = Farm/View/FarmActivityTableViewCell.swift; sourceTree = "<group>"; };
 		18E31DBA1EC9AA76004A8505 /* FarmActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FarmActivityTableViewCell.xib; path = Farm/View/FarmActivityTableViewCell.xib; sourceTree = "<group>"; };
 		18E31DBD1EC9B108004A8505 /* OPActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPActivityTableViewController.swift; path = Farm/OPActivityTableViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +356,17 @@
 				7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		18340A101EE1B27E00205A5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18340A111EE1B32E00205A5C /* OPVegetableMetaTableViewCell.swift */,
+				18340A271EE28CFE00205A5C /* OPVegetableMetaCollectionViewCell.swift */,
+				18340A291EE290B800205A5C /* OPVegetableCollectionReusableView.swift */,
+				18340A2A1EE290B800205A5C /* OPVegetableCollectionReusableView.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		183D828E1EB64CB300B9F028 /* SMS_SDK */ = {
@@ -448,6 +491,8 @@
 			children = (
 				1894AB3D1EC7EF0C004DED5E /* Comment */,
 				1845F2F21EC3696C0061E259 /* OPLoadingIndicator.swift */,
+				18DF84431EE2D9BA00E5E4A6 /* CollectionPushAndPoppable.swift */,
+				18DF843F1EE2C07700E5E4A6 /* PopInAndOutAnimator.swift */,
 				187F4B471EC011F4000AA4DB /* OPTransitioningAnimator.swift */,
 				18C1E6651EB63E0B001D611B /* CoreDataCollectionViewController.swift */,
 				18C1E6661EB63E0B001D611B /* CoreDataTableViewController.swift */,
@@ -464,6 +509,14 @@
 		18C1E66A1EB63E0B001D611B /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				18DF84491EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataClass.swift */,
+				18DF844A1EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataProperties.swift */,
+				18340A021EE1B14E00205A5C /* SeedVegetables+CoreDataClass.swift */,
+				18340A031EE1B14E00205A5C /* SeedVegetables+CoreDataProperties.swift */,
+				18340A041EE1B14E00205A5C /* ImageURL+CoreDataClass.swift */,
+				18340A051EE1B14E00205A5C /* ImageURL+CoreDataProperties.swift */,
+				18340A061EE1B14E00205A5C /* SeedCategories+CoreDataClass.swift */,
+				18340A071EE1B14E00205A5C /* SeedCategories+CoreDataProperties.swift */,
 				184E68021EDE3E5500CF2DE3 /* Land+CoreDataClass.swift */,
 				184E68031EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift */,
 				184E67FE1EDD48B700CF2DE3 /* Images+CoreDataClass.swift */,
@@ -474,8 +527,6 @@
 				184E67F71EDB971F00CF2DE3 /* User+CoreDataProperties.swift */,
 				184E67CE1EDB953500CF2DE3 /* LandURL+CoreDataClass.swift */,
 				184E67CF1EDB953500CF2DE3 /* LandURL+CoreDataProperties.swift */,
-				184E67D01EDB953500CF2DE3 /* ImageURL+CoreDataClass.swift */,
-				184E67D11EDB953500CF2DE3 /* ImageURL+CoreDataProperties.swift */,
 				184E67D41EDB953500CF2DE3 /* Comment+CoreDataClass.swift */,
 				184E67D51EDB953500CF2DE3 /* Comment+CoreDataProperties.swift */,
 				184E67D61EDB953500CF2DE3 /* ImageGroup+CoreDataClass.swift */,
@@ -565,8 +616,13 @@
 		18C1E6801EB63E0B001D611B /* VegetableList */ = {
 			isa = PBXGroup;
 			children = (
+				18340A101EE1B27E00205A5C /* View */,
+				18DA4FCE1EE0CA0D0025BC51 /* OPVegetableContainerViewController.swift */,
+				18DF84411EE2C58600E5E4A6 /* OPVegetableDetailedViewController.swift */,
 				18DA4FCC1EE05D1A0025BC51 /* OPVegetable.storyboard */,
 				18DA4FC61EE05ADA0025BC51 /* OPVegetableViewController.swift */,
+				18DA4FD01EE0CA470025BC51 /* OPVegetableTableViewController.swift */,
+				18DA4FD21EE0CA630025BC51 /* OPVegetableCollectionViewController.swift */,
 			);
 			path = VegetableList;
 			sourceTree = "<group>";
@@ -730,6 +786,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18340A2C1EE290B800205A5C /* OPVegetableCollectionReusableView.xib in Resources */,
 				18C1F05F1EB63E0E001D611B /* Login.storyboard in Resources */,
 				1897E6A91EB99A8C008BC24D /* OPMeTableViewCell.xib in Resources */,
 				183D82821EB64AE200B9F028 /* LaunchScreen.storyboard in Resources */,
@@ -821,37 +878,45 @@
 			files = (
 				184E68011EDD48B700CF2DE3 /* Images+CoreDataProperties.swift in Sources */,
 				183D82771EB647DF00B9F028 /* AppDelegate.swift in Sources */,
-				184E67E21EDB953500CF2DE3 /* ImageURL+CoreDataClass.swift in Sources */,
 				18E31DFC1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift in Sources */,
 				18C1F0681EB63E0E001D611B /* Networking.swift in Sources */,
+				18340A0F1EE1B14E00205A5C /* SeedCategories+CoreDataProperties.swift in Sources */,
 				18C1F06A1EB63E0E001D611B /* NetworkingAPIs.swift in Sources */,
 				18E31DBE1EC9B108004A8505 /* OPActivityTableViewController.swift in Sources */,
 				18C1F05E1EB63E0E001D611B /* OPLiveViewController.swift in Sources */,
+				18DF84441EE2D9BA00E5E4A6 /* CollectionPushAndPoppable.swift in Sources */,
 				1897E6A81EB99A8C008BC24D /* OPMeTableViewCell.swift in Sources */,
 				18C1F0541EB63E0E001D611B /* CoreDataTableViewController.swift in Sources */,
 				189052E51EC1EDE100F8DB1A /* OPFarmContainerViewController.swift in Sources */,
+				18DA4FCF1EE0CA0D0025BC51 /* OPVegetableContainerViewController.swift in Sources */,
 				184E67EC1EDB953500CF2DE3 /* CommentURL+CoreDataClass.swift in Sources */,
 				184E67E81EDB953500CF2DE3 /* ImageGroup+CoreDataClass.swift in Sources */,
 				184E67ED1EDB953500CF2DE3 /* CommentURL+CoreDataProperties.swift in Sources */,
 				1894AB451EC89C6C004DED5E /* OPCommentTextView.swift in Sources */,
 				18C1F0531EB63E0E001D611B /* CoreDataCollectionViewController.swift in Sources */,
+				18DA4FD31EE0CA630025BC51 /* OPVegetableCollectionViewController.swift in Sources */,
 				184E67EA1EDB953500CF2DE3 /* Meta+CoreDataClass.swift in Sources */,
 				183D82891EB64B6400B9F028 /* String+Ext.swift in Sources */,
 				18C1F0551EB63E0E001D611B /* OPTabBarController.swift in Sources */,
 				1885BCB11EB97DDB0099EAEA /* OPMeTableViewController.swift in Sources */,
 				18C1F0651EB63E0E001D611B /* OPMyGardenViewController.swift in Sources */,
 				182E98A81ED71702006FEBBA /* LandOverviewViewController.swift in Sources */,
+				18340A0B1EE1B14E00205A5C /* SeedVegetables+CoreDataProperties.swift in Sources */,
 				187F4B481EC011F4000AA4DB /* OPTransitioningAnimator.swift in Sources */,
 				18E31DF21ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift in Sources */,
+				18DF84421EE2C58600E5E4A6 /* OPVegetableDetailedViewController.swift in Sources */,
 				18E810C51EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift in Sources */,
 				18F6F64B1ED32D98006FB8A3 /* OPLandSelectedCollectionViewCell.swift in Sources */,
 				1894AB371EC5E538004DED5E /* OPFarmCommentViewController.swift in Sources */,
 				184E67FD1EDCD8C200CF2DE3 /* Farm+CoreDataProperties.swift in Sources */,
 				18E810C81EC028A000EDA5D8 /* OPFarmTableViewCell.swift in Sources */,
+				18DA4FD11EE0CA470025BC51 /* OPVegetableTableViewController.swift in Sources */,
 				184E67E71EDB953500CF2DE3 /* Comment+CoreDataProperties.swift in Sources */,
+				18340A0C1EE1B14E00205A5C /* ImageURL+CoreDataClass.swift in Sources */,
 				1897E6AB1EB9C58B008BC24D /* ProfileViewController.swift in Sources */,
 				18C06B771EBA9657007DDC09 /* UIViewController+Ext.swift in Sources */,
 				183D82711EB6442D00B9F028 /* OnlinePlanting.xcdatamodeld in Sources */,
+				18340A0A1EE1B14E00205A5C /* SeedVegetables+CoreDataClass.swift in Sources */,
 				187F4B2E1EBBE444000AA4DB /* UpdateProfileTableViewController.swift in Sources */,
 				1855E8B61ED10A0400D57019 /* OPFarmRendNoticeViewController.swift in Sources */,
 				187F4B3C1EBC41A2000AA4DB /* Location+CoreDataProperties.swift in Sources */,
@@ -864,9 +929,10 @@
 				1845F2F31EC3696C0061E259 /* OPLoadingIndicator.swift in Sources */,
 				18C1F0571EB63E0E001D611B /* OPToastWindow.swift in Sources */,
 				18F6F6491ED31EA5006FB8A3 /* OPLandCollectionViewCell.swift in Sources */,
+				18340A0E1EE1B14E00205A5C /* SeedCategories+CoreDataClass.swift in Sources */,
+				18340A2B1EE290B800205A5C /* OPVegetableCollectionReusableView.swift in Sources */,
 				184E68051EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift in Sources */,
 				18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */,
-				184E67E31EDB953500CF2DE3 /* ImageURL+CoreDataProperties.swift in Sources */,
 				18E31DBB1EC9AA76004A8505 /* FarmActivityTableViewCell.swift in Sources */,
 				18C1F0561EB63E0E001D611B /* OPTextField.swift in Sources */,
 				182E98A51ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift in Sources */,
@@ -874,13 +940,17 @@
 				18F6F6471ED30322006FB8A3 /* OPSingleLandViewController.swift in Sources */,
 				18C1F0671EB63E0E001D611B /* OPFarmListViewController.swift in Sources */,
 				1894AB471EC89D6F004DED5E /* OPCommentInputView.swift in Sources */,
+				18340A281EE28CFE00205A5C /* OPVegetableMetaCollectionViewCell.swift in Sources */,
+				18DF844B1EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataClass.swift in Sources */,
 				18E31DF01ECB4DFA004A8505 /* TimeUtils.swift in Sources */,
+				18340A0D1EE1B14E00205A5C /* ImageURL+CoreDataProperties.swift in Sources */,
 				18B282331EB85D6300010595 /* Common.swift in Sources */,
 				18C1F0631EB63E0E001D611B /* OPMeViewController.swift in Sources */,
 				184E67E61EDB953500CF2DE3 /* Comment+CoreDataClass.swift in Sources */,
 				184E67FC1EDCD8C200CF2DE3 /* Farm+CoreDataClass.swift in Sources */,
 				189052E71EC1EF4F00F8DB1A /* OPFarmContentViewController.swift in Sources */,
 				1818CD541EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift in Sources */,
+				18DF84401EE2C07700E5E4A6 /* PopInAndOutAnimator.swift in Sources */,
 				184E67E01EDB953500CF2DE3 /* LandURL+CoreDataClass.swift in Sources */,
 				18DA4FC71EE05ADA0025BC51 /* OPVegetableViewController.swift in Sources */,
 				187F4B421EBF3431000AA4DB /* OPLoadingHUD.swift in Sources */,
@@ -903,9 +973,11 @@
 				184E68001EDD48B700CF2DE3 /* Images+CoreDataClass.swift in Sources */,
 				187F4B311EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift in Sources */,
 				18C1F0691EB63E0E001D611B /* NetworkingAPIMapping.swift in Sources */,
+				18DF844C1EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataProperties.swift in Sources */,
 				18C1F0611EB63E0E001D611B /* OPLoginMainViewController.swift in Sources */,
 				184E68041EDE3E5500CF2DE3 /* Land+CoreDataClass.swift in Sources */,
 				18C06B751EBA91C0007DDC09 /* OPSplitBaseViewController.swift in Sources */,
+				18340A121EE1B32E00205A5C /* OPVegetableMetaTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

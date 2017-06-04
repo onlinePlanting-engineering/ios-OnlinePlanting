@@ -76,6 +76,10 @@ extension Networking {
         _ = syncWithAppServer(deleteCommentUrl, httpMethod: .delete, httpHeaders: getFarmHeader(), urlParams: nil,params: nil, handler: handler)
     }
     
+    func getVegetableList(handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())){
+        _ = syncWithAppServer(WebServiceAPIMapping.GetSeedCategories.rawValue, httpMethod: .get, httpHeaders: getFarmHeader(), urlParams: nil,params: nil, handler: handler)
+    }
+    
     
     fileprivate func syncWithAppServer(_ apiMapping: String, httpMethod: HTTPMethod ,httpHeaders: HTTPHeaders? = nil, urlParams:[String: Any?]? = nil, params:[String: Any?]? = nil, handler: @escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) -> DataRequest? {
         
