@@ -16,7 +16,9 @@ class OPVegetableDetailedViewController: UIViewController {
     @IBOutlet weak var comment: UIView!
     @IBOutlet weak var price: UIView!
     @IBOutlet weak var cycle: UIView!
+    @IBOutlet weak var checkDetailedButton: UIButton!
     
+    @IBOutlet weak var checkCommentButton: UIButton!
     
     @IBOutlet weak var bottom: UIView!
     @IBOutlet weak var titleLable: UIView!
@@ -89,6 +91,12 @@ class OPVegetableDetailedViewController: UIViewController {
         detaildInfor.layer.borderWidth = 1.5
         detaildInfor.layer.cornerRadius = 4
         detaildInfor.layer.masksToBounds = true
+        
+        checkDetailedButton.layer.cornerRadius = 4
+        checkDetailedButton.layer.masksToBounds = true
+        
+        checkCommentButton.layer.cornerRadius = 4
+        checkCommentButton.layer.masksToBounds = true
         
     }
     

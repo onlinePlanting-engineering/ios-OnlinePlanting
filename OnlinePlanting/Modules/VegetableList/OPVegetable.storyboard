@@ -206,10 +206,11 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-o2-ijE">
-                                                        <rect key="frame" x="24" y="104" width="30" height="29"/>
+                                                        <rect key="frame" x="12" y="104" width="54.5" height="29"/>
+                                                        <color key="backgroundColor" red="0.47450980390000003" green="0.80000000000000004" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <state key="normal" title="查看">
-                                                            <color key="titleColor" red="0.1764705882" green="0.21176470589999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                     </button>
                                                 </subviews>
@@ -222,6 +223,7 @@
                                                     <constraint firstItem="2Wy-o2-ijE" firstAttribute="centerX" secondItem="BhW-o8-e2K" secondAttribute="centerX" id="To4-4N-aeh"/>
                                                     <constraint firstItem="B5F-0q-7wI" firstAttribute="width" secondItem="BhW-o8-e2K" secondAttribute="width" multiplier="0.6" id="a80-q5-jL4"/>
                                                     <constraint firstItem="B5F-0q-7wI" firstAttribute="centerX" secondItem="BhW-o8-e2K" secondAttribute="centerX" id="fs3-sY-D7C"/>
+                                                    <constraint firstItem="2Wy-o2-ijE" firstAttribute="width" secondItem="BhW-o8-e2K" secondAttribute="width" multiplier="0.7" id="nib-Fk-z3N"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWd-f3-mmX">
@@ -299,25 +301,28 @@
                                                             <constraint firstAttribute="height" constant="36" id="ijJ-fM-d6R"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfQ-4u-FZ5">
-                                                        <rect key="frame" x="8.5" y="66" width="61.5" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25条评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfQ-4u-FZ5">
+                                                        <rect key="frame" x="7.5" y="66" width="64" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="0.1764705882" green="0.21176470589999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25条评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUB-RT-o4i">
-                                                        <rect key="frame" x="9" y="109" width="60" height="17"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce6-Bs-RoD">
+                                                        <rect key="frame" x="11.5" y="104" width="54.5" height="29"/>
+                                                        <color key="backgroundColor" red="0.47450980390000003" green="0.80000000000000004" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" red="0.1764705882" green="0.21176470589999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <state key="normal" title="查看">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="WfQ-4u-FZ5" firstAttribute="centerX" secondItem="rL6-kd-8Tf" secondAttribute="centerX" id="2KC-gf-cXF"/>
-                                                    <constraint firstItem="CUB-RT-o4i" firstAttribute="centerX" secondItem="rL6-kd-8Tf" secondAttribute="centerX" id="3le-VT-adT"/>
+                                                    <constraint firstItem="ce6-Bs-RoD" firstAttribute="centerX" secondItem="rL6-kd-8Tf" secondAttribute="centerX" id="Bs3-Ht-EaA"/>
                                                     <constraint firstItem="WfQ-4u-FZ5" firstAttribute="top" secondItem="iDs-Dv-b8q" secondAttribute="bottom" constant="20" id="HPF-Sk-7QK"/>
-                                                    <constraint firstItem="CUB-RT-o4i" firstAttribute="top" secondItem="WfQ-4u-FZ5" secondAttribute="bottom" constant="25" id="Xb1-vn-3HP"/>
+                                                    <constraint firstItem="ce6-Bs-RoD" firstAttribute="top" secondItem="WfQ-4u-FZ5" secondAttribute="bottom" constant="20" id="LC8-Qi-AIs"/>
+                                                    <constraint firstItem="ce6-Bs-RoD" firstAttribute="width" secondItem="rL6-kd-8Tf" secondAttribute="width" multiplier="0.7" id="P8g-tf-AL4"/>
                                                     <constraint firstItem="iDs-Dv-b8q" firstAttribute="centerX" secondItem="rL6-kd-8Tf" secondAttribute="centerX" id="eo2-6D-IXz"/>
                                                     <constraint firstItem="iDs-Dv-b8q" firstAttribute="top" secondItem="rL6-kd-8Tf" secondAttribute="top" constant="10" id="rid-ca-ukI"/>
                                                     <constraint firstItem="iDs-Dv-b8q" firstAttribute="width" secondItem="rL6-kd-8Tf" secondAttribute="width" multiplier="0.6" id="uRz-e1-QkB"/>
@@ -345,15 +350,25 @@
                                             <constraint firstItem="rL6-kd-8Tf" firstAttribute="leading" secondItem="5iM-yQ-Hxg" secondAttribute="trailing" constant="10" id="wR2-o6-h2X"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="备注：以上蔬菜的生长周期以及市场价格都是平均价格，具体信息可能会随地域和时间变化。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDm-MJ-Tmr">
+                                        <rect key="frame" x="9.5" y="626" width="356.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.1764705882" green="0.21176470589999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="wDm-MJ-Tmr" firstAttribute="top" secondItem="lJB-xF-RVb" secondAttribute="bottom" id="0LT-TO-dBq"/>
+                                    <constraint firstAttribute="bottom" secondItem="wDm-MJ-Tmr" secondAttribute="bottom" id="1T7-vU-9Ql"/>
                                     <constraint firstItem="4IY-58-JLZ" firstAttribute="top" secondItem="kNm-ZB-1le" secondAttribute="bottom" id="AAm-G5-CqW"/>
                                     <constraint firstItem="lJB-xF-RVb" firstAttribute="centerX" secondItem="q7x-Un-E9U" secondAttribute="centerX" id="Dkw-7Q-P8E"/>
                                     <constraint firstItem="4IY-58-JLZ" firstAttribute="width" secondItem="q7x-Un-E9U" secondAttribute="width" multiplier="0.95" id="EFl-AO-UQo"/>
+                                    <constraint firstItem="wDm-MJ-Tmr" firstAttribute="width" secondItem="q7x-Un-E9U" secondAttribute="width" multiplier="0.95" id="GcF-tG-kkR"/>
                                     <constraint firstItem="vor-JZ-zVj" firstAttribute="leading" secondItem="q7x-Un-E9U" secondAttribute="leading" id="O8r-ml-FbC"/>
                                     <constraint firstItem="kNm-ZB-1le" firstAttribute="width" secondItem="q7x-Un-E9U" secondAttribute="width" id="RaV-yd-zEK"/>
                                     <constraint firstItem="kNm-ZB-1le" firstAttribute="top" secondItem="vor-JZ-zVj" secondAttribute="bottom" id="XHI-ax-Uy3"/>
+                                    <constraint firstItem="wDm-MJ-Tmr" firstAttribute="centerX" secondItem="q7x-Un-E9U" secondAttribute="centerX" id="cru-Tn-tPc"/>
                                     <constraint firstItem="4IY-58-JLZ" firstAttribute="centerX" secondItem="q7x-Un-E9U" secondAttribute="centerX" id="eCf-LL-RId"/>
                                     <constraint firstItem="vor-JZ-zVj" firstAttribute="top" secondItem="q7x-Un-E9U" secondAttribute="top" constant="64" id="emn-s7-hMa"/>
                                     <constraint firstItem="kNm-ZB-1le" firstAttribute="centerX" secondItem="q7x-Un-E9U" secondAttribute="centerX" id="rlC-rm-alj"/>
@@ -375,6 +390,8 @@
                     <navigationItem key="navigationItem" id="wt4-yV-dN3"/>
                     <connections>
                         <outlet property="bottom" destination="lJB-xF-RVb" id="Pja-0E-YDx"/>
+                        <outlet property="checkCommentButton" destination="ce6-Bs-RoD" id="ngV-Eg-An6"/>
+                        <outlet property="checkDetailedButton" destination="2Wy-o2-ijE" id="c9u-aI-qM4"/>
                         <outlet property="comment" destination="rL6-kd-8Tf" id="ZZ6-DN-gga"/>
                         <outlet property="cycle" destination="vWd-f3-mmX" id="7iI-b7-IVg"/>
                         <outlet property="detaildInfor" destination="BhW-o8-e2K" id="u9W-gl-dmK"/>
