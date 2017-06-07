@@ -34,8 +34,6 @@ class OPVegetableDetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        vegetableImage.image = picture
         
         prepareUI()
         // Do any additional setup after loading the view.
@@ -68,6 +66,8 @@ class OPVegetableDetailedViewController: UIViewController {
         setChartBubble(months, plant: plant, harvest: harvest)
         
         showAnimation()
+        
+        vegetableImage.image = picture
         
     }
     
@@ -147,6 +147,7 @@ class OPVegetableDetailedViewController: UIViewController {
     
     func dismissCurrentView() {
         navigationController?.popViewController(animated: true)
+        //dismiss(animated: true, completion: nil)
     }
     
     func setChartBubble(_ dataPoints: [String], plant: [Double], harvest: [Double]) {

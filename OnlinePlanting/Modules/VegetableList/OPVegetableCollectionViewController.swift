@@ -87,6 +87,18 @@ class OPVegetableCollectionViewController: CoreDataCollectionViewController, UIC
             detailedVc?.vegetabletitle = meta?.name
         }
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        sourceCell = collectionView.cellForItem(at: indexPath)
+        let nav = UIStoryboard.init(name: "OPVegetable", bundle: nil).instantiateViewController(withIdentifier: "vegetableDetailNav") as? UINavigationController
+        detailedVc = nav?.childViewControllers.first as? OPVegetableDetailedViewController
+        detailedVc?.picture = (sourceCell as? OPVegetableMetaCollectionViewCell)?.collectionImage.image
+        guard let cell = sourceCell, let cellindexPath = collectionView.indexPath(for: cell) else { return }
+        let meta = self.fetchedResultsController?.object(at: cellindexPath) as? SeedVegetablesMeta
+        detailedVc?.vegetabletitle = meta?.name
+        guard let vegetableNav = detailedVc else { return }
+        navigationController?.pushViewController(vegetableNav, animated: true)
+    }
 
 }
 
