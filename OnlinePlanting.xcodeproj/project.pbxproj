@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180318751EE848DE00DBCBA0 /* OPTableIViewPopInAndOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180318741EE848DE00DBCBA0 /* OPTableIViewPopInAndOutAnimator.swift */; };
 		180688CD1EB8C28300CEE3BF /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180688C91EB8C28300CEE3BF /* Profile+CoreDataClass.swift */; };
 		180688CE1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180688CA1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift */; };
 		1818CD541EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */; };
@@ -161,6 +162,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180318741EE848DE00DBCBA0 /* OPTableIViewPopInAndOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPTableIViewPopInAndOutAnimator.swift; sourceTree = "<group>"; };
 		180688C91EB8C28300CEE3BF /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		180688CA1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeDetailedTableViewCell.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				18C06B741EBA91C0007DDC09 /* OPSplitBaseViewController.swift */,
 				187F4B411EBF3431000AA4DB /* OPLoadingHUD.swift */,
 				189052EC1EC1F0CE00F8DB1A /* OPSegue.swift */,
+				180318741EE848DE00DBCBA0 /* OPTableIViewPopInAndOutAnimator.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -921,6 +924,7 @@
 				1855E8B61ED10A0400D57019 /* OPFarmRendNoticeViewController.swift in Sources */,
 				187F4B3C1EBC41A2000AA4DB /* Location+CoreDataProperties.swift in Sources */,
 				18F6F6431ED3018E006FB8A3 /* OPLandPageViewController.swift in Sources */,
+				180318751EE848DE00DBCBA0 /* OPTableIViewPopInAndOutAnimator.swift in Sources */,
 				189052ED1EC1F0CE00F8DB1A /* OPSegue.swift in Sources */,
 				18F6F6451ED301AD006FB8A3 /* OPLandViewController.swift in Sources */,
 				184E67E91EDB953500CF2DE3 /* ImageGroup+CoreDataProperties.swift in Sources */,

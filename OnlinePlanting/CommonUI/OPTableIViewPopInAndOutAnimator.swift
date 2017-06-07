@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class OPTableIViewPopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     fileprivate let _operationType : UINavigationControllerOperation
     fileprivate let _transitionDuration : TimeInterval
@@ -27,52 +27,47 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     //MARK: Push and Pop animations performers
     internal func performPushTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         guard let toView = transitionContext.view(forKey: UITransitionContextViewKey.to) else {
-                // Something really bad happend and it is not possible to perform the transition
-                print("ERROR: Transition impossible to perform since either the destination view or the conteiner view are missing!")
-                return
+            // Something really bad happend and it is not possible to perform the transition
+            print("ERROR: Transition impossible to perform since either the destination view or the conteiner view are missing!")
+            return
         }
         
         let container = transitionContext.containerView
         guard let parentVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? OPTabBarController,
-            let fromViewController = parentVC.childViewControllers[2].childViewControllers.first?.childViewControllers.first as? OPVegetableCollectionViewController,
-            let currentCell = fromViewController.sourceCell else {
+            let fromViewController = parentVC.childViewControllers[2].childViewControllers.first?.childViewControllers.first as? OPVegetableTableViewController else {
                 // There are not enough info to perform the animation but it is still possible
                 // to perform the transition presenting the destination view
                 container.addSubview(toView)
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-            return
+                return
         }
         
         let finalFrame = toView.frame
-        if currentCell.frame.origin.x > 0 {
-            toView.frame.origin = CGPoint(x: fromViewController.originFrame.origin.x , y: fromViewController.originFrame.origin.y + 64)
-        } else {
-            toView.frame.origin = CGPoint(x: -UIScreen.main.bounds.width / 2 , y: fromViewController.originFrame.origin.y + 64)
-        }
+        toView.frame.origin = CGPoint(x: 0 , y: fromViewController.originFrame.origin.y + 64)
         // Add to container the destination view
         container.addSubview(toView)
         
         UIView.animate(withDuration: _transitionDuration, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0, options: [], animations: { () -> Void in
             toView.frame.origin = CGPoint(x: finalFrame.origin.x , y: finalFrame.origin.y + 64)
-            }) { _ in
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-                
+        }) { _ in
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            
         }
     }
     
     internal func performPopTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         
         guard let toView = transitionContext.view(forKey: UITransitionContextViewKey.to) else {
-                // Something really bad happend and it is not possible to perform the transition
-                print("ERROR: Transition impossible to perform since either the destination view or the conteiner view are missing!")
-                return
+            // Something really bad happend and it is not possible to perform the transition
+            print("ERROR: Transition impossible to perform since either the destination view or the conteiner view are missing!")
+            return
         }
         
         let container = transitionContext.containerView
         
         guard let originalParent = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? OPTabBarController,
-            let toViewController = originalParent.childViewControllers[2].childViewControllers.first?.childViewControllers.first as? OPVegetableCollectionViewController,
-            let toCollectionView = toViewController.collectionView,
+            let toViewController = originalParent.childViewControllers[2].childViewControllers.first?.childViewControllers.first as? OPVegetableTableViewController,
+            let toCollectionView = toViewController.tableView,
             let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
             let fromView = fromViewController.view,
             let currentCell = toViewController.sourceCell else {
@@ -112,13 +107,13 @@ class PopInAndOutAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             screenshotFromView.frame.origin = containerCoord
             screenshotToView.frame = screenshotFromView.frame
             
-            }) { _ in
-                
-                currentCell.isHidden = false
-                screenshotFromView.removeFromSuperview()
-                screenshotToView.removeFromSuperview()
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-                
+        }) { _ in
+            
+            currentCell.isHidden = false
+            screenshotFromView.removeFromSuperview()
+            screenshotToView.removeFromSuperview()
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            
         }
     }
     

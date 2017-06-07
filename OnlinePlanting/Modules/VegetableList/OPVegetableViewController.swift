@@ -80,8 +80,6 @@ class OPVegetableViewController: UIViewController {
         }
     }
 
-    
-
     func changeViewType() {
         if type == .listView {
             navigationController?.navigationBar.topItem?.rightBarButtonItem = rightCollectionItem

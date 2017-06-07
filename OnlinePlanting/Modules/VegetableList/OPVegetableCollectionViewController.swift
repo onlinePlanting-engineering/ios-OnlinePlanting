@@ -12,6 +12,7 @@ import CoreData
 class OPVegetableCollectionViewController: CoreDataCollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var sourceCell: UICollectionViewCell?
+    var originFrame = CGRect.zero
     fileprivate var detailedVc: OPVegetableDetailedViewController?
 
     lazy var setup: () = {
@@ -90,6 +91,10 @@ class OPVegetableCollectionViewController: CoreDataCollectionViewController, UIC
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         sourceCell = collectionView.cellForItem(at: indexPath)
+        guard let original = sourceCell?.frame else { return }
+        let cellRect = collectionView.convert(original, to: collectionView)
+        let currentScreenCell = collectionView.convert(cellRect, to: view)
+        originFrame = currentScreenCell
         let nav = UIStoryboard.init(name: "OPVegetable", bundle: nil).instantiateViewController(withIdentifier: "vegetableDetailNav") as? UINavigationController
         detailedVc = nav?.childViewControllers.first as? OPVegetableDetailedViewController
         detailedVc?.picture = (sourceCell as? OPVegetableMetaCollectionViewCell)?.collectionImage.image

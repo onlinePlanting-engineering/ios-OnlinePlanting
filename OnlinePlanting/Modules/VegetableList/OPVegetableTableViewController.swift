@@ -11,6 +11,10 @@ import CoreData
 
 class OPVegetableTableViewController: CoreDataTableViewController {
     
+    var sourceCell: UITableViewCell?
+    var originFrame = CGRect.zero
+    fileprivate var detailedVc: OPVegetableDetailedViewController?
+    
     lazy var setup: () = {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SeedVegetablesMeta")
         request.sortDescriptors = [NSSortDescriptor(key: "first_letter", ascending: true), NSSortDescriptor(key: "name", ascending: true)]
@@ -30,6 +34,12 @@ class OPVegetableTableViewController: CoreDataTableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.delegate = self
     }
     
     
@@ -54,6 +64,22 @@ class OPVegetableTableViewController: CoreDataTableViewController {
         let metaSection = section?.objects?.first as? SeedVegetablesMeta
         guard let titleName = metaSection?.first_letter else { return nil }
         return titleName
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell =  tableView.cellForRow(at: indexPath) as! OPVegetableMetaTableViewCell
+        sourceCell = cell
+        let cellRect = tableView.convert(cell.frame, to: tableView)
+        let currentScreenCell = tableView.convert(cellRect, to: tableView.backgroundView!)
+        originFrame = currentScreenCell
+        let nav = UIStoryboard.init(name: "OPVegetable", bundle: nil).instantiateViewController(withIdentifier: "vegetableDetailNav") as? UINavigationController
+        detailedVc = nav?.childViewControllers.first as? OPVegetableDetailedViewController
+        detailedVc?.picture = cell.vegetableImage.image
+        guard let cellindexPath = tableView.indexPath(for: cell) else { return }
+        let meta = self.fetchedResultsController?.object(at: cellindexPath) as? SeedVegetablesMeta
+        detailedVc?.vegetabletitle = meta?.name
+        guard let vegetableNav = detailedVc else { return }
+        navigationController?.pushViewController(vegetableNav, animated: true)
     }
 }
 
@@ -103,4 +129,18 @@ extension OPVegetableTableViewController {
             self.tabBarController?.tabBar.frame.origin.y = originY
         }, completion: nil)
     }
+}
+
+//MARK: UINavigationControllerDelegate
+extension OPVegetableTableViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        // In this method belonging to the protocol UINavigationControllerDelegate you must
+        // return an animator conforming to the protocol UIViewControllerAnimatedTransitioning.
+        // To perform the Pop in and Out animation PopInAndOutAnimator should be returned
+        return OPTableIViewPopInAndOutAnimator(operation: operation)
+    }
+}
+
+//MARK: CollectionPushAndPoppable
+extension OPVegetableTableViewController: TablePushAndPoppable {
 }

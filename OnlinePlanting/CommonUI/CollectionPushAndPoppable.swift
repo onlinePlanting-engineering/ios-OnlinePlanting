@@ -7,3 +7,8 @@ protocol CollectionPushAndPoppable {
     var collectionView: UICollectionView? { get }
     var view: UIView! { get }
 }
+
+protocol TablePushAndPoppable {
+    var sourceCell: UITableViewCell? { get }
+    var view: UIView! { get }
+}
