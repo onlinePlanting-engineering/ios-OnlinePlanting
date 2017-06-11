@@ -11,7 +11,6 @@ import Charts
 
 class OPVegetableDetailedViewController: UIViewController {
 
-
     @IBOutlet weak var detaildInfor: UIView!
     @IBOutlet weak var comment: UIView!
     @IBOutlet weak var price: UIView!
@@ -27,6 +26,7 @@ class OPVegetableDetailedViewController: UIViewController {
 
     var picture: UIImage?
     var vegetabletitle: String?
+    var vegetableData: SeedVegetablesMeta?
     
     let months = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"]
     let plant: [Double] = [0.0, 0.0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -48,23 +48,23 @@ class OPVegetableDetailedViewController: UIViewController {
         super.viewWillAppear(animated)
         
         setNavigarationBar()
-        lifeCycle.xAxis.valueFormatter = self
-        lifeCycle.xAxis.granularity = 1
-        lifeCycle.chartDescription?.enabled = false
-        lifeCycle.leftAxis.drawZeroLineEnabled = false
-        lifeCycle.setScaleEnabled(false)
-        lifeCycle.leftAxis.axisMinimum = 0
-        lifeCycle.leftAxis.axisMaximum = 10
-        lifeCycle.drawBordersEnabled = true
-        lifeCycle.leftAxis.drawGridLinesEnabled = false
-        lifeCycle.xAxis.drawGridLinesEnabled = false
-        lifeCycle.delegate = self
-        let format = NumberFormatter()
-        format.generatesDecimalNumbers = false
-        let formatter = DefaultValueFormatter(formatter: format)
-        lifeCycle.leftAxis.valueFormatter = (formatter as? IAxisValueFormatter)
-        setChartBubble(months, plant: plant, harvest: harvest)
-        
+//        lifeCycle.xAxis.valueFormatter = self
+//        lifeCycle.xAxis.granularity = 1
+//        lifeCycle.chartDescription?.enabled = false
+//        lifeCycle.leftAxis.drawZeroLineEnabled = false
+//        lifeCycle.setScaleEnabled(false)
+//        lifeCycle.leftAxis.axisMinimum = 0
+//        lifeCycle.leftAxis.axisMaximum = 10
+//        lifeCycle.drawBordersEnabled = true
+//        lifeCycle.leftAxis.drawGridLinesEnabled = false
+//        lifeCycle.xAxis.drawGridLinesEnabled = false
+//        lifeCycle.delegate = self
+//        let format = NumberFormatter()
+//        format.generatesDecimalNumbers = false
+//        let formatter = DefaultValueFormatter(formatter: format)
+//        lifeCycle.leftAxis.valueFormatter = (formatter as? IAxisValueFormatter)
+//        setChartBubble(months, plant: plant, harvest: harvest)
+//        
         showAnimation()
         
         vegetableImage.image = picture
@@ -100,6 +100,50 @@ class OPVegetableDetailedViewController: UIViewController {
         
     }
     
+    func updateChartData() {
+        
+        let chart = PieChartView(frame: self.view.frame)
+        // 2. generate chart data entries
+        let track = ["Income", "Expense", "Wallet", "Bank"]
+        let money = [650, 456.13, 78.67, 856.52]
+        
+        var entries = [PieChartDataEntry]()
+        for (index, value) in money.enumerated() {
+            let entry = PieChartDataEntry()
+            entry.y = value
+            entry.label = track[index]
+            entries.append( entry)
+        }
+        
+        // 3. chart setup
+        let set = PieChartDataSet( values: entries, label: "Pie Chart")
+        // this is custom extension method. Download the code for more details.
+        var colors: [UIColor] = []
+        
+        for _ in 0..<money.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        set.colors = colors
+        let data = PieChartData(dataSet: set)
+        chart.data = data
+        chart.noDataText = "No data available"
+        // user interaction
+        chart.isUserInteractionEnabled = true
+        
+        let d = Description()
+        d.text = "iOSCharts.io"
+        chart.chartDescription = d
+        chart.centerText = "Pie Chart"
+        chart.holeRadiusPercent = 0.2
+        chart.transparentCircleColor = UIColor.clear
+        self.view.addSubview(chart)
+        
+    }
+    
     func setNavigarationBar() {
         UIApplication.shared.statusBarStyle = .lightContent
         guard let backImage = UIImage(named: "back_white") else { return }
@@ -121,25 +165,25 @@ class OPVegetableDetailedViewController: UIViewController {
         price.transform = CGAffineTransform.init(translationX: 300, y: 0)
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            UIView.animate(withDuration: 0.8, animations: {[weak self] in
+            UIView.animate(withDuration: 0.5, animations: {[weak self] in
                 self?.detaildInfor.transform = .identity
             })
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-            UIView.animate(withDuration: 0.8, animations: {[weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            UIView.animate(withDuration: 0.5, animations: {[weak self] in
                 self?.cycle.transform = .identity
             })
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            UIView.animate(withDuration: 0.8, animations: {[weak self] in
+            UIView.animate(withDuration: 0.5, animations: {[weak self] in
                 self?.comment.transform = .identity
             })
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-            UIView.animate(withDuration: 0.8, animations: {[weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            UIView.animate(withDuration: 0.5, animations: {[weak self] in
                 self?.price.transform = .identity
             })
         }
@@ -184,8 +228,20 @@ class OPVegetableDetailedViewController: UIViewController {
         lifeCycle.leftAxis.enabled = false
         lifeCycle.xAxis.labelCount = 12
         lifeCycle.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
-        
     }
+    
+    @IBAction func showVegetableDetailedInfroAction(_ sender: Any) {
+    }
+    
+    @IBAction func showVegetableCommentInfroAction(_ sender: UIButton) {
+        let nv = UIStoryboard.init(name: "OPFarm", bundle: nil).instantiateViewController(withIdentifier: "OPFarmCommentViewController") as! OPFarmCommentViewController
+        nv.commentType = .vegetable
+        nv.vegetable = vegetableData
+        nv.commentImage = vegetableImage.image
+        navigationController?.pushViewController(nv, animated: true)
+    }
+    
+    
 }
 extension OPVegetableDetailedViewController: IAxisValueFormatter, ChartViewDelegate {
     

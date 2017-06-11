@@ -22,6 +22,13 @@ class LandOverviewViewController: UIViewController {
     fileprivate var landsDir: [String:[Land]?]?
     fileprivate var landDetiledVC: OPLandViewController?
     
+    @IBOutlet weak var circleIscat: UIView!
+    @IBOutlet weak var trusteed_isCat: UIButton!
+    @IBOutlet weak var untrusteed_isCat: UIButton!
+    @IBOutlet weak var circleNocat: UIView!
+    @IBOutlet weak var untrusteed_Nocat: UIButton!
+    @IBOutlet weak var trusteed_Nocat: UIButton!
+    
     @IBAction func showinsideLand(_ sender: UIButton) {
         
     }
@@ -38,7 +45,52 @@ class LandOverviewViewController: UIViewController {
         landsDir = [String:[Land]]()
         setNavationBar()
         
+        circleIscat.layer.cornerRadius = circleIscat.bounds.height / 2
+        circleIscat.layer.masksToBounds = true
+        circleIscat.layer.borderWidth = 2
+        circleIscat.layer.borderColor = UIColor.init(hexString: OPGreenColor).cgColor
+        
+        
+        trusteed_isCat.layer.cornerRadius = trusteed_isCat.bounds.height / 2
+        trusteed_isCat.layer.masksToBounds = true
+        trusteed_isCat.layer.borderWidth = 2
+        trusteed_isCat.layer.borderColor = UIColor.init(hexString: OPGreenColor).cgColor
+        hasavailableLand(false,button: trusteed_isCat)
+        untrusteed_isCat.layer.cornerRadius = untrusteed_isCat.bounds.height / 2
+        untrusteed_isCat.layer.masksToBounds = true
+        untrusteed_isCat.layer.borderWidth = 2
+        untrusteed_isCat.layer.borderColor = UIColor.init(hexString: OPGreenColor).cgColor
+        hasavailableLand(false,button: untrusteed_isCat)
+        
+        circleNocat.layer.cornerRadius = circleIscat.bounds.height / 2
+        circleNocat.layer.masksToBounds = true
+        circleNocat.layer.borderWidth = 2
+        circleNocat.layer.borderColor = UIColor.init(hexString: OPGreenColor).cgColor
+        
+        untrusteed_Nocat.layer.cornerRadius = trusteed_isCat.bounds.height / 2
+        untrusteed_Nocat.layer.masksToBounds = true
+        untrusteed_Nocat.layer.borderWidth = 2
+        untrusteed_Nocat.layer.borderColor = UIColor.init(hexString: OPGreenColor).cgColor
+        hasavailableLand(false,button: untrusteed_Nocat)
+        trusteed_Nocat.layer.cornerRadius = untrusteed_isCat.bounds.height / 2
+        trusteed_Nocat.layer.masksToBounds = true
+        trusteed_Nocat.layer.borderWidth = 2
+        trusteed_Nocat.layer.borderColor = UIColor.init(hexString: OPGreenColor).cgColor
+
+        hasavailableLand(false,button: trusteed_Nocat)
         // Do any additional setup after loading the view.
+    }
+    
+    func hasavailableLand(_ has: Bool, button: UIButton?) {
+        if has {
+            button?.isUserInteractionEnabled = true
+            button?.backgroundColor = UIColor.init(hexString: OPGreenColor)
+            button?.setTitleColor(UIColor.white, for: .normal)
+        } else {
+            button?.isUserInteractionEnabled = false
+            button?.backgroundColor = UIColor.init(hexString: OPGrayColor)
+            button?.setTitleColor(UIColor.init(hexString: OPDarkGreenColor), for: .normal)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +101,10 @@ class LandOverviewViewController: UIViewController {
     
     func prepareLandData(){
         OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Loading", animated: true, delay: 0.0)
-        guard let urlGroups = farm?.lands?.allObjects as? [LandURL] else { return }
+        guard let urlGroups = farm?.lands?.allObjects as? [LandURL] else {
+            OPLoadingHUD.hide()
+            return
+        }
         landGroupId?.removeAll()
         for landUrl in urlGroups {
             if let groupId = landUrl.url?.components(separatedBy: "/")[4], let idInt64 = Int64(groupId) {
@@ -75,7 +130,7 @@ class LandOverviewViewController: UIViewController {
                     }
                     landArray?.append(land)
                     self?.landsDir?[LandType.trusteedCat.rawValue] = landArray
-                    //TODO: update UI
+                    self?.hasavailableLand(true, button: self?.trusteed_isCat)
                 } else if land.is_trusteed && !land.cat {//有棚非托管
                     var landArray = self?.landsDir?[LandType.trusteedNocat.rawValue] as? [Land]
                     if landArray == nil {
@@ -83,7 +138,7 @@ class LandOverviewViewController: UIViewController {
                     }
                     landArray?.append(land)
                     self?.landsDir?[LandType.trusteedNocat.rawValue] = landArray
-                    //TODO: update UI
+                    self?.hasavailableLand(true, button: self?.trusteed_Nocat)
                 } else if !land.is_trusteed && land.cat {//无棚托管
                     var landArray = self?.landsDir?[LandType.untrusteedCat.rawValue] as? [Land]
                     if landArray == nil {
@@ -91,7 +146,7 @@ class LandOverviewViewController: UIViewController {
                     }
                     landArray?.append(land)
                     self?.landsDir?[LandType.untrusteedCat.rawValue] = landArray
-                    //TODO: update UI
+                    self?.hasavailableLand(true, button: self?.untrusteed_isCat)
                 } else if !land.is_trusteed && !land.cat {//无棚非托管
                     var landArray = self?.landsDir?[LandType.untrusteedNocat.rawValue] as? [Land]
                     if landArray == nil {
@@ -99,7 +154,7 @@ class LandOverviewViewController: UIViewController {
                     }
                     landArray?.append(land)
                     self?.landsDir?[LandType.untrusteedNocat.rawValue] = landArray
-                    //TODO: update UI
+                    self?.hasavailableLand(true, button: self?.untrusteed_Nocat)
                 }
             }
             OPLoadingHUD.hide()
@@ -125,9 +180,19 @@ class LandOverviewViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "landDetailed" {
-            landDetiledVC = segue.destination as? OPLandViewController
+        landDetiledVC = segue.destination as? OPLandViewController
+        guard let identify = segue.identifier else { return }
+        switch identify {
+        case LandType.trusteedCat.rawValue:
             landDetiledVC?.lands = landsDir?[LandType.trusteedCat.rawValue] as? [Land]
+        case LandType.untrusteedCat.rawValue:
+            landDetiledVC?.lands = landsDir?[LandType.untrusteedCat.rawValue] as? [Land]
+        case LandType.trusteedNocat.rawValue:
+            landDetiledVC?.lands = landsDir?[LandType.trusteedNocat.rawValue] as? [Land]
+        case LandType.untrusteedNocat.rawValue:
+            landDetiledVC?.lands = landsDir?[LandType.untrusteedNocat.rawValue] as? [Land]
+        default:
+            break
         }
     }
 

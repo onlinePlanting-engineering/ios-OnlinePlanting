@@ -14,6 +14,8 @@ enum VegetableViewType: Int {
 
 class OPVegetableViewController: UIViewController {
     
+    
+    @IBOutlet weak var vegetableSearchBar: UISearchBar!
     fileprivate var type: VegetableViewType = .listView
     fileprivate var vegetableContainerVC: OPVegetableContainerViewController?
     
@@ -40,6 +42,8 @@ class OPVegetableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        vegetableSearchBar.delegate = self
+        vegetableSearchBar.tintColor = UIColor.init(hexString: OPDarkGreenColor)
         OPDataService.sharedInstance.getVegetableList { (success, error) in
             if success {
                 print("fetch vegetables data success")
@@ -91,6 +95,31 @@ class OPVegetableViewController: UIViewController {
             vegetableContainerVC?.swapViewControllers("listviewsegue")
         }
     }
+}
 
+extension OPVegetableViewController: UISearchBarDelegate {
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        UIView.animate(withDuration: 0.2) {
+            searchBar.showsCancelButton = false
+            searchBar.text = ""
+            searchBar.endEditing(true)
+        }
+        vegetableContainerVC?.searchItem("")
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //
+        searchBar.showsCancelButton = false
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        vegetableContainerVC?.searchItem(searchBar.text)
+    }
+
 }

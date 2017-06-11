@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol OPLandPageViewControllerDelegate: NSObjectProtocol {
+    func transitionCompleted(_ currentIndex: Int)
+}
+
 class OPLandPageViewController: UIPageViewController {
     
     var landGroup = [OPSingleLandViewController]()
     var landsData: [Land]?
     var parentVC: OPLandViewController?
-    
+    weak var pagedelegate: OPLandPageViewControllerDelegate?
     
     var currentIndex: Int? {
         guard let viewController = viewControllers?.first as? OPSingleLandViewController else {
@@ -31,6 +35,7 @@ class OPLandPageViewController: UIPageViewController {
     
     func prepareData(){
         guard let lands  = landsData, lands.count > 0 else { return }
+        if lands.count == 1 { }
         for land in lands {
             let singleVC = UIStoryboard.init(name: "OPFarm", bundle: nil).instantiateViewController(withIdentifier: "OPSingleLandViewController") as! OPSingleLandViewController
             singleVC.land = land
@@ -87,7 +92,7 @@ extension OPLandPageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if finished {
             if let currentIndex = currentIndex, currentIndex < landGroup.count {
-//                pageDelegate?.transitionCompleted(currentIndex, pageItem: pageItems?[currentIndex], firstUrl: pageItems?.first?.pageUrl )
+                pagedelegate?.transitionCompleted(currentIndex)
             }
         }
     }

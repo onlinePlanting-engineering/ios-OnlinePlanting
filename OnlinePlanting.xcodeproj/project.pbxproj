@@ -12,6 +12,8 @@
 		180688CE1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180688CA1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift */; };
 		1818CD541EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */; };
 		1818CD551EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1818CD531EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib */; };
+		181CC5E61EEA3F9B00CA58CE /* OPFarmCommentRepliedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CC5E41EEA3F9B00CA58CE /* OPFarmCommentRepliedTableViewController.swift */; };
+		181CC5E71EEA3F9B00CA58CE /* OPFarmCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CC5E51EEA3F9B00CA58CE /* OPFarmCommentViewController.swift */; };
 		182D4D1E1EE0376F00C29B86 /* OPFarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182D4D1D1EE0376F00C29B86 /* OPFarm.storyboard */; };
 		182E989A1ED6367D006FEBBA /* UIAlertController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E98991ED6367D006FEBBA /* UIAlertController+Ext.swift */; };
 		182E98A51ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E98A31ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift */; };
@@ -73,7 +75,6 @@
 		189052E51EC1EDE100F8DB1A /* OPFarmContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052E41EC1EDE100F8DB1A /* OPFarmContainerViewController.swift */; };
 		189052E71EC1EF4F00F8DB1A /* OPFarmContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052E61EC1EF4F00F8DB1A /* OPFarmContentViewController.swift */; };
 		189052ED1EC1F0CE00F8DB1A /* OPSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189052EC1EC1F0CE00F8DB1A /* OPSegue.swift */; };
-		1894AB371EC5E538004DED5E /* OPFarmCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1894AB361EC5E538004DED5E /* OPFarmCommentViewController.swift */; };
 		1894AB3A1EC5E984004DED5E /* OPComentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1894AB391EC5E984004DED5E /* OPComentTableViewCell.swift */; };
 		1894AB3C1EC5EE41004DED5E /* OPFarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1894AB3B1EC5EE41004DED5E /* OPFarmTableViewCell.xib */; };
 		1894AB3F1EC7EF2C004DED5E /* OPCommentHereView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1894AB3E1EC7EF2C004DED5E /* OPCommentHereView.xib */; };
@@ -130,7 +131,6 @@
 		18E31DBC1EC9AA76004A8505 /* FarmActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E31DBA1EC9AA76004A8505 /* FarmActivityTableViewCell.xib */; };
 		18E31DBE1EC9B108004A8505 /* OPActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DBD1EC9B108004A8505 /* OPActivityTableViewController.swift */; };
 		18E31DF01ECB4DFA004A8505 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DEF1ECB4DFA004A8505 /* TimeUtils.swift */; };
-		18E31DF21ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DF11ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift */; };
 		18E31DF41ECC881E004A8505 /* OPCommentRepliedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DF31ECC881E004A8505 /* OPCommentRepliedTableViewCell.swift */; };
 		18E31DFA1ED07696004A8505 /* OPFarmAlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DF91ED07696004A8505 /* OPFarmAlbumCollectionViewController.swift */; };
 		18E31DFC1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DFB1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift */; };
@@ -167,6 +167,8 @@
 		180688CA1EB8C28300CEE3BF /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1818CD521EBAC33C009BE305 /* OPMeDetailedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeDetailedTableViewCell.swift; sourceTree = "<group>"; };
 		1818CD531EBAC33C009BE305 /* OPMeDetailedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPMeDetailedTableViewCell.xib; sourceTree = "<group>"; };
+		181CC5E41EEA3F9B00CA58CE /* OPFarmCommentRepliedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmCommentRepliedTableViewController.swift; path = Comment/OPFarmCommentRepliedTableViewController.swift; sourceTree = "<group>"; };
+		181CC5E51EEA3F9B00CA58CE /* OPFarmCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmCommentViewController.swift; path = Comment/OPFarmCommentViewController.swift; sourceTree = "<group>"; };
 		182D4D1D1EE0376F00C29B86 /* OPFarm.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = OPFarm.storyboard; path = Farm/View/OPFarm.storyboard; sourceTree = "<group>"; };
 		182E98991ED6367D006FEBBA /* UIAlertController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Ext.swift"; sourceTree = "<group>"; };
 		182E98A31ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumHeaderCollectionReusableView.swift; path = Farm/View/AlbumHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -234,7 +236,6 @@
 		189052E41EC1EDE100F8DB1A /* OPFarmContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmContainerViewController.swift; path = Farm/OPFarmContainerViewController.swift; sourceTree = "<group>"; };
 		189052E61EC1EF4F00F8DB1A /* OPFarmContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmContentViewController.swift; path = Farm/OPFarmContentViewController.swift; sourceTree = "<group>"; };
 		189052EC1EC1F0CE00F8DB1A /* OPSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPSegue.swift; sourceTree = "<group>"; };
-		1894AB361EC5E538004DED5E /* OPFarmCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmCommentViewController.swift; path = Farm/OPFarmCommentViewController.swift; sourceTree = "<group>"; };
 		1894AB391EC5E984004DED5E /* OPComentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPComentTableViewCell.swift; path = Farm/View/OPComentTableViewCell.swift; sourceTree = "<group>"; };
 		1894AB3B1EC5EE41004DED5E /* OPFarmTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OPFarmTableViewCell.xib; path = VegetableList/OPFarmTableViewCell.xib; sourceTree = "<group>"; };
 		1894AB3E1EC7EF2C004DED5E /* OPCommentHereView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPCommentHereView.xib; sourceTree = "<group>"; };
@@ -292,7 +293,6 @@
 		18E31DBA1EC9AA76004A8505 /* FarmActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FarmActivityTableViewCell.xib; path = Farm/View/FarmActivityTableViewCell.xib; sourceTree = "<group>"; };
 		18E31DBD1EC9B108004A8505 /* OPActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPActivityTableViewController.swift; path = Farm/OPActivityTableViewController.swift; sourceTree = "<group>"; };
 		18E31DEF1ECB4DFA004A8505 /* TimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
-		18E31DF11ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmCommentRepliedTableViewController.swift; path = Farm/OPFarmCommentRepliedTableViewController.swift; sourceTree = "<group>"; };
 		18E31DF31ECC881E004A8505 /* OPCommentRepliedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPCommentRepliedTableViewCell.swift; path = Farm/View/OPCommentRepliedTableViewCell.swift; sourceTree = "<group>"; };
 		18E31DF91ED07696004A8505 /* OPFarmAlbumCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmAlbumCollectionViewController.swift; path = Farm/OPFarmAlbumCollectionViewController.swift; sourceTree = "<group>"; };
 		18E31DFB1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmAlbumCollectionViewCell.swift; path = Farm/View/OPFarmAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -358,6 +358,15 @@
 				7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		181CC5E31EEA3F3C00CA58CE /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				181CC5E41EEA3F9B00CA58CE /* OPFarmCommentRepliedTableViewController.swift */,
+				181CC5E51EEA3F9B00CA58CE /* OPFarmCommentViewController.swift */,
+			);
+			name = Comment;
 			sourceTree = "<group>";
 		};
 		18340A101EE1B27E00205A5C /* View */ = {
@@ -461,9 +470,7 @@
 				18C1E6821EB63E0B001D611B /* OPFarmListViewController.swift */,
 				189052E41EC1EDE100F8DB1A /* OPFarmContainerViewController.swift */,
 				189052E61EC1EF4F00F8DB1A /* OPFarmContentViewController.swift */,
-				1894AB361EC5E538004DED5E /* OPFarmCommentViewController.swift */,
 				18E31DBD1EC9B108004A8505 /* OPActivityTableViewController.swift */,
-				18E31DF11ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift */,
 				18E31DF91ED07696004A8505 /* OPFarmAlbumCollectionViewController.swift */,
 				1855E8B51ED10A0400D57019 /* OPFarmRendNoticeViewController.swift */,
 			);
@@ -551,6 +558,7 @@
 		18C1E66F1EB63E0B001D611B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				181CC5E31EEA3F3C00CA58CE /* Comment */,
 				18B53E461EC0A14F003B6D6A /* Farm */,
 				18C1E6701EB63E0B001D611B /* Home */,
 				18C1E6731EB63E0B001D611B /* Live */,
@@ -906,11 +914,9 @@
 				182E98A81ED71702006FEBBA /* LandOverviewViewController.swift in Sources */,
 				18340A0B1EE1B14E00205A5C /* SeedVegetables+CoreDataProperties.swift in Sources */,
 				187F4B481EC011F4000AA4DB /* OPTransitioningAnimator.swift in Sources */,
-				18E31DF21ECC4817004A8505 /* OPFarmCommentRepliedTableViewController.swift in Sources */,
 				18DF84421EE2C58600E5E4A6 /* OPVegetableDetailedViewController.swift in Sources */,
 				18E810C51EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift in Sources */,
 				18F6F64B1ED32D98006FB8A3 /* OPLandSelectedCollectionViewCell.swift in Sources */,
-				1894AB371EC5E538004DED5E /* OPFarmCommentViewController.swift in Sources */,
 				184E67FD1EDCD8C200CF2DE3 /* Farm+CoreDataProperties.swift in Sources */,
 				18E810C81EC028A000EDA5D8 /* OPFarmTableViewCell.swift in Sources */,
 				18DA4FD11EE0CA470025BC51 /* OPVegetableTableViewController.swift in Sources */,
@@ -927,6 +933,7 @@
 				180318751EE848DE00DBCBA0 /* OPTableIViewPopInAndOutAnimator.swift in Sources */,
 				189052ED1EC1F0CE00F8DB1A /* OPSegue.swift in Sources */,
 				18F6F6451ED301AD006FB8A3 /* OPLandViewController.swift in Sources */,
+				181CC5E61EEA3F9B00CA58CE /* OPFarmCommentRepliedTableViewController.swift in Sources */,
 				184E67E91EDB953500CF2DE3 /* ImageGroup+CoreDataProperties.swift in Sources */,
 				182E989A1ED6367D006FEBBA /* UIAlertController+Ext.swift in Sources */,
 				18C1F0601EB63E0E001D611B /* OPChangePasswordViewController.swift in Sources */,
@@ -961,6 +968,7 @@
 				18C1F0591EB63E0E001D611B /* OPDataService.swift in Sources */,
 				187F4B381EBC27DF000AA4DB /* LocationUtils.swift in Sources */,
 				187F4B3B1EBC41A2000AA4DB /* Location+CoreDataClass.swift in Sources */,
+				181CC5E71EEA3F9B00CA58CE /* OPFarmCommentViewController.swift in Sources */,
 				184E67F81EDB971F00CF2DE3 /* User+CoreDataClass.swift in Sources */,
 				1894AB411EC7F165004DED5E /* OPCommentHereView.swift in Sources */,
 				184E67EB1EDB953500CF2DE3 /* Meta+CoreDataProperties.swift in Sources */,

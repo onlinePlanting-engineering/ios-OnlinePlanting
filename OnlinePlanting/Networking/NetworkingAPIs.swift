@@ -50,15 +50,15 @@ extension Networking {
     }
     
 
-    func getFarmComments(_ farmId: Int16?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
-        _ = syncWithAppServer(WebServiceAPIMapping.GetFarmComments.rawValue, httpMethod: .get, httpHeaders: getHeaders(), urlParams: ["type": "farm", "id": farmId], params: nil,handler: handler)
+    func getComments(_ commentType: String, _ id: Int16?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
+        _ = syncWithAppServer(WebServiceAPIMapping.GetComments.rawValue, httpMethod: .get, httpHeaders: getHeaders(), urlParams: ["type": commentType, "id": id], params: nil,handler: handler)
     }
     
     func getRepliedComments(_ parentId: Int64?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
         guard let parent = parentId else {
             handler(false, nil, nil)
             return }
-        let parentCommentUrl = "\(WebServiceAPIMapping.GetFarmComments.rawValue)\(parent)/"
+        let parentCommentUrl = "\(WebServiceAPIMapping.GetComments.rawValue)\(parent)/"
         _ = syncWithAppServer(parentCommentUrl, httpMethod: .get, httpHeaders: getHeaders(), urlParams: nil, params: nil,handler: handler)
     }
     
@@ -72,7 +72,7 @@ extension Networking {
         guard let deleteID = commentId else {
             handler(false, nil, nil)
             return }
-        let deleteCommentUrl = "\(WebServiceAPIMapping.GetFarmComments.rawValue)\(deleteID)/"
+        let deleteCommentUrl = "\(WebServiceAPIMapping.GetComments.rawValue)\(deleteID)/"
         _ = syncWithAppServer(deleteCommentUrl, httpMethod: .delete, httpHeaders: getFarmHeader(), urlParams: nil,params: nil, handler: handler)
     }
     

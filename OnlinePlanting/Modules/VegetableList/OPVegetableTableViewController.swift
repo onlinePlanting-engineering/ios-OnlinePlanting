@@ -21,13 +21,22 @@ class OPVegetableTableViewController: CoreDataTableViewController {
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: "first_letter", cacheName: nil)
     }()
     
+    open func updateNSPredicate(_ search: String) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SeedVegetablesMeta")
+        request.sortDescriptors = [NSSortDescriptor(key: "first_letter", ascending: true), NSSortDescriptor(key: "name", ascending: true)]
+        if search != "" {
+            request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", search)
+        }
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: "first_letter", cacheName: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
         tableView.sectionIndexBackgroundColor = UIColor.clear
         tableView.sectionIndexColor = UIColor.init(hexString: OPGreenColor)
-        let _ = setup
+        let _ = updateNSPredicate("")
         // Do any additional setup after loading the view.
     }
     
@@ -39,6 +48,7 @@ class OPVegetableTableViewController: CoreDataTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.delegate = self
     }
     
@@ -78,6 +88,7 @@ class OPVegetableTableViewController: CoreDataTableViewController {
         guard let cellindexPath = tableView.indexPath(for: cell) else { return }
         let meta = self.fetchedResultsController?.object(at: cellindexPath) as? SeedVegetablesMeta
         detailedVc?.vegetabletitle = meta?.name
+        detailedVc?.vegetableData = meta
         guard let vegetableNav = detailedVc else { return }
         navigationController?.pushViewController(vegetableNav, animated: true)
     }

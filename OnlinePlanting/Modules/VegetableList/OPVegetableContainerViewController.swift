@@ -99,5 +99,14 @@ class OPVegetableContainerViewController: UIViewController {
         guard let current = currentSegue else { return }
         performSegue(withIdentifier: current, sender: nil)
     }
+    
+    public func searchItem(_ search: String?) {
+        guard let searchText = search else { return }
+        if currentSegue == listviewSegue {
+            contentViewController?.updateNSPredicate(searchText)
+        } else {
+            commentViewController?.updateNSPredicate(searchText)
+        }
+    }
 
 }

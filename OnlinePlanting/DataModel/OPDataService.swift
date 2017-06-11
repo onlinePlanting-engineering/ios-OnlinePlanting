@@ -161,12 +161,12 @@ class OPDataService: NSObject {
                 }
             })
         }
-        
+        handler(true, nil)
     }
     
-    func getFarmComment(_ farmId: Int16?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+    func getComments(_ commentType: String, _ farmId: Int16?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         
-        Networking.shareInstance.getFarmComments(farmId) { (success, json, error) in
+        Networking.shareInstance.getComments(commentType, farmId) { (success, json, error) in
             guard let data = json?["data"].arrayObject as? [[String : Any]] else {
                 handler(false, error)
                 return
@@ -199,11 +199,11 @@ class OPDataService: NSObject {
         })
     }
     
-    func createFarmComment(_ type: String?, object_id: Int16?, parent_id: Int64?, content: String?, grade: String?,handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+    func createFarmComment(_ type: String, object_id: Int16?, parent_id: Int64?, content: String?, grade: String?,handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         Networking.shareInstance.createComment(type, object_id: object_id, parent_id: parent_id, content: content, grade: grade) { [weak self](success, json, error) in
             if success {
                 if parent_id == nil {
-                    self?.getFarmComment(object_id, handler: { (success, error) in
+                    self?.getComments(type, object_id, handler: { (success, error) in
                         if success {
                             handler(true, nil)
                         } else {
@@ -214,7 +214,7 @@ class OPDataService: NSObject {
                     self?.getRepliedComment(parent_id, handler: { (success, error) in
                         if success {
                             //after updating the child data, then update the parent data
-                            self?.getFarmComment(object_id, handler: { (success, error) in
+                            self?.getComments(type, object_id, handler: { (success, error) in
                                 if success {
                                     handler(true, nil)
                                 } else {
