@@ -58,43 +58,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnlinePlanting/Modules/VegetableList/OPFarmListViewController.swift"
-            timestampString = "518846696.77384"
+            timestampString = "518874524.009504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "reloadFarmList()"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "closeSearchBar()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnlinePlanting/Modules/VegetableList/OPFarmListViewController.swift"
+            timestampString = "518874542.288611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "searchBarCancelButtonClicked(_:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "OnlinePlanting.OPFarmListViewController.reloadFarmList () -&gt; ()"
+                  symbolName = "OnlinePlanting.OPFarmListViewController.searchBarCancelButtonClicked (__ObjC.UISearchBar) -&gt; ()"
                   moduleName = "OnlinePlanting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ibm/Documents/PersonalProject/OnlinePlanting/OnlinePlanting/Modules/VegetableList/OPFarmListViewController.swift"
-                  timestampString = "518871396.75397"
+                  timestampString = "518874542.511543"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "84">
+                  startingLineNumber = "260"
+                  endingLineNumber = "260"
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "OnlinePlanting.OPFarmListViewController.(reloadFarmList () -&gt; ()).(closure #1)"
+                  symbolName = "OnlinePlanting.OPFarmListViewController.(searchBarCancelButtonClicked (__ObjC.UISearchBar) -&gt; ()).(closure #1)"
                   moduleName = "OnlinePlanting"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ibm/Documents/PersonalProject/OnlinePlanting/OnlinePlanting/Modules/VegetableList/OPFarmListViewController.swift"
-                  timestampString = "518871396.755326"
+                  timestampString = "518874542.51302"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "24">
+                  startingLineNumber = "260"
+                  endingLineNumber = "260"
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
          </BreakpointContent>
