@@ -60,6 +60,8 @@
 		184E68041EDE3E5500CF2DE3 /* Land+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E68021EDE3E5500CF2DE3 /* Land+CoreDataClass.swift */; };
 		184E68051EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E68031EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift */; };
 		1855E8B61ED10A0400D57019 /* OPFarmRendNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1855E8B51ED10A0400D57019 /* OPFarmRendNoticeViewController.swift */; };
+		18770B3D1EF957850048071E /* InfiniteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18770B3C1EF957850048071E /* InfiniteCollectionView.swift */; };
+		18770B401EF95BEE0048071E /* ScrollHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18770B3F1EF95BEE0048071E /* ScrollHeaderCell.swift */; };
 		187F4B2E1EBBE444000AA4DB /* UpdateProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B2D1EBBE444000AA4DB /* UpdateProfileTableViewController.swift */; };
 		187F4B311EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F4B2F1EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift */; };
 		187F4B361EBC2393000AA4DB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187F4B351EBC2393000AA4DB /* CoreLocation.framework */; };
@@ -136,6 +138,7 @@
 		18E31DFC1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E31DFB1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift */; };
 		18E810C51EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E810C41EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift */; };
 		18E810C81EC028A000EDA5D8 /* OPFarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E810C61EC028A000EDA5D8 /* OPFarmTableViewCell.swift */; };
+		18EB7AE41F012BA30098F464 /* ScalingCarouselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB7AE31F012BA30098F464 /* ScalingCarouselLayout.swift */; };
 		18F6F6431ED3018E006FB8A3 /* OPLandPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6F6421ED3018E006FB8A3 /* OPLandPageViewController.swift */; };
 		18F6F6451ED301AD006FB8A3 /* OPLandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6F6441ED301AD006FB8A3 /* OPLandViewController.swift */; };
 		18F6F6471ED30322006FB8A3 /* OPSingleLandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6F6461ED30322006FB8A3 /* OPSingleLandViewController.swift */; };
@@ -216,6 +219,8 @@
 		184E68021EDE3E5500CF2DE3 /* Land+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Land+CoreDataClass.swift"; sourceTree = "<group>"; };
 		184E68031EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Land+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1855E8B51ED10A0400D57019 /* OPFarmRendNoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmRendNoticeViewController.swift; path = Farm/OPFarmRendNoticeViewController.swift; sourceTree = "<group>"; };
+		18770B3C1EF957850048071E /* InfiniteCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCollectionView.swift; sourceTree = "<group>"; };
+		18770B3F1EF95BEE0048071E /* ScrollHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollHeaderCell.swift; path = ScrollHeaderCell/ScrollHeaderCell.swift; sourceTree = "<group>"; };
 		187F4B2D1EBBE444000AA4DB /* UpdateProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileTableViewController.swift; sourceTree = "<group>"; };
 		187F4B2F1EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileTableViewCell.swift; sourceTree = "<group>"; };
 		187F4B331EBC2081000AA4DB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -298,6 +303,7 @@
 		18E31DFB1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmAlbumCollectionViewCell.swift; path = Farm/View/OPFarmAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		18E810C41EC0287E00EDA5D8 /* OPFarmDetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmDetailedViewController.swift; path = VegetableList/OPFarmDetailedViewController.swift; sourceTree = "<group>"; };
 		18E810C61EC028A000EDA5D8 /* OPFarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPFarmTableViewCell.swift; path = VegetableList/OPFarmTableViewCell.swift; sourceTree = "<group>"; };
+		18EB7AE31F012BA30098F464 /* ScalingCarouselLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalingCarouselLayout.swift; sourceTree = "<group>"; };
 		18F6F6421ED3018E006FB8A3 /* OPLandPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPLandPageViewController.swift; path = Farm/Land/OPLandPageViewController.swift; sourceTree = "<group>"; };
 		18F6F6441ED301AD006FB8A3 /* OPLandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPLandViewController.swift; path = Farm/Land/OPLandViewController.swift; sourceTree = "<group>"; };
 		18F6F6461ED30322006FB8A3 /* OPSingleLandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPSingleLandViewController.swift; path = Farm/Land/OPSingleLandViewController.swift; sourceTree = "<group>"; };
@@ -388,6 +394,14 @@
 				183D82911EB64CB300B9F028 /* SMS_SDK.framework */,
 			);
 			path = SMS_SDK;
+			sourceTree = "<group>";
+		};
+		18770B3E1EF95BDB0048071E /* ScrollHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				18770B3F1EF95BEE0048071E /* ScrollHeaderCell.swift */,
+			);
+			name = ScrollHeaderCell;
 			sourceTree = "<group>";
 		};
 		188A5EA11EAE2CE3006CE839 = {
@@ -500,6 +514,8 @@
 			children = (
 				1894AB3D1EC7EF0C004DED5E /* Comment */,
 				1845F2F21EC3696C0061E259 /* OPLoadingIndicator.swift */,
+				18EB7AE31F012BA30098F464 /* ScalingCarouselLayout.swift */,
+				18770B3C1EF957850048071E /* InfiniteCollectionView.swift */,
 				18DF84431EE2D9BA00E5E4A6 /* CollectionPushAndPoppable.swift */,
 				18DF843F1EE2C07700E5E4A6 /* PopInAndOutAnimator.swift */,
 				187F4B471EC011F4000AA4DB /* OPTransitioningAnimator.swift */,
@@ -573,6 +589,7 @@
 		18C1E6701EB63E0B001D611B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				18770B3E1EF95BDB0048071E /* ScrollHeaderCell */,
 				18C1E6711EB63E0B001D611B /* OPHome.storyboard */,
 				18C1E6721EB63E0B001D611B /* OPHomeViewController.swift */,
 			);
@@ -902,6 +919,7 @@
 				18DA4FCF1EE0CA0D0025BC51 /* OPVegetableContainerViewController.swift in Sources */,
 				184E67EC1EDB953500CF2DE3 /* CommentURL+CoreDataClass.swift in Sources */,
 				184E67E81EDB953500CF2DE3 /* ImageGroup+CoreDataClass.swift in Sources */,
+				18EB7AE41F012BA30098F464 /* ScalingCarouselLayout.swift in Sources */,
 				184E67ED1EDB953500CF2DE3 /* CommentURL+CoreDataProperties.swift in Sources */,
 				1894AB451EC89C6C004DED5E /* OPCommentTextView.swift in Sources */,
 				18C1F0531EB63E0E001D611B /* CoreDataCollectionViewController.swift in Sources */,
@@ -941,6 +959,7 @@
 				18C1F0571EB63E0E001D611B /* OPToastWindow.swift in Sources */,
 				18F6F6491ED31EA5006FB8A3 /* OPLandCollectionViewCell.swift in Sources */,
 				18340A0E1EE1B14E00205A5C /* SeedCategories+CoreDataClass.swift in Sources */,
+				18770B401EF95BEE0048071E /* ScrollHeaderCell.swift in Sources */,
 				18340A2B1EE290B800205A5C /* OPVegetableCollectionReusableView.swift in Sources */,
 				184E68051EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift in Sources */,
 				18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */,
@@ -955,6 +974,7 @@
 				18DF844B1EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataClass.swift in Sources */,
 				18E31DF01ECB4DFA004A8505 /* TimeUtils.swift in Sources */,
 				18340A0D1EE1B14E00205A5C /* ImageURL+CoreDataProperties.swift in Sources */,
+				18770B3D1EF957850048071E /* InfiniteCollectionView.swift in Sources */,
 				18B282331EB85D6300010595 /* Common.swift in Sources */,
 				18C1F0631EB63E0E001D611B /* OPMeViewController.swift in Sources */,
 				184E67E61EDB953500CF2DE3 /* Comment+CoreDataClass.swift in Sources */,
