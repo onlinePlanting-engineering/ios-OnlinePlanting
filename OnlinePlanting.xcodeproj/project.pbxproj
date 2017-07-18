@@ -157,6 +157,15 @@
 		18F6F6491ED31EA5006FB8A3 /* OPLandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6F6481ED31EA5006FB8A3 /* OPLandCollectionViewCell.swift */; };
 		18F6F64B1ED32D98006FB8A3 /* OPLandSelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6F64A1ED32D98006FB8A3 /* OPLandSelectedCollectionViewCell.swift */; };
 		834DBDF917F40DD8ADCCAF54 /* Pods_OnlinePlanting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */; };
+		A584C7DA1F1E408C0064F87B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7D91F1E408C0064F87B /* SystemConfiguration.framework */; };
+		A584C7DC1F1E409C0064F87B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7DB1F1E409C0064F87B /* CoreTelephony.framework */; };
+		A584C7DE1F1E40A40064F87B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7DD1F1E40A40064F87B /* QuartzCore.framework */; };
+		A584C7E01F1E40AE0064F87B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7DF1F1E40AE0064F87B /* CoreText.framework */; };
+		A584C7E21F1E40B60064F87B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7E11F1E40B60064F87B /* CoreGraphics.framework */; };
+		A584C7E41F1E40BF0064F87B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7E31F1E40BF0064F87B /* UIKit.framework */; };
+		A584C7E61F1E40C80064F87B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7E51F1E40C80064F87B /* Foundation.framework */; };
+		A584C7E81F1E40D00064F87B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7E71F1E40D00064F87B /* CFNetwork.framework */; };
+		A584C7EA1F1E40DC0064F87B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7E91F1E40DC0064F87B /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,6 +344,19 @@
 		18F6F64A1ED32D98006FB8A3 /* OPLandSelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OPLandSelectedCollectionViewCell.swift; path = Farm/View/OPLandSelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		7424C03F9FA7E5B963FAC11B /* Pods-OnlinePlanting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.release.xcconfig"; sourceTree = "<group>"; };
 		7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnlinePlanting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A584C7D91F1E408C0064F87B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A584C7DB1F1E409C0064F87B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A584C7DD1F1E40A40064F87B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A584C7DF1F1E40AE0064F87B /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		A584C7E11F1E40B60064F87B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A584C7E31F1E40BF0064F87B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A584C7E51F1E40C80064F87B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A584C7E71F1E40D00064F87B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A584C7E91F1E40DC0064F87B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A584C7EF1F1E445B0064F87B /* libc.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libc.tbd; path = usr/lib/libc.tbd; sourceTree = SDKROOT; };
+		A584C7F11F1E44690064F87B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		A584C7F81F1E48810064F87B /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../app-pay-demo/AppPayDemo/libcrypto.a"; sourceTree = "<group>"; };
+		A584C7F91F1E48810064F87B /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../app-pay-demo/AppPayDemo/libssl.a"; sourceTree = "<group>"; };
 		B98016D2B3BE8EF95B755B48 /* Pods-OnlinePlanting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlinePlanting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnlinePlanting/Pods-OnlinePlanting.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -343,6 +365,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A584C7EA1F1E40DC0064F87B /* CoreMotion.framework in Frameworks */,
+				A584C7E81F1E40D00064F87B /* CFNetwork.framework in Frameworks */,
+				A584C7E61F1E40C80064F87B /* Foundation.framework in Frameworks */,
+				A584C7E41F1E40BF0064F87B /* UIKit.framework in Frameworks */,
+				A584C7E21F1E40B60064F87B /* CoreGraphics.framework in Frameworks */,
+				A584C7E01F1E40AE0064F87B /* CoreText.framework in Frameworks */,
+				A584C7DE1F1E40A40064F87B /* QuartzCore.framework in Frameworks */,
+				A584C7DC1F1E409C0064F87B /* CoreTelephony.framework in Frameworks */,
+				A584C7DA1F1E408C0064F87B /* SystemConfiguration.framework in Frameworks */,
 				187F4B361EBC2393000AA4DB /* CoreLocation.framework in Frameworks */,
 				18B2822D1EB6B6C600010595 /* Security.framework in Frameworks */,
 				183D82921EB64CB300B9F028 /* MOBFoundation.framework in Frameworks */,
@@ -377,6 +408,19 @@
 		118EB607BBF3EC5ACF4345EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A584C7F81F1E48810064F87B /* libcrypto.a */,
+				A584C7F91F1E48810064F87B /* libssl.a */,
+				A584C7F11F1E44690064F87B /* libc++.tbd */,
+				A584C7EF1F1E445B0064F87B /* libc.tbd */,
+				A584C7E91F1E40DC0064F87B /* CoreMotion.framework */,
+				A584C7E71F1E40D00064F87B /* CFNetwork.framework */,
+				A584C7E51F1E40C80064F87B /* Foundation.framework */,
+				A584C7E31F1E40BF0064F87B /* UIKit.framework */,
+				A584C7E11F1E40B60064F87B /* CoreGraphics.framework */,
+				A584C7DF1F1E40AE0064F87B /* CoreText.framework */,
+				A584C7DD1F1E40A40064F87B /* QuartzCore.framework */,
+				A584C7DB1F1E409C0064F87B /* CoreTelephony.framework */,
+				A584C7D91F1E408C0064F87B /* SystemConfiguration.framework */,
 				187F4B351EBC2393000AA4DB /* CoreLocation.framework */,
 				187F4B331EBC2081000AA4DB /* MapKit.framework */,
 				18B2822C1EB6B6C600010595 /* Security.framework */,
@@ -955,7 +999,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1241,6 +1285,8 @@
 					"$(PROJECT_DIR)/OnlinePlanting/Utils/SMS_SDK",
 					"$(PROJECT_DIR)/OnlinePlanting/Utils",
 					"$(PROJECT_DIR)/OnlinePlanting/Utils/expanding_collection",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/OnlinePlanting/Utils/AliPaySDK",
 				);
 				INFOPLIST_FILE = OnlinePlanting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1267,6 +1313,8 @@
 					"$(PROJECT_DIR)/OnlinePlanting/Utils/SMS_SDK",
 					"$(PROJECT_DIR)/OnlinePlanting/Utils",
 					"$(PROJECT_DIR)/OnlinePlanting/Utils/expanding_collection",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/OnlinePlanting/Utils/AliPaySDK",
 				);
 				INFOPLIST_FILE = OnlinePlanting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
