@@ -9,7 +9,10 @@
 #ifndef OnlinePlanting_Bridging_Header_h
 #define OnlinePlanting_Bridging_Header_h
 
+//#import "AlipaySDK/AlipaySDK.h"
+#import "RSADataSigner.h"
 #import <SMS_SDK/SMSSDK.h>
 #import <CommonCrypto/CommonCrypto.h>
+
 
 #endif /* OnlinePlanting_Bridging_Header_h */
