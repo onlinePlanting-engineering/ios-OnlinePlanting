@@ -50,15 +50,15 @@ extension Networking {
     }
     
 
-    func getFarmComments(_ farmId: Int16?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
-        _ = syncWithAppServer(WebServiceAPIMapping.GetFarmComments.rawValue, httpMethod: .get, httpHeaders: getHeaders(), urlParams: ["type": "farm", "id": farmId], params: nil,handler: handler)
+    func getComments(_ commentType: String, _ id: Int16?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
+        _ = syncWithAppServer(WebServiceAPIMapping.GetComments.rawValue, httpMethod: .get, httpHeaders: getHeaders(), urlParams: ["type": commentType, "id": id], params: nil,handler: handler)
     }
     
     func getRepliedComments(_ parentId: Int64?, handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())) {
         guard let parent = parentId else {
             handler(false, nil, nil)
             return }
-        let parentCommentUrl = "\(WebServiceAPIMapping.GetFarmComments.rawValue)\(parent)/"
+        let parentCommentUrl = "\(WebServiceAPIMapping.GetComments.rawValue)\(parent)/"
         _ = syncWithAppServer(parentCommentUrl, httpMethod: .get, httpHeaders: getHeaders(), urlParams: nil, params: nil,handler: handler)
     }
     
@@ -72,8 +72,12 @@ extension Networking {
         guard let deleteID = commentId else {
             handler(false, nil, nil)
             return }
-        let deleteCommentUrl = "\(WebServiceAPIMapping.GetFarmComments.rawValue)\(deleteID)/"
+        let deleteCommentUrl = "\(WebServiceAPIMapping.GetComments.rawValue)\(deleteID)/"
         _ = syncWithAppServer(deleteCommentUrl, httpMethod: .delete, httpHeaders: getFarmHeader(), urlParams: nil,params: nil, handler: handler)
+    }
+    
+    func getVegetableList(handler:@escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->())){
+        _ = syncWithAppServer(WebServiceAPIMapping.GetSeedCategories.rawValue, httpMethod: .get, httpHeaders: getFarmHeader(), urlParams: nil,params: nil, handler: handler)
     }
     
     
@@ -157,4 +161,54 @@ extension Networking {
             }
         })
     }
+    
+    //upload image to server
+    func uploadImageToServer(_ name: String?, desc: String?, uploadImage: UIImage?, handler: @escaping ((_ success:Bool, _ json:JSON?, _ error:NSError?)->()), progessHandler: @escaping ((_ progress:Progress?)->())) {
+        var params: Parameters = [String: Any]()
+        if let name = name, let desc = desc {
+            params = [
+                "name": "\(name)",
+                "desc": "\(desc)"
+            ]
+        }
+        let url  = Networking.shareInstance.baseURL! + "\(WebServiceAPIMapping.UploadImageToServer.rawValue)"
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            if let image = uploadImage, let imageData = UIImageJPEGRepresentation(image,1){
+                multipartFormData.append(imageData, withName: "img", fileName: "swift_file.jpeg", mimeType: "image/jpeg")
+            }
+            
+            for (key, value) in params {
+                //multipartFormData.append((value as! String).data(using: .utf8)!, withName: key)
+                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+            }
+            
+        }, usingThreshold: UInt64.init(), to: url, method: HTTPMethod.post, headers: updatedHeaders(), encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                
+                upload.uploadProgress(closure: { (Progress) in
+                    print("Upload Progress: \(Progress.fractionCompleted)")
+                    progessHandler(Progress)
+                })
+
+                upload.responseJSON { data in
+                    let response = data.response
+                    
+                    if response?.statusCode == 201 {
+                        if let value = data.result.value {
+                            let json = JSON(value)
+                            handler(true, json, nil)
+                        } else {
+                            handler(false, nil, data.result.error as NSError?)
+                        }
+                    } else {
+                        handler(false, nil, data.result.error as NSError?)
+                    }
+                }
+            case .failure(let encodingError):
+                handler(false, nil, encodingError as NSError?)
+            }
+        })
+    }
+
 }

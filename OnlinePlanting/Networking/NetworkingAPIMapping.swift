@@ -19,7 +19,7 @@ enum WebServiceAPIMapping: String {
     
     //farm
     case GetFarmList = "/api/farms/"
-    case GetFarmComments = "/api/comments/"
+    case GetComments = "/api/comments/"
     case CreateComment = "/api/comments/create/"
     
     //Image
@@ -27,6 +27,13 @@ enum WebServiceAPIMapping: String {
     
     //Land & Metas
     case GetLandsById = "/api/land/lands/"
+    
+    //Vegetables
+    case GetSeedCategories = "/api/seed/categories/"
+    case GetSeedVegetables = "/api/seed/vegetables/"
+    
+    //Upload Image
+    case UploadImageToServer = "/api/common/images/"
 }
 
 

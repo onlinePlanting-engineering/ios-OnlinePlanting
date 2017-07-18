@@ -161,12 +161,12 @@ class OPDataService: NSObject {
                 }
             })
         }
-
+        handler(true, nil)
     }
     
-    func getFarmComment(_ farmId: Int16?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+    func getComments(_ commentType: String, _ farmId: Int16?, handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         
-        Networking.shareInstance.getFarmComments(farmId) { (success, json, error) in
+        Networking.shareInstance.getComments(commentType, farmId) { (success, json, error) in
             guard let data = json?["data"].arrayObject as? [[String : Any]] else {
                 handler(false, error)
                 return
@@ -199,11 +199,11 @@ class OPDataService: NSObject {
         })
     }
     
-    func createFarmComment(_ type: String?, object_id: Int16?, parent_id: Int64?, content: String?, grade: String?,handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
+    func createFarmComment(_ type: String, object_id: Int16?, parent_id: Int64?, content: String?, grade: String?,handler: @escaping ((_ success:Bool, _ error:NSError?)->())) {
         Networking.shareInstance.createComment(type, object_id: object_id, parent_id: parent_id, content: content, grade: grade) { [weak self](success, json, error) in
             if success {
                 if parent_id == nil {
-                    self?.getFarmComment(object_id, handler: { (success, error) in
+                    self?.getComments(type, object_id, handler: { (success, error) in
                         if success {
                             handler(true, nil)
                         } else {
@@ -214,7 +214,7 @@ class OPDataService: NSObject {
                     self?.getRepliedComment(parent_id, handler: { (success, error) in
                         if success {
                             //after updating the child data, then update the parent data
-                            self?.getFarmComment(object_id, handler: { (success, error) in
+                            self?.getComments(type, object_id, handler: { (success, error) in
                                 if success {
                                     handler(true, nil)
                                 } else {
@@ -259,6 +259,23 @@ class OPDataService: NSObject {
         }
     }
     
+    func getVegetableList(handler:@escaping ((_ success:Bool, _ error:NSError?)->())){
+        Networking.shareInstance.getVegetableList { (success, json, error) in
+            guard let jsonData = json?["data"].arrayObject as? [[String : Any]] else {
+                handler(false, error)
+                return
+            }
+            
+            Sync.changes(jsonData, inEntityNamed: "SeedCategories", dataStack: appDelegate.dataStack, operations: [.Insert, .Update,], completion: {(error) in
+                if error != nil {
+                    handler(false, error)
+                } else {
+                   handler(true, nil)
+                }
+            })
+        }
+    }
+    
     func fetchCurrentFarmObjects() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
@@ -296,4 +313,44 @@ class OPDataService: NSObject {
         return lands
     }
     
+    func updateVegetablesMeta(handler:@escaping ((_ success:Bool, _ error:NSError?)->())){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SeedVegetablesMeta")
+        request.sortDescriptors = [NSSortDescriptor(key: "url", ascending: true)]
+        guard let  vegetableMetas = ((try! appDelegate.dataStack.mainContext.fetch(request)) as? [SeedVegetablesMeta]) else { return }
+        
+        for vegetable in vegetableMetas {
+            var tempData = [String: Any]()
+            for key in vegetable.entity.attributesByName.keys {
+                tempData[key] = vegetable.value(forKey: key)
+            }
+            tempData["name_pingying"] = vegetable.name?.pinyin
+            if let section = vegetable.name?.pinyin.uppercased().characters.first {
+                tempData["uppercaseFirstLetterOfName"] = String.init(section)
+                Sync.changes([tempData], inEntityNamed: "SeedVegetablesMeta", dataStack: appDelegate.dataStack, operations: [.Insert, .Update], completion: { (error) in
+                    if error != nil {
+                        handler(false, error)
+                    } else {
+                        handler(true, nil)
+                    }
+                })
+
+            }
+        }
+    }
+    
+}
+
+extension OPDataService {
+    
+    func uploadImageToServer(_ name: String?, desc: String?, uploadImage: UIImage?, imageID: String?, handler:@escaping ((_ success:Bool, _ imageUrl: String?, _ error:NSError?)->()), progressHandler:@escaping ((_ progress: Progress?, _ imageID: String?)->())) {
+        Networking.shareInstance.uploadImageToServer(name, desc: desc, uploadImage: uploadImage, handler: { (success, json, error) in
+            guard let data = json?.dictionaryObject else {
+                handler(false, nil, error)
+                return
+            }
+            handler(success, data["img"] as? String, nil)
+        }) { (process) in
+            progressHandler(process, imageID)
+        }
+    }
 }

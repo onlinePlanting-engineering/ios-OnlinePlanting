@@ -9,16 +9,28 @@
 import UIKit
 import CoreData
 
-
 class OPFarmCommentViewController: CoreDataTableViewController {
     
     var farm: Farm?
+    var vegetable: SeedVegetablesMeta?
+    var commentType: CommentType = .farm
     @IBOutlet var tableViewReference: UITableView!
+    
+    @IBOutlet weak var commentHeadImage: UIImageView!
+    @IBOutlet weak var commentHeaderView: UIView!
+    var commentImage: UIImage?
     weak var delegate: SubScrollDelegate?
     var currentScrollOffSet: CGFloat = 0
     fileprivate var replyAlertController: UIAlertController?
     fileprivate var parentComment: Comment?
     fileprivate var parentCellHeight: CGFloat?
+    
+    
+    lazy var refreshVC: UIRefreshControl = {
+        let refreshVC = UIRefreshControl()
+        refreshVC.addTarget(self, action: #selector(loadingNewData), for: .valueChanged)
+        return refreshVC
+    }()
     
     lazy var oploadingView: OPLoadingIndicator = {
         let oploadingView = OPLoadingIndicator.init(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - 270, width: 96, height: 70))
@@ -67,8 +79,15 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     lazy var setup: () = {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Comment")
         request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
-        guard let id = self.farm?.id else { return }
-        request.predicate = NSPredicate(format: "parent == nil AND object_id == %d", id)
+        var id: Int16? = 0
+        if self.commentType == .farm {
+            id = self.farm?.id
+        } else if self.commentType == .vegetable {
+            guard let vegeId = self.vegetable?.url?.components(separatedBy: "/")[6], let idInt16 = Int16(vegeId) else { return }
+            id = idInt16
+        }
+        guard let commentId = id else { return }
+        request.predicate = NSPredicate(format: "parent == nil AND object_id == %d", commentId)
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: appDelegate.dataStack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
         
         self.showNoCommentView()
@@ -89,9 +108,17 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     
     func prepareUI() {
         
+        if commentType == .vegetable {
+            commentHeadImage.image = commentImage
+            tableView.addSubview(refreshVC)
+        }
+        
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()//remove the lines if there is no data
+        
+        navigationController?.navigationBar.topItem?.title = ""
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         
@@ -116,7 +143,7 @@ class OPFarmCommentViewController: CoreDataTableViewController {
                 self?.commentInputView.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height - offset - 136, width: UIScreen.main.bounds.width, height: 136)
             })
         }
-
+        
     }
     
     func closeCommentInputView() {
@@ -132,7 +159,7 @@ class OPFarmCommentViewController: CoreDataTableViewController {
             self?.commentInputView.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height  - 136, width: UIScreen.main.bounds.width, height: 136)
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -140,7 +167,7 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         commentInputView.alpha = 0.0
         maskView.isHidden = true
         navigationController?.view.addSubview(maskView)
@@ -154,7 +181,7 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-         delegate?.previousPage(currentScrollOffSet)
+        delegate?.previousPage(currentScrollOffSet)
         let _ = commentRepliedViewController
     }
     
@@ -165,15 +192,31 @@ class OPFarmCommentViewController: CoreDataTableViewController {
     }
     
     func loadingNewData() {
-        OPDataService.sharedInstance.getFarmComment(farm?.id) { [weak self](success, error) in
-            self?.showNoCommentView()
-            if success {
-                print("get data successfully")
-            } else {
-                print("get the comment data failed")
+        refreshVC.beginRefreshing()
+        switch commentType {
+        case .farm:
+            OPDataService.sharedInstance.getComments(commentType.rawValue,farm?.id) { [weak self](success, error) in
+                self?.showNoCommentView()
+                if success {
+                    print("get data successfully")
+                } else {
+                    print("get the comment data failed")
+                }
+                self?.refreshVC.endRefreshing()
+            }
+        case .vegetable:
+            guard let vegeId = self.vegetable?.url?.components(separatedBy: "/")[6] else { return }
+            OPDataService.sharedInstance.getComments(commentType.rawValue,Int16(vegeId)) { [weak self](success, error) in
+                self?.showNoCommentView()
+                if success {
+                    print("get data successfully")
+                } else {
+                    print("get the comment data failed")
+                }
+                self?.refreshVC.endRefreshing()
             }
         }
-
+        
     }
 }
 
@@ -184,7 +227,13 @@ extension OPFarmCommentViewController {
         headerView.backgroundColor = UIColor.white
         let commentlable = UILabel()
         commentlable.sizeToFit()
-        commentlable.attributedText = NSAttributedString(string: "农场主期待您的留言", attributes: [NSForegroundColorAttributeName: UIColor(hexString: OPDarkGreenColor),NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 15)!])
+        var title = ""
+        if commentType == .farm {
+            title = "农场主期待您的留言"
+        } else if commentType == .vegetable {
+            title = "本蔬菜期待您的留言"
+        }
+        commentlable.attributedText = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: UIColor(hexString: OPDarkGreenColor),NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 15)!])
         headerView.addSubview(commentlable)
         commentlable.translatesAutoresizingMaskIntoConstraints = false
         commentlable.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
@@ -227,7 +276,7 @@ extension OPFarmCommentViewController {
             guard let alterVC = showReplyAlertController(parentComment?.id, commentId: parentComment?.id) else { return }
             present(alterVC, animated: true, completion: nil)
         }
-
+        
         guard let alterVC = showReplyAlertController(parentComment?.id) else { return }
         present(alterVC, animated: true, completion: nil)
     }
@@ -318,17 +367,34 @@ extension OPFarmCommentViewController: OPCommentTextViewDelegate {
     
     func sendMessage(_ message: String?, parent: Int64?, handler: @escaping (Bool, NSError?) -> Void) {
         OPLoadingHUD.show(UIImage(named: "hud_loading"), title: "Saving comment", animated: true, delay: 0.0)
-        OPDataService.sharedInstance.createFarmComment(CommentType.farm.rawValue, object_id: farm?.id, parent_id: parent, content: message, grade: "5") {[weak self](success, error) in
-            self?.showNoCommentView()
-            if success {
-                handler(true, nil)
-                self?.tableView.scrollsToTop = true
-                self?.closeCommentInputView()
-            } else {
-                handler(false, error)
-                
+        switch commentType {
+        case .farm:
+            OPDataService.sharedInstance.createFarmComment(CommentType.farm.rawValue, object_id: farm?.id, parent_id: parent, content: message, grade: "5") {[weak self](success, error) in
+                self?.showNoCommentView()
+                if success {
+                    handler(true, nil)
+                    self?.tableView.scrollsToTop = true
+                    self?.closeCommentInputView()
+                } else {
+                    handler(false, error)
+                    
+                }
+                OPLoadingHUD.hide()
             }
-            OPLoadingHUD.hide()
+        case .vegetable:
+            guard let vegeId = self.vegetable?.url?.components(separatedBy: "/")[6] else { return }
+            OPDataService.sharedInstance.createFarmComment(CommentType.vegetable.rawValue, object_id: Int16(vegeId), parent_id: parent, content: message, grade: "5") {[weak self](success, error) in
+                self?.showNoCommentView()
+                if success {
+                    handler(true, nil)
+                    self?.tableView.scrollsToTop = true
+                    self?.closeCommentInputView()
+                } else {
+                    handler(false, error)
+                    
+                }
+                OPLoadingHUD.hide()
+            }
         }
     }
     

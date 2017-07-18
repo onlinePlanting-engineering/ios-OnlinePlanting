@@ -27,26 +27,15 @@ class OPFarmListViewController: CoreDataTableViewController {
     
     lazy var searchView: UIView = {
         let searchView = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 20, height: 32))
-        let cancelButton = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 60, height: 20))
-        cancelButton.setAttributedTitle(NSAttributedString.init(string: "Cancel", attributes: [NSForegroundColorAttributeName: UIColor(hexString: OPGreenColor),NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 15)!]), for: .normal)
-        let searchBar = UISearchBar(frame: CGRect.init(x: 0, y: 0, width: 280, height: 30))
+        let searchBar = UISearchBar.init(frame: searchView.frame)
+        searchBar.barTintColor = UIColor.white
+        searchBar.layer.borderWidth = 0.0
+        searchBar.showsCancelButton = false
+        searchBar.tintColor = UIColor.init(hexString: OPDarkGreenColor)
         searchBar.delegate = self
+        searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "按照农场名字, 城市查询"
-        searchBar.tintColor = UIColor(hexString: OPGreenColor) 
         searchView.addSubview(searchBar)
-        searchView.addSubview(cancelButton)
-        cancelButton.addTarget(self, action: #selector(closeSearchBar), for: .touchUpInside)
-        cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        cancelButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        cancelButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        cancelButton.centerYAnchor.constraint(equalTo: searchView.centerYAnchor).isActive = true
-        cancelButton.trailingAnchor.constraint(equalTo: searchView.trailingAnchor, constant: 0).isActive = true
-        cancelButton.titleLabel?.sizeToFit()
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.widthAnchor.constraint(equalToConstant: 280).isActive = true
-        searchBar.heightAnchor.constraint(equalToConstant: 22).isActive = true
-        searchBar.centerYAnchor.constraint(equalTo: searchView.centerYAnchor).isActive = true
-        searchBar.centerXAnchor.constraint(equalTo: searchView.centerXAnchor, constant: 0).isActive = true
         return searchView
     }()
     
@@ -85,6 +74,9 @@ class OPFarmListViewController: CoreDataTableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = rightArrowItem
+        navigationController?.navigationBar.topItem?.leftBarButtonItem = nil
+        
         tableView.addSubview(refresh)
         OPDataService.sharedInstance.getFarmList() { (success, error) in
             if success {
@@ -101,6 +93,7 @@ class OPFarmListViewController: CoreDataTableViewController {
             if view.isKind(of: UISearchBar.self) {
                     let textField = (view as? UISearchBar)?.value(forKey: "searchField") as! UITextField
                     textField.text = ""
+                    textField.layer.borderWidth = 0.0
                 }
         }
     }
@@ -132,9 +125,6 @@ class OPFarmListViewController: CoreDataTableViewController {
         navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.init(hexString: "#2D363C")]
         navigationController?.navigationBar.topItem?.title = "入住农场"
-        
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = rightArrowItem
-        navigationController?.navigationBar.topItem?.leftBarButtonItem = nil
     }
     
     func showSearchBar() {
@@ -264,5 +254,18 @@ extension OPFarmListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("test is:\(searchText)")
         updateNSPredicate(searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        UIView.animate(withDuration: 0.2) {[weak self] in
+            searchBar.showsCancelButton = false
+            searchBar.text = ""
+            self?.closeSearchBar()
+            searchBar.endEditing(true)
+        }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
     }
 }

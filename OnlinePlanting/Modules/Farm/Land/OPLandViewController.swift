@@ -37,6 +37,7 @@ class OPLandViewController: UIViewController {
         
         guard let count = lands?.count  else { return }
         landPageControl.numberOfPages = count
+        if count <= 1 { landPageControl.isHidden = true}
         landPageControl.currentPageIndicatorTintColor = UIColor.init(hexString: OPDarkGreenColor)
     }
     
@@ -75,6 +76,7 @@ class OPLandViewController: UIViewController {
             pageViewVC = segue.destination as? OPLandPageViewController
             pageViewVC?.landsData = lands
             pageViewVC?.parentVC = self
+            pageViewVC?.pagedelegate = self
         }
     }
 
@@ -133,6 +135,12 @@ extension OPLandViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 60, height: 32)
         
+    }
+}
+
+extension OPLandViewController: OPLandPageViewControllerDelegate {
+    func transitionCompleted(_ currentIndex: Int) {
+        landPageControl.currentPage = currentIndex
     }
 }
 

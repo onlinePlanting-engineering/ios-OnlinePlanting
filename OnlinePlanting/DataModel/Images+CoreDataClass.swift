@@ -25,7 +25,7 @@ class Images: NSManagedObject, INSPhotoViewable{
     
     func loadImageWithCompletionHandler(_ completion: @escaping (_ image: UIImage?, _ error: Error?) -> ()) {
         if let url = imageURL {
-            SDWebImageManager.shared().downloadImage(with: url, options: SDWebImageOptions.cacheMemoryOnly, progress: { (min, max) in
+            SDWebImageManager.shared().downloadImage(with: url, options: SDWebImageOptions.handleCookies, progress: { (min, max) in
                 //value is
                 //print("min is: \(min) max is: \(max)")
             }, completed: { (image, error, cacheType, success, url) in
