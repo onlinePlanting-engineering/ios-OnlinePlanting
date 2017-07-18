@@ -31,6 +31,9 @@ enum WebServiceAPIMapping: String {
     //Vegetables
     case GetSeedCategories = "/api/seed/categories/"
     case GetSeedVegetables = "/api/seed/vegetables/"
+    
+    //Upload Image
+    case UploadImageToServer = "/api/common/images/"
 }
 
 

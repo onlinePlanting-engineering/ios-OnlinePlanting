@@ -234,6 +234,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="showVegetableDetailedInfroAction:" destination="woM-iL-6SI" eventType="touchUpInside" id="DiP-lz-DHn"/>
+                                                            <segue destination="Maq-uU-TpC" kind="showDetail" id="9kq-Mo-U5X"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -429,6 +430,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNn-i3-eOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4098" y="568"/>
+        </scene>
+        <!--Vegetable Defailed View Controller-->
+        <scene sceneID="287-KB-Baf">
+            <objects>
+                <viewController id="Maq-uU-TpC" customClass="OPVegetableDefailedViewController" customModule="OnlinePlanting" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="42f-1R-s4g"/>
+                        <viewControllerLayoutGuide type="bottom" id="CKu-Hz-3p2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0QR-Vc-soZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZW-4f-GCz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDi-nf-puQ">
+                                        <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </webView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="kDi-nf-puQ" firstAttribute="centerY" secondItem="EZW-4f-GCz" secondAttribute="centerY" id="Eqg-cO-mgm"/>
+                                    <constraint firstItem="kDi-nf-puQ" firstAttribute="height" secondItem="EZW-4f-GCz" secondAttribute="height" id="hXT-e4-rN8"/>
+                                    <constraint firstItem="kDi-nf-puQ" firstAttribute="centerX" secondItem="EZW-4f-GCz" secondAttribute="centerX" id="lt8-lv-5iq"/>
+                                    <constraint firstItem="kDi-nf-puQ" firstAttribute="width" secondItem="EZW-4f-GCz" secondAttribute="width" id="yeQ-fI-BLD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EZW-4f-GCz" firstAttribute="height" secondItem="0QR-Vc-soZ" secondAttribute="height" id="GRT-IV-Lal"/>
+                            <constraint firstItem="EZW-4f-GCz" firstAttribute="width" secondItem="0QR-Vc-soZ" secondAttribute="width" id="GrF-Ja-gII"/>
+                            <constraint firstItem="EZW-4f-GCz" firstAttribute="centerY" secondItem="0QR-Vc-soZ" secondAttribute="centerY" id="kEd-RJ-R4D"/>
+                            <constraint firstItem="EZW-4f-GCz" firstAttribute="centerX" secondItem="0QR-Vc-soZ" secondAttribute="centerX" id="nmh-Sp-SeL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bgu-N0-Fma"/>
+                    <connections>
+                        <outlet property="webview" destination="kDi-nf-puQ" id="4rJ-kU-NeR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yor-cM-CF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4143" y="1330"/>
         </scene>
         <!--Vegetable Collection View Controller-->
         <scene sceneID="0b9-eh-524">

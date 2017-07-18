@@ -339,3 +339,18 @@ class OPDataService: NSObject {
     }
     
 }
+
+extension OPDataService {
+    
+    func uploadImageToServer(_ name: String?, desc: String?, uploadImage: UIImage?, imageID: String?, handler:@escaping ((_ success:Bool, _ imageUrl: String?, _ error:NSError?)->()), progressHandler:@escaping ((_ progress: Progress?, _ imageID: String?)->())) {
+        Networking.shareInstance.uploadImageToServer(name, desc: desc, uploadImage: uploadImage, handler: { (success, json, error) in
+            guard let data = json?.dictionaryObject else {
+                handler(false, nil, error)
+                return
+            }
+            handler(success, data["img"] as? String, nil)
+        }) { (process) in
+            progressHandler(process, imageID)
+        }
+    }
+}

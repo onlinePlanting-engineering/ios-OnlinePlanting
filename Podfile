@@ -13,4 +13,6 @@ target ‘OnlinePlanting’ do
     pod 'SDWebImage', '~>3.8'
     pod 'INSPhotoGallery'
     pod 'Charts'
+    pod 'WordPress-Aztec-iOS', '1.0.0-beta.7'
+    pod 'Gridicons', :podspec => 'https://raw.github.com/Automattic/Gridicons-iOS/develop/Gridicons.podspec'
 end

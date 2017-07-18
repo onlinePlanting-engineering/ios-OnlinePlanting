@@ -64,6 +64,7 @@ class OPHomeViewController: UIViewController {
     }
     
     func setNavigarationBar() {
+        UIApplication.shared.statusBarStyle = .default
         navigationController?.navigationBar.topItem?.title = nil
         navigationController?.navigationBar.topItem?.rightBarButtonItem = rightUserItem
     }
@@ -122,7 +123,7 @@ extension OPHomeViewController: UIScrollViewDelegate {
     
     func nextPage() {
         if headCollectionView.contentOffset.x == CGFloat(3 * urlSet.count - 1) * UIScreen.main.bounds.width {
-            headCollectionView.contentOffset.x = CGFloat(urlSet.count - 1) * CGFloat(urlSet.count - 1) * UIScreen.main.bounds.width
+            headCollectionView.contentOffset.x = CGFloat(urlSet.count - 1) * UIScreen.main.bounds.width
         } else {
             headCollectionView.contentOffset.x += UIScreen.main.bounds.width
         }

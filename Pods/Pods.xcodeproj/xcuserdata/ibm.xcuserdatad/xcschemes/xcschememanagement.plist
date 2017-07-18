@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Gridicons.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>INSPhotoGallery-INSPhotoGallery.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -64,15 +69,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>WordPress-Aztec-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D8DCBC3FFBCFA19CEAE903ED8C9E37D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>124EA96AE953AE0852BF19B8626580D3</key>
+		<key>1271D77606F647E1C0B71DAC7EE9807A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +87,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1BE65EB13C7FDAB917DDE813E2141D33</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>203AD3AE6DC3DA32383FBC25CA86E97E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4DEA5FBA4FB97F9F773D60F59B25DAB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5AB2AFB1E6DC8D2967EF130A030AD1B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D4E4CD9883CF29CFA5B53C80A821AC4</key>
+		<key>69BDD3D60D77629B28FCA0E222B8AFD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>739C4A6D232B4F5A1662AFC2CCF870D2</key>
+		<key>743C0C13FE1918921059A8039D63DD8B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,12 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8C7BAC952FFE0E104EF26AD695196B00</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B2F21E09115B0F5A6A7788B79609CF77</key>
+		<key>B6202E149ECB0D9C91A312AD029546CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,37 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D95B5CB5EB74258569D6C3E51DDA8B63</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DE41DE30C5BD10F6FE53D2EE6CD21C30</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DFBECB845809A71BDED200DA0ECB22D7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E71D305F08A91E3AA2A33EFBC1417E9A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EEFF316B333DD1D790201F3C57F9CE10</key>
+		<key>CEF6301D26ED34D2B116ED686DEDDBE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F307B842FF76B2DE6C55DB67C0885325</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F95F980CFE6C256B7FF66AF3F92B61BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

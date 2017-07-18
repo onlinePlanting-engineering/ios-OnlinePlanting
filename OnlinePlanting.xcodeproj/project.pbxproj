@@ -87,6 +87,18 @@
 		1897E6A81EB99A8C008BC24D /* OPMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897E6A61EB99A8C008BC24D /* OPMeTableViewCell.swift */; };
 		1897E6A91EB99A8C008BC24D /* OPMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1897E6A71EB99A8C008BC24D /* OPMeTableViewCell.xib */; };
 		1897E6AB1EB9C58B008BC24D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897E6AA1EB9C58B008BC24D /* ProfileViewController.swift */; };
+		18A7E6E81F1071E3003C0FB4 /* Blog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18A7E6E71F1071E3003C0FB4 /* Blog.storyboard */; };
+		18A7E7081F10CEA0003C0FB4 /* CommentAttachmentRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E7071F10CEA0003C0FB4 /* CommentAttachmentRenderer.swift */; };
+		18A7E70A1F10CEA8003C0FB4 /* HTMLAttachmentRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E7091F10CEA8003C0FB4 /* HTMLAttachmentRenderer.swift */; };
+		18A7E70C1F10CEB1003C0FB4 /* MoreAttachmentRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E70B1F10CEB1003C0FB4 /* MoreAttachmentRenderer.swift */; };
+		18A7E70E1F10CEBB003C0FB4 /* ShortcodeProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E70D1F10CEBB003C0FB4 /* ShortcodeProcessor.swift */; };
+		18A7E7101F10CEC9003C0FB4 /* EditorDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E70F1F10CEC9003C0FB4 /* EditorDemoController.swift */; };
+		18A7E7121F10CED4003C0FB4 /* OptionsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E7111F10CED4003C0FB4 /* OptionsTableView.swift */; };
+		18A7E7141F10CF0B003C0FB4 /* UnknownEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E7131F10CF0B003C0FB4 /* UnknownEditorViewController.swift */; };
+		18A7E7161F10CF22003C0FB4 /* AttachmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E7151F10CF22003C0FB4 /* AttachmentDetailsViewController.swift */; };
+		18A7E7181F1107CB003C0FB4 /* NetworkingAPIs_WP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E7171F1107CB003C0FB4 /* NetworkingAPIs_WP.swift */; };
+		18A7E71A1F1266E9003C0FB4 /* MediaAttachment+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E7191F1266E9003C0FB4 /* MediaAttachment+Ext.swift */; };
+		18A7E71E1F14A807003C0FB4 /* OPVegetableDefailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A7E71D1F14A807003C0FB4 /* OPVegetableDefailedViewController.swift */; };
 		18B2822D1EB6B6C600010595 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B2822C1EB6B6C600010595 /* Security.framework */; };
 		18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2822E1EB6C82800010595 /* UIView+Ext.swift */; };
 		18B282311EB7147D00010595 /* SMSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B282301EB7147D00010595 /* SMSUtils.swift */; };
@@ -251,6 +263,18 @@
 		1897E6A61EB99A8C008BC24D /* OPMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMeTableViewCell.swift; sourceTree = "<group>"; };
 		1897E6A71EB99A8C008BC24D /* OPMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OPMeTableViewCell.xib; sourceTree = "<group>"; };
 		1897E6AA1EB9C58B008BC24D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		18A7E6E71F1071E3003C0FB4 /* Blog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Blog.storyboard; path = Blog/Blog.storyboard; sourceTree = "<group>"; };
+		18A7E7071F10CEA0003C0FB4 /* CommentAttachmentRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentAttachmentRenderer.swift; sourceTree = "<group>"; };
+		18A7E7091F10CEA8003C0FB4 /* HTMLAttachmentRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLAttachmentRenderer.swift; sourceTree = "<group>"; };
+		18A7E70B1F10CEB1003C0FB4 /* MoreAttachmentRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreAttachmentRenderer.swift; sourceTree = "<group>"; };
+		18A7E70D1F10CEBB003C0FB4 /* ShortcodeProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcodeProcessor.swift; sourceTree = "<group>"; };
+		18A7E70F1F10CEC9003C0FB4 /* EditorDemoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorDemoController.swift; sourceTree = "<group>"; };
+		18A7E7111F10CED4003C0FB4 /* OptionsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTableView.swift; sourceTree = "<group>"; };
+		18A7E7131F10CF0B003C0FB4 /* UnknownEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnknownEditorViewController.swift; sourceTree = "<group>"; };
+		18A7E7151F10CF22003C0FB4 /* AttachmentDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentDetailsViewController.swift; sourceTree = "<group>"; };
+		18A7E7171F1107CB003C0FB4 /* NetworkingAPIs_WP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingAPIs_WP.swift; sourceTree = "<group>"; };
+		18A7E7191F1266E9003C0FB4 /* MediaAttachment+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MediaAttachment+Ext.swift"; path = "Blog/MediaAttachment+Ext.swift"; sourceTree = "<group>"; };
+		18A7E71D1F14A807003C0FB4 /* OPVegetableDefailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPVegetableDefailedViewController.swift; sourceTree = "<group>"; };
 		18B2822B1EB64EC000010595 /* OnlinePlanting-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnlinePlanting-Bridging-Header.h"; sourceTree = "<group>"; };
 		18B2822C1EB6B6C600010595 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		18B2822E1EB6C82800010595 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -474,6 +498,39 @@
 			name = Comment;
 			sourceTree = "<group>";
 		};
+		18A7E6E61F1070C6003C0FB4 /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				18A7E6EA1F10735E003C0FB4 /* Renders */,
+				18A7E6E91F107358003C0FB4 /* Processors */,
+				18A7E6E71F1071E3003C0FB4 /* Blog.storyboard */,
+				18A7E7111F10CED4003C0FB4 /* OptionsTableView.swift */,
+				18A7E7131F10CF0B003C0FB4 /* UnknownEditorViewController.swift */,
+				18A7E7151F10CF22003C0FB4 /* AttachmentDetailsViewController.swift */,
+				18A7E70F1F10CEC9003C0FB4 /* EditorDemoController.swift */,
+			);
+			name = Blog;
+			sourceTree = "<group>";
+		};
+		18A7E6E91F107358003C0FB4 /* Processors */ = {
+			isa = PBXGroup;
+			children = (
+				18A7E70D1F10CEBB003C0FB4 /* ShortcodeProcessor.swift */,
+				18A7E7191F1266E9003C0FB4 /* MediaAttachment+Ext.swift */,
+			);
+			name = Processors;
+			sourceTree = "<group>";
+		};
+		18A7E6EA1F10735E003C0FB4 /* Renders */ = {
+			isa = PBXGroup;
+			children = (
+				18A7E7091F10CEA8003C0FB4 /* HTMLAttachmentRenderer.swift */,
+				18A7E70B1F10CEB1003C0FB4 /* MoreAttachmentRenderer.swift */,
+				18A7E7071F10CEA0003C0FB4 /* CommentAttachmentRenderer.swift */,
+			);
+			name = Renders;
+			sourceTree = "<group>";
+		};
 		18B53E461EC0A14F003B6D6A /* Farm */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +631,7 @@
 		18C1E66F1EB63E0B001D611B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				18A7E6E61F1070C6003C0FB4 /* Blog */,
 				181CC5E31EEA3F3C00CA58CE /* Comment */,
 				18B53E461EC0A14F003B6D6A /* Farm */,
 				18C1E6701EB63E0B001D611B /* Home */,
@@ -646,6 +704,7 @@
 			children = (
 				18340A101EE1B27E00205A5C /* View */,
 				18DA4FCE1EE0CA0D0025BC51 /* OPVegetableContainerViewController.swift */,
+				18A7E71D1F14A807003C0FB4 /* OPVegetableDefailedViewController.swift */,
 				18DF84411EE2C58600E5E4A6 /* OPVegetableDetailedViewController.swift */,
 				18DA4FCC1EE05D1A0025BC51 /* OPVegetable.storyboard */,
 				18DA4FC61EE05ADA0025BC51 /* OPVegetableViewController.swift */,
@@ -661,6 +720,7 @@
 				18C1E6841EB63E0B001D611B /* Networking.swift */,
 				18C1E6851EB63E0B001D611B /* NetworkingAPIMapping.swift */,
 				18C1E6861EB63E0B001D611B /* NetworkingAPIs.swift */,
+				18A7E7171F1107CB003C0FB4 /* NetworkingAPIs_WP.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -826,6 +886,7 @@
 				18C1F0641EB63E0E001D611B /* OPMyGarden.storyboard in Resources */,
 				1894AB3F1EC7EF2C004DED5E /* OPCommentHereView.xib in Resources */,
 				182D4D1E1EE0376F00C29B86 /* OPFarm.storyboard in Resources */,
+				18A7E6E81F1071E3003C0FB4 /* Blog.storyboard in Resources */,
 				18C1F05B1EB63E0E001D611B /* OPHome.storyboard in Resources */,
 				182E98A61ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.xib in Resources */,
 				18DA4FCD1EE05D1A0025BC51 /* OPVegetable.storyboard in Resources */,
@@ -904,6 +965,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A7E7161F10CF22003C0FB4 /* AttachmentDetailsViewController.swift in Sources */,
+				18A7E7141F10CF0B003C0FB4 /* UnknownEditorViewController.swift in Sources */,
 				184E68011EDD48B700CF2DE3 /* Images+CoreDataProperties.swift in Sources */,
 				183D82771EB647DF00B9F028 /* AppDelegate.swift in Sources */,
 				18E31DFC1ED077ED004A8505 /* OPFarmAlbumCollectionViewCell.swift in Sources */,
@@ -917,8 +980,10 @@
 				18C1F0541EB63E0E001D611B /* CoreDataTableViewController.swift in Sources */,
 				189052E51EC1EDE100F8DB1A /* OPFarmContainerViewController.swift in Sources */,
 				18DA4FCF1EE0CA0D0025BC51 /* OPVegetableContainerViewController.swift in Sources */,
+				18A7E7101F10CEC9003C0FB4 /* EditorDemoController.swift in Sources */,
 				184E67EC1EDB953500CF2DE3 /* CommentURL+CoreDataClass.swift in Sources */,
 				184E67E81EDB953500CF2DE3 /* ImageGroup+CoreDataClass.swift in Sources */,
+				18A7E7121F10CED4003C0FB4 /* OptionsTableView.swift in Sources */,
 				18EB7AE41F012BA30098F464 /* ScalingCarouselLayout.swift in Sources */,
 				184E67ED1EDB953500CF2DE3 /* CommentURL+CoreDataProperties.swift in Sources */,
 				1894AB451EC89C6C004DED5E /* OPCommentTextView.swift in Sources */,
@@ -947,6 +1012,7 @@
 				187F4B2E1EBBE444000AA4DB /* UpdateProfileTableViewController.swift in Sources */,
 				1855E8B61ED10A0400D57019 /* OPFarmRendNoticeViewController.swift in Sources */,
 				187F4B3C1EBC41A2000AA4DB /* Location+CoreDataProperties.swift in Sources */,
+				18A7E70C1F10CEB1003C0FB4 /* MoreAttachmentRenderer.swift in Sources */,
 				18F6F6431ED3018E006FB8A3 /* OPLandPageViewController.swift in Sources */,
 				180318751EE848DE00DBCBA0 /* OPTableIViewPopInAndOutAnimator.swift in Sources */,
 				189052ED1EC1F0CE00F8DB1A /* OPSegue.swift in Sources */,
@@ -963,10 +1029,12 @@
 				18340A2B1EE290B800205A5C /* OPVegetableCollectionReusableView.swift in Sources */,
 				184E68051EDE3E5500CF2DE3 /* Land+CoreDataProperties.swift in Sources */,
 				18B2822F1EB6C82800010595 /* UIView+Ext.swift in Sources */,
+				18A7E7181F1107CB003C0FB4 /* NetworkingAPIs_WP.swift in Sources */,
 				18E31DBB1EC9AA76004A8505 /* FarmActivityTableViewCell.swift in Sources */,
 				18C1F0561EB63E0E001D611B /* OPTextField.swift in Sources */,
 				182E98A51ED6FBD3006FEBBA /* AlbumHeaderCollectionReusableView.swift in Sources */,
 				183D828B1EB64BF000B9F028 /* UIBarButtonItem+Ext.swift in Sources */,
+				18A7E70E1F10CEBB003C0FB4 /* ShortcodeProcessor.swift in Sources */,
 				18F6F6471ED30322006FB8A3 /* OPSingleLandViewController.swift in Sources */,
 				18C1F0671EB63E0E001D611B /* OPFarmListViewController.swift in Sources */,
 				1894AB471EC89D6F004DED5E /* OPCommentInputView.swift in Sources */,
@@ -990,8 +1058,10 @@
 				187F4B3B1EBC41A2000AA4DB /* Location+CoreDataClass.swift in Sources */,
 				181CC5E71EEA3F9B00CA58CE /* OPFarmCommentViewController.swift in Sources */,
 				184E67F81EDB971F00CF2DE3 /* User+CoreDataClass.swift in Sources */,
+				18A7E71A1F1266E9003C0FB4 /* MediaAttachment+Ext.swift in Sources */,
 				1894AB411EC7F165004DED5E /* OPCommentHereView.swift in Sources */,
 				184E67EB1EDB953500CF2DE3 /* Meta+CoreDataProperties.swift in Sources */,
+				18A7E70A1F10CEA8003C0FB4 /* HTMLAttachmentRenderer.swift in Sources */,
 				18C1F05C1EB63E0E001D611B /* OPHomeViewController.swift in Sources */,
 				18B282311EB7147D00010595 /* SMSUtils.swift in Sources */,
 				184E67E11EDB953500CF2DE3 /* LandURL+CoreDataProperties.swift in Sources */,
@@ -1006,9 +1076,11 @@
 				187F4B311EBBE7D9000AA4DB /* UpdateProfileTableViewCell.swift in Sources */,
 				18C1F0691EB63E0E001D611B /* NetworkingAPIMapping.swift in Sources */,
 				18DF844C1EE37BA600E5E4A6 /* SeedVegetablesMeta+CoreDataProperties.swift in Sources */,
+				18A7E7081F10CEA0003C0FB4 /* CommentAttachmentRenderer.swift in Sources */,
 				18C1F0611EB63E0E001D611B /* OPLoginMainViewController.swift in Sources */,
 				184E68041EDE3E5500CF2DE3 /* Land+CoreDataClass.swift in Sources */,
 				18C06B751EBA91C0007DDC09 /* OPSplitBaseViewController.swift in Sources */,
+				18A7E71E1F14A807003C0FB4 /* OPVegetableDefailedViewController.swift in Sources */,
 				18340A121EE1B32E00205A5C /* OPVegetableMetaTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1170,6 +1242,7 @@
 					"$(PROJECT_DIR)/OnlinePlanting/Utils/expanding_collection",
 				);
 				INFOPLIST_FILE = OnlinePlanting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlanting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1193,6 +1266,7 @@
 					"$(PROJECT_DIR)/OnlinePlanting/Utils/expanding_collection",
 				);
 				INFOPLIST_FILE = OnlinePlanting/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.online.planting.OnlinePlanting;
 				PRODUCT_NAME = "$(TARGET_NAME)";

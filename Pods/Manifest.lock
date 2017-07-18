@@ -3,7 +3,8 @@ PODS:
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
-  - DATAStack (7.0.1)
+  - DATAStack (7.0.3)
+  - Gridicons (0.10)
   - INSPhotoGallery (1.1.0)
   - KeychainAccess (3.0.2)
   - SDWebImage (3.8.2):
@@ -15,21 +16,29 @@ PODS:
     - DATAStack (~> 7.0.1)
     - SYNCPropertyMapper (~> 5.2.0)
   - SYNCPropertyMapper (5.2.0)
+  - WordPress-Aztec-iOS (1.0.0-beta.7)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3.0)
   - Charts
+  - Gridicons (from `https://raw.github.com/Automattic/Gridicons-iOS/develop/Gridicons.podspec`)
   - INSPhotoGallery
   - KeychainAccess (~> 3.0.1)
   - SDWebImage (~> 3.8)
   - STRegex (~> 0.4.3)
   - SwiftyJSON (~> 3.1.4)
   - Sync (~> 2.0)
+  - WordPress-Aztec-iOS (= 1.0.0-beta.7)
+
+EXTERNAL SOURCES:
+  Gridicons:
+    :podspec: https://raw.github.com/Automattic/Gridicons-iOS/develop/Gridicons.podspec
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
-  DATAStack: 9ca4ba8e8e4f389f1593ad3178d7a4d4df69d648
+  DATAStack: b99efefa242ca4ef7f0af8f8ee5953ac644f04fe
+  Gridicons: 70d64a74cc001638444942bc28ab20db0b0cf72d
   INSPhotoGallery: 81056815e82fb7ee6f271ca017db5985b4f96d0a
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
@@ -37,7 +46,8 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   Sync: b02ce41aa8080049a2932fd7342fe189edb2298a
   SYNCPropertyMapper: b3157f5183285c8a25ba23877b95a06ec2547e73
+  WordPress-Aztec-iOS: 88c7dd91f7db8f4967606cbf21fd3df67694e297
 
-PODFILE CHECKSUM: 92d2d17a128c8d165133191b944d6adc59b0b2d6
+PODFILE CHECKSUM: ded0b90e525077a99e8ca43dfabf56e09baf21cb
 
 COCOAPODS: 1.1.1
