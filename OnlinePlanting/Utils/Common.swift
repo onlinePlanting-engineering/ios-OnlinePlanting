@@ -14,6 +14,7 @@ let OPGrayColor = "#F5F6FA"
 
 enum CommentType: String {
     case farm = "farm"
+    case vegetable = "vegmeta"
 }
 
 enum OPNotificationName: String {

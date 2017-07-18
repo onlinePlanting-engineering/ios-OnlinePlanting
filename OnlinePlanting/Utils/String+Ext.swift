@@ -67,8 +67,14 @@ extension String {
             
             return derivedKeyData
         }
-
+        
         return pbkdf2(hash:CCPBKDFAlgorithm(kCCPRFHmacAlgSHA256), password:password, salt:salt, keyByteCount:keyByteCount, rounds:rounds)
     }
     
+    var pinyin: String {
+        let str = NSMutableString(string: self)
+        CFStringTransform(str, nil, kCFStringTransformMandarinLatin, false)
+        CFStringTransform(str, nil, kCFStringTransformStripDiacritics, false)
+        return str.capitalized
+    }
 }

@@ -65,6 +65,7 @@
         </attribute>
         <relationship name="farmowner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Farm" inverseName="imgs" inverseEntity="Farm" syncable="YES"/>
         <relationship name="metaowner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meta" inverseName="imgs" inverseEntity="Meta" syncable="YES"/>
+        <relationship name="vegetableMetaowner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SeedVegetablesMeta" inverseName="imgs" inverseEntity="SeedVegetablesMeta" syncable="YES"/>
     </entity>
     <entity name="Land" representedClassName=".Land" syncable="YES">
         <attribute name="cat" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -117,6 +118,46 @@
         <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="profile" inverseEntity="User" syncable="YES"/>
     </entity>
+    <entity name="SeedCategories" representedClassName=".SeedCategories" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.isPrimaryKey" value="true"/>
+            </userInfo>
+        </attribute>
+        <relationship name="vegetables" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SeedVegetables" inverseName="categroyName" inverseEntity="SeedVegetables" syncable="YES"/>
+    </entity>
+    <entity name="SeedVegetables" representedClassName=".SeedVegetables" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.isPrimaryKey" value="true"/>
+            </userInfo>
+        </attribute>
+        <relationship name="categroyName" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SeedCategories" inverseName="vegetables" inverseEntity="SeedCategories" syncable="YES"/>
+        <relationship name="vegmetas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SeedVegetablesMeta" inverseName="metaVegetables" inverseEntity="SeedVegetablesMeta" syncable="YES"/>
+    </entity>
+    <entity name="SeedVegetablesMeta" representedClassName=".SeedVegetablesMeta" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cycle" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="etime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="first_letter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mature_price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="output" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seed_price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.isPrimaryKey" value="true"/>
+            </userInfo>
+        </attribute>
+        <relationship name="imgs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ImageURL" inverseName="vegetableMetaowner" inverseEntity="ImageURL" syncable="YES"/>
+        <relationship name="metaVegetables" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SeedVegetables" inverseName="vegmetas" inverseEntity="SeedVegetables" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
@@ -125,17 +166,20 @@
         <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="owner" inverseEntity="Profile" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Comment" positionX="-3303" positionY="-2160" width="128" height="210"/>
         <element name="CommentURL" positionX="-3303" positionY="-2160" width="128" height="75"/>
         <element name="Farm" positionX="-3303" positionY="-2196" width="128" height="270"/>
-        <element name="Comment" positionX="-3303" positionY="-2160" width="128" height="210"/>
+        <element name="ImageGroup" positionX="-3303" positionY="-2160" width="128" height="105"/>
         <element name="Images" positionX="-3303" positionY="-2178" width="128" height="165"/>
+        <element name="ImageURL" positionX="-3294" positionY="-2151" width="128" height="105"/>
+        <element name="Land" positionX="-3285" positionY="-2142" width="128" height="195"/>
         <element name="LandURL" positionX="-3294" positionY="-2151" width="128" height="75"/>
         <element name="Location" positionX="-3303" positionY="-2196" width="128" height="150"/>
-        <element name="Profile" positionX="-3159" positionY="-2178" width="128" height="120"/>
-        <element name="User" positionX="-3447" positionY="-2313" width="128" height="120"/>
-        <element name="ImageGroup" positionX="-3303" positionY="-2160" width="128" height="105"/>
-        <element name="ImageURL" positionX="-3294" positionY="-2151" width="128" height="90"/>
-        <element name="Land" positionX="-3285" positionY="-2142" width="128" height="195"/>
         <element name="Meta" positionX="-3276" positionY="-2133" width="128" height="180"/>
+        <element name="Profile" positionX="-3159" positionY="-2178" width="128" height="120"/>
+        <element name="SeedCategories" positionX="-3303" positionY="-2160" width="128" height="90"/>
+        <element name="SeedVegetables" positionX="-3294" positionY="-2151" width="128" height="105"/>
+        <element name="SeedVegetablesMeta" positionX="-3276" positionY="-2223" width="128" height="270"/>
+        <element name="User" positionX="-3447" positionY="-2313" width="128" height="120"/>
     </elements>
 </model>
