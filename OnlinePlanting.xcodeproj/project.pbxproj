@@ -149,7 +149,6 @@
 		18F6F64B1ED32D98006FB8A3 /* OPLandSelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6F64A1ED32D98006FB8A3 /* OPLandSelectedCollectionViewCell.swift */; };
 		834DBDF917F40DD8ADCCAF54 /* Pods_OnlinePlanting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7EB05F00F4CC6A9D8CFDD7 /* Pods_OnlinePlanting.framework */; };
 		A55B61B91F1E54E1004886E8 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A55B61B71F1E54E1004886E8 /* AlipaySDK.bundle */; };
-		A55B61BA1F1E54E1004886E8 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55B61B81F1E54E1004886E8 /* AlipaySDK.framework */; };
 		A55B621C1F1E5C59004886E8 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A55B621A1F1E5C59004886E8 /* libcrypto.a */; };
 		A55B621D1F1E5C59004886E8 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A55B621B1F1E5C59004886E8 /* libssl.a */; };
 		A55B62761F1E63C6004886E8 /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A55B626C1F1E63C6004886E8 /* base64.m */; };
@@ -169,6 +168,7 @@
 		A55B62921F1ECCE3004886E8 /* EditorDemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B628E1F1ECCE3004886E8 /* EditorDemoController.swift */; };
 		A55B62931F1ECCE3004886E8 /* OptionsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B628F1F1ECCE3004886E8 /* OptionsTableView.swift */; };
 		A55B62941F1ECCE3004886E8 /* UnknownEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B62901F1ECCE3004886E8 /* UnknownEditorViewController.swift */; };
+		A55B629D1F1ED732004886E8 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55B61B81F1E54E1004886E8 /* AlipaySDK.framework */; };
 		A584C7DA1F1E408C0064F87B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7D91F1E408C0064F87B /* SystemConfiguration.framework */; };
 		A584C7DC1F1E409C0064F87B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7DB1F1E409C0064F87B /* CoreTelephony.framework */; };
 		A584C7DE1F1E40A40064F87B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A584C7DD1F1E40A40064F87B /* QuartzCore.framework */; };
@@ -469,6 +469,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A55B629D1F1ED732004886E8 /* AlipaySDK.framework in Frameworks */,
 				A55B621C1F1E5C59004886E8 /* libcrypto.a in Frameworks */,
 				A55B621D1F1E5C59004886E8 /* libssl.a in Frameworks */,
 				A584C7EA1F1E40DC0064F87B /* CoreMotion.framework in Frameworks */,
@@ -485,7 +486,6 @@
 				183D82921EB64CB300B9F028 /* MOBFoundation.framework in Frameworks */,
 				183D82931EB64CB300B9F028 /* MOBFoundationEx.framework in Frameworks */,
 				183D82941EB64CB300B9F028 /* SMS_SDK.framework in Frameworks */,
-				A55B61BA1F1E54E1004886E8 /* AlipaySDK.framework in Frameworks */,
 				18C1E65A1EB62C3B001D611B /* libstdc++.tbd in Frameworks */,
 				18C1E6581EB62C30001D611B /* JavaScriptCore.framework in Frameworks */,
 				18C1E6561EB62C28001D611B /* MessageUI.framework in Frameworks */,
